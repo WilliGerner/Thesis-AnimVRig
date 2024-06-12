@@ -5,20 +5,24 @@
       "depth": 0,
       "source": "git",
       "dependencies": {
+        "com.meta.xr.sdk.core": "63.0.0",
+        "com.meta.xr.sdk.interaction": "63.0.0",
+        "com.meta.xr.sdk.interaction.ovr": "63.0.0",
         "com.unity.textmeshpro": "3.0.6",
-        "com.unity.animation.rigging": "1.2.1"
+        "com.unity.animation.rigging": "1.2.1",
+        "com.unity.burst": "1.4.1"
       },
-      "hash": "df3a1123ff9831002e7a668ff092a9ca517b427f"
+      "hash": "e4d0be44e97e3086ae7ad8c1522469d85ed1c2c5"
     },
     "com.meta.xr.sdk.core": {
-      "version": "64.0.0",
+      "version": "65.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction": {
-      "version": "64.0.0",
+      "version": "65.0.0",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -28,12 +32,12 @@
       "url": "https://packages.unity.com"
     },
     "com.meta.xr.sdk.interaction.ovr": {
-      "version": "64.0.0",
+      "version": "65.0.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.meta.xr.sdk.core": "64.0.0",
-        "com.meta.xr.sdk.interaction": "64.0.0"
+        "com.meta.xr.sdk.core": "65.0.0",
+        "com.meta.xr.sdk.interaction": "65.0.0"
       },
       "url": "https://packages.unity.com"
     },
