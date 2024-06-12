@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd3aa416faf5647aed4ff901b71336, type: 3}
+  m_Name: Bear
+  m_EditorClassIdentifier: 
+  cardName: Bear
+  actionDescription: No skill
+  cardLore: His claws seems very sharp..
+  cardType: o
+  currentHealth: 4
+  attackPower: 5
+  manaCost: 3
+  chracterSprite: {fileID: 21300000, guid: e55999958e5baea48b6e67748b9e6e36, type: 3}
+  bgSprite: {fileID: 0}

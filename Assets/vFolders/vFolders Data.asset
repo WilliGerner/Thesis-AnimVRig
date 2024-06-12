@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb9c12a8c6c949f7af83a3d238359d0, type: 3}
+  m_Name: vFolders Data
+  m_EditorClassIdentifier: 
+  folderDatas_byGuid:
+    keys:
+    - 0c1d3b9c6865e9047b757658ede95ab4
+    - a5b8047ad80aa69458d8fa0bccdfa948
+    - 3fc37bd7a166d3947bc5c6c590fb6b87
+    - 7e93a9f2914351c4392c1e091434a1c1
+    - 53577e74f8024154b855b3ab6b3c8cc3
+    - 575e64099e0742442a4ae62ec84a3b95
+    - 99adc982fcfacdb44a827ed4e05e38e0
+    - b3822ee51b2234b4284d6675b940e0f4
+    - 4dd67fa4ae0574b498a099da8f0e0564
+    - 4f29be40afc4a77409e88a9e0e990b36
+    - 4913ae89624047749938c13818387a71
+    - 40e985a804f6c2348a2a9b7071e4c669
+    - 612b8e2d63cc89b4dadf945c5d5a48db
+    - 709f11a7f3c4041caa4ef136ea32d874
+    - 109ccfb08b9fd4bf5a9d8deee2ace2ed
+    - dd2b9e231b0ec4a9f97e258072ae2b33
+    - 5eb4749b0d909fd4a89c43e6795ac2cc
+    - 4be4f6bc303afbd45af1a713ee1f1e7f
+    - f54d1bd14bd3ca042bd867b519fee8cc
+    - 9b7afce765fad3d4fa0e54a60d4b54b2
+    - 34fb9cb58515e184189f3f69e19a02b8
+    - ff95daa92cd78dd478b5186c2bbe3e25
+    - 06ddb7fb11fb74a48807c30f62e0d01f
+    - ecceefa9afe392f4293e2369ee7a034a
+    - 21634ba2d6e95f942a1ac0da1422f7c3
+    - ae0b53cc4ce0a1148abba61563e82686
+    values:
+    - colorIndex: 10
+      iconNameOrGuid: 
+    - colorIndex: 6
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 3
+      iconNameOrGuid: 
+    - colorIndex: 3
+      iconNameOrGuid: PhysicMaterial Icon
+    - colorIndex: 4
+      iconNameOrGuid: Material Icon
+    - colorIndex: 1
+      iconNameOrGuid: cs Script Icon
+    - colorIndex: 6
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 2
+      iconNameOrGuid: Prefab Icon
+    - colorIndex: 6
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 1
+      iconNameOrGuid: Terrain Icon
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 9
+      iconNameOrGuid: PrefabModel Icon
+    - colorIndex: 6
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 10
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 10
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 6
+      iconNameOrGuid: ScriptableObject Icon
+    - colorIndex: 1
+      iconNameOrGuid: PrefabModel Icon
+    - colorIndex: 6
+      iconNameOrGuid: Font Icon
+    - colorIndex: 2
+      iconNameOrGuid: Terrain Icon
+    - colorIndex: 0
+      iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 0
+      iconNameOrGuid: Material Icon
+    - colorIndex: 0
+      iconNameOrGuid: Prefab Icon
+    - colorIndex: 0
+      iconNameOrGuid: Texture Icon
+    - colorIndex: 1
+      iconNameOrGuid: 
+    - colorIndex: 2
+      iconNameOrGuid: MeshCollider Icon

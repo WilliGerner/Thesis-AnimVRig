@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ccd3aa416faf5647aed4ff901b71336, type: 3}
+  m_Name: SpiderWolf
+  m_EditorClassIdentifier: 
+  cardName: SpiderWolf
+  actionDescription: 'No Skill '
+  cardLore: "\xC4hhh what?"
+  cardType: u
+  currentHealth: 5
+  attackPower: 3
+  manaCost: 3
+  chracterSprite: {fileID: 21300000, guid: 048e6ff511c039f48b8770a613fb8026, type: 3}
+  bgSprite: {fileID: 0}
