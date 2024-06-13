@@ -16,6 +16,7 @@ MonoBehaviour:
     keys:
     - c502537935389c045b7b0b7d4adbc682
     - 83c19cc935325a54783636c844bca0e4
+    - f379ca20188d806438fc9b20cb4b664d
     values:
     - goDatas_byGlobalId:
         keys:
@@ -58,6 +59,147 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-3925386263601755969-933423469
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-3140805194830035453-1771430479
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-217809098-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1974000085-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210946-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-669339439527238449-1196288985
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1692031724233491721-1887880746
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-3140805194830035453-718607436
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-847869969-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-117653692-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-7528564461781145108-2878048534481306165
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-4998803142859019401-2878048534481306165
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210944-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210948-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210950-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210952-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210954-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210956-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210958-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210928-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857210930-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-8296612134350634834-2878048534481306165
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481857211390-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-720078949-2878048534481306165
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1746030045-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1686754102-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-2094724098-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1348692262-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481058499115-2109218247
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-8274653983065271995-3138635617795618172
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-339038650-0
+        values:
+        - colorIndex: 9
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 8
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 5
+          iconNameOrGuid: Terrain Icon
+        - colorIndex: 9
+          iconNameOrGuid: PreMatSphere
+        - colorIndex: 0
+          iconNameOrGuid: Canvas Icon
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: Light Icon
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 0
+          iconNameOrGuid: cs Script Icon
+        - colorIndex: 6
+          iconNameOrGuid: cs Script Icon
+        - colorIndex: 3
+          iconNameOrGuid: AudioReverbZone Icon
+        - colorIndex: 4
+          iconNameOrGuid: Terrain Icon
+        - colorIndex: 1
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 1
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 4
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 0
+          iconNameOrGuid: DirectionalLight Icon
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 1
+          iconNameOrGuid: 
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-650848329-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-315947846-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-1121207452-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-1330708288-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-4755192900336154932-6330733221259046582
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-669339439527238449-669339440638328103
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-1692031724233491721-6481326281037284171
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-6442339640571472327-2878048534481306165
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-7890163646267885795-1434491219403225674
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-2076536254-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-2090686045-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-100004-2075359721
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-87243872-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-6678269571562373685-2063279212
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-1917934778-0
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-3925386263601755969-933423469
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-3140805194830035453-1771430479
+        - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-217809098-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
