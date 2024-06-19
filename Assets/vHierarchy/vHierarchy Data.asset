@@ -87,6 +87,13 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1637287481058499115-2109218247
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-8274653983065271995-3138635617795618172
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-339038650-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-669339439527238449-676743953
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1692031724233491721-540591536
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-3140805194830035453-898292756
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1305386592-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-79346299-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-5505033221848451312-228968504
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-233337897-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -179,6 +186,20 @@ MonoBehaviour:
         - colorIndex: 2
           iconNameOrGuid: 
         - colorIndex: 1
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 3
+          iconNameOrGuid: WheelCollider Icon
+        - colorIndex: 1
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 8
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:

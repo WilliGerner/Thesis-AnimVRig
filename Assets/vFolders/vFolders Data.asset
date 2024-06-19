@@ -40,6 +40,8 @@ MonoBehaviour:
     - ecceefa9afe392f4293e2369ee7a034a
     - 21634ba2d6e95f942a1ac0da1422f7c3
     - ae0b53cc4ce0a1148abba61563e82686
+    - 34873331dd65116478bc7cc46a1dea8b
+    - f36eb4f3dfa8f984d93b2fab79ebfecd
     values:
     - colorIndex: 10
       iconNameOrGuid: 
@@ -81,7 +83,7 @@ MonoBehaviour:
       iconNameOrGuid: Font Icon
     - colorIndex: 2
       iconNameOrGuid: Terrain Icon
-    - colorIndex: 0
+    - colorIndex: 1
       iconNameOrGuid: WheelCollider Icon
     - colorIndex: 0
       iconNameOrGuid: Material Icon
@@ -93,3 +95,7 @@ MonoBehaviour:
       iconNameOrGuid: 
     - colorIndex: 2
       iconNameOrGuid: MeshCollider Icon
+    - colorIndex: 6
+      iconNameOrGuid: Settings Icon
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon
