@@ -42,6 +42,14 @@ MonoBehaviour:
     - ae0b53cc4ce0a1148abba61563e82686
     - 34873331dd65116478bc7cc46a1dea8b
     - f36eb4f3dfa8f984d93b2fab79ebfecd
+    - de8fd6601d7c3e249aaf6dc031e433a7
+    - 884ecd2f0b753ba4c8bb7244aac2066c
+    - f24975309183a1544911401d638cb79d
+    - 6d95abb6f375f9f4f9bad61a12e39c0e
+    - f4a137fe2babec842a7702def08f1897
+    - 093ea3bbe261108488854fa1be205f46
+    - 05a0c5340e9338c4cb771a6e861f86e9
+    - d27b2f250d8d6254abbf20a20363e091
     values:
     - colorIndex: 10
       iconNameOrGuid: 
@@ -99,3 +107,19 @@ MonoBehaviour:
       iconNameOrGuid: Settings Icon
     - colorIndex: 1
       iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 10
+      iconNameOrGuid: Shader Icon
+    - colorIndex: 10
+      iconNameOrGuid: 
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 2
+      iconNameOrGuid: Material Icon
+    - colorIndex: 2
+      iconNameOrGuid: RawImage Icon
+    - colorIndex: 2
+      iconNameOrGuid: Material Icon
+    - colorIndex: 2
+      iconNameOrGuid: RawImage Icon

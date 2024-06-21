@@ -94,6 +94,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-79346299-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-5505033221848451312-228968504
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-233337897-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-884805732003429929-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-884805732486824217-1319879688492440132
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1514407929047387475-1319879688492440132
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1514407929530806883-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -128,11 +132,11 @@ MonoBehaviour:
         - colorIndex: 4
           iconNameOrGuid: Terrain Icon
         - colorIndex: 1
-          iconNameOrGuid: 
+          iconNameOrGuid: Settings Icon
         - colorIndex: 2
-          iconNameOrGuid: 
+          iconNameOrGuid: Settings Icon
         - colorIndex: 8
-          iconNameOrGuid: 
+          iconNameOrGuid: AvatarMask On Icon
         - colorIndex: 6
           iconNameOrGuid: 
         - colorIndex: 3
@@ -192,14 +196,22 @@ MonoBehaviour:
         - colorIndex: 3
           iconNameOrGuid: WheelCollider Icon
         - colorIndex: 1
-          iconNameOrGuid: 
+          iconNameOrGuid: Settings Icon
         - colorIndex: 2
           iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: Settings Icon
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: AvatarMask On Icon
         - colorIndex: 2
           iconNameOrGuid: 
         - colorIndex: 6
           iconNameOrGuid: 
-        - colorIndex: 8
+        - colorIndex: 5
+          iconNameOrGuid: 
+        - colorIndex: 4
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:
