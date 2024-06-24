@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class PalmMenuSwitchBt : MonoBehaviour
+public class PalmMenuSingleBtn : MonoBehaviour
 {
     [Header("All")]
     [SerializeField]
@@ -36,12 +36,7 @@ public class PalmMenuSwitchBt : MonoBehaviour
     {
        ToggleLogic();
       if(isBtnRecorder) StartCoroutine(FadeOutImgIndicator());
-      else
-        {
-            //Bin Mirror Model Case
 
-
-        }
     }
 
     public void ToggleLogic()// Should be called every time at Start to set State.
