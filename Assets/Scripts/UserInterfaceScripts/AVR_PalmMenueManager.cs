@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class AVR_PalmMenueExtreme : MonoBehaviour
+public class AVR_PalmMenueManager : MonoBehaviour
 {
     [SerializeField]
     AnimationKeypadManager _animKeypadManager;
@@ -31,6 +31,29 @@ public class AVR_PalmMenueExtreme : MonoBehaviour
 
     int menueNr = 0; // Default, 1 for Anim, 2 for Model, 3 for Settings
 
+    private static AVR_PalmMenueManager instance;
+    public static AVR_PalmMenueManager Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                // Versuch, eine vorhandene Instanz im Spiel zu finden
+                instance = FindObjectOfType<AVR_PalmMenueManager>();
+                if (instance == null)
+                {
+                    // Erstellen eines neuen GameObjects, wenn keine Instanz gefunden wurde
+                    GameObject singletonObject = new GameObject();
+                    instance = singletonObject.AddComponent<AVR_PalmMenueManager>();
+                    singletonObject.name = typeof(AVR_PalmMenueManager).ToString() + " (Singleton)";
+
+                    // Sicherstellen, dass das Singleton-GameObject nicht zerstört wird, wenn die Szene wechselt
+                    DontDestroyOnLoad(singletonObject);
+                }
+            }
+            return instance;
+        }
+    }
 
     private void Start()
     {   
