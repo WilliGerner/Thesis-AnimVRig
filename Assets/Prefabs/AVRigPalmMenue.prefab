@@ -190,10 +190,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5901241061108702867}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 41.3, y: 16.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6051843707250789757
 CanvasRenderer:
@@ -685,7 +685,7 @@ GameObject:
   - component: {fileID: 1475412913305278873}
   - component: {fileID: 5312176039945697996}
   m_Layer: 0
-  m_Name: MenueKeypadButton
+  m_Name: MenueKeypadButtonReturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1293,10 +1293,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4089687633482557749}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 41.3, y: 16.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1899305602213633470
 CanvasRenderer:
@@ -1586,9 +1586,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4778307831961926260}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3177058527851218039
@@ -1725,10 +1725,10 @@ RectTransform:
   - {fileID: 2302554750963171997}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -372}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2277394838805758276
 MonoBehaviour:
@@ -3144,10 +3144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 971979031276311053}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 41.3, y: 16.41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1291877687427950446
 CanvasRenderer:
@@ -4258,10 +4258,10 @@ RectTransform:
   - {fileID: 8503192841544930289}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -108}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2162718035725238794
 MonoBehaviour:
@@ -4408,9 +4408,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6772329055661572671}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4190957736778194543
@@ -4780,9 +4780,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
-    type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 653884956426438108, guid: 885a64334291a4342a22acf03c10a94f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5304,10 +5303,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5157433333460365741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 41.3, y: 16.41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5959303979288677391
 CanvasRenderer:
@@ -5730,7 +5729,7 @@ GameObject:
   - component: {fileID: 4965471839363013790}
   - component: {fileID: 351646718708488335}
   m_Layer: 0
-  m_Name: KeypadButtonClose
+  m_Name: KeypadButtonGesture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5949,6 +5948,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -6086,7 +6097,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Refresh Clips
+  m_text: Return
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6113,7 +6124,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
+  m_fontSize: 33.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6187,9 +6198,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 984316985658979433}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7987398631239754554
@@ -6355,9 +6366,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -6727950498623314840, guid: 4f3b4a4ae58ad484e9fc92ab68a8ffef,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6833,16 +6844,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6792453, g: 0.028835872, b: 0.028835872, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -4023268479250262366, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -7537,10 +7548,10 @@ RectTransform:
   - {fileID: 7555586855691273237}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -636}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4669751716806272511
 MonoBehaviour:
@@ -7691,10 +7702,10 @@ RectTransform:
   - {fileID: 3073525286916952010}
   m_Father: {fileID: 8843466840604243142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 361.85, y: -25}
+  m_SizeDelta: {x: 73.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7857498324394989935
 MonoBehaviour:
@@ -8097,9 +8108,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1410605235517078073}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6999502037716637643
@@ -8308,9 +8319,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6736425734890959959}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &514405613548524269
@@ -8577,10 +8588,10 @@ RectTransform:
   - {fileID: 1428780000716683668}
   m_Father: {fileID: 2710189264309469315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 361.85, y: -25}
-  m_SizeDelta: {x: 73.3, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672294529559407571
 MonoBehaviour:
@@ -9677,10 +9688,10 @@ RectTransform:
   - {fileID: 1035835718576156127}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -680}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3241386529263649489
 MonoBehaviour:
@@ -10283,9 +10294,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -6993032067818180076, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10708,9 +10719,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8963947649425632253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4132414743680511823
@@ -10876,9 +10887,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 605526708208669920}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8889613465978986464
@@ -11172,16 +11183,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5377358, g: 0.0025364957, b: 0.0025364957, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 7044510899877845267, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12376,10 +12387,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8768114969859922472}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 24}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -24}
+  m_SizeDelta: {x: 144, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5255258901404336144
 CanvasRenderer:
@@ -12491,7 +12502,7 @@ GameObject:
   - component: {fileID: 7278387608516169713}
   - component: {fileID: 804313260615854685}
   m_Layer: 5
-  m_Name: ImgActive
+  m_Name: ImgActivScaleBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12544,9 +12555,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -1907052891545936663, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -12644,7 +12655,7 @@ GameObject:
   - component: {fileID: 790783261249923062}
   - component: {fileID: 6231833495679816553}
   m_Layer: 0
-  m_Name: KeypadButtonAllClips
+  m_Name: KeypadButtonAllModels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12951,10 +12962,10 @@ RectTransform:
   - {fileID: 4139065065240433407}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -372}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7667808548359433634
 MonoBehaviour:
@@ -13468,8 +13479,9 @@ GameObject:
   - component: {fileID: 8324579005141968081}
   - component: {fileID: 5028845557454235665}
   - component: {fileID: 4565543935450212051}
+  - component: {fileID: 7176286211530429904}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonAvatar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13688,13 +13700,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -13712,6 +13724,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7176286211530429904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839378835586491678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 7990420041224782729}
+  _DisabledIcon: {fileID: 7313919140410689663}
+  _titleText: {fileID: 5354993740023239701}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &1881332982355490485
 GameObject:
   m_ObjectHideFlags: 0
@@ -13748,10 +13776,10 @@ RectTransform:
   - {fileID: 8510705897167578446}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -64}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9221348518743850250
 MonoBehaviour:
@@ -13898,9 +13926,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4910636944344579911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4144227323094890305
@@ -14134,10 +14162,10 @@ RectTransform:
   - {fileID: 7607045693260825810}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -460}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5467961884168203078
 MonoBehaviour:
@@ -16798,10 +16826,10 @@ RectTransform:
   - {fileID: 7255689037330797717}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -636}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1055746462373266355
 MonoBehaviour:
@@ -16981,7 +17009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -6798909078851180730, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -17580,9 +17608,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4798993295649587980}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1817823011730760070
@@ -17916,10 +17944,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2891690055426334601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -24}
-  m_SizeDelta: {x: 144, y: 24}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5854057543389391419
 CanvasRenderer:
@@ -18051,9 +18079,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7970166310566874495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5132810976169765301
@@ -19326,9 +19354,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 456522577275636157}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2010006541740776187
@@ -19768,9 +19796,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3211045346179743181}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6447578273265694011
@@ -20774,10 +20802,10 @@ RectTransform:
   - {fileID: 2824800737273133165}
   m_Father: {fileID: 2710189264309469315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 73.3, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795281478107246188
 MonoBehaviour:
@@ -21002,7 +21030,7 @@ GameObject:
   - component: {fileID: 6080242837397837027}
   - component: {fileID: 5843125662252992124}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonVariants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21531,10 +21559,10 @@ RectTransform:
   - {fileID: 5704585703800772352}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -680}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2907510357741538188
 MonoBehaviour:
@@ -22367,9 +22395,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3208685833480522647}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3675667260985057470
@@ -22779,6 +22807,7 @@ GameObject:
   - component: {fileID: 3602958049202182234}
   - component: {fileID: 8360954332600141198}
   - component: {fileID: 7020947701440886915}
+  - component: {fileID: 355890332489383107}
   m_Layer: 0
   m_Name: KeypadButtonScale
   m_TagString: Untagged
@@ -22999,6 +23028,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -23023,6 +23064,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &355890332489383107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2994682692585388277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 1685121575250578373}
+  _DisabledIcon: {fileID: 6837700569838825946}
+  _titleText: {fileID: 941338504665987209}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &3004638888399580217
 GameObject:
   m_ObjectHideFlags: 0
@@ -23168,8 +23225,9 @@ GameObject:
   - component: {fileID: 7664113334768342418}
   - component: {fileID: 8888343281282187141}
   - component: {fileID: 4281568694056631792}
+  - component: {fileID: 5557516714989227547}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonHelp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -23388,13 +23446,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 4863503143446408253}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -23412,6 +23470,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5557516714989227547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3040665114242766881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 3767792498901699819}
+  _DisabledIcon: {fileID: 1404555170369661717}
+  _titleText: {fileID: 7802449915217886005}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &3042688132114848599
 GameObject:
   m_ObjectHideFlags: 0
@@ -23709,10 +23783,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8244491745301562424}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 41.3, y: 16.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8337526212414244193
 CanvasRenderer:
@@ -24121,10 +24195,10 @@ RectTransform:
   - {fileID: 4932065429025912129}
   m_Father: {fileID: 2710189264309469315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 117.950005, y: -25}
-  m_SizeDelta: {x: 73.3, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4911421984159021274
 MonoBehaviour:
@@ -24627,10 +24701,10 @@ RectTransform:
   - {fileID: 1754865033358835881}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -152}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5628684391045122384
 MonoBehaviour:
@@ -24952,10 +25026,10 @@ RectTransform:
   - {fileID: 1028685663032036672}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -240}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6405949399860967608
 MonoBehaviour:
@@ -25135,9 +25209,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 5487809786283018963, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25445,9 +25519,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
-    type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 653884956426438108, guid: 885a64334291a4342a22acf03c10a94f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -25867,9 +25940,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6847047740960846576}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7066174053308670062
@@ -26670,10 +26743,10 @@ RectTransform:
   - {fileID: 5117263515858116058}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -284}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2065184182959592618
 MonoBehaviour:
@@ -26852,9 +26925,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4137871662833422063}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6957407011191226088
@@ -27171,10 +27244,10 @@ RectTransform:
   - {fileID: 2304519382803265087}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -504}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &161485288074444413
 MonoBehaviour:
@@ -27458,8 +27531,9 @@ GameObject:
   - component: {fileID: 2057249496705486935}
   - component: {fileID: 6963772148590821409}
   - component: {fileID: 7456029024027099060}
+  - component: {fileID: 8249669145124795427}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonCustomize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27678,13 +27752,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -27702,6 +27776,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8249669145124795427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3640430737370904501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 5634565295811343975}
+  _DisabledIcon: {fileID: 6414018876256926445}
+  _titleText: {fileID: 40938386120938295}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &3664164908790301265
 GameObject:
   m_ObjectHideFlags: 0
@@ -27769,7 +27859,7 @@ GameObject:
   - component: {fileID: 6553671216964113786}
   - component: {fileID: 8023072535050897892}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonResetModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28093,9 +28183,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -293917228402888240, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -28772,10 +28862,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1292379864460146601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 41.3, y: 16.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8581940612396288914
 CanvasRenderer:
@@ -29111,10 +29201,10 @@ RectTransform:
   - {fileID: 6319566126725557948}
   m_Father: {fileID: 1366533543670627354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 240}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 8, y: -302}
+  m_SizeDelta: {x: 176, y: 240}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &3154833306432285035
 CanvasRenderer:
@@ -29229,9 +29319,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6213081198115730673}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4990994372757492799
@@ -29479,7 +29569,7 @@ GameObject:
   - component: {fileID: 4733142798994842879}
   - component: {fileID: 4082582838708438391}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonRecModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30780,9 +30870,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 1894116184697778833, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -30827,10 +30917,10 @@ RectTransform:
   - {fileID: 4814022403997036354}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -416}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6510250820169815243
 MonoBehaviour:
@@ -30986,7 +31076,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 398.5, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &768904325948430770
 MonoBehaviour:
@@ -31077,10 +31167,10 @@ RectTransform:
   - {fileID: 6078091750777442612}
   m_Father: {fileID: 2710189264309469315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 280.55002, y: -25}
-  m_SizeDelta: {x: 73.3, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9151496386805709026
 MonoBehaviour:
@@ -31307,10 +31397,10 @@ RectTransform:
   - {fileID: 9027291007292872046}
   m_Father: {fileID: 8843466840604243142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 73.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &232540974363737618
 MonoBehaviour:
@@ -31903,9 +31993,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6901064578848203495}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2203696217141722242
@@ -32114,8 +32204,9 @@ GameObject:
   - component: {fileID: 3608791337899597392}
   - component: {fileID: 1999503267950420106}
   - component: {fileID: 5179485287806164319}
+  - component: {fileID: 365327844747377976}
   m_Layer: 0
-  m_Name: KeypadButtonRefresh
+  m_Name: KeypadButtonReturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32334,6 +32425,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -32358,6 +32461,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &365327844747377976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4216694045656705428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 4494826285370725561}
+  _DisabledIcon: {fileID: 2222851510549143042}
+  _titleText: {fileID: 5892000074057775453}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &4223002274757598028
 GameObject:
   m_ObjectHideFlags: 0
@@ -32394,10 +32513,10 @@ RectTransform:
   - {fileID: 3203774135778901849}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -548}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6857317100123449472
 MonoBehaviour:
@@ -33359,7 +33478,7 @@ GameObject:
   - component: {fileID: 2752848952795076826}
   - component: {fileID: 7922370079051382187}
   m_Layer: 0
-  m_Name: KeypadButtonTrans
+  m_Name: KeypadButtonPassthrough
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -33569,6 +33688,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4611353687114855619}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -33937,8 +34068,9 @@ GameObject:
   - component: {fileID: 1641125411462878506}
   - component: {fileID: 4179565530377672526}
   - component: {fileID: 348194706982332744}
+  - component: {fileID: 328613286527641172}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonReturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34157,13 +34289,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -34181,6 +34313,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &328613286527641172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353576106276937485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 9168967294075694221}
+  _DisabledIcon: {fileID: 4491764549289235356}
+  _titleText: {fileID: 8475788891735229896}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &4397117184701998114
 GameObject:
   m_ObjectHideFlags: 0
@@ -35084,9 +35232,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -778734266794397235, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -35160,7 +35308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -6798909078851180730, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
   m_Type: 1
   m_PreserveAspect: 0
@@ -35523,6 +35671,7 @@ GameObject:
   - component: {fileID: 2304029749549659787}
   - component: {fileID: 1746301066182291209}
   - component: {fileID: 1401374312554979528}
+  - component: {fileID: 4769425587385985964}
   m_Layer: 0
   m_Name: KeypadButtonRotate
   m_TagString: Untagged
@@ -35743,6 +35892,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -35767,6 +35928,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &4769425587385985964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586450269233196322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 3288229844494416792}
+  _DisabledIcon: {fileID: 436471025462273509}
+  _titleText: {fileID: 4823850071899411428}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &4640737894046050730
 GameObject:
   m_ObjectHideFlags: 0
@@ -36103,10 +36280,10 @@ RectTransform:
   - {fileID: 8810273747769555040}
   m_Father: {fileID: 210321639438606048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 8, y: -302}
-  m_SizeDelta: {x: 176, y: 240}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 240}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &1735992998703131809
 CanvasRenderer:
@@ -37262,9 +37439,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2155255118506370442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6321788608891028978
@@ -37629,9 +37806,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2784145775935938248}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &340375875570392219
@@ -38108,9 +38285,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 3448915236590844331, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -38193,7 +38370,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 398.5, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &4529307677016633298
 MonoBehaviour:
@@ -38490,10 +38667,10 @@ RectTransform:
   - {fileID: 287567513974736727}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -240}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7962265886664346897
 MonoBehaviour:
@@ -39136,9 +39313,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6768469498981471899}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4237896118980388674
@@ -39909,10 +40086,10 @@ RectTransform:
   - {fileID: 4781674352104943090}
   m_Father: {fileID: 8843466840604243142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 199.25, y: -25}
+  m_SizeDelta: {x: 73.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3481056338540448396
 MonoBehaviour:
@@ -41026,10 +41203,10 @@ RectTransform:
   - {fileID: 2386963872785682680}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -64}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4156431004709619985
 MonoBehaviour:
@@ -41155,6 +41332,7 @@ GameObject:
   - component: {fileID: 280835884338595141}
   - component: {fileID: 1025220157625070903}
   - component: {fileID: 95000224008305201}
+  - component: {fileID: 2609040888852761886}
   m_Layer: 0
   m_Name: KeypadButton
   m_TagString: Untagged
@@ -41375,13 +41553,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -41399,6 +41577,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2609040888852761886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5557079529510541517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 1698461267664153429}
+  _DisabledIcon: {fileID: 1565938581663004315}
+  _titleText: {fileID: 3642168843711106915}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &5576299741645817741
 GameObject:
   m_ObjectHideFlags: 0
@@ -41532,10 +41726,10 @@ RectTransform:
   - {fileID: 1698058740073068932}
   m_Father: {fileID: 8843466840604243142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 280.55002, y: -25}
+  m_SizeDelta: {x: 73.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &33067835794560586
 MonoBehaviour:
@@ -42029,7 +42223,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.347}
-  m_SizeDelta: {x: 100, y: 25}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &853748760018398180
 CanvasRenderer:
@@ -42059,7 +42253,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Close Unity
+  m_text: Gesture Detection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -42086,7 +42280,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.6
+  m_fontSize: 19.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -42197,10 +42391,10 @@ RectTransform:
   - {fileID: 4953239851492257106}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -460}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2475160116658274744
 MonoBehaviour:
@@ -42347,9 +42541,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2348667583182287843}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4434294216980391318
@@ -42830,7 +43024,7 @@ GameObject:
   - component: {fileID: 8628545522939201109}
   - component: {fileID: 2853766034855412320}
   m_Layer: 0
-  m_Name: KeypadButtonReset
+  m_Name: KeypadButtonVoiceCommands
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43040,6 +43234,18 @@ MonoBehaviour:
       - m_Target: {fileID: 4285865152966234323}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: PlayAudio
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -43706,7 +43912,7 @@ GameObject:
   - component: {fileID: 3014257023205934542}
   - component: {fileID: 9179936010203227248}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonrecord
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44001,10 +44207,10 @@ RectTransform:
   - {fileID: 7290172200528110248}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -196}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4011712514095099507
 MonoBehaviour:
@@ -45110,10 +45316,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 840512726603349476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 41.3, y: 16.41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1736741690292240283
 CanvasRenderer:
@@ -45245,9 +45451,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7631225384889990547}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5730532097193656768
@@ -45769,10 +45975,10 @@ RectTransform:
   - {fileID: 6715168086358537453}
   m_Father: {fileID: 1366533543670627354}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 48}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 96, y: -36}
+  m_SizeDelta: {x: 176, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4284399456391117048
 MonoBehaviour:
@@ -45836,10 +46042,10 @@ RectTransform:
   - {fileID: 3059466712883143800}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -152}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2250948331466917903
 MonoBehaviour:
@@ -46006,7 +46212,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 176, y: 700}
+  m_SizeDelta: {x: 176, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1791934158572429224
 MonoBehaviour:
@@ -46708,7 +46914,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 176, y: 0}
+  m_SizeDelta: {x: 176, y: 700}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &8119688132657509547
 MonoBehaviour:
@@ -47000,10 +47206,10 @@ RectTransform:
   - {fileID: 4321523792936920589}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -20}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8078784479672814722
 MonoBehaviour:
@@ -47711,7 +47917,7 @@ GameObject:
   - component: {fileID: 8671230340065279441}
   - component: {fileID: 8520143610750825765}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonCustomize
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -48986,7 +49192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6252178904200700445
 Transform:
   m_ObjectHideFlags: 0
@@ -49071,10 +49277,10 @@ RectTransform:
   - {fileID: 3861169552468967956}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -20}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &473163425852193000
 MonoBehaviour:
@@ -49225,10 +49431,10 @@ RectTransform:
   - {fileID: 8815093376234748817}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -548}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1649540428972990718
 MonoBehaviour:
@@ -49619,8 +49825,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.347}
-  m_SizeDelta: {x: 100, y: 25}
+  m_AnchoredPosition: {x: 0, y: 0.313}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8445480848047802752
 CanvasRenderer:
@@ -49650,7 +49856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Not in Use
+  m_text: Use VR or XR
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -49677,7 +49883,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.35
+  m_fontSize: 19.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -50122,10 +50328,10 @@ RectTransform:
   - {fileID: 8200993489299157335}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -328}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1177964693202133389
 MonoBehaviour:
@@ -50275,7 +50481,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.347}
-  m_SizeDelta: {x: 100, y: 45}
+  m_SizeDelta: {x: 120.2, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7590308997704069444
 CanvasRenderer:
@@ -50332,7 +50538,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.8
+  m_fontSize: 22.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -50938,10 +51144,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1246637821933820470}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 36.65, y: -25}
+  m_SizeDelta: {x: 41.3, y: 16.41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5400723794855838252
 CanvasRenderer:
@@ -51476,7 +51682,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0.347}
-  m_SizeDelta: {x: 100, y: 25}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8274532709062328747
 CanvasRenderer:
@@ -51506,7 +51712,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Reset
+  m_text: Voice Commands
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -51533,7 +51739,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 22.35
+  m_fontSize: 19.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -51662,8 +51868,9 @@ GameObject:
   - component: {fileID: 1544003153838795046}
   - component: {fileID: 7478998819836364972}
   - component: {fileID: 7336141173525384641}
+  - component: {fileID: 8057427750592135916}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonReset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51882,13 +52089,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -51906,6 +52113,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8057427750592135916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6792741317906044670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 1590951921134360013}
+  _DisabledIcon: {fileID: 3361906488151742035}
+  _titleText: {fileID: 6308020160860493558}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &6794491070116709402
 GameObject:
   m_ObjectHideFlags: 0
@@ -51938,10 +52161,10 @@ RectTransform:
   - {fileID: 6632054727410084591}
   m_Father: {fileID: 210321639438606048}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 96, y: -36}
-  m_SizeDelta: {x: 176, y: 48}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6015096642910690022
 MonoBehaviour:
@@ -52003,8 +52226,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.256}
-  m_SizeDelta: {x: 100, y: 45}
+  m_AnchoredPosition: {x: 0, y: 0.332}
+  m_SizeDelta: {x: 121.3, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2143410950536867548
 CanvasRenderer:
@@ -52061,7 +52284,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 19.8
+  m_fontSize: 19.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -52115,7 +52338,7 @@ GameObject:
   - component: {fileID: 8711769559462192870}
   - component: {fileID: 6665431250280439209}
   m_Layer: 5
-  m_Name: ImgDeactiv
+  m_Name: ImgDeactivSmall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52168,9 +52391,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 1272129996131955861, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -52817,10 +53040,10 @@ RectTransform:
   - {fileID: 7344165951142307389}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -284}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1226432144074749388
 MonoBehaviour:
@@ -53236,10 +53459,10 @@ RectTransform:
   - {fileID: 1232317595003406848}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -328}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6026959558462811283
 MonoBehaviour:
@@ -53386,9 +53609,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7191872722907848221}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2407921110843653435
@@ -53756,9 +53979,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2237166771422154690}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4496579395234388520
@@ -53891,10 +54114,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1805867269396791436}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 41.3, y: 16.41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &979938041075041423
 CanvasRenderer:
@@ -54026,9 +54249,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 6245962337302788088}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1755686765669517807
@@ -54337,10 +54560,10 @@ RectTransform:
   - {fileID: 3551644900711911522}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -504}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6061243657821029380
 MonoBehaviour:
@@ -54820,10 +55043,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 7830324180179881546}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 36.65, y: -25}
-  m_SizeDelta: {x: 41.3, y: 16.41}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3817446339184308322
 CanvasRenderer:
@@ -54936,7 +55159,7 @@ GameObject:
   - component: {fileID: 2641725052487904240}
   - component: {fileID: 4754256276984396005}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonNextAnim
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55950,9 +56173,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 5217499824559228409}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &51397619892443428
@@ -56330,10 +56553,10 @@ RectTransform:
   - {fileID: 3245838678010081932}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -592}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6748595436781370768
 MonoBehaviour:
@@ -56480,9 +56703,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2207229983420152599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7904559715165008173
@@ -57255,10 +57478,10 @@ RectTransform:
   - {fileID: 4423104590296147063}
   m_Father: {fileID: 8843466840604243142}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 117.950005, y: -25}
+  m_SizeDelta: {x: 73.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717763903040508019
 MonoBehaviour:
@@ -58001,6 +58224,7 @@ GameObject:
   - component: {fileID: 2223350081941914042}
   - component: {fileID: 321968593782332862}
   - component: {fileID: 2648660954573478953}
+  - component: {fileID: 6130611423694624034}
   m_Layer: 0
   m_Name: KeypadButtonMove
   m_TagString: Untagged
@@ -58221,6 +58445,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -58245,6 +58481,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6130611423694624034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7694818374836899135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 4050558347331907494}
+  _DisabledIcon: {fileID: 7726560657661828097}
+  _titleText: {fileID: 4773149268920965881}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &7713118340798259808
 GameObject:
   m_ObjectHideFlags: 0
@@ -58608,9 +58860,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: 1894116184697778833, guid: 885a64334291a4342a22acf03c10a94f,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -59833,8 +60085,9 @@ GameObject:
   - component: {fileID: 8588309900283276263}
   - component: {fileID: 4734124690473166673}
   - component: {fileID: 6618996568851921664}
+  - component: {fileID: 5779770168064477309}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonRecordedModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60053,13 +60306,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -60077,6 +60330,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &5779770168064477309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7875374103200048217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 6413998231644312221}
+  _DisabledIcon: {fileID: 2121566292562183844}
+  _titleText: {fileID: 3843773434512663759}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &7882376616321656600
 GameObject:
   m_ObjectHideFlags: 0
@@ -61028,9 +61297,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 8178958857622711953}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 80, y: -20}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7260632701761871834
@@ -61835,9 +62104,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4293311642941570643}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6206206154967249128
@@ -61972,9 +62241,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2290568935566505982}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &648858091221001273
@@ -63622,7 +63891,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Not in Use
+  m_text: TOOLTIPS
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -63649,7 +63918,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 21.35
+  m_fontSize: 20.65
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -63973,8 +64242,9 @@ GameObject:
   - component: {fileID: 5663319032090352439}
   - component: {fileID: 1016482157440011857}
   - component: {fileID: 8439361693538382536}
+  - component: {fileID: 3016029083409250916}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonVRXR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64193,6 +64463,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 351646718708488335}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 4863503143446408253}
         m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
         m_MethodName: 
@@ -64217,6 +64499,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &3016029083409250916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8426794275171094953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 4494487218186593037}
+  _DisabledIcon: {fileID: 8750033011430661844}
+  _titleText: {fileID: 8372603458955334037}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &8434178907602131638
 GameObject:
   m_ObjectHideFlags: 0
@@ -64307,7 +64605,7 @@ GameObject:
   - component: {fileID: 6112807096006666250}
   - component: {fileID: 4004342459347575477}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonPrevious
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65039,10 +65337,10 @@ RectTransform:
   - {fileID: 4738060655445406352}
   m_Father: {fileID: 2710189264309469315}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 199.25, y: -25}
-  m_SizeDelta: {x: 73.3, y: 50}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4700937614360495910
 MonoBehaviour:
@@ -65168,8 +65466,9 @@ GameObject:
   - component: {fileID: 2063991300158970348}
   - component: {fileID: 6849121190040778316}
   - component: {fileID: 1822914276031219612}
+  - component: {fileID: 848400964199884222}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonMirror
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -65388,13 +65687,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -65412,6 +65711,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &848400964199884222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8505075784690915715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 2224838101595202814}
+  _DisabledIcon: {fileID: 6399863313947610685}
+  _titleText: {fileID: 9159375915076046803}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &8528077626241096543
 GameObject:
   m_ObjectHideFlags: 0
@@ -65834,16 +66149,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.6603774, g: 0.04049486, b: 0.04049486, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -7732562270933293166, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -65884,9 +66199,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 4783766562856259955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1675907756845188111
@@ -66857,10 +67172,10 @@ RectTransform:
   - {fileID: 5725548370190624308}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -108}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8443607492899108109
 MonoBehaviour:
@@ -66986,8 +67301,9 @@ GameObject:
   - component: {fileID: 1652519406248388775}
   - component: {fileID: 6057938858310827503}
   - component: {fileID: 8738294560798604740}
+  - component: {fileID: 322925413379261978}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonVariant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -67206,13 +67522,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -67230,6 +67546,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &322925413379261978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8711562259655893174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 6619970839712993678}
+  _DisabledIcon: {fileID: 5926253417425189426}
+  _titleText: {fileID: 7087287361745049449}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &8733014649285378619
 GameObject:
   m_ObjectHideFlags: 0
@@ -67392,9 +67724,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1938207125527859653, guid: af8d87acee795ed4192fa36233eec7d9,
+  m_Sprite: {fileID: -6480601857800566914, guid: 64f884351318b694f942625580e64a8b,
     type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -67691,10 +68023,10 @@ RectTransform:
   - {fileID: 3035054344433773817}
   m_Father: {fileID: 3924413847089579837}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 88, y: -592}
-  m_SizeDelta: {x: 176, y: 40}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1596574652271183961
 MonoBehaviour:
@@ -68133,10 +68465,10 @@ RectTransform:
   - {fileID: 3853743375973050305}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -196}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &383025723439435220
 MonoBehaviour:
@@ -68493,8 +68825,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0.347}
-  m_SizeDelta: {x: 100, y: 25}
+  m_AnchoredPosition: {x: 0, y: 0.292}
+  m_SizeDelta: {x: 100, y: 45}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4756339225462321841
 CanvasRenderer:
@@ -68524,7 +68856,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Transparent
+  m_text: Passthrough
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -68551,7 +68883,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 18.6
+  m_fontSize: 18
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -68767,7 +69099,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3463947920166461302
 Transform:
   m_ObjectHideFlags: 0
@@ -68850,9 +69182,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 143198874828026718}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 80, y: -20}
   m_SizeDelta: {x: 128, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5000796013199676593
@@ -69363,8 +69695,9 @@ GameObject:
   - component: {fileID: 9048493192679270868}
   - component: {fileID: 4529490687120379273}
   - component: {fileID: 8295204160077792517}
+  - component: {fileID: 9065182466622005576}
   m_Layer: 0
-  m_Name: KeypadButton
+  m_Name: KeypadButtonShowModels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -69584,13 +69917,13 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Oculus.Interaction.AudioTrigger, Oculus.Interaction.Samples
-        m_MethodName: 
+      - m_Target: {fileID: 7176286211530429904}
+        m_TargetAssemblyTypeName: AVR_SingleBtn, Assembly-CSharp
+        m_MethodName: ToggleLogic
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -69608,6 +69941,22 @@ MonoBehaviour:
   _whenSelectingInteractorViewRemoved:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &9065182466622005576
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9087382235992090581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae77001b8e495a84da447aa444df683b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _EnabledIcon: {fileID: 4640737894046050730}
+  _DisabledIcon: {fileID: 8184316827312504622}
+  _titleText: {fileID: 5444308957427784849}
+  _ImgIndicator: {fileID: 0}
 --- !u!1 &9102348066844514269
 GameObject:
   m_ObjectHideFlags: 0
@@ -70539,10 +70888,10 @@ RectTransform:
   - {fileID: 3197581263898745739}
   m_Father: {fileID: 6887469742655665625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 40}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 88, y: -416}
+  m_SizeDelta: {x: 176, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8848469495008096480
 MonoBehaviour:

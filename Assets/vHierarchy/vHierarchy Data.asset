@@ -684,11 +684,11 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 7
           iconNameOrGuid: 
-        - colorIndex: 1
+        - colorIndex: 2
           iconNameOrGuid: Settings Icon
-        - colorIndex: 1
+        - colorIndex: 2
           iconNameOrGuid: Settings Icon
-        - colorIndex: 1
+        - colorIndex: 2
           iconNameOrGuid: Settings Icon
         - colorIndex: 0
           iconNameOrGuid: Material Icon
