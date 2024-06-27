@@ -7,12 +7,11 @@ public class AVR_SingleBtn : MonoBehaviour
 {
     [Header("All")]
     [SerializeField]
-    private GameObject _EnabledIcon;
+    public GameObject _EnabledIcon;
 
     [SerializeField]
-    private GameObject _DisabledIcon;
+    public GameObject _DisabledIcon;
 
-    Button thisBtn;
 
 
     [SerializeField]
@@ -26,7 +25,6 @@ public class AVR_SingleBtn : MonoBehaviour
     
     private void Start()
     {
-        thisBtn.GetComponent<Button>();
        ToggleLogic();
 
     }

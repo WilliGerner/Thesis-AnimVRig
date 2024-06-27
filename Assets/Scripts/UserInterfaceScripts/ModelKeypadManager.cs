@@ -14,6 +14,12 @@ public class ModelKeypadManager : MonoBehaviour
     [SerializeField]
     [Tooltip("1 means the first Top Left, 9 mean the last Bottom Right.")]
     public List<GameObject> all9ModelBtns = new List<GameObject>();
+
+    [SerializeField]
+    GameObject ModellListUi;
+    [SerializeField]
+    GameObject CustomizerUi;
+
     // Start is called before the first frame update
 
     private static ModelKeypadManager instance;
@@ -53,6 +59,23 @@ public class ModelKeypadManager : MonoBehaviour
         { MirroredObject.SetActive(true); }     // Aktiviere Selbstdarstellung
         
 
+    }
+
+    public void SetMirroredObject(GameObject newObject)
+    {
+        MirroredObject = newObject;
+        AVRGameObjectRecorder.Instance._MirroredObjectToRecord = MirroredObject;
+        
+    }
+
+    public void ActivateAdditionalUI(GameObject ui)
+    {
+        // Deaktiviere beide UI-Elemente
+        ModellListUi.SetActive(false);
+        CustomizerUi.SetActive(false);
+
+        // Aktiviere nur das spezifizierte UI
+        ui.SetActive(true);
     }
 
     public void Called()

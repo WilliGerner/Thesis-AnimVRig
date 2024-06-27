@@ -13,11 +13,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [Tooltip("The Object you want to Record")]
     public GameObject _objectToRecord;
     public GameObject _MirroredObjectToRecord;
-    GameObjectRecorder _recorder;
+    public GameObjectRecorder _recorder;
     AnimationClip _currentClip;
     public List<AnimationClip> allClips;
-    [SerializeField]
-    AnimatorController animCotnroller;
+    //[SerializeField]
+    public AnimatorController _animCotnroller;
+    public Animator _animatorMirrored;
+    public Animator _animatorAnimationModel;
 
     public List<GameObject> additionalRecordObjects;
 
@@ -29,11 +31,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool isActiv = false;
 
     [Tooltip("Must start with Assets/ and will be normaly Set at The Start to RecordObkjectNameFolder.")]
-    [SerializeField] string _saveFolderLocation = "Assets/Test/";
+    [SerializeField] string _saveFolderLocation = "Assets/AnimationContent/";
 
     [SerializeField] string _clipName;
     private string _currentClipName;
-    [SerializeField] float _frameRate = 30f;
+    [SerializeField] float _frameRate = 60f;
 
     #endregion
 
@@ -64,11 +66,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private void Start()
     {
         _canRecord = false;
-        _saveFolderLocation = "Assets/AnimationContent/" + _objectToRecord.name;
-        CreateNewClip();
+        AVR_PalmMenueManager.Instance.InitializePalmMenue();
     }
 
-    private void LateUpdate()
+    private void Update()
     {
         if (_canRecord)
         {
@@ -77,6 +78,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
         }
     }
 
+    public string ReturnSafePath()
+    {
+        return _saveFolderLocation;
+    }
     public AnimationClip GetCurrentClip() // Realy needed!?
     {return _currentClip;    }
 
@@ -88,7 +93,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public List<AnimationClip> GetAllClips(string rootObjectName)
     {
         allClips = new List<AnimationClip>();
-        string path = "Assets/Test/" + rootObjectName;
+        string path = _saveFolderLocation;
         string[] searchedAsset = AssetDatabase.FindAssets("t:AnimationClip", new[] { path });
         if (searchedAsset.Length >= 1)
         {
@@ -105,94 +110,71 @@ public class AVRGameObjectRecorder : MonoBehaviour
         return allClips;
     }
 
-    public void LogAllClips()
+    public void StartRec( ) // Only in Playmode
     {
-        List<AnimationClip> logClips = new List<AnimationClip>();
-        logClips = GetAllClips(this.gameObject.name);
-        foreach (AnimationClip clip in logClips) { Debug.Log("Clip: " + clip.name); }
-    }
-
-    public void StartRec(AVRGameObjectRecorder currentRecorder) // Only in Playmode
-    {
-        Debug.Log("StartRecordingCalledInFirstStage");
         if (recordInit) return;
-        if (!Application.isPlaying) Debug.Log("Recording is only allowed in PlayMode. If you whish to Record from the Editor use the Animation Window.");
-        if (currentRecorder._recorder == null)
-        { currentRecorder._recorder = new GameObjectRecorder(currentRecorder.gameObject); }
+
+        if (_recorder == null)
+        { _recorder = new GameObjectRecorder(_objectToRecord); } // `?
 
         recordInit = true;
 
         
-        currentRecorder._recorder.BindComponentsOfType<Transform>(currentRecorder._objectToRecord, true);
-        Debug.Log("Rec Target Object: " + currentRecorder._recorder.isRecording );
+        _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
+        Debug.Log("Rec Target Object: " + _recorder.isRecording );
         _canRecord = true;
-        Debug.Log("Rec TargetObject bound done.See: " + currentRecorder.gameObject.name);
-
+        Debug.Log("Rec TargetObject bound done.See: " + _objectToRecord.name);
         if (recordMirroredObject)
         {
             Debug.Log("Rec Mirrored Object: true");
-            currentRecorder._recorder.BindComponentsOfType<Transform>(currentRecorder._MirroredObjectToRecord, true);
+            _recorder.BindComponentsOfType<Transform>(_MirroredObjectToRecord, true);
              _canRecord = true; 
-            Debug.Log("Rec MirrordObject bound done.See: " + currentRecorder._recorder);
+            Debug.Log("Rec MirrordObject bound done.See: " + _recorder);
         }
-        //if (recCompleteRig) // Bind every Component from the Rig and its childs. Requirement: Object Contains "Rig" in its Name.
-        //{
-        //    Debug.Log("Rec Complete Rig: true");
-        //    GameObject avrCompleteRig = null;
-        //    for (int i = 0; i < currentRecorder.gameObject.transform.childCount; i++)
-        //    {
-        //        if (currentRecorder.gameObject.transform.GetChild(i).name.Contains("Rig"))
-        //        {
-        //            avrCompleteRig = currentRecorder.gameObject.transform.GetChild(i).gameObject;
-        //            currentRecorder._recorder.BindComponentsOfType<Transform>(avrCompleteRig, true);
-        //        }
-        //    }
-        //    _canRecord = true;
-        //}
 
         for (int i = 0; i < additionalRecordObjects.Count; i++)
         {
-            currentRecorder._recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
+            _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
 
-        Debug.Log("Animation Recording for " + currentRecorder.gameObject.name + " has Initialized.");
+        Debug.Log("Animation Recording for " + gameObject.name + " has Initialized.");
     }
-    public void StopRecording(AVRGameObjectRecorder currentRecorder)
+    public void StopRecording()
     {
-        StartCoroutine(StopRecordCoroutine(currentRecorder));
+        StartCoroutine(StopRecordCoroutine());
     }
 
-    IEnumerator StopRecordCoroutine(AVRGameObjectRecorder currentRecorder) // Coroutine ist hier überflüssig. IM AUGE BEHALTEN! 
+    IEnumerator StopRecordCoroutine() // Coroutine ist hier überflüssig. IM AUGE BEHALTEN! 
     {
-        if (!recordInit || currentRecorder._recorder == null) yield return null;
+        if (!recordInit || _recorder == null) yield return null;
         recordInit = false;
-        currentRecorder._canRecord = false;
-        currentRecorder._recorder.SaveToClip(currentRecorder._currentClip);
+        _canRecord = false;
+        _recorder.SaveToClip(_currentClip);
         AssetDatabase.SaveAssets();
-        Debug.Log("Should Save: ClipWithName" + currentRecorder._currentClipName);
+        Debug.Log("Should Save: ClipWithName: " + _currentClipName + "  at path: " + _saveFolderLocation);
         //Debug.Log("Following Clip filled with recording Data: " + currentRecorder._currentClip);
-        currentRecorder.AddMotionToAnimator();
-        Debug.Log("Animation Recording for " + currentRecorder.gameObject.name + " has Finished and Stopped");
+        AddMotionToAnimator();
+        Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
         yield return null;
     }
 
     public void DeleteRecording(AVRGameObjectRecorder currentRecorder)
     {
-        if (currentRecorder._canRecord)
-        { Debug.LogWarning("Cannot delete when recording!");return;}
+        //if (currentRecorder._canRecord)
+        //{ Debug.LogWarning("Cannot delete when recording!");return;}
 
-        if (!AssetDatabase.Contains(currentRecorder._currentClip))
-        {
-            Debug.LogWarning("Clip Has not been saved yet.");
-            return;
-        }
-        else
-        {
-            Debug.Log("ClipLocation:  " + currentRecorder._saveFolderLocation + currentRecorder._currentClipName + ".anim");
-            AssetDatabase.DeleteAsset(currentRecorder._saveFolderLocation + currentRecorder._currentClipName + ".anim");
-            Debug.Log("Clip has been DELETED");
-        }
+        //if (!AssetDatabase.Contains(currentRecorder._currentClip))
+        //{
+        //    Debug.LogWarning("Clip Has not been saved yet.");
+        //    return;
+        //}
+        //else
+        //{
+        //    Debug.Log("ClipLocation:  " + currentRecorder._saveFolderLocation + currentRecorder._currentClipName + ".anim");
+        //    AssetDatabase.DeleteAsset(currentRecorder._saveFolderLocation + currentRecorder._currentClipName + ".anim");
+        //    Debug.Log("Clip has been DELETED");
+        //}
     }
     public void CreateNewClip( )
     {
@@ -215,8 +197,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 }
             }
         }
-        AssetDatabase.CreateAsset(_currentClip, string.Format("Assets/AnimationContent/{0}/{1}_Anim.anim", _objectToRecord.name, _clipName));
-        Debug.LogWarning("New Clip created:  " + _clipName);       
+        AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation+"/{0}_Anim.anim", _clipName));
+        Debug.LogWarning("New Clip created:  " + _clipName + "at path: " + _saveFolderLocation);       
         if (!allClips.Contains(_currentClip))
         {
             allClips.Add(_currentClip);          
@@ -227,10 +209,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     void AddMotionToAnimator()
     {
-        AnimatorStateMachine rootStateMachine = animCotnroller.layers[0].stateMachine;
+        AnimatorStateMachine rootStateMachine = _animCotnroller.layers[0].stateMachine;
         AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
         newState.motion = _currentClip;
-        Debug.Log(animCotnroller.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
+        Debug.Log(_animCotnroller.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
 
 
         //string path = "";

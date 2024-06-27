@@ -56,11 +56,33 @@ public class AVR_PalmMenueManager : MonoBehaviour
     }
 
     private void Start()
-    {   
-      
+    {
+      //  InitializePalmMenue();
     }
 
-    void InitializePalmMenue() // Logic should work and called after new Model assigned.
+    private void Update()
+    {
+        if (_UI_PalmKnobBtn.activeSelf == false)
+        {
+            Debug.Log("Deactivate Bigger Menues throuzgh knob");
+            DeactivateAlBiglMenues();
+        }
+    }
+
+    public void ShowAVRMenue()
+    {
+        if (_UI_1x3.activeSelf)
+        {
+            _UI_1x3.SetActive(false);
+            DeactivateAlBiglMenues();
+        }
+        else
+        {
+            _UI_1x3.SetActive(true);
+        }
+    }
+
+    public void InitializePalmMenue() // Logic should work and called after new Model assigned.
     {
         SetModelAndClipNameTxt();
         _animKeypadManager.InitializeAnimKeyPadManager();
@@ -81,34 +103,51 @@ public class AVR_PalmMenueManager : MonoBehaviour
 
     public void MenueSelection(int menueNr)
     {
-        DeactivateAlBiglMenues();
-
         switch (menueNr)
         {
-            case 0: Debug.LogWarning("No valid Menue Selection");
+            case 0:
+                Debug.LogWarning("No valid Menue Selection");
                 break;
-            case 1: _UI_3x3_Anim.SetActive(true); // Animation Menue
-                AnimationMenueCall();
+            case 1:
+                _UI_3x3_Anim.SetActive(!_UI_3x3_Anim.activeSelf); // Schaltet das Animation Menü um
+                if (_UI_3x3_Anim.activeSelf)
+                {
+                    AnimationMenueCall();
+                }
                 break;
-            case 2: _UI_3x3_Model.SetActive(true); // Model Menue
-                ModelMenueCall();
+            case 2:Debug.Log("Case2 and the target status is: " + _UI_3x3_Model.activeSelf);
+                _UI_3x3_Model.SetActive(!_UI_3x3_Model.activeSelf); // Schaltet das Model Menü um
+                Debug.Log("Case2 and now: " + _UI_3x3_Model.activeSelf);
+                if (_UI_3x3_Model.activeSelf)
+                {
+                    ModelMenueCall();
+                }
                 break;
-            case 3: _UI_3x3_Settings.SetActive(true); // Settings Menue
-                SettingsMenueCall();
+            case 3:
+                _UI_3x3_Settings.SetActive(!_UI_3x3_Settings.activeSelf); // Schaltet das Settings Menü um
+                if (_UI_3x3_Settings.activeSelf)
+                {
+                    SettingsMenueCall();
+                }
                 break;
         }
 
-       // _UI_1x3.SetActive(false);  
+
+        // _UI_1x3.SetActive(false);  
     }
 
     void AnimationMenueCall()
     {
         Debug.Log("Called Anim Menue!");
-
-        string currentClipNameFromRec = AVRGameObjectRecorder.Instance.GetCurrentClip().name; // Set clip Name.
-        Debug.Log("Set clip Name.  --> "+  currentClipNameFromRec);
-        clipelNameTxt.text = currentClipNameFromRec;
-        _animKeypadManager.Called();
+        if (AVRGameObjectRecorder.Instance.GetCurrentClip() != null)
+        {
+            string currentClipNameFromRec = AVRGameObjectRecorder.Instance.GetCurrentClip().name; // Set clip Name.
+            Debug.Log("Set clip Name.  --> "+  currentClipNameFromRec);
+            clipelNameTxt.text = currentClipNameFromRec;
+        }
+        _animKeypadManager.InitializeAnimKeyPadManager();
+        _UI_3x3_Model.SetActive(false);
+        _UI_3x3_Settings.SetActive(false);
 
     }
 
@@ -116,10 +155,14 @@ public class AVR_PalmMenueManager : MonoBehaviour
     {
         Debug.Log("Called Model Menue!");
         _modelKeypadManager.Called();
+        _UI_3x3_Anim.SetActive(false);
+        _UI_3x3_Settings.SetActive(false);
     }
     void SettingsMenueCall()
     {
         Debug.Log("Called Settings Menue!");
+        _UI_3x3_Anim.SetActive(false);
+        _UI_3x3_Model.SetActive(false);
     }
 
     public void DeactivateAlBiglMenues()
@@ -128,4 +171,12 @@ public class AVR_PalmMenueManager : MonoBehaviour
         _UI_3x3_Model.SetActive(false);
         _UI_3x3_Settings.SetActive(false);
     }
+
+    public void ReturnToMainMenue()
+    {
+        DeactivateAlBiglMenues();
+        _UI_1x3.SetActive(true);
+    }
+
+
 }
