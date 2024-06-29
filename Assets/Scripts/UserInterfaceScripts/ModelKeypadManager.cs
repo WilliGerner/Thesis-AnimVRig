@@ -88,6 +88,11 @@ public class ModelKeypadManager : MonoBehaviour
 
     }
 
+    public void ShowVariants()
+    {
+
+    }
+
     void DeactivateBtn(GameObject btnToDeactivateGO)
     {
         btnToDeactivateGO.GetComponentInChildren<Button>().enabled = false;
