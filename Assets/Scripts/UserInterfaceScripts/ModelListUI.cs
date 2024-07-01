@@ -88,7 +88,7 @@ public class ModelListUI : MonoBehaviour
 
     void ToggleGameObject(int index, bool isActive)
     {
-        if (index >= 0 && index < modelGameObjects.Count && modelGameObjects.Count ==0) 
+        if (index >= 0 && modelGameObjects.Count ==0) 
         {
             // Setze die Aktivität des GameObjects basierend auf dem Toggle-Zustand
             variantGameObjects[index].SetActive(isActive);

@@ -25,6 +25,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool _canRecord = false;
     public bool recordInit = false;
     public bool recordMirroredObject = false;
+    bool debugActiv =false;
 
     #region Inspector Variables
     public bool isActiv = false;
@@ -61,6 +62,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private void Start()
     {
         _canRecord = false;
+        CreateNewClip();
+        ActivateOtherModel(GetActiveElement().name);
         AVR_PalmMenueManager.Instance.InitializePalmMenue();
     }
 
@@ -71,6 +74,18 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.TakeSnapshot(Time.deltaTime);
             Debug.Log("Recording: " + _recorder.isRecording);
         }
+    }
+
+    public GameObject GetActiveElement()
+    {
+        foreach (var element in AllMainObjectsToRecord)
+        {
+            if (element.activeSelf)  // Prüfe, ob das GameObject aktiv ist
+            {
+                return element;  // Gebe das aktive GameObject zurück
+            }
+        }
+        return null;  // Gebe null zurück, wenn kein Element aktiv ist
     }
 
     public string ReturnSafePath()
@@ -228,7 +243,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     if (obj.name == objectName)
                     {
                         obj.SetActive(true);
-                        _objectToRecord = obj;
+                        _objectToRecord = obj.GetComponent<AVR_Related>().activeMirrored; // Set Original Model to new Model
+                        _MirroredObjectToRecord = obj.GetComponent<AVR_Related>().mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
                         found = true;
                     }
                     else
@@ -240,7 +256,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
             if (found)
             {
-                ResetRecorder();
+                //ResetRecorder();
                 SetModel();
             }
             else
@@ -295,6 +311,23 @@ public class AVRGameObjectRecorder : MonoBehaviour
             }
         }
         return childrenWithAnimator;
+    }
+
+    public void ToggleDebugSettings()
+    {
+        // Search for the Two Childs  "DebugBones & DebugBonesOVRSkeletonFullBody int the current MirroredObject to Record.
+        if (debugActiv)
+        {
+            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false); 
+            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(false);
+            debugActiv = false;
+        }
+        else
+        {
+            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(true);
+            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(true);
+            debugActiv = true;
+        }
     }
     #endregion
 }

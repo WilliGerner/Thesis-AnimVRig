@@ -50,27 +50,27 @@ public class AnimationKeypadManager : MonoBehaviour
 
     void Start()
     {
-        if (animationComponent == null)
-        {
-            animationComponent = GetComponent<Animation>();
-        }
+        //if (animationComponent == null)
+        //{
+        //    animationComponent = GetComponent<Animation>();
+        //}
 
-        if (animationComponent != null)
-        {
-            int clipCount = animationComponent.GetClipCount();
-            animationClips = new AnimationClip[clipCount];
-            int i = 0;
+        //if (animationComponent != null)
+        //{
+        //    int clipCount = animationComponent.GetClipCount();
+        //    animationClips = new AnimationClip[clipCount];
+        //    int i = 0;
 
-            foreach (AnimationState state in animationComponent)
-            {
-                animationClips[i] = state.clip;
-                i++;
-            }
-        }
-        else
-        {
-            Debug.LogError("Keine Animation-Komponente gefunden!");
-        }
+        //    foreach (AnimationState state in animationComponent)
+        //    {
+        //        animationClips[i] = state.clip;
+        //        i++;
+        //    }
+        //}
+        //else
+        //{
+        //    Debug.LogError("Keine Animation-Komponente gefunden!");
+        //}
     }
 
     public void InitializeAnimKeyPadManager()

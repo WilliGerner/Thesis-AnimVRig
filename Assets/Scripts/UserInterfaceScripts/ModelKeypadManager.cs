@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ModelKeypadManager : MonoBehaviour
 {
     [Header("Mirror Area")]
-    [SerializeField]
+   
     [Tooltip("Gameobject with childs, which should be mirrored, can be null")] // Rechtschreibung xD
     GameObject MirroredObject;  // optional, can be Null if you not call MirroredModelLoigc
 
@@ -19,6 +19,9 @@ public class ModelKeypadManager : MonoBehaviour
     GameObject ModellListUi;
     [SerializeField]
     GameObject CustomizerUi;
+
+    Avatar lastAvatar;
+    bool isAvatarActive = true;
 
     // Start is called before the first frame update
 
@@ -50,8 +53,8 @@ public class ModelKeypadManager : MonoBehaviour
     /// </summary>
     public void MirroredModelLogic()
     {
-       // Should Toogle Logic From POalmMenueSIngleBtn should be set in Insepctor!
-
+        // Should Toogle Logic From POalmMenueSIngleBtn should be set in Insepctor!
+        MirroredObject = AVRGameObjectRecorder.Instance._MirroredObjectToRecord;
 
         if (MirroredObject.activeSelf)
         { MirroredObject.SetActive(false); }    // Dekativate sSelbstdarstellung
@@ -70,12 +73,18 @@ public class ModelKeypadManager : MonoBehaviour
 
     public void ActivateAdditionalUI(GameObject ui)
     {
-        // Deaktiviere beide UI-Elemente
-        ModellListUi.SetActive(false);
-        CustomizerUi.SetActive(false);
+        if (ui.activeSelf)
+        {
+            ui.SetActive(false);
+        }
+        else
+        {
+            // Das UI ist inaktiv, deaktiviere alle anderen UIs und aktiviere das spezifizierte
+            ModellListUi.SetActive(false);
+            CustomizerUi.SetActive(false);
 
-        // Aktiviere nur das spezifizierte UI
-        ui.SetActive(true);
+            ui.SetActive(true);
+        }
     }
 
     public void Called()
@@ -88,9 +97,35 @@ public class ModelKeypadManager : MonoBehaviour
 
     }
 
-    public void ShowVariants()
+    public void ChangeAvatar()
     {
+        Animator animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
 
+        if (isAvatarActive)
+        {
+            // Wenn der Avatar aktuell aktiv ist, speichere ihn und setze ihn dann auf null
+            if (animator.avatar != null)
+            {
+                lastAvatar = animator.avatar;
+                animator.avatar = null;
+                isAvatarActive = false;
+                Debug.Log("Avatar auf null gesetzt");
+            }
+        }
+        else
+        {
+            // Wenn der Avatar inaktiv ist, stelle den letzten gespeicherten Avatar wieder her
+            if (lastAvatar != null)
+            {
+                animator.avatar = lastAvatar;
+                isAvatarActive = true;
+                Debug.Log("Avatar auf: " + animator.avatar + " gesetzt.");
+            }
+            else
+            {
+                Debug.Log("Kein gespeicherter Avatar verfügbar");
+            }
+        }
     }
 
     void DeactivateBtn(GameObject btnToDeactivateGO)
