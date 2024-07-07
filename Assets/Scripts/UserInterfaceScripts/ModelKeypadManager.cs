@@ -21,6 +21,12 @@ public class ModelKeypadManager : MonoBehaviour
     GameObject _VaraintListUi;
     [SerializeField]
     GameObject _CustomizerUi;
+    [SerializeField]
+    GameObject _LayerUi;
+    [SerializeField]
+    GameObject _ModelMoverUi;
+    [SerializeField]
+    GameObject _RotateScaleUi;
 
     Avatar lastAvatar;
     bool isAvatarActive = true;
@@ -85,6 +91,9 @@ public class ModelKeypadManager : MonoBehaviour
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
+            _ModelMoverUi.SetActive(false); 
+            _RotateScaleUi.SetActive(false);   
+            _LayerUi.SetActive(false);  
 
             ui.SetActive(true);
         }
