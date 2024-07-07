@@ -86,7 +86,7 @@ public class AVR_PalmMenueManager : MonoBehaviour
     {
         SetModelAndClipNameTxt();
         _animKeypadManager.InitializeAnimKeyPadManager();
-        _modelKeypadManager.InitializeModelKeyPadManager();
+       // _modelKeypadManager.InitializeModelKeyPadManager();
         _settingsKeypadManager.InitializeSettingsKeyPadManager();
     }
 
@@ -154,7 +154,6 @@ public class AVR_PalmMenueManager : MonoBehaviour
     void ModelMenueCall()
     {
         Debug.Log("Called Model Menue!");
-        _modelKeypadManager.Called();
         _UI_3x3_Anim.SetActive(false);
         _UI_3x3_Settings.SetActive(false);
     }

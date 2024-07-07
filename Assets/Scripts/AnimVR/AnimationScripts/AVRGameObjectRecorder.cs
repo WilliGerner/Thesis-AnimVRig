@@ -15,7 +15,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public GameObjectRecorder _recorder;
     AnimationClip _currentClip;
     public List<AnimationClip> allClips;
-    public AnimatorController _animCotnroller;
+    public AnimatorController _animController;
     public Animator _animatorMirrored;
     public Animator _animatorAnimationModel;
 
@@ -202,10 +202,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     void AddMotionToAnimator()
     {
-        AnimatorStateMachine rootStateMachine = _animCotnroller.layers[0].stateMachine;
+        AnimatorStateMachine rootStateMachine = _animController.layers[0].stateMachine;
         AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
         newState.motion = _currentClip;
-        Debug.Log(_animCotnroller.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
+        Debug.Log(_animController.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
     }
 
     #region Animator Functions (Play and Stop AnimPlayback)
@@ -243,9 +243,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     if (obj.name == objectName)
                     {
                         obj.SetActive(true);
-                        _objectToRecord = obj.GetComponent<AVR_Related>().activeMirrored; // Set Original Model to new Model
-                        _MirroredObjectToRecord = obj.GetComponent<AVR_Related>().mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
+                        AVR_Related avr_related = obj.GetComponent<AVR_Related>();
+                        _objectToRecord = avr_related.activeMirrored; // Set Original Model to new Model
+                        _MirroredObjectToRecord = avr_related.mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
+                        _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
+                        Animator animatorModell = avr_related.animationModel.GetComponent<Animator>();
+                        _animatorAnimationModel = animatorModell;
+                        RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
+                        _animController = animationController as AnimatorController;
+
                         found = true;
+                        Debug.LogWarning("New Model:  " + obj +"  and string Name was: "+ objectName);
                     }
                     else
                     {
@@ -253,7 +261,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     }
                 }
             }
-
+          
             if (found)
             {
                 //ResetRecorder();
@@ -278,6 +286,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void SetModel()
     {
+        Debug.LogWarning("New Model for Recorder: " + _objectToRecord +"  oldRecorder: " + _recorder);
         _recorder = new GameObjectRecorder(_objectToRecord);
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
 

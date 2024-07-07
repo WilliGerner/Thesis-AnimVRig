@@ -42,7 +42,7 @@ public class AnimationList : MonoBehaviour
 
     public void SetUpAnimList()
     {
-        targetAnimator = AVRGameObjectRecorder.Instance._animatorMirrored;
+        targetAnimator = AVRGameObjectRecorder.Instance._animatorAnimationModel; // CHange maybe to AnimatorAnimationModel???
         if (targetAnimator != null)
         {
             var clips = targetAnimator.runtimeAnimatorController.animationClips;
@@ -75,6 +75,7 @@ public class AnimationList : MonoBehaviour
 
     private void ShowMiniUI(Toggle toggle, AnimationClip clip)
     {
+        Debug.LogWarning("ShowMini Ui called");
         if (currentMiniUI != null)
         {
             currentClip = clip;

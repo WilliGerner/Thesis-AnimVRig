@@ -53,7 +53,7 @@ public class ModelListUI : MonoBehaviour
                     // Informiere den ModelKeypadManager über das aktivierte GameObject
                     if (isOn) // Wenn das GameObject aktiviert wird, setze es als Spiegelobjekt
                     {
-                        ModelKeypadManager.Instance.SetMirroredObject(modelGameObjects[index]);
+                        //ModelKeypadManager.Instance.SetMirroredObject(modelGameObjects[index]);
                     }
                 });
             }
@@ -96,12 +96,14 @@ public class ModelListUI : MonoBehaviour
 
         if (modelGameObjects.Count != 0) // Only for the Model Version
         {
+            Debug.LogWarning("Call Model change:  " + modelGameObjects[index].name);
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
-            UpdateVaraintList();
+          //  UpdateVaraintList();
         }
     }
     void UpdateVaraintList()
     {
+        Debug.LogWarning("Should call update VarianteList");
         variantGameObjects.Clear();
         variantGameObjects = AVRGameObjectRecorder.Instance.GetChildrenWithAnimator();
         SetUpTogglesForVariants();

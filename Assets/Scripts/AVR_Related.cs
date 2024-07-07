@@ -7,6 +7,7 @@ public class AVR_Related : MonoBehaviour
     public GameObject retargetGO;
     public GameObject mirroredObjects;
     public GameObject activeMirrored;
+    public GameObject animationModel;
     [SerializeField]
     List<GameObject> mirroredVaraints;
 

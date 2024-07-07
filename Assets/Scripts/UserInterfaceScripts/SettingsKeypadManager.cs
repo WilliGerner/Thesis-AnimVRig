@@ -8,6 +8,10 @@ public class SettingsKeypadManager : MonoBehaviour
     [SerializeField]
     [Tooltip ("1 means the first Top Left, 9 mean the last Bottom Right.")] 
      List<GameObject> all9SettingBtns = new List<GameObject>();
+
+    [SerializeField]
+    OVRPassthroughLayer passthroughLayer;
+    bool passthroughActiv;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +34,17 @@ public class SettingsKeypadManager : MonoBehaviour
 
     }
 
-    void DeactivateBtn(GameObject btnToDeactivateGO)
+    public void SwitchPassthrough()
     {
-        btnToDeactivateGO.GetComponentInChildren<Button>().enabled = false;
+        if (passthroughActiv)
+        {
+            passthroughLayer.textureOpacity = 0;
+            passthroughActiv = false;
+        }
+        else
+        {
+            passthroughLayer.textureOpacity = 1.0f;
+            passthroughActiv = true;
+        }
     }
 }

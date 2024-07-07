@@ -165,6 +165,8 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-4412755210003080988-5051039801735667731
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1220786221616211547-5114610420456353314
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-7449748494298911448-8911815600530113113
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-919132149155446097-1094993709
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1554936670-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -350,11 +352,11 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
-        - colorIndex: 2
+        - colorIndex: 7
           iconNameOrGuid: Settings Icon
         - colorIndex: 5
           iconNameOrGuid: AvatarMask On Icon
-        - colorIndex: 2
+        - colorIndex: 7
           iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
@@ -402,13 +404,17 @@ MonoBehaviour:
           iconNameOrGuid: AvatarMask On Icon
         - colorIndex: 2
           iconNameOrGuid: Settings Icon
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
-        - colorIndex: 8
-          iconNameOrGuid: 
-        - colorIndex: 8
-          iconNameOrGuid: 
-        - colorIndex: 8
+        - colorIndex: 4
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:

@@ -48,31 +48,6 @@ public class AnimationKeypadManager : MonoBehaviour
         }
     }
 
-    void Start()
-    {
-        //if (animationComponent == null)
-        //{
-        //    animationComponent = GetComponent<Animation>();
-        //}
-
-        //if (animationComponent != null)
-        //{
-        //    int clipCount = animationComponent.GetClipCount();
-        //    animationClips = new AnimationClip[clipCount];
-        //    int i = 0;
-
-        //    foreach (AnimationState state in animationComponent)
-        //    {
-        //        animationClips[i] = state.clip;
-        //        i++;
-        //    }
-        //}
-        //else
-        //{
-        //    Debug.LogError("Keine Animation-Komponente gefunden!");
-        //}
-    }
-
     public void InitializeAnimKeyPadManager()
     {
         Debug.Log("Init AnimManager..set _animatorAnimationModel");
@@ -92,74 +67,87 @@ public class AnimationKeypadManager : MonoBehaviour
         }
     }
 
+    public void SwitchShowCaseModel()
+    {
+        GameObject animModel = AVRGameObjectRecorder.Instance._animatorAnimationModel.gameObject;
+        if (animModel.activeSelf)
+        {
+            animModel.SetActive(false);
+        }
+        else
+        {
+            animModel.SetActive(true);
+        }
+    }
+
     #region Animation Control Functions
-
-    //public void PlayNextAnimation()
-    //{
-    //    if (_animator.runtimeAnimatorController != null)
-    //    {
-    //        var clips = _animator.runtimeAnimatorController.animationClips;
-    //        if (clips.Length > 0)
-    //        {
-    //            _animator.enabled = true;
-    //            currentAnimationIndex = (currentAnimationIndex + 1) % clips.Length;
-    //            _animator.Play(clips[currentAnimationIndex].name, -1, 0f);
-    //            Debug.Log("Playing Next Animation: " + clips[currentAnimationIndex].name + " on animator:  " + _animator);
-    //        }
-    //    }
-    //}
-
-    //public void PlayPreviousAnimation()
-    //{
-    //    if (_animator.runtimeAnimatorController != null)
-    //    {
-    //        var clips = _animator.runtimeAnimatorController.animationClips;
-    //        if (clips.Length > 0)
-    //        {
-    //            currentAnimationIndex = (currentAnimationIndex - 1 + clips.Length) % clips.Length;
-    //            _animator.Play(clips[currentAnimationIndex].name, -1, 0f);
-    //            Debug.Log("Playing Previous Animation: " + clips[currentAnimationIndex].name +" on GO = " + _animator.gameObject.name);
-    //        }
-    //    }
-    //}
 
     public void PlayNextAnimation()
     {
-        if (animationClips != null && animationClips.Length > 0)
+        if (_animator.runtimeAnimatorController != null)
         {
-            currentAnimationIndex = (currentAnimationIndex + 1) % animationClips.Length;
-            AnimationClip clip = animationClips[currentAnimationIndex];
-            if (clip != null)
+            var clips = _animator.runtimeAnimatorController.animationClips;
+            if (clips.Length > 0)
             {
-                animationComponent.clip = clip;
-                animationComponent.Play();
-                Debug.Log("Playing Next Animation: " + clip.name);
-            }
-            else
-            {
-                Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
+                _animator.enabled = true;
+                currentAnimationIndex = (currentAnimationIndex + 1) % clips.Length;
+                _animator.Play(clips[currentAnimationIndex].name, -1, 0f);
+                Debug.Log("Playing Next Animation: " + clips[currentAnimationIndex].name + " on animator:  " + _animator);
             }
         }
     }
 
     public void PlayPreviousAnimation()
     {
-        if (animationClips != null && animationClips.Length > 0)
+        if (_animator.runtimeAnimatorController != null)
         {
-            currentAnimationIndex = (currentAnimationIndex - 1 + animationClips.Length) % animationClips.Length;
-            AnimationClip clip = animationClips[currentAnimationIndex];
-            if (clip != null)
+            var clips = _animator.runtimeAnimatorController.animationClips;
+            if (clips.Length > 0)
             {
-                animationComponent.clip = clip;
-                animationComponent.Play();
-                Debug.Log("Playing Previous Animation: " + clip.name);
-            }
-            else
-            {
-                Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
+                currentAnimationIndex = (currentAnimationIndex - 1 + clips.Length) % clips.Length;
+                _animator.Play(clips[currentAnimationIndex].name, -1, 0f);
+                Debug.Log("Playing Previous Animation: " + clips[currentAnimationIndex].name + " on GO = " + _animator.gameObject.name);
             }
         }
     }
+
+    //public void PlayNextAnimation()
+    //{
+    //    if (animationClips != null && animationClips.Length > 0)
+    //    {
+    //        currentAnimationIndex = (currentAnimationIndex + 1) % animationClips.Length;
+    //        AnimationClip clip = animationClips[currentAnimationIndex];
+    //        if (clip != null)
+    //        {
+    //            animationComponent.clip = clip;
+    //            animationComponent.Play();
+    //            Debug.Log("Playing Next Animation: " + clip.name);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
+    //        }
+    //    }
+    //}
+
+    //public void PlayPreviousAnimation()
+    //{
+    //    if (animationClips != null && animationClips.Length > 0)
+    //    {
+    //        currentAnimationIndex = (currentAnimationIndex - 1 + animationClips.Length) % animationClips.Length;
+    //        AnimationClip clip = animationClips[currentAnimationIndex];
+    //        if (clip != null)
+    //        {
+    //            animationComponent.clip = clip;
+    //            animationComponent.Play();
+    //            Debug.Log("Playing Previous Animation: " + clip.name);
+    //        }
+    //        else
+    //        {
+    //            Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
+    //        }
+    //    }
+    //}
 
 
     public void DeleteCurrentAnimation()

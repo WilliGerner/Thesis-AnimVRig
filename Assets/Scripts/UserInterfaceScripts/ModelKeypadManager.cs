@@ -16,9 +16,11 @@ public class ModelKeypadManager : MonoBehaviour
     public List<GameObject> all9ModelBtns = new List<GameObject>();
 
     [SerializeField]
-    GameObject ModellListUi;
+    GameObject _ModellListUi;
     [SerializeField]
-    GameObject CustomizerUi;
+    GameObject _VaraintListUi;
+    [SerializeField]
+    GameObject _CustomizerUi;
 
     Avatar lastAvatar;
     bool isAvatarActive = true;
@@ -80,21 +82,12 @@ public class ModelKeypadManager : MonoBehaviour
         else
         {
             // Das UI ist inaktiv, deaktiviere alle anderen UIs und aktiviere das spezifizierte
-            ModellListUi.SetActive(false);
-            CustomizerUi.SetActive(false);
+            _ModellListUi.SetActive(false);
+            _CustomizerUi.SetActive(false);
+            _VaraintListUi.SetActive(false);
 
             ui.SetActive(true);
         }
-    }
-
-    public void Called()
-    {
-
-    }
-
-    public void InitializeModelKeyPadManager()
-    {
-
     }
 
     public void ChangeAvatar()
@@ -126,10 +119,5 @@ public class ModelKeypadManager : MonoBehaviour
                 Debug.Log("Kein gespeicherter Avatar verfügbar");
             }
         }
-    }
-
-    void DeactivateBtn(GameObject btnToDeactivateGO)
-    {
-        btnToDeactivateGO.GetComponentInChildren<Button>().enabled = false;
     }
 }
