@@ -99,6 +99,14 @@ public class ModelKeypadManager : MonoBehaviour
         }
     }
 
+    public void Switch9BtnsActivStatus(bool activ)
+    {
+        foreach (var btn in all9ModelBtns)
+        {
+            btn.SetActive(activ);
+        }
+    }
+
     public void ChangeAvatar()
     {
         Animator animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
