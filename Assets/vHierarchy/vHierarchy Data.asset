@@ -169,6 +169,9 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1554936670-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-5557079529510541517-1831116420
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-357407601-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-824795464-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-5949587553195814330-1532297577
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-9052868544655305934-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -422,6 +425,12 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 4
           iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: PreMatCube
+        - colorIndex: 2
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: MeshCollider Icon
     - goDatas_byGlobalId:
         keys:
         - globalObjectIdString: GlobalObjectId_V1-2-f379ca20188d806438fc9b20cb4b664d-650848329-0

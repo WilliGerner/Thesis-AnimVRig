@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,7 +11,8 @@ public class ModelKeypadManager : MonoBehaviour
     [Tooltip("Gameobject with childs, which should be mirrored, can be null")] // Rechtschreibung xD
     GameObject MirroredObject;  // optional, can be Null if you not call MirroredModelLoigc
 
-
+    [SerializeField]
+    Transform anchorPoint; // Pannel Anchor Point
     [SerializeField]
     [Tooltip("1 means the first Top Left, 9 mean the last Bottom Right.")]
     public List<GameObject> all9ModelBtns = new List<GameObject>();
@@ -24,9 +26,8 @@ public class ModelKeypadManager : MonoBehaviour
     [SerializeField]
     GameObject _LayerUi;
     [SerializeField]
-    GameObject _ModelMoverUi;
-    [SerializeField]
-    GameObject _RotateScaleUi;
+    GameObject _TransformerPannel;
+
 
     Avatar lastAvatar;
     bool isAvatarActive = true;
@@ -79,6 +80,30 @@ public class ModelKeypadManager : MonoBehaviour
         
     }
 
+    public void CallTransformerModel()
+    {
+        GameObject ui_3x3 = AVR_PalmMenueManager.Instance.Get_UI_3x3_Model();
+        // Set Panel to anchorPoint;
+        _TransformerPannel.transform.position = anchorPoint.position;
+        _TransformerPannel.transform.rotation = anchorPoint.rotation;
+        _TransformerPannel.transform.localScale = anchorPoint.localScale;
+
+        if (_TransformerPannel.gameObject.activeSelf)
+        {
+            _TransformerPannel.gameObject.SetActive(false);
+            ui_3x3.SetActive(true);
+        }
+        else
+        { 
+            _TransformerPannel.gameObject.SetActive(true);
+            _ModellListUi.SetActive(false);
+            _CustomizerUi.SetActive(false);
+            _VaraintListUi.SetActive(false);
+            _LayerUi.SetActive(false);
+            ui_3x3.SetActive(false);
+        }
+    }
+
     public void ActivateAdditionalUI(GameObject ui)
     {
         if (ui.activeSelf)
@@ -91,8 +116,7 @@ public class ModelKeypadManager : MonoBehaviour
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
-            _ModelMoverUi.SetActive(false); 
-            _RotateScaleUi.SetActive(false);   
+            _TransformerPannel.SetActive(false);  
             _LayerUi.SetActive(false);  
 
             ui.SetActive(true);

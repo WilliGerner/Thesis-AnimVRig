@@ -60,6 +60,10 @@ public class AVR_PalmMenueManager : MonoBehaviour
       //  InitializePalmMenue();
     }
 
+    public GameObject Get_UI_3x3_Model()
+    {
+        return _UI_3x3_Model;
+    }
     private void Update()
     {
         if (_UI_PalmKnobBtn.activeSelf == false)
