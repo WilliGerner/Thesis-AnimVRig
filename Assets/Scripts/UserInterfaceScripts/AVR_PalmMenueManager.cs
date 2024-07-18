@@ -23,6 +23,8 @@ public class AVR_PalmMenueManager : MonoBehaviour
     GameObject _UI_3x3_Model; // 2
     [SerializeField]
     GameObject _UI_3x3_Settings; // 3
+    [SerializeField]
+    GameObject _UI_3x3_Study; // 4
 
     [SerializeField]
     TextMeshPro modelNameTxt;
@@ -63,6 +65,11 @@ public class AVR_PalmMenueManager : MonoBehaviour
     public GameObject Get_UI_3x3_Model()
     {
         return _UI_3x3_Model;
+    }
+
+    public GameObject Get_UI_3x3_Study()
+    {
+        return _UI_3x3_Study;
     }
     private void Update()
     {
@@ -134,6 +141,13 @@ public class AVR_PalmMenueManager : MonoBehaviour
                     SettingsMenueCall();
                 }
                 break;
+            case 4:
+                _UI_3x3_Study.SetActive(!_UI_3x3_Study.activeSelf); // Schaltet das Settings Menü um
+                if (_UI_3x3_Study.activeSelf)
+                {
+                    StudyMenueCall();
+                }
+                break;
         }
 
 
@@ -155,21 +169,28 @@ public class AVR_PalmMenueManager : MonoBehaviour
 
     }
 
+    void StudyMenueCall()
+    {
+        _UI_3x3_Anim.SetActive(false);
+        _UI_3x3_Settings.SetActive(false);
+        _UI_3x3_Model.SetActive(false);
+    }
     void ModelMenueCall()
     {
-        Debug.Log("Called Model Menue!");
         _UI_3x3_Anim.SetActive(false);
+        _UI_3x3_Study.SetActive(false);
         _UI_3x3_Settings.SetActive(false);
     }
     void SettingsMenueCall()
     {
-        Debug.Log("Called Settings Menue!");
         _UI_3x3_Anim.SetActive(false);
+        _UI_3x3_Study.SetActive(false);
         _UI_3x3_Model.SetActive(false);
     }
 
     public void DeactivateAlBiglMenues()
     {
+        _UI_3x3_Study.SetActive(false);
         _UI_3x3_Anim.SetActive(false);
         _UI_3x3_Model.SetActive(false);
         _UI_3x3_Settings.SetActive(false);

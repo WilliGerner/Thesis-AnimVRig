@@ -18,6 +18,10 @@ public class ModelKeypadManager : MonoBehaviour
     public List<GameObject> all9ModelBtns = new List<GameObject>();
 
     [SerializeField]
+    public List<GameObject> all9ModelBtnsStudy = new List<GameObject>();
+    
+
+    [SerializeField]
     GameObject _ModellListUi;
     [SerializeField]
     GameObject _VaraintListUi;
@@ -27,6 +31,15 @@ public class ModelKeypadManager : MonoBehaviour
     GameObject _LayerUi;
     [SerializeField]
     GameObject _TransformerPannel;
+
+    #region Study Relevant
+    [SerializeField]
+    GameObject _ModellListUiStudy;
+    [SerializeField]
+    GameObject _VaraintListUiStudy;
+    [SerializeField]
+    GameObject _AnimListUiStudy;
+    #endregion
 
 
     Avatar lastAvatar;
@@ -80,9 +93,19 @@ public class ModelKeypadManager : MonoBehaviour
         
     }
 
-    public void CallTransformerModel()
+    public void CallTransformerModel() // bool is only for Study Case
     {
-        GameObject ui_3x3 = AVR_PalmMenueManager.Instance.Get_UI_3x3_Model();
+        GameObject ui_3x3;
+        bool study = !this.gameObject.activeSelf;
+        if (study)
+        {
+            ui_3x3 = AVR_PalmMenueManager.Instance.Get_UI_3x3_Study();
+        }
+        else
+        {
+            ui_3x3 = AVR_PalmMenueManager.Instance.Get_UI_3x3_Model();
+        } 
+           
         // Set Panel to anchorPoint;
         _TransformerPannel.transform.position = anchorPoint.position;
         _TransformerPannel.transform.rotation = anchorPoint.rotation;
@@ -113,6 +136,13 @@ public class ModelKeypadManager : MonoBehaviour
         else
         {
             // Das UI ist inaktiv, deaktiviere alle anderen UIs und aktiviere das spezifizierte
+
+            // Only for Study
+            _ModellListUiStudy.SetActive(false);
+            _VaraintListUiStudy.SetActive(false);
+            _AnimListUiStudy.SetActive(false);
+
+
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
@@ -120,6 +150,14 @@ public class ModelKeypadManager : MonoBehaviour
             _LayerUi.SetActive(false);  
 
             ui.SetActive(true);
+        }
+    }
+
+    public void Switch9BtnsActivStatusStudy(bool activ) // Study Case
+    {
+        foreach (var btn in all9ModelBtnsStudy)
+        {
+            btn.SetActive(activ);
         }
     }
 

@@ -214,26 +214,26 @@ public class AVRGameObjectRecorder : MonoBehaviour
     }
 
     #region Animator Functions (Play and Stop AnimPlayback)
-    public void PlayAnimation(Animator animator, AnimationClip clip)
-    {
-        clip.wrapMode = WrapMode.Once;
-        var runtimeController = animator.runtimeAnimatorController;
-        animator.Play(clip.name, 0, 0);
-        animator.Update(Time.deltaTime);
-        Debug.Log("Animation " + clip.name + " Play");
-    }
+    //public void PlayAnimation(Animator animator, AnimationClip clip)
+    //{
+    //    clip.wrapMode = WrapMode.Once;
+    //    var runtimeController = animator.runtimeAnimatorController;
+    //    animator.Play(clip.name, 0, 0);
+    //    animator.Update(Time.deltaTime);
+    //    Debug.Log("Animation " + clip.name + " Play");
+    //}
 
-    public void StopPlayback(Animator animator)
-    {
-        animator.StopPlayback();
-        Debug.Log(animator.gameObject.name + "     Stopped Playback");
-    }
+    //public void StopPlayback(Animator animator)
+    //{
+    //    animator.StopPlayback();
+    //    Debug.Log(animator.gameObject.name + "     Stopped Playback");
+    //}
 
-    public void StartPlayback(Animator animator)
-    {
-        Debug.Log("Anim is: " + animator + "   Animator is in Playback Mode");
-        animator.StartPlayback();
-    }
+    //public void StartPlayback(Animator animator)
+    //{
+    //    Debug.Log("Anim is: " + animator + "   Animator is in Playback Mode");
+    //    animator.StartPlayback();
+    //}
     #endregion
 
     #region New Functions
@@ -331,14 +331,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
         // Search for the Two Childs  "DebugBones & DebugBonesOVRSkeletonFullBody int the current MirroredObject to Record.
         if (debugActiv)
         {
-            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false); 
-            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(false);
+            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(0).gameObject.SetActive(false); 
+            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(1).gameObject.SetActive(false);
             debugActiv = false;
         }
         else
         {
-            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(true);
-            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(true);
+            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(0).gameObject.SetActive(true);
+            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(1).gameObject.SetActive(true);
             debugActiv = true;
         }
     }

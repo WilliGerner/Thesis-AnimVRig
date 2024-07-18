@@ -174,6 +174,16 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-9052868544655305934-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-428557378-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-613245537-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-117569494-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1999618164-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1931298780-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1981368928-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1059701620-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-543423214-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-560410436-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-600025876-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1504884160-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1116090250-0
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -436,6 +446,26 @@ MonoBehaviour:
         - colorIndex: 8
           iconNameOrGuid: 
         - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 2
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 5
+          iconNameOrGuid: 
+        - colorIndex: 5
+          iconNameOrGuid: 
+        - colorIndex: 5
+          iconNameOrGuid: 
+        - colorIndex: 5
+          iconNameOrGuid: 
+        - colorIndex: 6
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:

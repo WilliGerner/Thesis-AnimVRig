@@ -19,6 +19,8 @@ public class AnimationKeypadManager : MonoBehaviour
     [SerializeField]
     GameObject _curvedUIAnimList;
     [SerializeField]
+    GameObject _curvedUIAnimListStudy; // Only for Study Case.
+    [SerializeField]
     GameObject _curvedUIAnimListBindingVariant;
 
     private static AnimationKeypadManager instance;
@@ -66,6 +68,20 @@ public class AnimationKeypadManager : MonoBehaviour
         {
             _animListUI.SetUpAnimList();
             _curvedUIAnimList.SetActive(true);
+        }
+    }
+
+    public void SetCurvedUiStudy(GameObject modelMenu)
+    {
+        if (_curvedUIAnimListStudy.activeSelf)
+        {
+            _curvedUIAnimListStudy.SetActive(false);
+        }
+        else
+        {
+            _animListUI.SetUpAnimList();
+            _curvedUIAnimListStudy.SetActive(true);
+            if (modelMenu.activeSelf) modelMenu.SetActive(false); // Only for Study
         }
     }
 
