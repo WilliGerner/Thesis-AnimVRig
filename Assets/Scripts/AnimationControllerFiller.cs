@@ -7,7 +7,7 @@ public class AnimationControllerFiller : MonoBehaviour
 
     private void Start()
     {
-        animator = AVRGameObjectRecorder.Instance._animatorAnimationModel;
+        animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         animationPath = AVRGameObjectRecorder.Instance.ReturnSafePath();
         FillAnimationStates();
     }

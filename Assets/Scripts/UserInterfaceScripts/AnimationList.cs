@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEditor;
 
 public class AnimationList : MonoBehaviour
 {
@@ -12,11 +13,20 @@ public class AnimationList : MonoBehaviour
     private List<Toggle> toggles = new List<Toggle>(); // Wird dynamisch gefüllt
     private GameObject currentMiniUI;
     public AnimationClip currentClip;
+    private Avatar avatar;
 
     void Start()
     {
+        AVRGameObjectRecorder.Instance.OnMotionAdded += SetUpAnimList;
         InitializeToggles();
         CreateMiniUI();
+    }
+    private void OnDestroy()
+    {
+        if (AVRGameObjectRecorder.Instance != null)
+        {
+            AVRGameObjectRecorder.Instance.OnMotionAdded -= SetUpAnimList;
+        }
     }
 
     private void InitializeToggles()
@@ -42,7 +52,9 @@ public class AnimationList : MonoBehaviour
 
     public void SetUpAnimList()
     {
-        targetAnimator = AVRGameObjectRecorder.Instance._animatorAnimationModel; // CHange maybe to AnimatorAnimationModel???
+        targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>(); // CHange maybe to AnimatorAnimationModel???
+        avatar = targetAnimator.avatar;
+       // targetAnimator = AVRGameObjectRecorder.Instance._animatorAnimationModel; // CHange maybe to AnimatorAnimationModel???
         if (targetAnimator != null)
         {
             var clips = targetAnimator.runtimeAnimatorController.animationClips;
@@ -100,7 +112,48 @@ public class AnimationList : MonoBehaviour
 
     public void PlayAnimation()
     {
+        if (!targetAnimator.enabled) targetAnimator.enabled = true;
+
+        if (RequiresAvatar(currentClip))
+        {
+            AttachAvatar();
+        }
+        else
+        {
+            DetachAvatar();
+        }
+
         targetAnimator.Play(currentClip.name);
+    }
+
+    private bool RequiresAvatar(AnimationClip clip)
+    {
+        // Prüft, ob die Animation keine Transform-Pfade hat, was darauf hindeuten könnte, dass sie einen Avatar benötigt
+        var bindings = AnimationUtility.GetCurveBindings(clip);
+        foreach (var binding in bindings)
+        {
+            if (binding.propertyName.StartsWith("m_LocalPosition") ||
+                binding.propertyName.StartsWith("m_LocalRotation") ||
+                binding.propertyName.StartsWith("m_LocalScale"))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void AttachAvatar()
+    {
+        if (avatar != null)
+        {
+            targetAnimator.avatar = avatar;
+        }
+    }
+
+    private void DetachAvatar()
+    {
+        // Entfernt den Avatar, indem der Animator Avatar auf null gesetzt wird
+        targetAnimator.avatar = null;
     }
 
     public void PauseAnimation()

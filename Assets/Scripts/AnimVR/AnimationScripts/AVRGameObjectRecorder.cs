@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using System.Collections;
 using System.Collections.Generic;
+using System;
 
 /// <summary>
 /// Newer Version from AVR_Recorder
@@ -15,9 +16,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public GameObjectRecorder _recorder;
     AnimationClip _currentClip;
     public List<AnimationClip> allClips;
-    public AnimatorController _animController;
+    AnimatorController _animController;
     public Animator _animatorMirrored;
-    public Animator _animatorAnimationModel;
 
     public List<GameObject> additionalRecordObjects;
     public List<GameObject> AllMainObjectsToRecord;
@@ -26,6 +26,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool recordInit = false;
     public bool recordMirroredObject = false;
     bool debugActiv =false;
+
+    public event Action OnMotionAdded;
 
     #region Inspector Variables
     public bool isActiv = false;
@@ -61,6 +63,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private void Start()
     {
+        RuntimeAnimatorController animationController = _objectToRecord.GetComponent<Animator>().runtimeAnimatorController;
+        _animController = animationController as AnimatorController;
         _canRecord = false;
         CreateNewClip();
         ActivateOtherModel(GetActiveElement().name);
@@ -206,6 +210,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
         newState.motion = _currentClip;
         Debug.Log(_animController.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
+        OnMotionAdded?.Invoke(); 
     }
 
     #region Animator Functions (Play and Stop AnimPlayback)
@@ -247,8 +252,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _objectToRecord = avr_related.activeMirrored; // Set Original Model to new Model
                         _MirroredObjectToRecord = avr_related.mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
                         _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
-                        Animator animatorModell = avr_related.animationModel.GetComponent<Animator>();
-                        _animatorAnimationModel = animatorModell;
+                        Animator animatorModell = _objectToRecord.GetComponent<Animator>();
                         RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                         _animController = animationController as AnimatorController;
 

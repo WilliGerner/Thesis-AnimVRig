@@ -9,39 +9,18 @@ public class LayerMaskManager : MonoBehaviour
     [SerializeField]
     private MirroredTransformManager _mirroredTransformManager;
     #region CustomToggle
-    /// <summary>
-    /// Animation clip to play.
-    /// </summary>
     [SerializeField]
     private AnimationClip _animClip;
-    /// <summary>
-    /// Mask to apply.
-    /// </summary>
     [SerializeField]
     private AvatarMask _customMask;
-    /// <summary>
-    /// Retargeting constraints to fix based on animation state.
-    /// </summary>
     [SerializeField]
     private RetargetingAnimationConstraint[] _retargetingConstraints;
-    /// <summary>
-    /// Animators to control.
-    /// </summary>
     [SerializeField]
     private Animator[] _animators;
-    /// <summary>
-    /// True if animation is enabled, false is not.
-    /// </summary>
     [SerializeField]
     private bool _customAnimEnabled = false;
-    /// <summary>
-    /// Text to update to based on animation state.
-    /// </summary>
     [SerializeField]
     private TMPro.TextMeshPro _worldText;
-    /// <summary>
-    /// Animator parameter name.
-    /// </summary>
     [SerializeField]
     private string _animParamName = "Wave";
 
@@ -58,7 +37,7 @@ public class LayerMaskManager : MonoBehaviour
     public bool _rightFoot = false;
     public bool _everything = false;
     public bool _nothing = true;
-    // Define the Avatar Masks for each combination
+
     public AvatarMask leftArmMask;
     public AvatarMask rightArmMask;
     public AvatarMask leftFootMask;
@@ -98,24 +77,21 @@ public class LayerMaskManager : MonoBehaviour
         Assert.IsTrue(_retargetingConstraints != null && _retargetingConstraints.Length > 0);
         Assert.IsTrue(_animators != null && _animators.Length > 0);
         Assert.IsNotNull(_worldText);
-       
     }
 
     private void Start()
     {
-        ToggleLeftFoot();
-    }
 
+    }
 
     private void Update()
     {
-        // since the animation rig set up might reboot due to calibration
-        // keep setting parameter to the proper value.
         foreach (var animator in _animators)
         {
             animator.SetBool(_animParamName, _customAnimEnabled);
         }
     }
+
     public void SwapAnimState()
     {
         _customAnimEnabled = !_customAnimEnabled;
@@ -209,7 +185,6 @@ public class LayerMaskManager : MonoBehaviour
             return bothArmsBothFeetMask;
         }
 
-        // Default case
         return nothingMask;
     }
 
@@ -249,7 +224,6 @@ public class LayerMaskManager : MonoBehaviour
         _mirroredTransformManager.ToggleRightLeg(_rightFoot);
     }
 
-
     public void ChangeColor(bool active, GameObject buttonVisualGO)
     {
         roundedBoxProperties = buttonVisualGO.GetComponent<RoundedBoxProperties>();
@@ -264,39 +238,40 @@ public class LayerMaskManager : MonoBehaviour
         {
             roundedBoxProperties.Color = Color.green;
         }
-        else roundedBoxProperties.Color = Color.red;
+        else
+        {
+            roundedBoxProperties.Color = Color.red;
+        }
 
         InvokePrivateMethod(roundedBoxProperties, "UpdateMaterialPropertyBlock");
     }
+
     public void ToggleEverything()
     {
-        _everything = !_everything;
-        if (_everything)
-        {
-            _nothing = false;
-            _leftArm = true;
-            ChangeColor(_leftArm, BtnVisualToggleLeftArm);
-            _rightArm = true;
-            ChangeColor(_rightArm, BtnVisualToggleRightArm);
-            _leftFoot = true;
-            ChangeColor(_rightFoot, BtnVisualToggleLeftLeg);
-            _rightFoot = true;
-            ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
-        }
+        _everything = true;
+        
+        _nothing = false;
+        _leftArm = true;
+        _rightArm = true;
+        _leftFoot = true;
+        _rightFoot = true;
+        UpdateAllColors();
+
+        _customMask = DetermineAvatarMask();
         _mirroredTransformManager.ToggleEverything(_everything);
-        Debug.Log("_customMask is now: " + _customMask.name);
-        //ChangeColor(_everything, BtnVisualToggleHead);
+        _currentMaskTxt.text = _customMask.name;
     }
 
     public void ToggleNothing()
     {
-        _nothing = !_nothing;
-        if (_nothing)
-        {
-            _everything = false;
-            ResetIndividualParts();
-            _mirroredTransformManager.ToggleNothing();
-        }
+        _nothing =true;
+        _everything = false;
+        ResetIndividualParts();
+        UpdateAllColors();
+        _mirroredTransformManager.ToggleNothing();
+        
+        _customMask = DetermineAvatarMask();
+        _currentMaskTxt.text = _customMask.name;
     }
 
     private void ResetEverythingNothing()
@@ -304,23 +279,23 @@ public class LayerMaskManager : MonoBehaviour
         _everything = false;
         _nothing = false;
         _customMask = DetermineAvatarMask();
-        Debug.Log("_customMask is now: " + _customMask.name);
         _currentMaskTxt.text = _customMask.name;
     }
 
     private void ResetIndividualParts()
     {
         _leftArm = false;
-        ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _rightArm = false;
-        ChangeColor(_rightArm, BtnVisualToggleRightArm);
         _leftFoot = false;
-        ChangeColor(_rightFoot, BtnVisualToggleLeftLeg);
         _rightFoot = false;
+    }
+
+    private void UpdateAllColors()
+    {
+        ChangeColor(_leftArm, BtnVisualToggleLeftArm);
+        ChangeColor(_rightArm, BtnVisualToggleRightArm);
+        ChangeColor(_leftFoot, BtnVisualToggleLeftLeg);
         ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
-        _customMask = DetermineAvatarMask();
-        Debug.Log("_customMask is now: " + _customMask.name);
-        _currentMaskTxt.text = _customMask.name;
     }
 
     public void DeactivateLayerUI()

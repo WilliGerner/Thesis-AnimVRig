@@ -18,6 +18,8 @@ public class AnimationKeypadManager : MonoBehaviour
 
     [SerializeField]
     GameObject _curvedUIAnimList;
+    [SerializeField]
+    GameObject _curvedUIAnimListBindingVariant;
 
     private static AnimationKeypadManager instance;
     private int currentAnimationIndex = 0; // Aktueller Index der Animation in der Liste
@@ -51,7 +53,7 @@ public class AnimationKeypadManager : MonoBehaviour
     public void InitializeAnimKeyPadManager()
     {
         Debug.Log("Init AnimManager..set _animatorAnimationModel");
-        _animator = AVRGameObjectRecorder.Instance._animatorAnimationModel;
+        _animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
     }
 
     public void SetCurvedUi()
@@ -67,9 +69,22 @@ public class AnimationKeypadManager : MonoBehaviour
         }
     }
 
+    public void SetCurvedUiBindingVariant()
+    {
+        if (_curvedUIAnimListBindingVariant.activeSelf)
+        {
+            _curvedUIAnimListBindingVariant.SetActive(false);
+        }
+        else
+        {
+            _animListUI.SetUpAnimList();
+            _curvedUIAnimListBindingVariant.SetActive(true);
+        }
+    }
+
     public void SwitchShowCaseModel()
     {
-        GameObject animModel = AVRGameObjectRecorder.Instance._animatorAnimationModel.gameObject;
+        GameObject animModel = AVRGameObjectRecorder.Instance._objectToRecord;
         if (animModel.activeSelf)
         {
             animModel.SetActive(false);
