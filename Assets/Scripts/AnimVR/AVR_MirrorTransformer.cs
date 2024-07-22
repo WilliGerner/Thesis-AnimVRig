@@ -4,6 +4,8 @@ public class AVR_MirrorTransformer : MonoBehaviour
 {
     public Transform modelObject; // Das große Objekt, das bewegt wird
     public Transform miniModelObject; // Das kleine Objekt, das bewegt wird
+
+    public Transform spawnPoint;
     public Transform anchor; // Der Anker, an den das große Objekt positioniert werden soll
     public Transform targetCamera; // Die Zielkamera, zu der das große Objekt ausgerichtet werden soll
     public Vector3 positionOffset; // Manuelle Positionsoffset
@@ -24,6 +26,7 @@ public class AVR_MirrorTransformer : MonoBehaviour
     {
         if (miniModelObject != null)
         {
+
             previousMiniModelPosition = miniModelObject.localPosition;
             previousMiniModelRotation = miniModelObject.localRotation;
             previousMiniModelScale = miniModelObject.localScale;
@@ -32,21 +35,25 @@ public class AVR_MirrorTransformer : MonoBehaviour
         if (modelObject != null)
         {
             initialRotation = modelObject.localRotation; // Set initial rotation to current local rotation at start
-            modelAnimator = modelObject.GetComponent<Animator>(); // Holen Sie sich die Animator-Komponente
+            modelAnimator = modelObject.GetComponent<Animator>(); 
         }
     }
+
+    private void Start()
+    {
+        SetPosToSpawn();
+    }
+
 
     void Update()
     {
         if (miniModelObject != null && modelObject != null)
         {
-            // Deaktivieren Sie den Animator, bevor Sie Änderungen vornehmen
             if (modelAnimator != null)
             {
                 modelAnimator.enabled = false;
             }
 
-            // Überprüfen der Positionsänderung
             if (miniModelObject.localPosition != previousMiniModelPosition)
             {
                 Vector3 deltaPosition = miniModelObject.localPosition - previousMiniModelPosition;
@@ -54,27 +61,19 @@ public class AVR_MirrorTransformer : MonoBehaviour
                 previousMiniModelPosition = miniModelObject.localPosition;
             }
 
-            // Überprüfen der Rotationsänderung
             if (miniModelObject.localRotation != previousMiniModelRotation)
             {
                 Quaternion deltaRotation = Quaternion.Inverse(previousMiniModelRotation) * miniModelObject.localRotation;
-                deltaRotation = Quaternion.Inverse(deltaRotation); // Invertiere die Rotationsrichtung
+                deltaRotation = Quaternion.Inverse(deltaRotation); // Invertierung der Rotationsrichtung
                 modelObject.localRotation = modelObject.localRotation * deltaRotation;
                 previousMiniModelRotation = miniModelObject.localRotation;
             }
 
-            // Überprüfen der Skalierungsänderung
             if (miniModelObject.localScale != previousMiniModelScale)
             {
                 modelObject.localScale = Vector3.Scale(modelObject.localScale, Vector3.one + (miniModelObject.localScale - previousMiniModelScale) * scalingMultiplier);
                 previousMiniModelScale = miniModelObject.localScale;
             }
-
-            //// Reaktivieren Sie den Animator nach Änderungen
-            //if (modelAnimator != null)
-            //{
-            //    modelAnimator.enabled = true;
-            //}
         }
     }
 
@@ -82,26 +81,19 @@ public class AVR_MirrorTransformer : MonoBehaviour
     {
         if (anchor != null)
         {
-            // Deaktivieren Sie den Animator, bevor Sie Änderungen vornehmen
             if (modelAnimator != null)
             {
                 modelAnimator.enabled = false;
             }
 
-            // Setze die Position des großen Objekts auf den Anker plus den manuellen Offset
             modelObject.position = anchor.position + positionOffset;
-
-            // Setze die Rotation des großen Objekts auf die initiale Rotation
             modelObject.localRotation = initialRotation;
 
-            // Wenn `lookAtPlayer` true ist, drehe das Zielobjekt zum Player (nur Y-Achse)
             if (lookAtPlayer)
             {
-                // Berechne die Rotation zur Zielkamera für das große Objekt
                 Vector3 directionToCamera = targetCamera.position - modelObject.position;
                 Quaternion targetRotation = Quaternion.LookRotation(directionToCamera, Vector3.up);
 
-                // Anwenden der neuen Rotation, aber nur die Y-Achse
                 Vector3 eulerTargetRotation = targetRotation.eulerAngles;
                 eulerTargetRotation.x = 0;
                 eulerTargetRotation.z = 0;
@@ -110,7 +102,38 @@ public class AVR_MirrorTransformer : MonoBehaviour
                 modelObject.rotation = targetRotation;
             }
 
-            // Reaktivieren Sie den Animator nach Änderungen
+            if (modelAnimator != null)
+            {
+                modelAnimator.enabled = true;
+            }
+        }
+    }
+
+    public void SetPosToSpawn()
+    {
+        if (spawnPoint != null)
+        {
+            if (modelAnimator != null)
+            {
+                modelAnimator.enabled = false;
+            }
+
+            modelObject.position = spawnPoint.position + positionOffset;
+            modelObject.localRotation = initialRotation;
+
+            if (lookAtPlayer)
+            {
+                Vector3 directionToCamera = targetCamera.position - modelObject.position;
+                Quaternion targetRotation = Quaternion.LookRotation(directionToCamera, Vector3.up);
+
+                Vector3 eulerTargetRotation = targetRotation.eulerAngles;
+                eulerTargetRotation.x = 0;
+                eulerTargetRotation.z = 0;
+                targetRotation = Quaternion.Euler(eulerTargetRotation);
+
+                modelObject.rotation = targetRotation;
+            }
+
             if (modelAnimator != null)
             {
                 modelAnimator.enabled = true;

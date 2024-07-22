@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEditor.Animations;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using System;
 
 /// <summary>
@@ -28,6 +29,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
     bool debugActiv =false;
 
     public event Action OnMotionAdded;
+
+    private static readonly Queue<System.Action> _executionQueue = new Queue<System.Action>();
+
 
     #region Inspector Variables
     public bool isActiv = false;
@@ -77,6 +81,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             _recorder.TakeSnapshot(Time.deltaTime);
             Debug.Log("Recording: " + _recorder.isRecording);
+        }
+
+        lock (_executionQueue)  // new
+        {
+            while (_executionQueue.Count > 0)
+            {
+                _executionQueue.Dequeue().Invoke();
+            }
         }
     }
 
@@ -154,22 +166,52 @@ public class AVRGameObjectRecorder : MonoBehaviour
         Debug.Log("Animation Recording for " + gameObject.name + " has Initialized.");
     }
 
+    //public void StopRecording()
+    //{
+    //    StartCoroutine(StopRecordCoroutine());
+    //}
+
+    //IEnumerator StopRecordCoroutine()
+    //{
+    //    if (!recordInit || _recorder == null) yield return null;
+    //    recordInit = false;
+    //    _canRecord = false;
+    //    _recorder.SaveToClip(_currentClip);
+    //    AssetDatabase.SaveAssets();
+    //    Debug.Log("Should Save: ClipWithName: " + _currentClipName + "  at path: " + _saveFolderLocation);
+    //    AddMotionToAnimator();
+    //    Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
+    //    yield return null;
+    //}
     public void StopRecording()
     {
-        StartCoroutine(StopRecordCoroutine());
+        new Thread(StopRecordThread).Start();
     }
 
-    IEnumerator StopRecordCoroutine()
+    private void StopRecordThread() // Thread try
     {
-        if (!recordInit || _recorder == null) yield return null;
+        if (!recordInit || _recorder == null) return;
+
         recordInit = false;
         _canRecord = false;
-        _recorder.SaveToClip(_currentClip);
-        AssetDatabase.SaveAssets();
-        Debug.Log("Should Save: ClipWithName: " + _currentClipName + "  at path: " + _saveFolderLocation);
-        AddMotionToAnimator();
-        Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
-        yield return null;
+
+        // Save the clip and asset database (must be done in main thread)
+        Enqueue(() =>
+        {
+            _recorder.SaveToClip(_currentClip);
+            AssetDatabase.SaveAssets();
+            Debug.Log("Should Save: ClipWithName: " + _currentClipName + " at path: " + _saveFolderLocation);
+            AddMotionToAnimator();
+            Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
+        });
+    }
+
+    private void Enqueue(System.Action action)
+    {
+        lock (_executionQueue)
+        {
+            _executionQueue.Enqueue(action);
+        }
     }
 
     public void DeleteRecording(AVRGameObjectRecorder currentRecorder)

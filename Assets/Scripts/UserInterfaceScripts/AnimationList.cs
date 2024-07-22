@@ -14,6 +14,8 @@ public class AnimationList : MonoBehaviour
     private GameObject currentMiniUI;
     public AnimationClip currentClip;
     private Avatar avatar;
+    private Button rootMotionButton;
+    private TextMeshProUGUI rootMotionButtonText;
 
     void Start()
     {
@@ -76,7 +78,7 @@ public class AnimationList : MonoBehaviour
             if (isOn)
             {
                 ShowMiniUI(toggle, clip);
-                PlayAnimation(); // Starte die Animation direkt
+              //  PlayAnimation(); // Starte die Animation direkt
             }
             else if (currentMiniUI)
             {
@@ -91,8 +93,15 @@ public class AnimationList : MonoBehaviour
         if (currentMiniUI != null)
         {
             currentClip = clip;
-            currentMiniUI.transform.position = toggle.transform.position + Vector3.down * 50;
+            Transform toggleParent = toggle.transform.parent; // Get the parent of the toggle
+            currentMiniUI.transform.SetParent(toggleParent, false); // Set the mini UI's parent to the same parent as the toggle
+
+            int toggleIndex = toggle.transform.GetSiblingIndex(); // Get the index of the toggle
+            currentMiniUI.transform.SetSiblingIndex(toggleIndex + 1); // Set the mini UI's sibling index to be right after the toggle
+
             currentMiniUI.SetActive(true);
+            currentMiniUI.transform.localEulerAngles = new Vector3(0, 0, 0);
+            currentMiniUI.transform.localPosition = new Vector3(currentMiniUI.transform.localPosition.x, currentMiniUI.transform.localPosition.y, 0);
             AssignMiniUIButtons();
         }
     }
@@ -104,16 +113,46 @@ public class AnimationList : MonoBehaviour
         buttons[1].onClick.RemoveAllListeners();
         buttons[2].onClick.RemoveAllListeners();
         buttons[3].onClick.RemoveAllListeners();
-        buttons[0].onClick.AddListener(() => PlayAnimation());
-        buttons[1].onClick.AddListener(() => PauseAnimation());
+
+        rootMotionButton = buttons[0];
+        rootMotionButtonText = rootMotionButton.GetComponentInChildren<TextMeshProUGUI>();
+
+        buttons[0].onClick.AddListener(() => SetRootMotion());
+        buttons[1].onClick.AddListener(() => PlayAnimation());
         buttons[2].onClick.AddListener(() => RewindAnimation());
         buttons[3].onClick.AddListener(() => EndAnimation());
+
+        UpdateRootMotionButton(); // Initialize button state when assigned
+    }
+
+    public void SetRootMotion()
+    {
+        if (targetAnimator.hasRootMotion)
+        {
+            targetAnimator.applyRootMotion = false;
+        } else targetAnimator.applyRootMotion = true;
+
+        UpdateRootMotionButton();
+    }
+
+    private void UpdateRootMotionButton()
+    {
+        if (targetAnimator.hasRootMotion)
+        {
+            rootMotionButton.image.color = Color.green;
+            rootMotionButtonText.text = "Root Motion Active";
+        }
+        else
+        {
+            rootMotionButton.image.color = Color.red;
+            rootMotionButtonText.text = "Root Motion Inactive";
+        }
     }
 
     public void PlayAnimation()
     {
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
-
+        targetAnimator.speed = 1;
         if (RequiresAvatar(currentClip))
         {
             AttachAvatar();
@@ -124,6 +163,7 @@ public class AnimationList : MonoBehaviour
         }
 
         targetAnimator.Play(currentClip.name);
+        Debug.Log("Anim: " + currentClip.name+"  should play noW");
     }
 
     private bool RequiresAvatar(AnimationClip clip)
