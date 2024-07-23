@@ -11,38 +11,21 @@ public class SettingsKeypadManager : MonoBehaviour
 
     [SerializeField]
     OVRPassthroughLayer passthroughLayer;
+    [SerializeField]
+    GameObject environment;
     bool passthroughActiv;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Called()
-    {
-
-    }
-
-    public void InitializeSettingsKeyPadManager()
-    {
-
-    }
 
     public void SwitchPassthrough()
     {
         if (passthroughActiv)
         {
+            environment.SetActive(true);
             passthroughLayer.textureOpacity = 0;
             passthroughActiv = false;
         }
         else
         {
+            environment.SetActive(false);
             passthroughLayer.textureOpacity = 1.0f;
             passthroughActiv = true;
         }

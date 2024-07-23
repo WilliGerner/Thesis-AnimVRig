@@ -82,23 +82,31 @@ public class AVR_PalmMenueManager : MonoBehaviour
 
     public void ShowAVRMenue()
     {
-        if (_UI_1x3.activeSelf)
+        /// Normal Case
+        //if (_UI_1x3.activeSelf)
+        //{
+        //    _UI_1x3.SetActive(false);
+        //    DeactivateAlBiglMenues();
+        //}
+        //else
+        //{
+        //    _UI_1x3.SetActive(true);
+        //}
+
+
+        // StudyCase
+        if (_UI_3x3_Study.activeSelf)
         {
-            _UI_1x3.SetActive(false);
+            _UI_3x3_Study.SetActive(false);
             DeactivateAlBiglMenues();
         }
-        else
-        {
-            _UI_1x3.SetActive(true);
-        }
+        else _UI_3x3_Study.SetActive(true);
     }
 
     public void InitializePalmMenue() // Logic should work and called after new Model assigned.
     {
         SetModelAndClipNameTxt();
         _animKeypadManager.InitializeAnimKeyPadManager();
-       // _modelKeypadManager.InitializeModelKeyPadManager();
-        _settingsKeypadManager.InitializeSettingsKeyPadManager();
     }
 
     void SetModelAndClipNameTxt()

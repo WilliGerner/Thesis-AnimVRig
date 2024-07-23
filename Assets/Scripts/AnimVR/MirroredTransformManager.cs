@@ -16,21 +16,21 @@ public class MirroredTransformManager : MonoBehaviour
     {
         if (_lateMirroredObject != null)
         {
-            Debug.Log("_lateMirroredObject is assigned.");
+            //Debug.Log("_lateMirroredObject is assigned.");
 
             _mirroredTransformPairsField = typeof(LateMirroredObject).GetField("_mirroredTransformPairs", BindingFlags.NonPublic | BindingFlags.Instance);
 
             if (_mirroredTransformPairsField != null)
             {
-                Debug.Log("_mirroredTransformPairsField is retrieved.");
+               // Debug.Log("_mirroredTransformPairsField is retrieved.");
                 var mirroredTransformPairs = (LateMirroredObject.MirroredTransformPair[])_mirroredTransformPairsField.GetValue(_lateMirroredObject);
 
                 if (mirroredTransformPairs != null)
                 {
-                    Debug.Log("mirroredTransformPairs is not null and has " + mirroredTransformPairs.Length + " elements.");
+                  //  Debug.Log("mirroredTransformPairs is not null and has " + mirroredTransformPairs.Length + " elements.");
                     _originalMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(mirroredTransformPairs);
                     _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_originalMirroredTransformPairs);
-                    Debug.Log("Original Mirrored Transform Pairs initialized with " + _originalMirroredTransformPairs.Count + " elements.");
+                  //  Debug.Log("Original Mirrored Transform Pairs initialized with " + _originalMirroredTransformPairs.Count + " elements.");
                 }
                 else
                 {
@@ -70,7 +70,7 @@ public class MirroredTransformManager : MonoBehaviour
 
     private void UpdateMirroredTransformPairs(bool isEnabled, string bodyPartRoot)
     {
-        Debug.Log("isEnabled is: "+ isEnabled);
+        //Debug.Log("isEnabled is: "+ isEnabled);
         if (_originalMirroredTransformPairs == null)
         {
             Debug.LogError("_originalMirroredTransformPairs is null");
@@ -85,7 +85,7 @@ public class MirroredTransformManager : MonoBehaviour
                 if (IsBodyPart(pair.OriginalTransform, bodyPartRoot) && !_currentMirroredTransformPairs.Contains(pair))
                 {
                     _currentMirroredTransformPairs.Add(pair);
-                    Debug.Log($"Added part: {pair.OriginalTransform.name}");
+                  //  Debug.Log($"Added part: {pair.OriginalTransform.name}");
                 }
             }
         }
@@ -93,11 +93,11 @@ public class MirroredTransformManager : MonoBehaviour
         {
             // Entfernen der Teile, die zu diesem Körperteil gehören
             _currentMirroredTransformPairs.RemoveAll(pair => IsBodyPart(pair.OriginalTransform, bodyPartRoot));
-            Debug.Log($"Removed part: {bodyPartRoot}");
+           // Debug.Log($"Removed part: {bodyPartRoot}");
         }
 
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-        Debug.Log($"{bodyPartRoot} is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
+        //Debug.Log($"{bodyPartRoot} is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
     }
 
     private bool IsBodyPart(Transform transform, string bodyPartRoot)
@@ -132,13 +132,13 @@ public class MirroredTransformManager : MonoBehaviour
         }
 
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-        Debug.Log($"Everything is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
+       // Debug.Log($"Everything is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
     }
 
     public void ToggleNothing()
     {
         _currentMirroredTransformPairs.Clear();
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-        Debug.Log("Nothing is enabled. Current count: 0");
+       // Debug.Log("Nothing is enabled. Current count: 0");
     }
 }

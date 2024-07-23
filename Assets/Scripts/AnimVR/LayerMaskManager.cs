@@ -8,29 +8,26 @@ public class LayerMaskManager : MonoBehaviour
 {
     [SerializeField]
     private MirroredTransformManager _mirroredTransformManager;
+
     #region CustomToggle
     [SerializeField]
     private AnimationClip _animClip;
     [SerializeField]
     private AvatarMask _customMask;
     [SerializeField]
+    private AvatarMask _baseLayerMask;
+    [SerializeField]
     private RetargetingAnimationConstraint[] _retargetingConstraints;
     [SerializeField]
     private Animator[] _animators;
-    [SerializeField]
-    private bool _customAnimEnabled = false;
-    [SerializeField]
-    private TMPro.TextMeshPro _worldText;
-    [SerializeField]
-    private string _animParamName = "Wave";
 
-    private const string _ANIM_OFF_TEXT = "Anim off";
-    private const string _ANIM_ON_TEXT = "Anim on";
     #endregion
+
     [SerializeField]
     private TMPro.TextMeshProUGUI _currentMaskTxt;
     [SerializeField]
     private GameObject layerMenue;
+
     public bool _leftArm = false;
     public bool _rightArm = false;
     public bool _leftFoot = false;
@@ -58,170 +55,140 @@ public class LayerMaskManager : MonoBehaviour
 
     private RoundedBoxProperties roundedBoxProperties;
     [SerializeField]
-    GameObject BtnVisualToggleNothing;
+    private GameObject BtnVisualToggleNothing;
     [SerializeField]
-    GameObject BtnVisualToggleLeftArm;
+    private GameObject BtnVisualToggleLeftArm;
     [SerializeField]
-    GameObject BtnVisualToggleRightArm;
+    private GameObject BtnVisualToggleRightArm;
     [SerializeField]
-    GameObject BtnVisualToggleLeftLeg;
+    private GameObject BtnVisualToggleLeftLeg;
     [SerializeField]
-    GameObject BtnVisualToggleRightLeg;
+    private GameObject BtnVisualToggleRightLeg;
     [SerializeField]
-    GameObject BtnVisualToggleHead;
+    private GameObject BtnVisualToggleHead;
+
+    private float _savedAnimTime;
+    private string _currentAnimStateName;
+    private int _currentAnimLayer;
+    private Animator _currentAnimator;
 
     private void Awake()
     {
         Assert.IsNotNull(_animClip);
         Assert.IsNotNull(_customMask);
+        Assert.IsNotNull(_baseLayerMask);
         Assert.IsTrue(_retargetingConstraints != null && _retargetingConstraints.Length > 0);
         Assert.IsTrue(_animators != null && _animators.Length > 0);
-        Assert.IsNotNull(_worldText);
     }
 
     private void Start()
     {
-
+        UpdateAllColors();
     }
 
-    private void Update()
+    private void SaveCurrentAnimationState()
     {
-        foreach (var animator in _animators)
+        if (_animators.Length > 0)
         {
-            animator.SetBool(_animParamName, _customAnimEnabled);
+            _currentAnimator = _animators[0]; // Assuming we're dealing with the first animator for simplicity
+            _currentAnimLayer = 0; // Assuming the first layer for simplicity
+            var animatorStateInfo = _currentAnimator.GetCurrentAnimatorStateInfo(_currentAnimLayer);
+
+            _currentAnimStateName = animatorStateInfo.shortNameHash.ToString();
+            _savedAnimTime = animatorStateInfo.normalizedTime;
+
+            Debug.Log($"Saved Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
         }
     }
 
-    public void SwapAnimState()
+    private void RestoreAnimationState()
     {
-        _customAnimEnabled = !_customAnimEnabled;
-        EnforceAnimState();
+        if (_currentAnimator != null && !string.IsNullOrEmpty(_currentAnimStateName))
+        {
+            Debug.Log($"Restoring Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
+            _currentAnimator.Play(_currentAnimStateName, _currentAnimLayer, _savedAnimTime);
+        }
     }
 
-    private void EnforceAnimState()
+    private void UpdateAvatarMasksForConstraints()
     {
         foreach (var retargetConstraint in _retargetingConstraints)
         {
-            retargetConstraint.data.AvatarMaskComp =
-                _customAnimEnabled ? _customMask : null;
+            retargetConstraint.data.AvatarMaskComp = _customMask;
         }
-        foreach (var animator in _animators)
+    }
+
+    private void ApplyBaseLayerMask()
+    {
+        for (int i = 0; i < (int)AvatarMaskBodyPart.LastBodyPart; i++)
         {
-            animator.SetBool(_animParamName, _customAnimEnabled);
+            AvatarMaskBodyPart bodyPart = (AvatarMaskBodyPart)i;
+            _baseLayerMask.SetHumanoidBodyPartActive(bodyPart, _customMask.GetHumanoidBodyPartActive(bodyPart));
         }
-        _worldText.text = _customAnimEnabled ?
-            _ANIM_ON_TEXT : _ANIM_OFF_TEXT;
     }
 
     AvatarMask DetermineAvatarMask()
     {
-        if (_nothing)
-        {
-            return nothingMask;
-        }
-        if (_everything)
-        {
-            return everythingMask;
-        }
-
-        if (_leftArm && !_rightArm && !_leftFoot && !_rightFoot)
-        {
-            return leftArmMask;
-        }
-        if (!_leftArm && _rightArm && !_leftFoot && !_rightFoot)
-        {
-            return rightArmMask;
-        }
-        if (!_leftArm && !_rightArm && _leftFoot && !_rightFoot)
-        {
-            return leftFootMask;
-        }
-        if (!_leftArm && !_rightArm && !_leftFoot && _rightFoot)
-        {
-            return rightFootMask;
-        }
-        if (_leftArm && _rightArm && !_leftFoot && !_rightFoot)
-        {
-            return bothArmsMask;
-        }
-        if (!_leftArm && !_rightArm && _leftFoot && _rightFoot)
-        {
-            return bothFeetMask;
-        }
-        if (_leftArm && !_rightArm && _leftFoot && !_rightFoot)
-        {
-            return leftArmLeftFootMask;
-        }
-        if (_leftArm && !_rightArm && !_leftFoot && _rightFoot)
-        {
-            return leftArmRightFootMask;
-        }
-        if (!_leftArm && _rightArm && _leftFoot && !_rightFoot)
-        {
-            return rightArmLeftFootMask;
-        }
-        if (!_leftArm && _rightArm && !_leftFoot && _rightFoot)
-        {
-            return rightArmRightFootMask;
-        }
-        if (_leftArm && _rightArm && _leftFoot && !_rightFoot)
-        {
-            return bothArmsLeftFootMask;
-        }
-        if (_leftArm && _rightArm && !_leftFoot && _rightFoot)
-        {
-            return bothArmsRightFootMask;
-        }
-        if (_leftArm && !_rightArm && _leftFoot && _rightFoot)
-        {
-            return leftArmBothFeetMask;
-        }
-        if (!_leftArm && _rightArm && _leftFoot && _rightFoot)
-        {
-            return rightArmBothFeetMask;
-        }
-        if (_leftArm && _rightArm && _leftFoot && _rightFoot)
-        {
-            return bothArmsBothFeetMask;
-        }
-
+        if (_nothing) return nothingMask;
+        if (_everything) return everythingMask;
+        if (_leftArm && !_rightArm && !_leftFoot && !_rightFoot) return leftArmMask;
+        if (!_leftArm && _rightArm && !_leftFoot && !_rightFoot) return rightArmMask;
+        if (!_leftArm && !_rightArm && _leftFoot && !_rightFoot) return leftFootMask;
+        if (!_leftArm && !_rightArm && !_leftFoot && _rightFoot) return rightFootMask;
+        if (_leftArm && _rightArm && !_leftFoot && !_rightFoot) return bothArmsMask;
+        if (!_leftArm && !_rightArm && _leftFoot && _rightFoot) return bothFeetMask;
+        if (_leftArm && !_rightArm && _leftFoot && !_rightFoot) return leftArmLeftFootMask;
+        if (_leftArm && !_rightArm && !_leftFoot && _rightFoot) return leftArmRightFootMask;
+        if (!_leftArm && _rightArm && _leftFoot && !_rightFoot) return rightArmLeftFootMask;
+        if (!_leftArm && _rightArm && _leftFoot && _rightFoot) return rightArmRightFootMask;
+        if (_leftArm && _rightArm && _leftFoot && !_rightFoot) return bothArmsLeftFootMask;
+        if (_leftArm && _rightArm && !_leftFoot && _rightFoot) return bothArmsRightFootMask;
+        if (_leftArm && _rightArm && _leftFoot && _rightFoot) return bothArmsBothFeetMask;
         return nothingMask;
     }
 
     public void ToggleLeftArm()
     {
-        if (_customAnimEnabled) SwapAnimState();
+        SaveCurrentAnimationState();
         _leftArm = !_leftArm;
         ResetEverythingNothing();
         ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _mirroredTransformManager.ToggleLeftArm(_leftArm);
+        UpdateCurrentMask();
+        RestoreAnimationState();
     }
 
     public void ToggleRightArm()
     {
-        if (_customAnimEnabled) SwapAnimState();
+        SaveCurrentAnimationState();
         _rightArm = !_rightArm;
         ResetEverythingNothing();
         ChangeColor(_rightArm, BtnVisualToggleRightArm);
         _mirroredTransformManager.ToggleRightArm(_rightArm);
+        UpdateCurrentMask();
+        RestoreAnimationState();
     }
 
     public void ToggleLeftFoot()
     {
-        if (_customAnimEnabled) SwapAnimState();
+        SaveCurrentAnimationState();
         _leftFoot = !_leftFoot;
         ResetEverythingNothing();
         ChangeColor(_leftFoot, BtnVisualToggleLeftLeg);
         _mirroredTransformManager.ToggleLeftLeg(_leftFoot);
+        UpdateCurrentMask();
+        RestoreAnimationState();
     }
 
     public void ToggleRightFoot()
     {
-        if (_customAnimEnabled) SwapAnimState();
+        SaveCurrentAnimationState();
         _rightFoot = !_rightFoot;
         ResetEverythingNothing();
         ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
         _mirroredTransformManager.ToggleRightLeg(_rightFoot);
+        UpdateCurrentMask();
+        RestoreAnimationState();
     }
 
     public void ChangeColor(bool active, GameObject buttonVisualGO)
@@ -234,44 +201,40 @@ public class LayerMaskManager : MonoBehaviour
             return;
         }
 
-        if (active)
-        {
-            roundedBoxProperties.Color = Color.green;
-        }
-        else
-        {
-            roundedBoxProperties.Color = Color.red;
-        }
-
+        roundedBoxProperties.Color = active ? Color.green : Color.red;
         InvokePrivateMethod(roundedBoxProperties, "UpdateMaterialPropertyBlock");
     }
 
     public void ToggleEverything()
     {
+        SaveCurrentAnimationState();
         _everything = true;
-        
         _nothing = false;
-        _leftArm = true;
-        _rightArm = true;
-        _leftFoot = true;
-        _rightFoot = true;
+        ResetIndividualParts(true);
         UpdateAllColors();
 
         _customMask = DetermineAvatarMask();
+        UpdateAvatarMasksForConstraints();
+        ApplyBaseLayerMask();
         _mirroredTransformManager.ToggleEverything(_everything);
         _currentMaskTxt.text = _customMask.name;
+        RestoreAnimationState();
     }
 
     public void ToggleNothing()
     {
-        _nothing =true;
+        SaveCurrentAnimationState();
+        _nothing = true;
         _everything = false;
-        ResetIndividualParts();
+        ResetIndividualParts(false);
         UpdateAllColors();
-        _mirroredTransformManager.ToggleNothing();
-        
+
         _customMask = DetermineAvatarMask();
+        UpdateAvatarMasksForConstraints();
+        ApplyBaseLayerMask();
+        _mirroredTransformManager.ToggleNothing();
         _currentMaskTxt.text = _customMask.name;
+        RestoreAnimationState();
     }
 
     private void ResetEverythingNothing()
@@ -279,15 +242,25 @@ public class LayerMaskManager : MonoBehaviour
         _everything = false;
         _nothing = false;
         _customMask = DetermineAvatarMask();
+        UpdateAvatarMasksForConstraints();
+        ApplyBaseLayerMask();
         _currentMaskTxt.text = _customMask.name;
     }
 
-    private void ResetIndividualParts()
+    private void ResetIndividualParts(bool state)
     {
-        _leftArm = false;
-        _rightArm = false;
-        _leftFoot = false;
-        _rightFoot = false;
+        _leftArm = state;
+        _rightArm = state;
+        _leftFoot = state;
+        _rightFoot = state;
+    }
+
+    private void UpdateCurrentMask()
+    {
+        _customMask = DetermineAvatarMask();
+        UpdateAvatarMasksForConstraints();
+        ApplyBaseLayerMask();
+        _currentMaskTxt.text = _customMask.name;
     }
 
     private void UpdateAllColors()
@@ -312,7 +285,7 @@ public class LayerMaskManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError($"Methode {methodName} nicht gefunden auf {target.GetType().Name}");
+            Debug.LogError($"Method {methodName} not found on {target.GetType().Name}");
         }
     }
 }

@@ -73,15 +73,15 @@ public class AnimationKeypadManager : MonoBehaviour
 
     public void SetCurvedUiStudy(GameObject modelMenu)
     {
-        if (_curvedUIAnimListStudy.activeSelf)
+        if (modelMenu.activeSelf)
         {
-            _curvedUIAnimListStudy.SetActive(false);
+            modelMenu.SetActive(false);
         }
         else
         {
             _animListUI.SetUpAnimList();
-            _curvedUIAnimListStudy.SetActive(true);
-            if (modelMenu.activeSelf) modelMenu.SetActive(false); // Only for Study
+            modelMenu.SetActive(true);
+           // if (modelMenu.activeSelf) modelMenu.SetActive(false); // Only for Study
         }
     }
 

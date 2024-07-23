@@ -373,14 +373,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
         // Search for the Two Childs  "DebugBones & DebugBonesOVRSkeletonFullBody int the current MirroredObject to Record.
         if (debugActiv)
         {
-            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(0).gameObject.SetActive(false); 
-            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(1).gameObject.SetActive(false);
+            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false); 
+            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(false);
+            
             debugActiv = false;
         }
         else
         {
-            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(0).gameObject.SetActive(true);
-            _MirroredObjectToRecord.transform.parent.transform.parent.GetChild(1).gameObject.SetActive(true);
+            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(true);
+            Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.name);
+            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(true);
+            Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.name);
             debugActiv = true;
         }
     }
