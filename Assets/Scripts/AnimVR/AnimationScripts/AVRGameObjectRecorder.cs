@@ -5,11 +5,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System;
+using TMPro;  // Add this for TextMeshPro
 using Oculus.Movement.Effects;
 
-/// <summary>
-/// Newer Version from AVR_Recorder
-/// </summary>
 public class AVRGameObjectRecorder : MonoBehaviour
 {
     [Tooltip("The Object you want to Record")]
@@ -20,6 +18,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public List<AnimationClip> allClips;
     AnimatorController _animController;
     public Animator _animatorMirrored;
+    public MirroredTransformManager mirroredTransformManager;
 
     public List<GameObject> additionalRecordObjects;
     public List<GameObject> AllMainObjectsToRecord;
@@ -27,13 +26,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool _canRecord = false;
     public bool recordInit = false;
     public bool recordMirroredObject = false;
-    bool debugActiv =false;
+    bool debugActiv = false;
+
+    public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
     public event Action OnMotionAdded;
     public event Action OnChangeModel;
 
     private static readonly Queue<System.Action> _executionQueue = new Queue<System.Action>();
-
 
     #region Inspector Variables
     public bool isActiv = false;
@@ -80,6 +80,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
         CreateNewClip();
         ActivateOtherModel(GetActiveElement().name);
         AVR_PalmMenueManager.Instance.InitializePalmMenue();
+        countdownText.gameObject.SetActive(false);
+        mirroredTransformManager.Initialize(); // Clear the Pairs after saving
     }
 
     private void Update()
@@ -143,7 +145,25 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
-        if (recordInit) return;
+        countdownText.gameObject.SetActive(true);
+        StartCoroutine(StartRecordingWithCountdown());
+    }
+
+    private IEnumerator StartRecordingWithCountdown()
+    {
+        float countdown = 5f; // Countdown duration in seconds
+
+        while (countdown > 0)
+        {
+            countdownText.text = Mathf.Ceil(countdown).ToString(); // Update the countdown text
+            yield return new WaitForSeconds(1f);
+            countdown -= 1f;
+        }
+        countdownText.text = ""; // Clear the countdown text
+        countdownText.gameObject.SetActive(false);
+
+
+        if (recordInit) yield break;
 
         if (_recorder == null)
         {
@@ -173,23 +193,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
         Debug.Log("Animation Recording for " + gameObject.name + " has Initialized.");
     }
 
-    //public void StopRecording()
-    //{
-    //    StartCoroutine(StopRecordCoroutine());
-    //}
-
-    //IEnumerator StopRecordCoroutine()
-    //{
-    //    if (!recordInit || _recorder == null) yield return null;
-    //    recordInit = false;
-    //    _canRecord = false;
-    //    _recorder.SaveToClip(_currentClip);
-    //    AssetDatabase.SaveAssets();
-    //    Debug.Log("Should Save: ClipWithName: " + _currentClipName + "  at path: " + _saveFolderLocation);
-    //    AddMotionToAnimator();
-    //    Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
-    //    yield return null;
-    //}
     public void StopRecording()
     {
         new Thread(StopRecordThread).Start();
@@ -259,7 +262,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
         newState.motion = _currentClip;
         Debug.Log(_animController.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
-        OnMotionAdded?.Invoke(); 
+        OnMotionAdded?.Invoke();
     }
     public void ActivateOtherModel(string objectName)
     {
@@ -281,7 +284,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _animController = animationController as AnimatorController;
 
                         found = true;
-                        Debug.LogWarning("New Model:  " + obj +"  and string Name was: "+ objectName);
+                        Debug.LogWarning("New Model:  " + obj + "  and string Name was: " + objectName);
                     }
                     else
                     {
@@ -289,7 +292,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     }
                 }
             }
-          
+
             if (found)
             {
                 //ResetRecorder();
@@ -314,7 +317,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void SetModel()
     {
-        Debug.LogWarning("New Model for Recorder: " + _objectToRecord +"  oldRecorder: " + _recorder);
+        Debug.LogWarning("New Model for Recorder: " + _objectToRecord + "  oldRecorder: " + _recorder);
         _recorder = new GameObjectRecorder(_objectToRecord);
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
 
@@ -357,9 +360,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
         // Search for the Two Childs  "DebugBones & DebugBonesOVRSkeletonFullBody int the current MirroredObject to Record.
         if (debugActiv)
         {
-            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false); 
+            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false);
             _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(false);
-            
+
             debugActiv = false;
         }
         else

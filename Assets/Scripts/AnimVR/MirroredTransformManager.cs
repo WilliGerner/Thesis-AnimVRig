@@ -13,6 +13,11 @@ public class MirroredTransformManager : MonoBehaviour
 
     private void Awake()
     {
+        // Awake method remains empty or can include other initialization that does not depend on the GameObject being active
+    }
+
+    public void Initialize()
+    {
         if (_lateMirroredObject != null)
         {
             _mirroredTransformPairsField = typeof(LateMirroredObject).GetField("_mirroredTransformPairs", BindingFlags.NonPublic | BindingFlags.Instance);
@@ -40,6 +45,12 @@ public class MirroredTransformManager : MonoBehaviour
         {
             Debug.LogError("_lateMirroredObject is not assigned.");
         }
+
+        // Clear the mirrored transform pairs after initialization
+        _currentMirroredTransformPairs.Clear();
+        _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
+
+        this.enabled = false; // Disable the script after initialization
     }
 
     public void ToggleLeftArm(bool isEnabled)
@@ -64,6 +75,7 @@ public class MirroredTransformManager : MonoBehaviour
 
     private void UpdateMirroredTransformPairs(bool isEnabled, string[] bodyPartRoots)
     {
+        _lateMirroredObject.enabled = true;
         if (_originalMirroredTransformPairs == null)
         {
             Debug.LogError("_originalMirroredTransformPairs is null");
@@ -110,7 +122,6 @@ public class MirroredTransformManager : MonoBehaviour
 
         return false;
     }
-
 
     public void ToggleEverything(bool isEnabled)
     {
