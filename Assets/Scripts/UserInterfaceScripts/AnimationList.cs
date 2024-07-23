@@ -20,6 +20,7 @@ public class AnimationList : MonoBehaviour
     void Start()
     {
         AVRGameObjectRecorder.Instance.OnMotionAdded += SetUpAnimList;
+        AVRGameObjectRecorder.Instance.OnChangeModel += SetUpAnimList;
         InitializeToggles();
         CreateMiniUI();
     }
@@ -28,6 +29,7 @@ public class AnimationList : MonoBehaviour
         if (AVRGameObjectRecorder.Instance != null)
         {
             AVRGameObjectRecorder.Instance.OnMotionAdded -= SetUpAnimList;
+            AVRGameObjectRecorder.Instance.OnChangeModel -= SetUpAnimList;
         }
     }
 
@@ -137,7 +139,7 @@ public class AnimationList : MonoBehaviour
 
     private void UpdateRootMotionButton()
     {
-        if (targetAnimator.hasRootMotion)
+        if (!targetAnimator.applyRootMotion)
         {
             rootMotionButton.image.color = Color.green;
             rootMotionButtonText.text = "Root Motion Active";

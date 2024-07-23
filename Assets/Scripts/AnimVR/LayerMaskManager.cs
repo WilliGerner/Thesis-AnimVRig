@@ -90,7 +90,14 @@ public class LayerMaskManager : MonoBehaviour
     {
         if (_animators.Length > 0)
         {
-            _currentAnimator = _animators[0]; // Assuming we're dealing with the first animator for simplicity
+            for (int i = 0; i < _animators.Length; i++)
+            {
+                if (_animators[i].gameObject.activeSelf)
+                {
+                    _currentAnimator = _animators[i];
+                }
+            }
+         //   _currentAnimator = _animators[0]; // Assuming we're dealing with the first animator for simplicity
             _currentAnimLayer = 0; // Assuming the first layer for simplicity
             var animatorStateInfo = _currentAnimator.GetCurrentAnimatorStateInfo(_currentAnimLayer);
 
@@ -112,10 +119,10 @@ public class LayerMaskManager : MonoBehaviour
 
     private void UpdateAvatarMasksForConstraints()
     {
-        foreach (var retargetConstraint in _retargetingConstraints)
-        {
-            retargetConstraint.data.AvatarMaskComp = _customMask;
-        }
+        //foreach (var retargetConstraint in _retargetingConstraints)
+        //{
+        //    retargetConstraint.data.AvatarMaskComp = _customMask;
+        //}
     }
 
     private void ApplyBaseLayerMask()

@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System;
+using Oculus.Movement.Effects;
 
 /// <summary>
 /// Newer Version from AVR_Recorder
@@ -29,6 +30,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     bool debugActiv =false;
 
     public event Action OnMotionAdded;
+    public event Action OnChangeModel;
 
     private static readonly Queue<System.Action> _executionQueue = new Queue<System.Action>();
 
@@ -42,6 +44,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [SerializeField] string _clipName;
     private string _currentClipName;
     [SerializeField] float _frameRate = 60f;
+
+    [SerializeField]
+    MirroredTransformManager mirroredTransfromManager; // In Study Case something else than normal ( Layer Menue Study)
+    [SerializeField]
+    AVR_MirrorTransformer avr_mirrorTransformer;
 
     #endregion
 
@@ -254,31 +261,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
         Debug.Log(_animController.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
         OnMotionAdded?.Invoke(); 
     }
-
-    #region Animator Functions (Play and Stop AnimPlayback)
-    //public void PlayAnimation(Animator animator, AnimationClip clip)
-    //{
-    //    clip.wrapMode = WrapMode.Once;
-    //    var runtimeController = animator.runtimeAnimatorController;
-    //    animator.Play(clip.name, 0, 0);
-    //    animator.Update(Time.deltaTime);
-    //    Debug.Log("Animation " + clip.name + " Play");
-    //}
-
-    //public void StopPlayback(Animator animator)
-    //{
-    //    animator.StopPlayback();
-    //    Debug.Log(animator.gameObject.name + "     Stopped Playback");
-    //}
-
-    //public void StartPlayback(Animator animator)
-    //{
-    //    Debug.Log("Anim is: " + animator + "   Animator is in Playback Mode");
-    //    animator.StartPlayback();
-    //}
-    #endregion
-
-    #region New Functions
     public void ActivateOtherModel(string objectName)
     {
         {
@@ -348,7 +330,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 _recorder.BindComponentsOfType<Transform>(additionalObj, true);
             }
         }
-
+        avr_mirrorTransformer.modelObject = _objectToRecord.transform; // Set new Model in Transformer.
+        mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
+        OnChangeModel?.Invoke();
         Debug.Log("Model set for recording: " + _objectToRecord.name);
     }
 
@@ -387,5 +371,4 @@ public class AVRGameObjectRecorder : MonoBehaviour
             debugActiv = true;
         }
     }
-    #endregion
 }

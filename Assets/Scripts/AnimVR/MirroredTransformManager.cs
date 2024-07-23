@@ -5,8 +5,7 @@ using Oculus.Movement.Effects;
 
 public class MirroredTransformManager : MonoBehaviour
 {
-    [SerializeField]
-    private LateMirroredObject _lateMirroredObject;
+    public LateMirroredObject _lateMirroredObject;
 
     private List<LateMirroredObject.MirroredTransformPair> _originalMirroredTransformPairs;
     private List<LateMirroredObject.MirroredTransformPair> _currentMirroredTransformPairs;
@@ -16,21 +15,16 @@ public class MirroredTransformManager : MonoBehaviour
     {
         if (_lateMirroredObject != null)
         {
-            //Debug.Log("_lateMirroredObject is assigned.");
-
             _mirroredTransformPairsField = typeof(LateMirroredObject).GetField("_mirroredTransformPairs", BindingFlags.NonPublic | BindingFlags.Instance);
 
             if (_mirroredTransformPairsField != null)
             {
-               // Debug.Log("_mirroredTransformPairsField is retrieved.");
                 var mirroredTransformPairs = (LateMirroredObject.MirroredTransformPair[])_mirroredTransformPairsField.GetValue(_lateMirroredObject);
 
                 if (mirroredTransformPairs != null)
                 {
-                  //  Debug.Log("mirroredTransformPairs is not null and has " + mirroredTransformPairs.Length + " elements.");
                     _originalMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(mirroredTransformPairs);
                     _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_originalMirroredTransformPairs);
-                  //  Debug.Log("Original Mirrored Transform Pairs initialized with " + _originalMirroredTransformPairs.Count + " elements.");
                 }
                 else
                 {
@@ -50,27 +44,26 @@ public class MirroredTransformManager : MonoBehaviour
 
     public void ToggleLeftArm(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, "clavicle_l");
+        UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_l", "Left_UpperArm", "Left_LowerArm", "mixamorig1:LeftArm", "mixamorig1:LeftForeArm" });
     }
 
     public void ToggleRightArm(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, "clavicle_r");
+        UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_r", "Right_UpperArm", "Right_LowerArm", "mixamorig1:RightArm", "mixamorig1:RightForeArm" });
     }
 
     public void ToggleLeftLeg(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, "thigh_l");
+        UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_l", "Left_UpperLeg", "Left_LowerLeg", "mixamorig1:LeftUpLeg", "mixamorig1:LeftLeg" });
     }
 
     public void ToggleRightLeg(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, "thigh_r");
+        UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_r", "Right_UpperLeg", "Right_LowerLeg", "mixamorig1:RightUpLeg", "mixamorig1:RightLeg" });
     }
 
-    private void UpdateMirroredTransformPairs(bool isEnabled, string bodyPartRoot)
+    private void UpdateMirroredTransformPairs(bool isEnabled, string[] bodyPartRoots)
     {
-        //Debug.Log("isEnabled is: "+ isEnabled);
         if (_originalMirroredTransformPairs == null)
         {
             Debug.LogError("_originalMirroredTransformPairs is null");
@@ -79,46 +72,45 @@ public class MirroredTransformManager : MonoBehaviour
 
         if (isEnabled)
         {
-            // Hinzufügen der Teile, die zu diesem Körperteil gehören
             foreach (var pair in _originalMirroredTransformPairs)
             {
-                if (IsBodyPart(pair.OriginalTransform, bodyPartRoot) && !_currentMirroredTransformPairs.Contains(pair))
+                if (IsBodyPart(pair.OriginalTransform, bodyPartRoots) && !_currentMirroredTransformPairs.Contains(pair))
                 {
                     _currentMirroredTransformPairs.Add(pair);
-                  //  Debug.Log($"Added part: {pair.OriginalTransform.name}");
                 }
             }
         }
         else
         {
-            // Entfernen der Teile, die zu diesem Körperteil gehören
-            _currentMirroredTransformPairs.RemoveAll(pair => IsBodyPart(pair.OriginalTransform, bodyPartRoot));
-           // Debug.Log($"Removed part: {bodyPartRoot}");
+            _currentMirroredTransformPairs.RemoveAll(pair => IsBodyPart(pair.OriginalTransform, bodyPartRoots));
         }
 
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-        //Debug.Log($"{bodyPartRoot} is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
     }
 
-    private bool IsBodyPart(Transform transform, string bodyPartRoot)
+    private bool IsBodyPart(Transform transform, string[] bodyPartRoots)
     {
-        if (transform.name.ToLower().Contains(bodyPartRoot))
+        foreach (var bodyPartRoot in bodyPartRoots)
         {
-            return true;
-        }
-
-        Transform current = transform;
-        while (current.parent != null)
-        {
-            if (current.parent.name.ToLower().Contains(bodyPartRoot))
+            if (transform.name.ToLower().Contains(bodyPartRoot.ToLower()))
             {
                 return true;
             }
-            current = current.parent;
+
+            Transform current = transform;
+            while (current.parent != null)
+            {
+                if (current.parent.name.ToLower().Contains(bodyPartRoot.ToLower()))
+                {
+                    return true;
+                }
+                current = current.parent;
+            }
         }
 
         return false;
     }
+
 
     public void ToggleEverything(bool isEnabled)
     {
@@ -132,13 +124,11 @@ public class MirroredTransformManager : MonoBehaviour
         }
 
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-       // Debug.Log($"Everything is now {(isEnabled ? "enabled" : "disabled")}. Current count: {_currentMirroredTransformPairs.Count}");
     }
 
     public void ToggleNothing()
     {
         _currentMirroredTransformPairs.Clear();
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
-       // Debug.Log("Nothing is enabled. Current count: 0");
     }
 }
