@@ -41,7 +41,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [Tooltip("Must start with Assets/ and will be normaly Set at The Start to RecordObkjectNameFolder.")]
     [SerializeField] string _saveFolderLocation = "Assets/AnimationContent/";
 
-    [SerializeField] string _clipName;
+    public string _clipName;
     private string _currentClipName;
     [SerializeField] float _frameRate = 60f;
 
@@ -145,6 +145,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
+        CreateNewClip();
         countdownText.gameObject.SetActive(true);
         StartCoroutine(StartRecordingWithCountdown());
     }
@@ -166,9 +167,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         if (recordInit) yield break;
 
         if (_recorder == null)
-        {
-            _recorder = new GameObjectRecorder(_objectToRecord);
-        }
+        {    _recorder = new GameObjectRecorder(_objectToRecord);}
 
         recordInit = true;
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
@@ -189,7 +188,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
-
         Debug.Log("Animation Recording for " + gameObject.name + " has Initialized.");
     }
 
@@ -200,19 +198,20 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private void StopRecordThread() // Thread try
     {
-        if (!recordInit || _recorder == null) return;
-
+        if (!recordInit || _recorder == null)
+        {
+            Debug.Log("ThreadStopped because of null recorder or false recordInti stat");
+            return;
+        }
         recordInit = false;
         _canRecord = false;
 
-        // Save the clip and asset database (must be done in main thread)
         Enqueue(() =>
         {
             _recorder.SaveToClip(_currentClip);
             AssetDatabase.SaveAssets();
             Debug.Log("Should Save: ClipWithName: " + _currentClipName + " at path: " + _saveFolderLocation);
             AddMotionToAnimator();
-            Debug.Log("Animation Recording for " + _objectToRecord.name + " has Finished and Stopped");
         });
     }
 
