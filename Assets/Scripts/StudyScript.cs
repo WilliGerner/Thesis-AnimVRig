@@ -3,22 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StudyScript : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject TutorialSetUpGO;
     [SerializeField]
     private GameObject sceneSetUp_1;
     [SerializeField]
     private GameObject sceneSetUp_2;
     [SerializeField]
     private GameObject sceneSetUp_3;
+    [SerializeField]
+    private GameObject finish_UI;
 
-    bool scene_1_done, scene_2_done, scene_3_done;
-
+    bool tutroial_done,scene_1_done, scene_2_done, scene_3_done;
+    public Material greenBtnMaterial;
     Color red = Color.red;
     Color green = Color.green;
     private float alphaTransperenyBtn = 0.3f;
 
+    [SerializeField]
+    private GameObject taskTutorial; // Right Canavas with Tasks.
     [SerializeField]
     private GameObject taskUI_1;
     [SerializeField]
@@ -36,10 +43,43 @@ public class StudyScript : MonoBehaviour
     public RoundedBoxProperties btn_8;
     public RoundedBoxProperties btn_9;
 
+    [SerializeField]
+    Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenAnimListPlayAnim, tutTask_recAndPlayAnim;
+
+    [SerializeField]
+    GameObject nextSceneBtn, blueBtn;
+
+    private static StudyScript instance;
+    public static StudyScript Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                instance = FindObjectOfType<StudyScript>();
+                if (instance == null)
+                {
+                    GameObject singletonObject = new GameObject();
+                    instance = singletonObject.AddComponent<StudyScript>();
+                    singletonObject.name = typeof(StudyScript).ToString() + " (Singleton)";
+                    DontDestroyOnLoad(singletonObject);
+                }
+            }
+            return instance;
+        }
+    }
     private void Start()
     {
-        SetUpScene_2();
+        TutorialSetUp();
+    }
 
+    private void CheckTutTasks()
+    {
+        if (tutTask_openPalm.isOn && tutTask_enablePassthrough.isOn && tutTask_ModelMover.isOn && tutTask_DebugBones.isOn && tutTask_SwitchModelVariant.isOn && tutTask_OpenAnimListPlayAnim.isOn && tutTask_recAndPlayAnim.isOn)
+        {
+            nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
+            tutroial_done = true;
+        }
     }
 
     private void ChangeButtonColors(int sceneSetUp) // 1,2 or 3
@@ -140,6 +180,16 @@ public class StudyScript : MonoBehaviour
         }
     }
 
+    public void TutorialSetUp()
+    {
+        AVRGameObjectRecorder.Instance._clipName = "Tutorial_ "+ Time.deltaTime;
+        TutorialSetUpGO.SetActive(true);
+        taskUI_1.SetActive(false);
+        taskUI_2.SetActive(false);
+        taskUI_3.SetActive(false);
+        ChangeButtonColors(1);
+    }
+
     public void SetUpScene_1()
     {
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_1";
@@ -163,4 +213,87 @@ public class StudyScript : MonoBehaviour
         taskUI_3.SetActive(true);
         ChangeButtonColors(3);
     }
+
+    public void ShowFinishScreen()
+    {
+        sceneSetUp_1.SetActive(false);
+        sceneSetUp_2.SetActive(false);
+        sceneSetUp_3.SetActive(false);
+        finish_UI.SetActive(true);
+    }
+
+    public void CheckIfTaskDone()
+    {
+        if (tutroial_done)
+        {
+            Debug.Log("Tutorial done");
+            SetUpScene_1();
+            if (scene_1_done)
+            {
+                Debug.Log("Scene 1 done");
+                SetUpScene_2();
+                if (scene_2_done)
+                {
+                    Debug.Log("Scene 2 done");
+                    SetUpScene_3();
+                    if (scene_3_done)
+                    {
+                        Debug.Log("Scene 3 done");
+                        ShowFinishScreen();
+                    }
+                }
+            }
+        }
+    }
+
+    #region Tutorial Task Functions
+
+    public void HitPalmMenue()
+    {
+        if (tutroial_done) return;
+        tutTask_openPalm.isOn = true;
+        CheckTutTasks();
+    }
+
+    public void HitPassthrough()
+    {
+        if (tutroial_done) return;
+        tutTask_enablePassthrough.isOn = true;
+        CheckTutTasks();
+    }
+
+    public void HitDebug()
+    {
+        if (tutroial_done) return;
+        tutTask_DebugBones.isOn = true;
+        CheckTutTasks();
+    }
+
+    public void HitOtherVariant()
+    {
+        if (tutroial_done) return;
+        tutTask_SwitchModelVariant.isOn = true;
+        CheckTutTasks();
+    }
+
+    public void HitMoverAndMove()
+    {
+        if (tutroial_done) return;
+        tutTask_ModelMover.isOn = true;
+        CheckTutTasks();
+    }
+
+    public void HitRecAndPlay()
+    {
+        if (tutroial_done) return;
+        tutTask_recAndPlayAnim.isOn = true;
+        CheckTutTasks();
+    }
+    public void HitAnimWindowAndPlay()
+    {
+        if (tutroial_done) return;
+        tutTask_OpenAnimListPlayAnim.isOn = true;
+        CheckTutTasks();
+    }
+    #endregion
 }

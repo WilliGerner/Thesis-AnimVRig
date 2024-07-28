@@ -121,6 +121,7 @@ public class AnimationList : MonoBehaviour
 
         buttons[0].onClick.AddListener(() => SetRootMotion());
         buttons[1].onClick.AddListener(() => PlayAnimation());
+        buttons[1].onClick.AddListener(() => StudyScript.Instance.HitAnimWindowAndPlay());
         buttons[2].onClick.AddListener(() => RewindAnimation());
         buttons[3].onClick.AddListener(() => EndAnimation());
 
