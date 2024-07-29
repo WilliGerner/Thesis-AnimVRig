@@ -222,6 +222,16 @@ public class LayerMaskManager : MonoBehaviour
         UpdateAllColors();
 
         _customMask = DetermineAvatarMask();
+        if (_customMask == bothArmsMask) // Only for Study
+        {
+            StudyScript.Instance.BothArmsSetActiv(true);
+            StudyScript.Instance.SetBindingsForJumpTask(true);
+        }
+        else { 
+            StudyScript.Instance.BothArmsSetActiv(false);
+            StudyScript.Instance.SetBindingsForJumpTask(false);
+        }
+
         UpdateAvatarMasksForConstraints();
         ApplyBaseLayerMask();
         _mirroredTransformManager.ToggleEverything(_everything);

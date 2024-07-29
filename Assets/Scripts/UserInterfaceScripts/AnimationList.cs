@@ -130,11 +130,7 @@ public class AnimationList : MonoBehaviour
 
     public void SetRootMotion()
     {
-        if (targetAnimator.hasRootMotion)
-        {
-            targetAnimator.applyRootMotion = false;
-        } else targetAnimator.applyRootMotion = true;
-
+        targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion;
         UpdateRootMotionButton();
     }
 
@@ -144,11 +140,13 @@ public class AnimationList : MonoBehaviour
         {
             rootMotionButton.image.color = Color.green;
             rootMotionButtonText.text = "Root Motion Active";
+            StudyScript.Instance.SetRootMotion(true);
         }
         else
         {
             rootMotionButton.image.color = Color.red;
             rootMotionButtonText.text = "Root Motion Inactive";
+            StudyScript.Instance.SetRootMotion(false);
         }
     }
 
@@ -164,7 +162,22 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
-
+        if (currentClip.name == "Sitting Clap")
+        {
+            StudyScript.Instance.PlayClapAnimTask();
+        }
+        if (currentClip.name == "Jumping")
+        {
+            StudyScript.Instance.PlayJumpAnim();
+        }
+        if (currentClip.name == "StudyScene_1")
+        {
+            StudyScript.Instance.PlayNewClapAnim();
+        }
+        if (currentClip.name == "StudyScene_2")
+        {
+            StudyScript.Instance.PlayYourNewJumpAnim();
+        }
         targetAnimator.Play(currentClip.name);
         Debug.Log("Anim: " + currentClip.name+"  should play noW");
     }

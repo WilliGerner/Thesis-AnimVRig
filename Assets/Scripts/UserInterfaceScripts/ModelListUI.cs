@@ -98,7 +98,7 @@ public class ModelListUI : MonoBehaviour
         {
             Debug.LogWarning("Call Model change:  " + modelGameObjects[index].name);
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
-          //  UpdateVaraintList();
+            UpdateVaraintList();
         }
     }
     void UpdateVaraintList()

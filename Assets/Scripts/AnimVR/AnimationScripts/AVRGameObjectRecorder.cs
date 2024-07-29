@@ -10,6 +10,8 @@ using Oculus.Movement.Effects;
 
 public class AVRGameObjectRecorder : MonoBehaviour
 {
+    [Tooltip("Your own current Rig")]
+    public GameObject _ownRigModel;
     [Tooltip("The Object you want to Record")]
     public GameObject _objectToRecord;
     public GameObject _MirroredObjectToRecord;
@@ -27,6 +29,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool recordInit = false;
     public bool recordMirroredObject = false;
     bool debugActiv = false;
+
+    [SerializeField]
+    GameObject _ActivRecImage;
 
     public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
@@ -82,6 +87,15 @@ public class AVRGameObjectRecorder : MonoBehaviour
         AVR_PalmMenueManager.Instance.InitializePalmMenue();
         countdownText.gameObject.SetActive(false);
         mirroredTransformManager.Initialize(); // Clear the Pairs after saving
+    }
+
+    public void ManageRecImage()
+    {
+        if(_canRecord)
+        {
+           if(!_ActivRecImage.transform.parent.gameObject.activeSelf) _ActivRecImage.transform.parent.gameObject.SetActive(true);
+           
+        }else _ActivRecImage.transform.parent.gameObject.SetActive(false); // Deaktiviere Canvas
     }
 
     private void Update()
@@ -193,6 +207,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StopRecording()
     {
+        StudyScript.Instance.HitRecAndStop();
+        StudyScript.Instance.RecordClapTask();
+        StudyScript.Instance.RecordNewJumpAnim();
         new Thread(StopRecordThread).Start();
     }
 
@@ -284,6 +301,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
                         found = true;
                         Debug.LogWarning("New Model:  " + obj + "  and string Name was: " + objectName);
+                        StudyScript.Instance.SwitchModelTask();
                     }
                     else
                     {
@@ -312,6 +330,24 @@ public class AVRGameObjectRecorder : MonoBehaviour
         _canRecord = false;
         recordInit = false;
         Debug.Log("Recorder reset complete.");
+    }
+
+    public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
+    {
+        if (_MirroredObjectToRecord.activeSelf)
+        {
+            _MirroredObjectToRecord.SetActive(false);
+            _recorder = new GameObjectRecorder(_ownRigModel);
+            _recorder.BindComponentsOfType<Transform>(_ownRigModel, true);
+            OnChangeModel?.Invoke();
+            Debug.Log("Model set to Own Rig for recording: " + _ownRigModel.name);
+        }else
+        {
+            _MirroredObjectToRecord.SetActive(true);
+            SetModel();
+        }
+       
+
     }
 
     public void SetModel()
