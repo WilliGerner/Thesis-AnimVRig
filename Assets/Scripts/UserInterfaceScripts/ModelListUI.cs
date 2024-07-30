@@ -96,14 +96,12 @@ public class ModelListUI : MonoBehaviour
 
         if (modelGameObjects.Count != 0) // Only for the Model Version
         {
-            Debug.LogWarning("Call Model change:  " + modelGameObjects[index].name);
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
             UpdateVaraintList();
         }
     }
     void UpdateVaraintList()
     {
-        Debug.LogWarning("Should call update VarianteList");
         variantGameObjects.Clear();
         variantGameObjects = AVRGameObjectRecorder.Instance.GetChildrenWithAnimator();
         SetUpTogglesForVariants();

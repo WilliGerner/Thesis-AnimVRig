@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class ChaireCollider : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.GetComponent<Animator>() != null)
+        if (other.gameObject.GetComponent<Animator>() != null)
         {
             Debug.Log("Placed at Chaire");
             StudyScript.Instance.PlaceAtChaire();
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider other)
     {
-        if (collision.gameObject.GetComponent<Animator>() != null)
+        if (other.gameObject.GetComponent<Animator>() != null)
         {
             Debug.Log("Not Placed at Chaire");
             StudyScript.Instance.NotPlacedAtChaire();

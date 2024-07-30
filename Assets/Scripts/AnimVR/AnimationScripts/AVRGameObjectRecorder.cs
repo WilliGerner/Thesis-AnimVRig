@@ -3,10 +3,10 @@ using UnityEditor;
 using UnityEditor.Animations;
 using System.Collections;
 using System.Collections.Generic;
-using System.Threading;
 using System;
-using TMPro;  // Add this for TextMeshPro
+using TMPro;
 using Oculus.Movement.Effects;
+using UnityEngine.UI;
 
 public class AVRGameObjectRecorder : MonoBehaviour
 {
@@ -25,13 +25,23 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public List<GameObject> additionalRecordObjects;
     public List<GameObject> AllMainObjectsToRecord;
 
+    [SerializeField]
+    private GameObject _blackScreenCanvas;
+    private RawImage blackScreenImage_1;
+    private RawImage blackScreenImage_2;
+    private RectTransform rectTransform1;
+    private RectTransform rectTransform2;
+    // Dauer f¸r das Schlieﬂen und ÷ffnen der Augenlider
+    public float blinkDuration = 0.5f;
+    // Dauer, wie lange die Augen geschlossen bleiben
+    public float closedDuration = 0.2f;
+
     public bool _canRecord = false;
     public bool recordInit = false;
     public bool recordMirroredObject = false;
     bool debugActiv = false;
 
-    [SerializeField]
-    GameObject _ActivRecImage;
+
 
     public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
@@ -47,7 +57,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [SerializeField] string _saveFolderLocation = "Assets/AnimationContent/";
 
     public string _clipName;
-    private string _currentClipName;
     [SerializeField] float _frameRate = 60f;
 
     [SerializeField]
@@ -69,8 +78,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 {
                     GameObject singletonObject = new GameObject();
                     instance = singletonObject.AddComponent<AVRGameObjectRecorder>();
-                    singletonObject.name = typeof(AVRGameObjectRecorder).ToString() + " (Singleton)";
-                    DontDestroyOnLoad(singletonObject);
+                    singletonObject.name = typeof(AVRGameObjectRecorder).ToString() + " (Singleton)";          
                 }
             }
             return instance;
@@ -87,16 +95,26 @@ public class AVRGameObjectRecorder : MonoBehaviour
         AVR_PalmMenueManager.Instance.InitializePalmMenue();
         countdownText.gameObject.SetActive(false);
         mirroredTransformManager.Initialize(); // Clear the Pairs after saving
+        blackScreenImage_1 = _blackScreenCanvas.transform.GetChild(0).gameObject.GetComponent<RawImage>();
+        blackScreenImage_2 = _blackScreenCanvas.transform.GetChild(1).gameObject.GetComponent<RawImage>();
+        rectTransform1 = blackScreenImage_1.GetComponent<RectTransform>();
+        rectTransform2 = blackScreenImage_2.GetComponent<RectTransform>();
+
+        // Initiale Skalierung und Positionierung
+        rectTransform1.anchorMin = new Vector2(0, 0.5f);
+        rectTransform1.anchorMax = new Vector2(1, 1);
+        rectTransform1.offsetMin = Vector2.zero;
+        rectTransform1.offsetMax = Vector2.zero;
+        rectTransform1.anchoredPosition = new Vector2(0, rectTransform1.rect.height);
+
+        rectTransform2.anchorMin = new Vector2(0, 0);
+        rectTransform2.anchorMax = new Vector2(1, 0.5f);
+        rectTransform2.offsetMin = Vector2.zero;
+        rectTransform2.offsetMax = Vector2.zero;
+        rectTransform2.anchoredPosition = new Vector2(0, -rectTransform2.rect.height);
     }
 
-    public void ManageRecImage()
-    {
-        if(_canRecord)
-        {
-           if(!_ActivRecImage.transform.parent.gameObject.activeSelf) _ActivRecImage.transform.parent.gameObject.SetActive(true);
-           
-        }else _ActivRecImage.transform.parent.gameObject.SetActive(false); // Deaktiviere Canvas
-    }
+
 
     private void Update()
     {
@@ -159,6 +177,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
+        if (recordInit) return;
         CreateNewClip();
         countdownText.gameObject.SetActive(true);
         StartCoroutine(StartRecordingWithCountdown());
@@ -187,11 +206,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
         Debug.Log("Rec Target Object: " + _recorder.isRecording);
         _canRecord = true;
-        Debug.Log("Rec TargetObject bound done.See: " + _objectToRecord.name);
-
+        InfoOverlay.Instance.ManageRecImage();
         if (recordMirroredObject)
         {
-            Debug.Log("Rec Mirrored Object: true");
             _recorder.BindComponentsOfType<Transform>(_MirroredObjectToRecord, true);
             _canRecord = true;
             Debug.Log("Rec MirrordObject bound done.See: " + _recorder);
@@ -202,7 +219,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
-        Debug.Log("Animation Recording for " + gameObject.name + " has Initialized.");
+        InfoOverlay.Instance.ShowText("Animation Recording for " + gameObject.name + " has Initialized.");
     }
 
     public void StopRecording()
@@ -210,39 +227,73 @@ public class AVRGameObjectRecorder : MonoBehaviour
         StudyScript.Instance.HitRecAndStop();
         StudyScript.Instance.RecordClapTask();
         StudyScript.Instance.RecordNewJumpAnim();
-        new Thread(StopRecordThread).Start();
-    }
-
-    private void StopRecordThread() // Thread try
-    {
-        if (!recordInit || _recorder == null)
-        {
-            Debug.Log("ThreadStopped because of null recorder or false recordInti stat");
-            return;
-        }
         recordInit = false;
         _canRecord = false;
-
-        Enqueue(() =>
-        {
-            _recorder.SaveToClip(_currentClip);
-            AssetDatabase.SaveAssets();
-            Debug.Log("Should Save: ClipWithName: " + _currentClipName + " at path: " + _saveFolderLocation);
-            AddMotionToAnimator();
-        });
+        InfoOverlay.Instance.ManageRecImage();
+        StartCoroutine(CloseEyesAndContinue());
     }
 
-    private void Enqueue(System.Action action)
+    private IEnumerator CloseEyesAndContinue()
     {
-        lock (_executionQueue)
+        yield return StartCoroutine(CloseEyes());
+
+        // Restliche Aktionen nach dem Schlieﬂen der Augen
+        _recorder.SaveToClip(_currentClip);
+        AssetDatabase.SaveAssets();
+        InfoOverlay.Instance.ShowText("Clip Name: " + _clipName + " saved");
+        AddMotionToAnimator();
+        yield return StartCoroutine(OpenEyes());
+        blackScreenImage_1.gameObject.SetActive(false);
+        blackScreenImage_2.gameObject.SetActive(false);
+
+    }
+
+    private IEnumerator CloseEyes()
+    {
+        if (!blackScreenImage_1.gameObject.activeSelf)
         {
-            _executionQueue.Enqueue(action);
+            blackScreenImage_1.gameObject.SetActive(true);
+            blackScreenImage_2.gameObject.SetActive(true);
         }
+        float halfDuration = blinkDuration / 2f;
+        Vector2 initialPos1 = rectTransform1.anchoredPosition;
+        Vector2 initialPos2 = rectTransform2.anchoredPosition;
+        Vector2 targetPos1 = new Vector2(initialPos1.x, 0);
+        Vector2 targetPos2 = new Vector2(initialPos2.x, 0);
+
+        // Augenlider schlieﬂen
+        for (float t = 0; t < halfDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / halfDuration;
+            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
+            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
+            yield return null;
+        }
+        rectTransform1.anchoredPosition = targetPos1;
+        rectTransform2.anchoredPosition = targetPos2;
+
+        // Augen geschlossen halten
+        yield return new WaitForSeconds(closedDuration);
     }
 
-    public void DeleteRecording(AVRGameObjectRecorder currentRecorder)
+    private IEnumerator OpenEyes()
     {
-        // Implement deletion logic if needed
+        float halfDuration = blinkDuration / 2f;
+        Vector2 initialPos1 = rectTransform1.anchoredPosition;
+        Vector2 initialPos2 = rectTransform2.anchoredPosition;
+        Vector2 targetPos1 = new Vector2(initialPos1.x, rectTransform1.rect.height);
+        Vector2 targetPos2 = new Vector2(initialPos2.x, -rectTransform2.rect.height);
+
+        // Augenlider ˆffnen
+        for (float t = 0; t < halfDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / halfDuration;
+            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
+            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
+            yield return null;
+        }
+        rectTransform1.anchoredPosition = targetPos1;
+        rectTransform2.anchoredPosition = targetPos2;
     }
 
     public void CreateNewClip()
@@ -251,20 +302,19 @@ public class AVRGameObjectRecorder : MonoBehaviour
         newClip.frameRate = _frameRate;
         _currentClip = newClip;
         _currentClip.name = _clipName;
-        _currentClipName = _clipName;
 
         for (int i = 0; i < allClips.Count; i++)
         {
             if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
             {
                 allClips.RemoveAt(i);
-                Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
+                InfoOverlay.Instance.ShowText("Clip with same Name already exist! Not more, we deleted for you :)");
                 return;
             }
         }
 
         AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}_Anim.anim", _clipName));
-        Debug.LogWarning("New Clip created:  " + _clipName + " at path: " + _saveFolderLocation);
+        InfoOverlay.Instance.ShowText("New Clip created:  " + _clipName + " at path: " + _saveFolderLocation);
 
         if (!allClips.Contains(_currentClip))
         {
@@ -326,7 +376,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
     {
         _recorder = null;
         _currentClip = null;
-        _currentClipName = string.Empty;
         _canRecord = false;
         recordInit = false;
         Debug.Log("Recorder reset complete.");
@@ -352,7 +401,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void SetModel()
     {
-        Debug.LogWarning("New Model for Recorder: " + _objectToRecord + "  oldRecorder: " + _recorder);
         _recorder = new GameObjectRecorder(_objectToRecord);
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
 
@@ -371,7 +419,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         avr_mirrorTransformer.modelObject = _objectToRecord.transform; // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
         OnChangeModel?.Invoke();
-        Debug.Log("Model set for recording: " + _objectToRecord.name);
+        InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord + "  oldRecorder: " + _recorder);
     }
 
     public List<GameObject> GetChildrenWithAnimator()

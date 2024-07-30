@@ -222,15 +222,7 @@ public class LayerMaskManager : MonoBehaviour
         UpdateAllColors();
 
         _customMask = DetermineAvatarMask();
-        if (_customMask == bothArmsMask) // Only for Study
-        {
-            StudyScript.Instance.BothArmsSetActiv(true);
-            StudyScript.Instance.SetBindingsForJumpTask(true);
-        }
-        else { 
-            StudyScript.Instance.BothArmsSetActiv(false);
-            StudyScript.Instance.SetBindingsForJumpTask(false);
-        }
+      
 
         UpdateAvatarMasksForConstraints();
         ApplyBaseLayerMask();
@@ -276,6 +268,23 @@ public class LayerMaskManager : MonoBehaviour
     private void UpdateCurrentMask()
     {
         _customMask = DetermineAvatarMask();
+        if (_customMask == bothFeetMask) // Only for Study
+        {
+            StudyScript.Instance.BothFeetSetActiv(true);          
+        }
+        else
+        {
+            StudyScript.Instance.BothFeetSetActiv(false); 
+        }
+
+        if (_customMask == bothArmsMask)
+        {
+            StudyScript.Instance.SetBindingsForJumpTask(true);
+        }
+        else
+        {
+            StudyScript.Instance.SetBindingsForJumpTask(false);
+        }
         UpdateAvatarMasksForConstraints();
         ApplyBaseLayerMask();
         _currentMaskTxt.text = _customMask.name;

@@ -31,8 +31,6 @@ public class AVR_PalmMenueManager : MonoBehaviour
     [SerializeField]
     TextMeshPro clipelNameTxt;
 
-    int menueNr = 0; // Default, 1 for Anim, 2 for Model, 3 for Settings
-
     private static AVR_PalmMenueManager instance;
     public static AVR_PalmMenueManager Instance
     {

@@ -18,7 +18,6 @@ public class AVR_MirrorTransformer : MonoBehaviour
     private Quaternion previousMiniModelRotation;
     private Vector3 previousMiniModelScale;
     private Quaternion initialRotation;
-    private bool initialRotationSet = false;
 
     private Animator modelAnimator;
 

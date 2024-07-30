@@ -40,14 +40,14 @@ public class StudyScript : MonoBehaviour
     Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenAnimListPlayAnim, tutTask_recAndPlayAnim;
 
     [SerializeField]
-    Toggle TaskScene1_SwitchModel, TaskScene1_OpenBindings, TaskScene1_BothArmsActiv, TaskScene1_PlayClapAnim, TaskScene1_PlaceAtChaire, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
+    Toggle TaskScene1_SwitchModel, TaskScene1_OpenBindings, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_PlaceAtChaire, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
 
     [SerializeField]
     Toggle TaskScene2_EnableeRootMotion, TaskScene2_PlayJumpAnim, TaskScene2_SetBindings, TaskScene2_RecordJumpAnim, TaskScene2_PlayYourAnim;
 
 
     [SerializeField]
-    GameObject nextSceneBtn, blueBtn;
+    GameObject nextSceneBtn;
 
     private static StudyScript instance;
     public static StudyScript Instance
@@ -149,7 +149,7 @@ public class StudyScript : MonoBehaviour
 
         if(tutroial_done && !scene_1_done)
         {
-            if (TaskScene1_BothArmsActiv.isOn && TaskScene1_OpenBindings.isOn && TaskScene1_PlaceAtChaire.isOn && TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
+            if (TaskScene1_BotFeetsActiv.isOn && TaskScene1_OpenBindings.isOn && TaskScene1_PlaceAtChaire.isOn && TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 scene_1_done = true;
@@ -178,15 +178,16 @@ public class StudyScript : MonoBehaviour
 
     public void SetUpScene_1()
     {
+        TutorialSetUpGO.SetActive(false);
+        taskUI_1.SetActive(true);
         nextSceneBtn.GetComponent<MeshRenderer>().material = redBtnMaterial;
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_1";
-        taskUI_1.SetActive(true);
-        taskUI_2.SetActive(false);
-        ChangeButtonColors(1);
+        ChangeButtonColors(2);
     }
 
     public void SetUpScene_2()
     {
+        
         nextSceneBtn.GetComponent<MeshRenderer>().material = redBtnMaterial;
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         taskUI_1.SetActive(false);
@@ -285,11 +286,11 @@ public class StudyScript : MonoBehaviour
         CheckTasks();
     }
 
-    public void BothArmsSetActiv(bool activ)
+    public void BothFeetSetActiv(bool activ)
     {
         if (!tutroial_done || scene_1_done) return;
-        if (activ) TaskScene1_BothArmsActiv.isOn = true;
-        else TaskScene1_BothArmsActiv.isOn = false;
+        if (activ) TaskScene1_BotFeetsActiv.isOn = true;
+        else TaskScene1_BotFeetsActiv.isOn = false;
         CheckTasks();
     }
 

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -44,7 +44,7 @@ public class AnimationKeypadManager : MonoBehaviour
                     instance = singletonObject.AddComponent<AnimationKeypadManager>();
                     singletonObject.name = typeof(AnimationKeypadManager).ToString() + " (Singleton)";
 
-                    // Sicherstellen, dass das Singleton-GameObject nicht zerstört wird, wenn die Szene wechselt
+                    // Sicherstellen, dass das Singleton-GameObject nicht zerstÃ¶rt wird, wenn die Szene wechselt
                     DontDestroyOnLoad(singletonObject);
                 }
             }
@@ -54,7 +54,6 @@ public class AnimationKeypadManager : MonoBehaviour
 
     public void InitializeAnimKeyPadManager()
     {
-        Debug.Log("Init AnimManager..set _animatorAnimationModel");
         _animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
     }
 
@@ -72,17 +71,8 @@ public class AnimationKeypadManager : MonoBehaviour
     }
 
     public void SetCurvedUiStudy(GameObject modelMenu)
-    {
-        if (modelMenu.activeSelf)
-        {
-            modelMenu.SetActive(false);
-        }
-        else
-        {
+    {  
             _animListUI.SetUpAnimList();
-            modelMenu.SetActive(true);
-           // if (modelMenu.activeSelf) modelMenu.SetActive(false); // Only for Study
-        }
     }
 
     public void SetCurvedUiBindingVariant()
@@ -142,67 +132,19 @@ public class AnimationKeypadManager : MonoBehaviour
         }
     }
 
-    //public void PlayNextAnimation()
-    //{
-    //    if (animationClips != null && animationClips.Length > 0)
-    //    {
-    //        currentAnimationIndex = (currentAnimationIndex + 1) % animationClips.Length;
-    //        AnimationClip clip = animationClips[currentAnimationIndex];
-    //        if (clip != null)
-    //        {
-    //            animationComponent.clip = clip;
-    //            animationComponent.Play();
-    //            Debug.Log("Playing Next Animation: " + clip.name);
-    //        }
-    //        else
-    //        {
-    //            Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
-    //        }
-    //    }
-    //}
-
-    //public void PlayPreviousAnimation()
-    //{
-    //    if (animationClips != null && animationClips.Length > 0)
-    //    {
-    //        currentAnimationIndex = (currentAnimationIndex - 1 + animationClips.Length) % animationClips.Length;
-    //        AnimationClip clip = animationClips[currentAnimationIndex];
-    //        if (clip != null)
-    //        {
-    //            animationComponent.clip = clip;
-    //            animationComponent.Play();
-    //            Debug.Log("Playing Previous Animation: " + clip.name);
-    //        }
-    //        else
-    //        {
-    //            Debug.LogError("Animation Clip ist null bei Index: " + currentAnimationIndex);
-    //        }
-    //    }
-    //}
-
-
-    public void DeleteCurrentAnimation()
-    {
-        Debug.LogWarning("Deleting animations at runtime is not supported by default Unity API. This function needs to be implemented based on specific project requirements.");
-        // Hier müsste man eine spezielle Logik implementieren, die abhängig vom Projekt ist.
-    }
-
     #endregion
 
-    #region  RecorderFunctions
-
-    /// Startet den Recorder und fängt an Aufzunehmen.
+    /// Startet den Recorder und fï¿½ngt an Aufzunehmen.
     public void RecorderLogic(GameObject callingBtn)
     {
         if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf) // Startet und Stop Logik der Aufnahmen.
         {
             AVRGameObjectRecorder.Instance.StopRecording(); // The current AVRRecorder from the Target Model!
         }
-        else if(callingBtn.GetComponent<AVR_SingleBtn>()._DisabledIcon.activeSelf)
+        else if (callingBtn.GetComponent<AVR_SingleBtn>()._DisabledIcon.activeSelf)
         {
             Debug.Log("Start Record");
             AVRGameObjectRecorder.Instance.StartRec(); // The current AVRRecorder from the Target Model!                                                                                                                                 //AnimVRigRecorder.Instance.StopRecordingThreadVar();  // Thread Alternative
         }
     }
-    #endregion
 }

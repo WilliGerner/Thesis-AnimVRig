@@ -16,6 +16,8 @@ public class AnimationList : MonoBehaviour
     private Avatar avatar;
     private Button rootMotionButton;
     private TextMeshProUGUI rootMotionButtonText;
+    [SerializeField]
+    LayerMaskManager layerMaskManager;
 
     void Start()
     {
@@ -162,19 +164,20 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
+       
         if (currentClip.name == "Sitting Clap")
         {
             StudyScript.Instance.PlayClapAnimTask();
         }
-        if (currentClip.name == "Jumping")
+        if (currentClip.name.Contains("Jumping"))
         {
             StudyScript.Instance.PlayJumpAnim();
         }
-        if (currentClip.name == "StudyScene_1")
+        if (currentClip.name.Contains("StudyScene_1"))
         {
             StudyScript.Instance.PlayNewClapAnim();
         }
-        if (currentClip.name == "StudyScene_2")
+        if (currentClip.name.Contains("StudyScene_2"))
         {
             StudyScript.Instance.PlayYourNewJumpAnim();
         }
