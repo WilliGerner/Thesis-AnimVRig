@@ -76,7 +76,7 @@ public class InfoOverlay : MonoBehaviour
 
     private IEnumerator BlinkRecImage()
     {
-        Image image = _ActivRecImage.GetComponent<Image>();
+        RawImage image = _ActivRecImage.GetComponent<RawImage>();
         bool isRed = true;
 
         while (true)

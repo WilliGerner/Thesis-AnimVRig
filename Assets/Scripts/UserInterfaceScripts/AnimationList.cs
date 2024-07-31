@@ -24,7 +24,8 @@ public class AnimationList : MonoBehaviour
         AVRGameObjectRecorder.Instance.OnMotionAdded += SetUpAnimList;
         AVRGameObjectRecorder.Instance.OnChangeModel += SetUpAnimList;
         InitializeToggles();
-        CreateMiniUI();
+        //CreateMiniUI();
+     
     }
     private void OnDestroy()
     {
@@ -81,8 +82,9 @@ public class AnimationList : MonoBehaviour
         toggle.onValueChanged.AddListener(isOn => {
             if (isOn)
             {
-                ShowMiniUI(toggle, clip);
-              //  PlayAnimation(); // Starte die Animation direkt
+                //ShowMiniUI(toggle, clip);
+                currentClip = clip;
+                PlayAnimation(); // Starte die Animation direkt
             }
             else if (currentMiniUI)
             {
@@ -132,8 +134,9 @@ public class AnimationList : MonoBehaviour
 
     public void SetRootMotion()
     {
+        targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion;
-        UpdateRootMotionButton();
+        //UpdateRootMotionButton();
     }
 
     private void UpdateRootMotionButton()
@@ -142,7 +145,7 @@ public class AnimationList : MonoBehaviour
         {
             rootMotionButton.image.color = Color.green;
             rootMotionButtonText.text = "Root Motion Active";
-            StudyScript.Instance.SetRootMotion(true);
+           
         }
         else
         {

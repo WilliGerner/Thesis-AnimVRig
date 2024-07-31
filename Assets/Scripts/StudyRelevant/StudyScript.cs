@@ -15,12 +15,14 @@ public class StudyScript : MonoBehaviour
     private GameObject taskUI_2;
     [SerializeField]
     private GameObject finish_UI;
-
+    [SerializeField]
+    private GameObject skinnedMeshRendererStartModel;
     bool tutroial_done,scene_1_done, scene_2_done;
     public Material greenBtnMaterial, redBtnMaterial;
     Color red = Color.red;
     Color green = Color.green;
     private float alphaTransperenyBtn = 0.3f;
+    bool once;
 
     [SerializeField]
     private GameObject taskTutorial; // Right Canavas with Tasks.
@@ -40,7 +42,7 @@ public class StudyScript : MonoBehaviour
     Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenAnimListPlayAnim, tutTask_recAndPlayAnim;
 
     [SerializeField]
-    Toggle TaskScene1_SwitchModel, TaskScene1_OpenBindings, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_PlaceAtChaire, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
+    Toggle TaskScene1_SwitchModel, TaskScene1_OpenBindings, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
 
     [SerializeField]
     Toggle TaskScene2_EnableeRootMotion, TaskScene2_PlayJumpAnim, TaskScene2_SetBindings, TaskScene2_RecordJumpAnim, TaskScene2_PlayYourAnim;
@@ -70,6 +72,7 @@ public class StudyScript : MonoBehaviour
     }
     private void Start()
     {
+        skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         TutorialSetUp();
     }
 
@@ -136,6 +139,15 @@ public class StudyScript : MonoBehaviour
         }
     }
 
+    public void OnlyOnceSetMeshRenderer()
+    {
+        if (!once)
+        {
+            once = true;
+            skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
+        }
+    }
+
     private void CheckTasks()
     {
         if (!tutroial_done)
@@ -149,7 +161,7 @@ public class StudyScript : MonoBehaviour
 
         if(tutroial_done && !scene_1_done)
         {
-            if (TaskScene1_BotFeetsActiv.isOn && TaskScene1_OpenBindings.isOn && TaskScene1_PlaceAtChaire.isOn && TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
+            if (TaskScene1_BotFeetsActiv.isOn && TaskScene1_OpenBindings.isOn &&  TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 scene_1_done = true;
@@ -298,20 +310,6 @@ public class StudyScript : MonoBehaviour
     {
         if (!tutroial_done || scene_1_done) return;
         TaskScene1_PlayClapAnim.isOn = true;
-        CheckTasks();
-    }
-
-    public void PlaceAtChaire()
-    {
-        if (!tutroial_done || scene_1_done) return;
-        TaskScene1_PlaceAtChaire.isOn = true;
-        CheckTasks();
-    }
-
-    public void NotPlacedAtChaire()
-    {
-        if (!tutroial_done || scene_1_done) return;
-        TaskScene1_PlaceAtChaire.isOn = false;
         CheckTasks();
     }
 
