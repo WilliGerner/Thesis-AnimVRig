@@ -6,7 +6,7 @@ using Oculus.Movement.Effects;
 public class MirroredTransformManager : MonoBehaviour
 {
     public LateMirroredObject _lateMirroredObject;
-
+    public AVR_MirrorTransformer avr_MirrorTransformer;
     private List<LateMirroredObject.MirroredTransformPair> _originalMirroredTransformPairs;
     private List<LateMirroredObject.MirroredTransformPair> _currentMirroredTransformPairs;
     private FieldInfo _mirroredTransformPairsField;
@@ -53,6 +53,18 @@ public class MirroredTransformManager : MonoBehaviour
         this.enabled = false; // Disable the script after initialization
     }
 
+    public void SetLateMirroredObject(LateMirroredObject newLateMirroredObject)
+    {
+        _lateMirroredObject = newLateMirroredObject;
+        Initialize();
+    }
+
+    public void ChangeMirrorTransformerModel(GameObject newModelForTransformer)
+    {
+        avr_MirrorTransformer.modelObject = newModelForTransformer.transform;
+        SetLateMirroredObject(avr_MirrorTransformer.modelObject.GetComponentInChildren<LateMirroredObject>());
+    }
+
     public void ToggleLeftArm(bool isEnabled)
     {
         UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_l", "Left_UpperArm", "Left_LowerArm", "mixamorig1:LeftArm", "mixamorig1:LeftForeArm" });
@@ -75,6 +87,7 @@ public class MirroredTransformManager : MonoBehaviour
 
     private void UpdateMirroredTransformPairs(bool isEnabled, string[] bodyPartRoots)
     {
+       // SetLateMirroredObject(avr_MirrorTransformer.modelObject.GetComponentInChildren<LateMirroredObject>());
         _lateMirroredObject.enabled = true;
         if (_originalMirroredTransformPairs == null)
         {

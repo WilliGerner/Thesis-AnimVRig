@@ -68,17 +68,16 @@ public class LayerMaskManager : MonoBehaviour
     [SerializeField]
     private GameObject BtnVisualToggleHead;
 
-    private float _savedAnimTime;
-    private string _currentAnimStateName;
-    private int _currentAnimLayer;
-    private Animator _currentAnimator;
+    //private float _savedAnimTime;
+    //private string _currentAnimStateName;
+    //private int _currentAnimLayer;
+    //private Animator _currentAnimator;
 
     private void Awake()
     {
         Assert.IsNotNull(_animClip);
         Assert.IsNotNull(_customMask);
         Assert.IsNotNull(_baseLayerMask);
-        Assert.IsTrue(_retargetingConstraints != null && _retargetingConstraints.Length > 0);
         Assert.IsTrue(_animators != null && _animators.Length > 0);
     }
 
@@ -89,33 +88,33 @@ public class LayerMaskManager : MonoBehaviour
 
     private void SaveCurrentAnimationState()
     {
-        if (_animators.Length > 0)
-        {
-            for (int i = 0; i < _animators.Length; i++)
-            {
-                if (_animators[i].gameObject.activeSelf)
-                {
-                    _currentAnimator = _animators[i];
-                }
-            }
-         //   _currentAnimator = _animators[0]; // Assuming we're dealing with the first animator for simplicity
-            _currentAnimLayer = 0; // Assuming the first layer for simplicity
-            var animatorStateInfo = _currentAnimator.GetCurrentAnimatorStateInfo(_currentAnimLayer);
+        //if (_animators.Length > 0)
+        //{
+        //    for (int i = 0; i < _animators.Length; i++)
+        //    {
+        //        if (_animators[i].gameObject.activeSelf)
+        //        {
+        //            _currentAnimator = _animators[i];
+        //        }
+        //    }
+        // //   _currentAnimator = _animators[0]; // Assuming we're dealing with the first animator for simplicity
+        //    _currentAnimLayer = 0; // Assuming the first layer for simplicity
+        //    var animatorStateInfo = _currentAnimator.GetCurrentAnimatorStateInfo(_currentAnimLayer);
 
-            _currentAnimStateName = animatorStateInfo.shortNameHash.ToString();
-            _savedAnimTime = animatorStateInfo.normalizedTime;
+        //    _currentAnimStateName = animatorStateInfo.shortNameHash.ToString();
+        //    _savedAnimTime = animatorStateInfo.normalizedTime;
 
-            Debug.Log($"Saved Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
-        }
+        //    Debug.Log($"Saved Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
+        //}
     }
 
     private void RestoreAnimationState()
     {
-        if (_currentAnimator != null && !string.IsNullOrEmpty(_currentAnimStateName))
-        {
-            Debug.Log($"Restoring Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
-            _currentAnimator.Play(_currentAnimStateName, _currentAnimLayer, _savedAnimTime);
-        }
+        //if (_currentAnimator != null && !string.IsNullOrEmpty(_currentAnimStateName))
+        //{
+        //    Debug.Log($"Restoring Animation State: {_currentAnimStateName} at time {_savedAnimTime}");
+        //    _currentAnimator.Play(_currentAnimStateName, _currentAnimLayer, _savedAnimTime);
+        //}
     }
 
     private void UpdateAvatarMasksForConstraints()
@@ -157,24 +156,24 @@ public class LayerMaskManager : MonoBehaviour
 
     public void ToggleLeftArm()
     {
-        SaveCurrentAnimationState();
+      //  SaveCurrentAnimationState();
         _leftArm = !_leftArm;
         ResetEverythingNothing();
         ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _mirroredTransformManager.ToggleLeftArm(_leftArm);
         UpdateCurrentMask();
-        RestoreAnimationState();
+        //RestoreAnimationState();
     }
 
     public void ToggleRightArm()
     {
-        SaveCurrentAnimationState();
+        //SaveCurrentAnimationState();
         _rightArm = !_rightArm;
         ResetEverythingNothing();
         ChangeColor(_rightArm, BtnVisualToggleRightArm);
-        _mirroredTransformManager.ToggleRightArm(_rightArm);
+        _mirroredTransformManager.ToggleRightArm(_rightArm); // Update TransformPaires
         UpdateCurrentMask();
-        RestoreAnimationState();
+        //RestoreAnimationState();
     }
 
     public void ToggleLeftFoot()
@@ -285,7 +284,7 @@ public class LayerMaskManager : MonoBehaviour
         {
             StudyScript.Instance.SetBindingsForJumpTask(false);
         }
-        UpdateAvatarMasksForConstraints();
+      //  UpdateAvatarMasksForConstraints();
         ApplyBaseLayerMask();
         _currentMaskTxt.text = _customMask.name;
     }

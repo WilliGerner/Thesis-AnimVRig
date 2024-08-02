@@ -114,22 +114,21 @@ public class AnimationList : MonoBehaviour
 
     private void AssignMiniUIButtons()
     {
-        Button[] buttons = currentMiniUI.GetComponentsInChildren<Button>();
-        buttons[0].onClick.RemoveAllListeners();
-        buttons[1].onClick.RemoveAllListeners();
-        buttons[2].onClick.RemoveAllListeners();
-        buttons[3].onClick.RemoveAllListeners();
+        //Button[] buttons = currentMiniUI.GetComponentsInChildren<Button>();
+        //buttons[0].onClick.RemoveAllListeners();
+        //buttons[1].onClick.RemoveAllListeners();
+        //buttons[2].onClick.RemoveAllListeners();
+        //buttons[3].onClick.RemoveAllListeners();
 
-        rootMotionButton = buttons[0];
-        rootMotionButtonText = rootMotionButton.GetComponentInChildren<TextMeshProUGUI>();
+        //rootMotionButton = buttons[0];
+        //rootMotionButtonText = rootMotionButton.GetComponentInChildren<TextMeshProUGUI>();
 
-        buttons[0].onClick.AddListener(() => SetRootMotion());
-        buttons[1].onClick.AddListener(() => PlayAnimation());
-        buttons[1].onClick.AddListener(() => StudyScript.Instance.HitAnimWindowAndPlay());
-        buttons[2].onClick.AddListener(() => RewindAnimation());
-        buttons[3].onClick.AddListener(() => EndAnimation());
+        //buttons[0].onClick.AddListener(() => SetRootMotion());
+        //buttons[1].onClick.AddListener(() => PlayAnimation());
+        //buttons[2].onClick.AddListener(() => RewindAnimation());
+        //buttons[3].onClick.AddListener(() => EndAnimation());
 
-        UpdateRootMotionButton(); // Initialize button state when assigned
+        //UpdateRootMotionButton(); // Initialize button state when assigned
     }
 
     public void SetRootMotion()
@@ -167,25 +166,34 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
-       
-        if (currentClip.name == "Sitting Clap")
+
+        if (layerMaskManager._everything)
+        {
+            StudyScript.Instance.BindEverythingTask();
+        }
+
+        if (layerMaskManager._nothing)
+        {
+            StudyScript.Instance.BindNothingTask();
+        }
+
+        if (currentClip.name == "Sitting Clap" && StudyScript.Instance.tutroial_done)
         {
             StudyScript.Instance.PlayClapAnimTask();
         }
-        if (currentClip.name.Contains("Jumping"))
+        if (currentClip.name.Contains("Jumping") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
         {
             StudyScript.Instance.PlayJumpAnim();
         }
-        if (currentClip.name.Contains("StudyScene_1"))
+        if (currentClip.name.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
         {
             StudyScript.Instance.PlayNewClapAnim();
         }
-        if (currentClip.name.Contains("StudyScene_2"))
+        if (currentClip.name.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
         {
             StudyScript.Instance.PlayYourNewJumpAnim();
         }
-        targetAnimator.Play(currentClip.name);
-        Debug.Log("Anim: " + currentClip.name+"  should play noW");
+        targetAnimator.Play(currentClip.name);      
     }
 
     private bool RequiresAvatar(AnimationClip clip)

@@ -20,7 +20,6 @@ public class InfoOverlay : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else{Destroy(gameObject);}
     }
@@ -69,7 +68,7 @@ public class InfoOverlay : MonoBehaviour
             {
                 StopCoroutine(blinkCoroutine);
                 blinkCoroutine = null;
-                _ActivRecImage.GetComponent<Image>().color = Color.black; // Zurücksetzen auf Schwarz
+                _ActivRecImage.GetComponent<RawImage>().color = Color.black; // Zurücksetzen auf Schwarz
             }
         }
     }

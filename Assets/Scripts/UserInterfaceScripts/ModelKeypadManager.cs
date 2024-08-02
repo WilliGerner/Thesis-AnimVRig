@@ -88,8 +88,8 @@ public class ModelKeypadManager : MonoBehaviour
 
     public void SetMirroredObject(GameObject newObject)
     {
-        MirroredObject = newObject;
-        AVRGameObjectRecorder.Instance._MirroredObjectToRecord = MirroredObject;
+        AVRGameObjectRecorder.Instance._objectToRecord = newObject;
+        AVRGameObjectRecorder.Instance._MirroredObjectToRecord = newObject.transform.parent.gameObject;
         
     }
 

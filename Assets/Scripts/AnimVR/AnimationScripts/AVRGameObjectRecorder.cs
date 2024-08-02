@@ -114,8 +114,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
         rectTransform2.anchoredPosition = new Vector2(0, -rectTransform2.rect.height);
     }
 
-
-
     private void Update()
     {
         if (_canRecord)
@@ -177,7 +175,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
-        if (recordInit) return;
+        if (recordInit || !StudyScript.Instance.tutroial_done) return;
         CreateNewClip();
         countdownText.gameObject.SetActive(true);
         StartCoroutine(StartRecordingWithCountdown());
@@ -224,7 +222,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StopRecording()
     {
-        StudyScript.Instance.HitRecAndStop();
+      //  StudyScript.Instance.HitRecAndStop();
         StudyScript.Instance.RecordClapTask();
         StudyScript.Instance.RecordNewJumpAnim();
         recordInit = false;
@@ -245,6 +243,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         yield return StartCoroutine(OpenEyes());
         blackScreenImage_1.gameObject.SetActive(false);
         blackScreenImage_2.gameObject.SetActive(false);
+        InfoOverlay.Instance.ShowText("Dont forget the activ bindings before playing your new Animation!");
 
     }
 
@@ -308,7 +307,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
             {
                 allClips.RemoveAt(i);
-                InfoOverlay.Instance.ShowText("Clip with same Name already exist! Not more, we deleted for you :)");
+                Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
                 return;
             }
         }
@@ -350,7 +349,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _animController = animationController as AnimatorController;
 
                         found = true;
-                        Debug.LogWarning("New Model:  " + obj + "  and string Name was: " + objectName);
+                        InfoOverlay.Instance.ShowText("New Model:  " + obj);
                         StudyScript.Instance.SwitchModelTask();
                     }
                     else
@@ -383,20 +382,19 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
     {
+        if (!StudyScript.Instance.once) return;
         if (_MirroredObjectToRecord.activeSelf)
         {
             _MirroredObjectToRecord.SetActive(false);
             _recorder = new GameObjectRecorder(_ownRigModel);
             _recorder.BindComponentsOfType<Transform>(_ownRigModel, true);
             OnChangeModel?.Invoke();
-            Debug.Log("Model set to Own Rig for recording: " + _ownRigModel.name);
+            InfoOverlay.Instance.ShowText("Model set to Own Rig for recording: " + _ownRigModel.name);
         }else
         {
             _MirroredObjectToRecord.SetActive(true);
             SetModel();
         }
-       
-
     }
 
     public void SetModel()
@@ -451,9 +449,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
         else
         {
             _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(true);
-            Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.name);
+            //Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.name);
             _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(true);
-            Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.name);
+            //Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.name);
             debugActiv = true;
         }
     }

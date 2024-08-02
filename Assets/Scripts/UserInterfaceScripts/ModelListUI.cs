@@ -2,9 +2,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using Oculus.Movement.Effects;
 
 public class ModelListUI : MonoBehaviour
 {
+    [SerializeField]
+    MirroredTransformManager mirrorTransformManager;
+
     [Tooltip("Fill only for ModelList!")]
     public List<GameObject> modelGameObjects = new List<GameObject>(); // Should Update on isFOrModels =false if the true version is called. Should change the Varaints to the new current Varaint
     [Tooltip("Fill only for VaraintList!")]
@@ -49,7 +53,7 @@ public class ModelListUI : MonoBehaviour
                 toggles[i].isOn = modelGameObjects[i].activeSelf;
                 int index = i;  // Lokale Kopie von i für den Lambda-Ausdruck
                 toggles[i].onValueChanged.AddListener((isOn) => {
-                    ToggleGameObject(index, isOn);
+                    ToggleGameObject(index);
                     // Informiere den ModelKeypadManager über das aktivierte GameObject
                     if (isOn) // Wenn das GameObject aktiviert wird, setze es als Spiegelobjekt
                     {
@@ -75,7 +79,7 @@ public class ModelListUI : MonoBehaviour
                 toggles[i].isOn = variantGameObjects[i].activeSelf;
                 int index = i;  // Lokale Kopie von i für den Lambda-Ausdruck
                 toggles[i].onValueChanged.AddListener((isOn) => {
-                    ToggleGameObject(index, isOn);
+                    ToggleGameObject(index);
                     // Informiere den ModelKeypadManager über das aktivierte GameObject
                     if (isOn) // Wenn das GameObject aktiviert wird, setze es als Spiegelobjekt
                     {
@@ -86,20 +90,33 @@ public class ModelListUI : MonoBehaviour
         }
     }
 
-    void ToggleGameObject(int index, bool isActive)
+    void ToggleGameObject(int index)
     {
+      
+
         if (index >= 0 && modelGameObjects.Count ==0) 
         {
-            // Setze die Aktivität des GameObjects basierend auf dem Toggle-Zustand
-            variantGameObjects[index].SetActive(isActive);
+            foreach (var variant in variantGameObjects)
+            {
+                if (variant.activeSelf) { variant.gameObject.SetActive(false); }
+            }
+            variantGameObjects[index].SetActive(true);
+            mirrorTransformManager._lateMirroredObject = variantGameObjects[index].GetComponentInChildren<LateMirroredObject>(); // Set new LateMirror after Variant change.
+            mirrorTransformManager.ToggleEverything(true);
+            mirrorTransformManager.ChangeMirrorTransformerModel(variantGameObjects[index]);
+            variantGameObjects[index].transform.parent.transform.parent.gameObject.GetComponent<AVR_Related>().activeMirrored = variantGameObjects[index];
         }
 
         if (modelGameObjects.Count != 0) // Only for the Model Version
         {
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
+            mirrorTransformManager._lateMirroredObject = modelGameObjects[index].GetComponentInChildren<LateMirroredObject>();// Set new LateMirror after Model change.
+            mirrorTransformManager.ToggleEverything(true);
             UpdateVaraintList();
+            mirrorTransformManager.ChangeMirrorTransformerModel(modelGameObjects[index]);
         }
     }
+
     void UpdateVaraintList()
     {
         variantGameObjects.Clear();

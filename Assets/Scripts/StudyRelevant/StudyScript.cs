@@ -2,6 +2,7 @@ using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,12 +18,15 @@ public class StudyScript : MonoBehaviour
     private GameObject finish_UI;
     [SerializeField]
     private GameObject skinnedMeshRendererStartModel;
-    bool tutroial_done,scene_1_done, scene_2_done;
+    public bool tutroial_done,scene_1_done, scene_2_done;
     public Material greenBtnMaterial, redBtnMaterial;
     Color red = Color.red;
+    Color black = Color.black;
     Color green = Color.green;
-    private float alphaTransperenyBtn = 0.3f;
-    bool once;
+    Color original;
+    private float startAlphaValaue;
+    private float alphaTransperenyBtn = 1.0f;
+    public bool once;
 
     [SerializeField]
     private GameObject taskTutorial; // Right Canavas with Tasks.
@@ -39,10 +43,10 @@ public class StudyScript : MonoBehaviour
     public RoundedBoxProperties btn_9;
 
     [SerializeField]
-    Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenAnimListPlayAnim, tutTask_recAndPlayAnim;
+    Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenBindings, tutTask_NothingBind, tutTask_EverythingBinded;
 
     [SerializeField]
-    Toggle TaskScene1_SwitchModel, TaskScene1_OpenBindings, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
+    Toggle TaskScene1_SwitchModel, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
 
     [SerializeField]
     Toggle TaskScene2_EnableeRootMotion, TaskScene2_PlayJumpAnim, TaskScene2_SetBindings, TaskScene2_RecordJumpAnim, TaskScene2_PlayYourAnim;
@@ -72,6 +76,8 @@ public class StudyScript : MonoBehaviour
     }
     private void Start()
     {
+        original = btn_1.Color;
+        startAlphaValaue = btn_1.Color.a;
         skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         TutorialSetUp();
     }
@@ -81,49 +87,44 @@ public class StudyScript : MonoBehaviour
     {
         switch (sceneSetUp)
         {
-            case 1:
-                btn_1.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
+            case 1: // Tutorial
+                btn_1.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
                 InvokePrivateMethod(btn_1, "UpdateMaterialPropertyBlock");
-                btn_4.Color = new Color(red.r, red.g, red.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_4, "UpdateMaterialPropertyBlock");
-                btn_5.Color = new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, alphaTransperenyBtn);
+                btn_1.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                btn_5.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
                 InvokePrivateMethod(btn_5, "UpdateMaterialPropertyBlock");
-                btn_8.Color = new Color(red.r, red.g, red.b, alphaTransperenyBtn);
+                btn_5.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                btn_8.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
                 InvokePrivateMethod(btn_8, "UpdateMaterialPropertyBlock");
-                btn_2.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_2, "UpdateMaterialPropertyBlock");
-                btn_3.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_3, "UpdateMaterialPropertyBlock");
-                btn_6.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_6, "UpdateMaterialPropertyBlock");
-                btn_7.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_7, "UpdateMaterialPropertyBlock");
-                btn_9.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_9, "UpdateMaterialPropertyBlock");
+                btn_8.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
                 break;
-            case 2:
-                btn_1.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_1, "UpdateMaterialPropertyBlock");
-                btn_2.Color = new Color(red.r, red.g, red.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_2, "UpdateMaterialPropertyBlock");
-                btn_3.Color = new Color(red.r, red.g, red.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_3, "UpdateMaterialPropertyBlock");
-                btn_4.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_4, "UpdateMaterialPropertyBlock");
-                btn_5.Color = new Color(Color.yellow.r, Color.yellow.g, Color.yellow.b, alphaTransperenyBtn);
+            case 2: // Scene Task 1
+                btn_5.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
                 InvokePrivateMethod(btn_5, "UpdateMaterialPropertyBlock");
-                btn_6.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_6, "UpdateMaterialPropertyBlock");
-                btn_7.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_7, "UpdateMaterialPropertyBlock");
-                btn_8.Color = new Color(green.r, green.g, green.b, alphaTransperenyBtn);
+                btn_5.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
+                btn_8.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
                 InvokePrivateMethod(btn_8, "UpdateMaterialPropertyBlock");
-                btn_9.Color = new Color(red.r, red.g, red.b, alphaTransperenyBtn);
+                btn_8.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
+
+                btn_2.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
+                InvokePrivateMethod(btn_2, "UpdateMaterialPropertyBlock");
+                btn_2.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                btn_3.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
+                InvokePrivateMethod(btn_3, "UpdateMaterialPropertyBlock");
+                btn_3.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+                btn_9.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
                 InvokePrivateMethod(btn_9, "UpdateMaterialPropertyBlock");
+                btn_9.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
+
+                break;
+            case 3: // Scene Task 2
+                btn_1.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
+                InvokePrivateMethod(btn_1, "UpdateMaterialPropertyBlock");
+                btn_1.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
                 break;
             default:
                 break;
-        }     
+        }
     }
 
     private void InvokePrivateMethod(object target, string methodName)
@@ -152,7 +153,7 @@ public class StudyScript : MonoBehaviour
     {
         if (!tutroial_done)
         {
-            if (tutTask_openPalm.isOn && tutTask_enablePassthrough.isOn && tutTask_ModelMover.isOn && tutTask_DebugBones.isOn && tutTask_SwitchModelVariant.isOn && tutTask_OpenAnimListPlayAnim.isOn && tutTask_recAndPlayAnim.isOn)
+            if (tutTask_openPalm.isOn && tutTask_enablePassthrough.isOn && tutTask_ModelMover.isOn && tutTask_DebugBones.isOn && tutTask_SwitchModelVariant.isOn && tutTask_NothingBind.isOn && tutTask_OpenBindings.isOn && tutTask_EverythingBinded.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 tutroial_done = true;
@@ -161,7 +162,7 @@ public class StudyScript : MonoBehaviour
 
         if(tutroial_done && !scene_1_done)
         {
-            if (TaskScene1_BotFeetsActiv.isOn && TaskScene1_OpenBindings.isOn &&  TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
+            if (TaskScene1_BotFeetsActiv.isOn && TaskScene1_PlayClapAnim.isOn && TaskScene1_RecordClapping.isOn && TaskScene1_PlayNewClapAnim.isOn && TaskScene1_SwitchModel.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 scene_1_done = true;
@@ -204,7 +205,7 @@ public class StudyScript : MonoBehaviour
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(true);
-        ChangeButtonColors(2);
+        ChangeButtonColors(3);
     }
 
     public void ShowFinishScreen()
@@ -269,16 +270,26 @@ public class StudyScript : MonoBehaviour
         CheckTasks();
     }
 
-    public void HitRecAndStop()
+    public void OpenBindingsMenueTask()
     {
         if (tutroial_done) return;
-        tutTask_recAndPlayAnim.isOn = true;
+        tutTask_OpenBindings.isOn = true;
         CheckTasks();
     }
-    public void HitAnimWindowAndPlay()
+
+    public void BindEverythingTask( )
     {
         if (tutroial_done) return;
-        tutTask_OpenAnimListPlayAnim.isOn = true;
+        tutTask_EverythingBinded.isOn = true;
+    
+        CheckTasks();
+    }
+
+    public void BindNothingTask()
+    {
+        if (tutroial_done) return;
+        tutTask_NothingBind.isOn = true;
+       
         CheckTasks();
     }
     #endregion
@@ -291,12 +302,7 @@ public class StudyScript : MonoBehaviour
         CheckTasks();
     }
 
-    public void OpenBindingsMenueTask()
-    {
-        if (!tutroial_done || scene_1_done) return;
-        TaskScene1_OpenBindings.isOn = true;
-        CheckTasks();
-    }
+
 
     public void BothFeetSetActiv(bool activ)
     {

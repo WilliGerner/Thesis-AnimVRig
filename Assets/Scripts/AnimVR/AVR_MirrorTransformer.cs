@@ -23,24 +23,29 @@ public class AVR_MirrorTransformer : MonoBehaviour
 
     private void OnEnable()
     {
-        if (miniModelObject != null)
-        {
-
-            previousMiniModelPosition = miniModelObject.localPosition;
-            previousMiniModelRotation = miniModelObject.localRotation;
-            previousMiniModelScale = miniModelObject.localScale;
-        }
-
-        if (modelObject != null)
-        {
-            initialRotation = modelObject.localRotation; // Set initial rotation to current local rotation at start
-            modelAnimator = modelObject.GetComponent<Animator>(); 
-        }
+        SetInitialValues();
     }
 
     private void Start()
     {
-        SetPosToSpawn();
+        if (miniModelObject != null)
+        {
+            previousMiniModelPosition = miniModelObject.localPosition;
+            previousMiniModelRotation = miniModelObject.localRotation;
+            previousMiniModelScale = miniModelObject.localScale;
+        }
+        //  SetPosToSpawn();
+    }
+
+    void SetInitialValues()
+    {
+     
+
+        if (modelObject != null)
+        {
+            initialRotation = modelObject.localRotation; // Set initial rotation to current local rotation at start
+            modelAnimator = modelObject.GetComponent<Animator>();
+        }
     }
 
 
