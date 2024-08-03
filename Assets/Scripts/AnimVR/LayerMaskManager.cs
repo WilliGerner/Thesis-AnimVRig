@@ -8,7 +8,7 @@ using UnityEngine.Assertions;
 public class LayerMaskManager : MonoBehaviour
 {
     [SerializeField]
-    private MirroredTransformManager _mirroredTransformManager;
+    private LayerTransformPairChanger _mirroredTransformManager;
 
     #region CustomToggle
     [SerializeField]
@@ -67,11 +67,6 @@ public class LayerMaskManager : MonoBehaviour
     private GameObject BtnVisualToggleRightLeg;
     [SerializeField]
     private GameObject BtnVisualToggleHead;
-
-    //private float _savedAnimTime;
-    //private string _currentAnimStateName;
-    //private int _currentAnimLayer;
-    //private Animator _currentAnimator;
 
     private void Awake()
     {
@@ -178,24 +173,24 @@ public class LayerMaskManager : MonoBehaviour
 
     public void ToggleLeftFoot()
     {
-        SaveCurrentAnimationState();
+        //SaveCurrentAnimationState();
         _leftFoot = !_leftFoot;
         ResetEverythingNothing();
         ChangeColor(_leftFoot, BtnVisualToggleLeftLeg);
         _mirroredTransformManager.ToggleLeftLeg(_leftFoot);
-        UpdateCurrentMask();
-        RestoreAnimationState();
+        //UpdateCurrentMask();
+        //RestoreAnimationState();
     }
 
     public void ToggleRightFoot()
     {
-        SaveCurrentAnimationState();
+        //SaveCurrentAnimationState();
         _rightFoot = !_rightFoot;
         ResetEverythingNothing();
         ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
         _mirroredTransformManager.ToggleRightLeg(_rightFoot);
-        UpdateCurrentMask();
-        RestoreAnimationState();
+        //UpdateCurrentMask();
+        //RestoreAnimationState();
     }
 
     public void ChangeColor(bool active, GameObject buttonVisualGO)
@@ -214,7 +209,7 @@ public class LayerMaskManager : MonoBehaviour
 
     public void ToggleEverything()
     {
-        SaveCurrentAnimationState();
+        //SaveCurrentAnimationState();
         _everything = true;
         _nothing = false;
         ResetIndividualParts(true);
@@ -223,11 +218,11 @@ public class LayerMaskManager : MonoBehaviour
         _customMask = DetermineAvatarMask();
       
 
-        UpdateAvatarMasksForConstraints();
+        //UpdateAvatarMasksForConstraints();
         ApplyBaseLayerMask();
         _mirroredTransformManager.ToggleEverything(_everything);
         _currentMaskTxt.text = _customMask.name;
-        RestoreAnimationState();
+        //RestoreAnimationState();
     }
 
     public void ToggleNothing()

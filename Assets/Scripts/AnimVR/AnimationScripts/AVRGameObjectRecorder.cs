@@ -20,7 +20,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public List<AnimationClip> allClips;
     AnimatorController _animController;
     public Animator _animatorMirrored;
-    public MirroredTransformManager mirroredTransformManager;
+    public LayerTransformPairChanger mirroredTransformManager;
 
     public List<GameObject> additionalRecordObjects;
     public List<GameObject> AllMainObjectsToRecord;
@@ -60,9 +60,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [SerializeField] float _frameRate = 60f;
 
     [SerializeField]
-    MirroredTransformManager mirroredTransfromManager; // In Study Case something else than normal ( Layer Menue Study)
+    LayerTransformPairChanger mirroredTransfromManager; // In Study Case something else than normal ( Layer Menue Study)
     [SerializeField]
-    AVR_MirrorTransformer avr_mirrorTransformer;
+    ModelTransformer avr_mirrorTransformer;
 
     #endregion
 
@@ -414,7 +414,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 _recorder.BindComponentsOfType<Transform>(additionalObj, true);
             }
         }
-        avr_mirrorTransformer.modelObject = _objectToRecord.transform; // Set new Model in Transformer.
+        avr_mirrorTransformer.transformModel = _objectToRecord.transform; // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
         OnChangeModel?.Invoke();
         InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord + "  oldRecorder: " + _recorder);

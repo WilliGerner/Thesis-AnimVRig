@@ -7,7 +7,7 @@ using Oculus.Movement.Effects;
 public class ModelListUI : MonoBehaviour
 {
     [SerializeField]
-    MirroredTransformManager mirrorTransformManager;
+    LayerTransformPairChanger mirrorTransformManager;
 
     [Tooltip("Fill only for ModelList!")]
     public List<GameObject> modelGameObjects = new List<GameObject>(); // Should Update on isFOrModels =false if the true version is called. Should change the Varaints to the new current Varaint
@@ -101,19 +101,21 @@ public class ModelListUI : MonoBehaviour
                 if (variant.activeSelf) { variant.gameObject.SetActive(false); }
             }
             variantGameObjects[index].SetActive(true);
-            mirrorTransformManager._lateMirroredObject = variantGameObjects[index].GetComponentInChildren<LateMirroredObject>(); // Set new LateMirror after Variant change.
-            mirrorTransformManager.ToggleEverything(true);
-            mirrorTransformManager.ChangeMirrorTransformerModel(variantGameObjects[index]);
             variantGameObjects[index].transform.parent.transform.parent.gameObject.GetComponent<AVR_Related>().activeMirrored = variantGameObjects[index];
+            
+            mirrorTransformManager._lateMirroredObject = variantGameObjects[index].GetComponentInChildren<LateMirroredObject>(); // Set new LateMirror after Variant change.
+            mirrorTransformManager.ChangeMirrorTransformerModel();
+            mirrorTransformManager.ToggleEverything(true);
         }
 
         if (modelGameObjects.Count != 0) // Only for the Model Version
         {
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
-            mirrorTransformManager._lateMirroredObject = modelGameObjects[index].GetComponentInChildren<LateMirroredObject>();// Set new LateMirror after Model change.
-            mirrorTransformManager.ToggleEverything(true);
             UpdateVaraintList();
-            mirrorTransformManager.ChangeMirrorTransformerModel(modelGameObjects[index]);
+         
+            mirrorTransformManager._lateMirroredObject = modelGameObjects[index].GetComponentInChildren<LateMirroredObject>();// Set new LateMirror after Model change.
+            mirrorTransformManager.ChangeMirrorTransformerModel();
+            mirrorTransformManager.ToggleEverything(true);
         }
     }
 
