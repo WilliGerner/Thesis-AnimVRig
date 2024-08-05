@@ -2,20 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
+using Oculus.Movement.Effects;
+using Oculus.Interaction;
 using UnityEditor;
 
 public class AnimationList : MonoBehaviour
 {
     Animator targetAnimator;
-    public Transform togglesParent; // Eltern-Objekt für die Toggles
-    public GameObject miniUIPrefab;
-    private List<Toggle> toggles = new List<Toggle>(); // Wird dynamisch gefüllt
-    private GameObject currentMiniUI;
+    public Transform interactablesParent; // Eltern-Objekt für die Interactables
+    public List<InteractableUnityEventWrapper> interactables = new List<InteractableUnityEventWrapper>(); // Wird dynamisch gefüllt
     public AnimationClip currentClip;
     private Avatar avatar;
-    private Button rootMotionButton;
-    private TextMeshProUGUI rootMotionButtonText;
     [SerializeField]
     LayerMaskManager layerMaskManager;
 
@@ -23,10 +20,9 @@ public class AnimationList : MonoBehaviour
     {
         AVRGameObjectRecorder.Instance.OnMotionAdded += SetUpAnimList;
         AVRGameObjectRecorder.Instance.OnChangeModel += SetUpAnimList;
-        InitializeToggles();
-        //CreateMiniUI();
-     
+        LoadInteractablesFromParent();
     }
+
     private void OnDestroy()
     {
         if (AVRGameObjectRecorder.Instance != null)
@@ -36,122 +32,56 @@ public class AnimationList : MonoBehaviour
         }
     }
 
-    private void InitializeToggles()
+    void LoadInteractablesFromParent()
     {
-        foreach (Transform child in togglesParent)
+        interactables.Clear();
+        foreach (Transform child in interactablesParent)
         {
-            Toggle toggle = child.GetComponent<Toggle>();
-            if (toggle != null)
-                toggles.Add(toggle);
+            InteractableUnityEventWrapper interactable = child.GetComponent<InteractableUnityEventWrapper>();
+            if (interactable != null)
+            {
+                interactables.Add(interactable);
+            }
         }
-
-        SetUpAnimList(); // Initialisiert die Liste nach dem Füllen der Toggles
-    }
-
-    private void CreateMiniUI()
-    {
-        if (miniUIPrefab != null && currentMiniUI == null)
+        if (interactables.Count > 0)
         {
-            currentMiniUI = Instantiate(miniUIPrefab, Vector3.zero, Quaternion.identity, togglesParent);
-            currentMiniUI.SetActive(false); // Starte inaktiv
+            SetUpAnimList();
         }
     }
 
     public void SetUpAnimList()
     {
-        targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>(); // CHange maybe to AnimatorAnimationModel???
+        targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         avatar = targetAnimator.avatar;
-       // targetAnimator = AVRGameObjectRecorder.Instance._animatorAnimationModel; // CHange maybe to AnimatorAnimationModel???
         if (targetAnimator != null)
         {
             var clips = targetAnimator.runtimeAnimatorController.animationClips;
-            for (int i = 0; i < clips.Length && i < toggles.Count; i++)
+            for (int i = 0; i < clips.Length && i < interactables.Count; i++)
             {
-                SetToggleTextAndListener(toggles[i], clips[i]);
+                SetInteractableTextAndListener(interactables[i], clips[i]);
             }
         }
     }
 
-    private void SetToggleTextAndListener(Toggle toggle, AnimationClip clip)
+    private void SetInteractableTextAndListener(InteractableUnityEventWrapper interactable, AnimationClip clip)
     {
-        TextMeshProUGUI tmpText = toggle.GetComponentInChildren<TextMeshProUGUI>();
+        TextMeshPro tmpText = interactable.transform.GetChild(1).transform.GetComponentInChildren<TextMeshPro>();
         if (tmpText != null)
             tmpText.text = clip.name;
 
-        toggle.onValueChanged.RemoveAllListeners();
-        toggle.onValueChanged.AddListener(isOn => {
-            if (isOn)
-            {
-                //ShowMiniUI(toggle, clip);
-                currentClip = clip;
-                PlayAnimation(); // Starte die Animation direkt
-            }
-            else if (currentMiniUI)
-            {
-                currentMiniUI.SetActive(false);
-            }
-        });
-    }
-
-    private void ShowMiniUI(Toggle toggle, AnimationClip clip)
-    {
-        Debug.LogWarning("ShowMini Ui called");
-        if (currentMiniUI != null)
-        {
+        interactable.WhenSelect.RemoveAllListeners();
+        interactable.WhenSelect.AddListener(() => {
             currentClip = clip;
-            Transform toggleParent = toggle.transform.parent; // Get the parent of the toggle
-            currentMiniUI.transform.SetParent(toggleParent, false); // Set the mini UI's parent to the same parent as the toggle
-
-            int toggleIndex = toggle.transform.GetSiblingIndex(); // Get the index of the toggle
-            currentMiniUI.transform.SetSiblingIndex(toggleIndex + 1); // Set the mini UI's sibling index to be right after the toggle
-
-            currentMiniUI.SetActive(true);
-            currentMiniUI.transform.localEulerAngles = new Vector3(0, 0, 0);
-            currentMiniUI.transform.localPosition = new Vector3(currentMiniUI.transform.localPosition.x, currentMiniUI.transform.localPosition.y, 0);
-            AssignMiniUIButtons();
-        }
-    }
-
-    private void AssignMiniUIButtons()
-    {
-        //Button[] buttons = currentMiniUI.GetComponentsInChildren<Button>();
-        //buttons[0].onClick.RemoveAllListeners();
-        //buttons[1].onClick.RemoveAllListeners();
-        //buttons[2].onClick.RemoveAllListeners();
-        //buttons[3].onClick.RemoveAllListeners();
-
-        //rootMotionButton = buttons[0];
-        //rootMotionButtonText = rootMotionButton.GetComponentInChildren<TextMeshProUGUI>();
-
-        //buttons[0].onClick.AddListener(() => SetRootMotion());
-        //buttons[1].onClick.AddListener(() => PlayAnimation());
-        //buttons[2].onClick.AddListener(() => RewindAnimation());
-        //buttons[3].onClick.AddListener(() => EndAnimation());
-
-        //UpdateRootMotionButton(); // Initialize button state when assigned
+            PlayAnimation(); // Starte die Animation direkt
+        });
     }
 
     public void SetRootMotion()
     {
         targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion;
-        //UpdateRootMotionButton();
-    }
-
-    private void UpdateRootMotionButton()
-    {
-        if (!targetAnimator.applyRootMotion)
-        {
-            rootMotionButton.image.color = Color.green;
-            rootMotionButtonText.text = "Root Motion Active";
-           
-        }
-        else
-        {
-            rootMotionButton.image.color = Color.red;
-            rootMotionButtonText.text = "Root Motion Inactive";
-            StudyScript.Instance.SetRootMotion(false);
-        }
+        if (targetAnimator.applyRootMotion) StudyScript.Instance.SetRootMotion(true);
+        else StudyScript.Instance.SetRootMotion(true);
     }
 
     public void PlayAnimation()
@@ -193,7 +123,7 @@ public class AnimationList : MonoBehaviour
         {
             StudyScript.Instance.PlayYourNewJumpAnim();
         }
-        targetAnimator.Play(currentClip.name);      
+        targetAnimator.Play(currentClip.name);
     }
 
     private bool RequiresAvatar(AnimationClip clip)
@@ -241,12 +171,5 @@ public class AnimationList : MonoBehaviour
     {
         targetAnimator.Play(currentClip.name, 0, 1);
         targetAnimator.speed = 0;
-    }
-
-    private IEnumerator HideMiniUIAfterDelay()
-    {
-        yield return new WaitForSeconds(5);
-        if (currentMiniUI != null)
-            currentMiniUI.SetActive(false);
     }
 }

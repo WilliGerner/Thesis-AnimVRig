@@ -47,10 +47,10 @@ public class LayerTransformPairChanger : MonoBehaviour
         }
 
         // Clear the mirrored transform pairs after initialization
-        _currentMirroredTransformPairs.Clear();
+       //  _currentMirroredTransformPairs.Clear();
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
 
-        this.enabled = false; // Disable the script after initialization
+      //  this.enabled = false; // Disable the script after initialization
     }
 
     public void SetLateMirroredObject()
@@ -63,26 +63,27 @@ public class LayerTransformPairChanger : MonoBehaviour
 
     public void ChangeMirrorTransformerModel()
     {
-        _modelTransformer.transformModel = _lateMirroredObject.transform;
+        _modelTransformer.transformModel = _lateMirroredObject.transform.parent;
+        _modelTransformer.SetInitialValues();
         SetLateMirroredObject();
     }
 
-    public void ToggleLeftArm(bool isEnabled)
+    public void UpdateLeftArmPairs(bool isEnabled)
     {
         UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_l", "Left_UpperArm", "Left_LowerArm", "mixamorig1:LeftArm", "mixamorig1:LeftForeArm" });
     }
 
-    public void ToggleRightArm(bool isEnabled)
+    public void UpdateRightArmPairs(bool isEnabled)
     {
         UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_r", "Right_UpperArm", "Right_LowerArm", "mixamorig1:RightArm", "mixamorig1:RightForeArm" });
     }
 
-    public void ToggleLeftLeg(bool isEnabled)
+    public void UpdateLeftLegPairs(bool isEnabled)
     {
         UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_l", "Left_UpperLeg", "Left_LowerLeg", "mixamorig1:LeftUpLeg", "mixamorig1:LeftLeg" });
     }
 
-    public void ToggleRightLeg(bool isEnabled)
+    public void UpdateRightLegPairs(bool isEnabled)
     {
         UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_r", "Right_UpperLeg", "Right_LowerLeg", "mixamorig1:RightUpLeg", "mixamorig1:RightLeg" });
     }
@@ -135,7 +136,7 @@ public class LayerTransformPairChanger : MonoBehaviour
         return false;
     }
 
-    public void ToggleEverything(bool isEnabled)
+    public void SetToAllPairs(bool isEnabled)
     {
         if (isEnabled)
         {
@@ -148,7 +149,7 @@ public class LayerTransformPairChanger : MonoBehaviour
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
     }
 
-    public void ToggleNothing()
+    public void SetToZeroPairs()
     {
         _currentMirroredTransformPairs.Clear();
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());

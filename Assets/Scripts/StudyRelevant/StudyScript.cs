@@ -20,30 +20,13 @@ public class StudyScript : MonoBehaviour
     private GameObject skinnedMeshRendererStartModel;
     public bool tutroial_done,scene_1_done, scene_2_done;
     public Material greenBtnMaterial, redBtnMaterial;
-    Color red = Color.red;
-    Color black = Color.black;
-    Color green = Color.green;
-    Color original;
-    private float startAlphaValaue;
-    private float alphaTransperenyBtn = 1.0f;
     public bool once;
 
     [SerializeField]
     private GameObject taskTutorial; // Right Canavas with Tasks.
 
-
-    public RoundedBoxProperties btn_1;
-    public RoundedBoxProperties btn_2;
-    public RoundedBoxProperties btn_3;
-    public RoundedBoxProperties btn_4;
-    public RoundedBoxProperties btn_5;
-    public RoundedBoxProperties btn_6;
-    public RoundedBoxProperties btn_7;
-    public RoundedBoxProperties btn_8;
-    public RoundedBoxProperties btn_9;
-
     [SerializeField]
-    Toggle tutTask_openPalm, tutTask_enablePassthrough, tutTask_ModelMover, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenBindings, tutTask_NothingBind, tutTask_EverythingBinded;
+    Toggle tutTask_openPalm, tutTask_ModelMover,tutTask_Mirror, tutTask_DebugBones, tutTask_SwitchModelVariant, tutTask_OpenBindings, tutTask_NothingBind, tutTask_EverythingBinded;
 
     [SerializeField]
     Toggle TaskScene1_SwitchModel, TaskScene1_BotFeetsActiv, TaskScene1_PlayClapAnim, TaskScene1_RecordClapping, TaskScene1_PlayNewClapAnim;
@@ -76,55 +59,8 @@ public class StudyScript : MonoBehaviour
     }
     private void Start()
     {
-        original = btn_1.Color;
-        startAlphaValaue = btn_1.Color.a;
         skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         TutorialSetUp();
-    }
-
-
-    private void ChangeButtonColors(int sceneSetUp) // 1,2 or 3
-    {
-        switch (sceneSetUp)
-        {
-            case 1: // Tutorial
-                btn_1.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_1, "UpdateMaterialPropertyBlock");
-                btn_1.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                btn_5.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_5, "UpdateMaterialPropertyBlock");
-                btn_5.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                btn_8.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_8, "UpdateMaterialPropertyBlock");
-                btn_8.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                break;
-            case 2: // Scene Task 1
-                btn_5.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
-                InvokePrivateMethod(btn_5, "UpdateMaterialPropertyBlock");
-                btn_5.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
-                btn_8.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
-                InvokePrivateMethod(btn_8, "UpdateMaterialPropertyBlock");
-                btn_8.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
-
-                btn_2.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_2, "UpdateMaterialPropertyBlock");
-                btn_2.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                btn_3.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_3, "UpdateMaterialPropertyBlock");
-                btn_3.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-                btn_9.Color = new Color(black.r, black.g, black.b, alphaTransperenyBtn);
-                InvokePrivateMethod(btn_9, "UpdateMaterialPropertyBlock");
-                btn_9.gameObject.transform.parent.GetChild(1).gameObject.SetActive(false);
-
-                break;
-            case 3: // Scene Task 2
-                btn_1.Color = new Color(original.r, original.g, original.b, startAlphaValaue);
-                InvokePrivateMethod(btn_1, "UpdateMaterialPropertyBlock");
-                btn_1.gameObject.transform.parent.GetChild(1).gameObject.SetActive(true);
-                break;
-            default:
-                break;
-        }
     }
 
     private void InvokePrivateMethod(object target, string methodName)
@@ -146,6 +82,7 @@ public class StudyScript : MonoBehaviour
         {
             once = true;
             skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = true;
+            PokeMirror();
         }
     }
 
@@ -153,7 +90,7 @@ public class StudyScript : MonoBehaviour
     {
         if (!tutroial_done)
         {
-            if (tutTask_openPalm.isOn && tutTask_enablePassthrough.isOn && tutTask_ModelMover.isOn && tutTask_DebugBones.isOn && tutTask_SwitchModelVariant.isOn && tutTask_NothingBind.isOn && tutTask_OpenBindings.isOn && tutTask_EverythingBinded.isOn)
+            if (tutTask_openPalm.isOn && tutTask_Mirror.isOn && tutTask_ModelMover.isOn && tutTask_DebugBones.isOn && tutTask_SwitchModelVariant.isOn && tutTask_NothingBind.isOn && tutTask_OpenBindings.isOn && tutTask_EverythingBinded.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 tutroial_done = true;
@@ -186,7 +123,10 @@ public class StudyScript : MonoBehaviour
         TutorialSetUpGO.SetActive(true);
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(false);
-        ChangeButtonColors(1);
+        ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
+        ModelKeypadManager.Instance.Btn_8.SetActive(false);
+        ModelKeypadManager.Instance.Btn_5.SetActive(false);
+
     }
 
     public void SetUpScene_1()
@@ -195,7 +135,8 @@ public class StudyScript : MonoBehaviour
         taskUI_1.SetActive(true);
         nextSceneBtn.GetComponent<MeshRenderer>().material = redBtnMaterial;
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_1";
-        ChangeButtonColors(2);
+
+        ModelKeypadManager.Instance.Btn_5.SetActive(true);
     }
 
     public void SetUpScene_2()
@@ -205,7 +146,6 @@ public class StudyScript : MonoBehaviour
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(true);
-        ChangeButtonColors(3);
     }
 
     public void ShowFinishScreen()
@@ -242,17 +182,19 @@ public class StudyScript : MonoBehaviour
         CheckTasks();
     }
 
-    public void HitPassthrough()
-    {
-        if (tutroial_done) return;
-        tutTask_enablePassthrough.isOn = true;
-        CheckTasks();
-    }
-
     public void HitDebug()
     {
         if (tutroial_done) return;
         tutTask_DebugBones.isOn = true;
+        ModelKeypadManager.Instance.Btn_9.SetActive(true);
+        CheckTasks();
+    }
+
+    void PokeMirror()
+    {
+        if (tutroial_done) return;
+        tutTask_Mirror.isOn = true;
+        ModelKeypadManager.Instance.Btn_7.SetActive(true);
         CheckTasks();
     }
 
@@ -260,6 +202,8 @@ public class StudyScript : MonoBehaviour
     {
         if (tutroial_done) return;
         tutTask_SwitchModelVariant.isOn = true;
+        ModelKeypadManager.Instance.Btn_4.SetActive(true);
+        ModelKeypadManager.Instance.Btn_6.SetActive(true);
         CheckTasks();
     }
 
@@ -267,6 +211,7 @@ public class StudyScript : MonoBehaviour
     {
         if (tutroial_done) return;
         tutTask_ModelMover.isOn = true;
+        ModelKeypadManager.Instance.Btn_2.SetActive(true);
         CheckTasks();
     }
 

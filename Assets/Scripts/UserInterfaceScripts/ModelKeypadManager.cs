@@ -7,19 +7,23 @@ using UnityEngine.UI;
 public class ModelKeypadManager : MonoBehaviour
 {
     [Header("Mirror Area")]
-   
+
     [Tooltip("Gameobject with childs, which should be mirrored, can be null")] // Rechtschreibung xD
     GameObject MirroredObject;  // optional, can be Null if you not call MirroredModelLoigc
 
     [SerializeField]
     Transform anchorPoint; // Pannel Anchor Point
-    [SerializeField]
-    [Tooltip("1 means the first Top Left, 9 mean the last Bottom Right.")]
-    public List<GameObject> all9ModelBtns = new List<GameObject>();
+    public GameObject Btn_1;
+    public GameObject Btn_2;
+    public GameObject Btn_3;
+    public GameObject Btn_4;
+    public GameObject Btn_5;
+    public GameObject Btn_6;
+    public GameObject Btn_7;
+    public GameObject Btn_8;
+    public GameObject Btn_9;
 
-    [SerializeField]
-    public List<GameObject> all9ModelBtnsStudy = new List<GameObject>();
-    
+
 
     [SerializeField]
     GameObject _ModellListUi;
@@ -141,8 +145,6 @@ public class ModelKeypadManager : MonoBehaviour
             _ModellListUiStudy.SetActive(false);
             _VaraintListUiStudy.SetActive(false);
             _AnimListUiStudy.SetActive(false);
-
-
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
@@ -152,21 +154,17 @@ public class ModelKeypadManager : MonoBehaviour
             ui.SetActive(true);
         }
     }
-
-    public void Switch9BtnsActivStatusStudy(bool activ) // Study Case
+    public void Switch9BtnsActivStatusStudy(bool activ)
     {
-        foreach (var btn in all9ModelBtnsStudy)
-        {
-            btn.SetActive(activ);
-        }
-    }
-
-    public void Switch9BtnsActivStatus(bool activ)
-    {
-        foreach (var btn in all9ModelBtns)
-        {
-            btn.SetActive(activ);
-        }
+        Btn_1.SetActive(activ);
+        Btn_2.SetActive(activ);
+        if (StudyScript.Instance.scene_1_done) Btn_3.SetActive(activ);
+        Btn_4.SetActive(activ);
+        if(StudyScript.Instance.tutroial_done) Btn_5.SetActive(activ);
+        Btn_6.SetActive(activ);
+        Btn_7.SetActive(activ);
+        if (StudyScript.Instance.tutroial_done) Btn_8.SetActive(activ);
+        Btn_9.SetActive(activ);
     }
 
     public void ChangeAvatar()
@@ -199,4 +197,5 @@ public class ModelKeypadManager : MonoBehaviour
             }
         }
     }
+
 }

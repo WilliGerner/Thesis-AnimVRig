@@ -23,11 +23,12 @@ public class ModelTransformer : MonoBehaviour
 
     private void OnEnable()
     {
-        SetInitialValues();
+        MoveToAnchor();
     }
 
     private void Start()
     {
+        SetInitialValues();
         if (miniModelObject != null)
         {
             previousMiniModelPosition = miniModelObject.localPosition;
@@ -37,10 +38,8 @@ public class ModelTransformer : MonoBehaviour
         //  SetPosToSpawn();
     }
 
-    void SetInitialValues()
+    public void SetInitialValues()
     {
-     
-
         if (transformModel != null)
         {
             initialRotation = transformModel.localRotation; // Set initial rotation to current local rotation at start
@@ -51,7 +50,7 @@ public class ModelTransformer : MonoBehaviour
 
     void Update()
     {
-        if (miniModelObject != null && transformModel != null)
+        if (miniModelObject != null && transformModel != null && miniModelObject.gameObject.activeSelf)
         {
             if (modelAnimator != null)
             {

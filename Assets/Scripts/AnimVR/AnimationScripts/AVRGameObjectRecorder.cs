@@ -23,7 +23,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public LayerTransformPairChanger mirroredTransformManager;
 
     public List<GameObject> additionalRecordObjects;
-    public List<GameObject> AllMainObjectsToRecord;
+    public List<GameObject> allMainObjectsToRecord;
+    private List<GameObject> currentVariantsToRecord;
 
     [SerializeField]
     private GameObject _blackScreenCanvas;
@@ -32,7 +33,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private RectTransform rectTransform1;
     private RectTransform rectTransform2;
     // Dauer für das Schließen und Öffnen der Augenlider
-    public float blinkDuration = 0.5f;
+    public float blinkDuration = 0f;
     // Dauer, wie lange die Augen geschlossen bleiben
     public float closedDuration = 0.2f;
 
@@ -41,7 +42,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool recordMirroredObject = false;
     bool debugActiv = false;
 
-
+    [SerializeField]
+    private AnimationList _animListLayer;
+    [SerializeField]
+    private AnimationList _animList;
 
     public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
@@ -112,7 +116,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
         rectTransform2.offsetMin = Vector2.zero;
         rectTransform2.offsetMax = Vector2.zero;
         rectTransform2.anchoredPosition = new Vector2(0, -rectTransform2.rect.height);
+
+        //StartCoroutine(CloseEyesTest());
     }
+
+
 
     private void Update()
     {
@@ -133,7 +141,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public GameObject GetActiveElement()
     {
-        foreach (var element in AllMainObjectsToRecord)
+        foreach (var element in allMainObjectsToRecord)
         {
             if (element.activeSelf)  // Prüfe, ob das GameObject aktiv ist
             {
@@ -175,7 +183,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
-        if (recordInit || !StudyScript.Instance.tutroial_done) return;
+        if (recordInit /* !StudyScript.Instance.tutroial_done*/) return;
         CreateNewClip();
         countdownText.gameObject.SetActive(true);
         StartCoroutine(StartRecordingWithCountdown());
@@ -202,7 +210,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
         recordInit = true;
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
-        Debug.Log("Rec Target Object: " + _recorder.isRecording);
         _canRecord = true;
         InfoOverlay.Instance.ManageRecImage();
         if (recordMirroredObject)
@@ -231,6 +238,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
         StartCoroutine(CloseEyesAndContinue());
     }
 
+    private IEnumerator CloseEyesTest()
+    {
+        yield return StartCoroutine(CloseEyes());
+
+       
+        yield return StartCoroutine(OpenEyes());
+
+        InfoOverlay.Instance.ShowText("Eyeas!");
+
+    }
+
     private IEnumerator CloseEyesAndContinue()
     {
         yield return StartCoroutine(CloseEyes());
@@ -241,8 +259,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         InfoOverlay.Instance.ShowText("Clip Name: " + _clipName + " saved");
         AddMotionToAnimator();
         yield return StartCoroutine(OpenEyes());
-        blackScreenImage_1.gameObject.SetActive(false);
-        blackScreenImage_2.gameObject.SetActive(false);
+      
         InfoOverlay.Instance.ShowText("Dont forget the activ bindings before playing your new Animation!");
 
     }
@@ -259,7 +276,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         Vector2 initialPos2 = rectTransform2.anchoredPosition;
         Vector2 targetPos1 = new Vector2(initialPos1.x, 0);
         Vector2 targetPos2 = new Vector2(initialPos2.x, 0);
-
+        InfoOverlay.Instance.ShowText("Close your eyea!");
         // Augenlider schließen
         for (float t = 0; t < halfDuration; t += Time.deltaTime)
         {
@@ -324,16 +341,74 @@ public class AVRGameObjectRecorder : MonoBehaviour
     void AddMotionToAnimator()
     {
         AnimatorStateMachine rootStateMachine = _animController.layers[0].stateMachine;
+
+        // Überprüfen, ob ein State mit dem gleichen Namen bereits existiert
+        AnimatorState existingState = null;
+        foreach (var state in rootStateMachine.states)
+        {
+            if (state.state.name == _currentClip.name)
+            {
+                existingState = state.state;
+                break;
+            }
+        }
+
+        // Wenn ein State mit dem gleichen Namen existiert, löschen
+        if (existingState != null)
+        {
+            rootStateMachine.RemoveState(existingState);
+        }
+
+        // Neuen State erstellen
         AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
         newState.motion = _currentClip;
-        Debug.Log(_animController.name + "    has a new Animation Added to the Controller.  AnimationName: " + _currentClip.name);
+
+        Debug.Log(_animController.name + " hat eine neue Animation zum Controller hinzugefügt. Animationsname: " + _currentClip.name);
         OnMotionAdded?.Invoke();
     }
+
+    public void ActivateOtherVariant(string variantName)
+    {
+        bool found = false;
+        foreach (GameObject obj in currentVariantsToRecord)
+        {
+            if (obj != null)
+            {
+                if (obj.name == variantName)
+                {
+                    found = true;
+                    AVR_Related avr_related = obj.transform.parent.transform.parent.GetComponent<AVR_Related>();
+                    _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
+                    _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
+                    Animator animatorModell = _objectToRecord.GetComponent<Animator>();
+                    RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
+                    _animController = animationController as AnimatorController;
+                    _animList.SetUpAnimList();
+                    _animListLayer.SetUpAnimList();
+
+                    InfoOverlay.Instance.ShowText("Variant was changed to:  " + obj);
+                }
+                else
+                {
+                    InfoOverlay.Instance.ShowText("Failed to found:  " + obj);
+                }
+            }
+        }
+
+        if (found)
+        {
+           // SetModel();
+        }
+        else
+        {
+            Debug.LogError("Object with name " + variantName + " not found in AllMainObjectsToRecord.");
+        }
+    }
+
     public void ActivateOtherModel(string objectName)
     {
-        {
             bool found = false;
-            foreach (GameObject obj in AllMainObjectsToRecord)
+            foreach (GameObject obj in allMainObjectsToRecord)
             {
                 if (obj != null)
                 {
@@ -341,13 +416,15 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     {
                         obj.SetActive(true);
                         AVR_Related avr_related = obj.GetComponent<AVR_Related>();
-                        _objectToRecord = avr_related.activeMirrored; // Set Original Model to new Model
+                        _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
                         _MirroredObjectToRecord = avr_related.mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
                         _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
                         Animator animatorModell = _objectToRecord.GetComponent<Animator>();
                         RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                         _animController = animationController as AnimatorController;
-
+                        currentVariantsToRecord = avr_related.mirroredVaraints;
+                        _animList.SetUpAnimList();
+                        _animListLayer.SetUpAnimList();
                         found = true;
                         InfoOverlay.Instance.ShowText("New Model:  " + obj);
                         StudyScript.Instance.SwitchModelTask();
@@ -361,14 +438,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
             if (found)
             {
-                //ResetRecorder();
                 SetModel();
             }
             else
             {
                 Debug.LogError("Object with name " + objectName + " not found in AllMainObjectsToRecord.");
             }
-        }
     }
 
     public void ResetRecorder()
@@ -389,10 +464,20 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder = new GameObjectRecorder(_ownRigModel);
             _recorder.BindComponentsOfType<Transform>(_ownRigModel, true);
             OnChangeModel?.Invoke();
-            InfoOverlay.Instance.ShowText("Model set to Own Rig for recording: " + _ownRigModel.name);
-        }else
+            InfoOverlay.Instance.ShowText("Model set to Own Rig: " + _ownRigModel.name);
+
+            ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
+            ModelKeypadManager.Instance.Btn_3.SetActive(true);
+            ModelKeypadManager.Instance.Btn_2.SetActive(true);
+            if (StudyScript.Instance.tutroial_done)
+            {
+                ModelKeypadManager.Instance.Btn_5.SetActive(true);              
+            }
+        }
+        else
         {
             _MirroredObjectToRecord.SetActive(true);
+            ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
             SetModel();
         }
     }
@@ -417,15 +502,15 @@ public class AVRGameObjectRecorder : MonoBehaviour
         avr_mirrorTransformer.transformModel = _objectToRecord.transform; // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
         OnChangeModel?.Invoke();
-        InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord + "  oldRecorder: " + _recorder);
+        InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord);
     }
 
     public List<GameObject> GetChildrenWithAnimator()
     {
         List<GameObject> childrenWithAnimator = new List<GameObject>();
-        if (_objectToRecord != null)
+        if (_MirroredObjectToRecord != null)
         {
-            foreach (Transform child in _objectToRecord.transform)
+            foreach (Transform child in _MirroredObjectToRecord.transform)
             {
                 if (child.GetComponent<Animator>() != null)
                 {

@@ -7,8 +7,7 @@ public class AVR_Related : MonoBehaviour
     public GameObject retargetGO;
     public GameObject mirroredObjects;
     public GameObject activeMirrored;
-    [SerializeField]
-    List<GameObject> mirroredVaraints;
+    public List<GameObject> mirroredVaraints;
 
 
     private void Start()
