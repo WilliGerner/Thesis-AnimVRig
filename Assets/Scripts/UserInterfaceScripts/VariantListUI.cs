@@ -8,6 +8,8 @@ public class VariantListUI : MonoBehaviour
 {
     [SerializeField]
     LayerTransformPairChanger mirrorTransformManager;
+    [SerializeField]
+    LayerMaskManager layerMaskManager;
 
     [Tooltip("Fill only for VariantList!")]
     public List<GameObject> variantGameObjects = new List<GameObject>();
@@ -73,6 +75,7 @@ public class VariantListUI : MonoBehaviour
 
     void ToggleVariant(int index)
     {
+        layerMaskManager.ToggleEverything();
         if (index >= 0 && variantGameObjects.Count != 0)
         {
             foreach (var variant in variantGameObjects)
@@ -84,7 +87,7 @@ public class VariantListUI : MonoBehaviour
 
             mirrorTransformManager._lateMirroredObject = variantGameObjects[index].GetComponentInChildren<LateMirroredObject>();
             mirrorTransformManager.ChangeMirrorTransformerModel();
-            mirrorTransformManager.SetToAllPairs(true);
+            mirrorTransformManager.SetToAllPairs();
             AVRGameObjectRecorder.Instance.ActivateOtherVariant(variantGameObjects[index].name);
         }
     }

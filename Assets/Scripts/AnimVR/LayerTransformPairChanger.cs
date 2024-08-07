@@ -90,7 +90,6 @@ public class LayerTransformPairChanger : MonoBehaviour
 
     private void UpdateMirroredTransformPairs(bool isEnabled, string[] bodyPartRoots)
     {
-        _lateMirroredObject.enabled = true;
         if (_originalMirroredTransformPairs == null)
         {
             Debug.LogError("_originalMirroredTransformPairs is null");
@@ -106,12 +105,13 @@ public class LayerTransformPairChanger : MonoBehaviour
                     _currentMirroredTransformPairs.Add(pair);
                 }
             }
+            _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
         }
         else
         {
             _currentMirroredTransformPairs.RemoveAll(pair => IsBodyPart(pair.OriginalTransform, bodyPartRoots));
+            _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
         }
-        _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
     }
 
     private bool IsBodyPart(Transform transform, string[] bodyPartRoots)
@@ -136,22 +136,17 @@ public class LayerTransformPairChanger : MonoBehaviour
         return false;
     }
 
-    public void SetToAllPairs(bool isEnabled)
+    public void SetToAllPairs()
     {
-        if (isEnabled)
-        {
-            _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_originalMirroredTransformPairs);
-        }
-        else
-        {
-            _currentMirroredTransformPairs.Clear();
-        }
+         _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_originalMirroredTransformPairs);
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
+        _lateMirroredObject.enabled = true;
     }
 
     public void SetToZeroPairs()
     {
         _currentMirroredTransformPairs.Clear();
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
+        _lateMirroredObject.enabled = false;
     }
 }

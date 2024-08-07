@@ -10,19 +10,12 @@ public class LayerMaskManager : MonoBehaviour
     [SerializeField]
     private LayerTransformPairChanger _mirroredTransformManager;
 
-    #region CustomToggle
-    [SerializeField]
-    private AnimationClip _animClip;
     [SerializeField]
     private AvatarMask _customMask;
     [SerializeField]
     private AvatarMask _baseLayerMask;
-    [SerializeField]
-    private RetargetingAnimationConstraint[] _retargetingConstraints;
-    [SerializeField]
-    private Animator[] _animators;
-
-    #endregion
+    //[SerializeField]
+    //private RetargetingAnimationConstraint[] _retargetingConstraints;
 
     [SerializeField]
     private TMPro.TextMeshProUGUI _currentMaskTxt;
@@ -33,8 +26,8 @@ public class LayerMaskManager : MonoBehaviour
     public bool _rightArm = false;
     public bool _leftFoot = false;
     public bool _rightFoot = false;
-    public bool _everything = false;
-    public bool _nothing = true;
+    //public bool _everything = false;
+    //public bool _nothing = true;
 
     public AvatarMask leftArmMask;
     public AvatarMask rightArmMask;
@@ -50,7 +43,6 @@ public class LayerMaskManager : MonoBehaviour
     public AvatarMask bothArmsRightFootMask;
     public AvatarMask leftArmBothFeetMask;
     public AvatarMask rightArmBothFeetMask;
-    public AvatarMask bothArmsBothFeetMask;
     public AvatarMask everythingMask;
     public AvatarMask nothingMask;
 
@@ -68,14 +60,19 @@ public class LayerMaskManager : MonoBehaviour
     [SerializeField]
     private GameObject BtnVisualToggleHead;
 
+    [SerializeField]
+    AnimationList mainAnimList;
+
     private void Awake()
     {
-        Assert.IsNotNull(_animClip);
         Assert.IsNotNull(_customMask);
         Assert.IsNotNull(_baseLayerMask);
-        Assert.IsTrue(_animators != null && _animators.Length > 0);
     }
 
+    private void OnEnable()
+    {
+        UpdateAllColors();
+    }
 
     private void ApplyBaseLayerMask()
     {
@@ -88,58 +85,86 @@ public class LayerMaskManager : MonoBehaviour
 
     AvatarMask DetermineAvatarMask()
     {
-        if (_nothing) return nothingMask;
-        if (_everything) return everythingMask;
-        if (_leftArm && !_rightArm && !_leftFoot && !_rightFoot) return leftArmMask;
-        if (!_leftArm && _rightArm && !_leftFoot && !_rightFoot) return rightArmMask;
-        if (!_leftArm && !_rightArm && _leftFoot && !_rightFoot) return leftFootMask;
-        if (!_leftArm && !_rightArm && !_leftFoot && _rightFoot) return rightFootMask;
-        if (_leftArm && _rightArm && !_leftFoot && !_rightFoot) return bothArmsMask;
-        if (!_leftArm && !_rightArm && _leftFoot && _rightFoot) return bothFeetMask;
-        if (_leftArm && !_rightArm && _leftFoot && !_rightFoot) return leftArmLeftFootMask;
-        if (_leftArm && !_rightArm && !_leftFoot && _rightFoot) return leftArmRightFootMask;
-        if (!_leftArm && _rightArm && _leftFoot && !_rightFoot) return rightArmLeftFootMask;
-        if (!_leftArm && _rightArm && _leftFoot && _rightFoot) return rightArmRightFootMask;
-        if (_leftArm && _rightArm && _leftFoot && !_rightFoot) return bothArmsLeftFootMask;
-        if (_leftArm && _rightArm && !_leftFoot && _rightFoot) return bothArmsRightFootMask;
-        if (_leftArm && _rightArm && _leftFoot && _rightFoot) return bothArmsBothFeetMask;
-        return nothingMask;
+        int mask = 0;
+        mask |= _leftArm ? 1 : 0;    // Setzt Bit 0, wenn _leftArm true ist
+        mask |= _rightArm ? 2 : 0;   // Setzt Bit 1, wenn _rightArm true ist
+        mask |= _leftFoot ? 4 : 0;   // Setzt Bit 2, wenn _leftFoot true ist
+        mask |= _rightFoot ? 8 : 0;  // Setzt Bit 3, wenn _rightFoot true ist
+
+        switch (mask)
+        {
+            case 1:  // 0001 in Binär (nur _leftArm ist true)
+                return leftArmMask;
+            case 2:  // 0010 in Binär (nur _rightArm ist true)
+                return rightArmMask;
+            case 4:  // 0100 in Binär (nur _leftFoot ist true)
+                return leftFootMask;
+            case 8:  // 1000 in Binär (nur _rightFoot ist true)
+                return rightFootMask;
+            case 3:  // 0011 in Binär (beide Arme sind true)
+                return bothArmsMask;
+            case 12: // 1100 in Binär (beide Füße sind true)
+                return bothFeetMask;
+            case 5:  // 0101 in Binär (_leftArm und _leftFoot sind true)
+                return leftArmLeftFootMask;
+            case 9:  // 1001 in Binär (_leftArm und _rightFoot sind true)
+                return leftArmRightFootMask;
+            case 6:  // 0110 in Binär (_rightArm und _leftFoot sind true)
+                return rightArmLeftFootMask;
+            case 10: // 1010 in Binär (_rightArm und _rightFoot sind true)
+                return rightArmRightFootMask;
+            case 7:  // 0111 in Binär (beide Arme und _leftFoot sind true)
+                return bothArmsLeftFootMask;
+            case 11: // 1011 in Binär (beide Arme und _rightFoot sind true)
+                return bothArmsRightFootMask;
+            case 13: // 1101 in Binär (beide Füße und _leftArm sind true)
+                return leftArmBothFeetMask;
+            case 14: // 1110 in Binär (beide Füße und _rightArm sind true)
+                return rightArmBothFeetMask;
+            case 15: // 1111 in Binär (alle vier Gliedmaßen sind true)
+                return everythingMask;
+            case 0:  // 0000 in Binär (keine Gliedmaßen sind true)
+                return nothingMask;
+            default:
+                return nothingMask;
+        }
     }
 
     public void ToggleLeftArm()
     {
         _leftArm = !_leftArm;
-        ResetEverythingNothing();
+        DeterMineAndApplyBaseLayer();
         ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _mirroredTransformManager.UpdateLeftArmPairs(_leftArm);
-        UpdateCurrentMask();
+       // UpdateCurrentMask();
     }
 
     public void ToggleRightArm()
     {
         _rightArm = !_rightArm;
-        ResetEverythingNothing();
+        DeterMineAndApplyBaseLayer();
         ChangeColor(_rightArm, BtnVisualToggleRightArm);
         _mirroredTransformManager.UpdateRightArmPairs(_rightArm); // Update TransformPaires
-        UpdateCurrentMask();
+      //  UpdateCurrentMask();
     }
 
     public void ToggleLeftFoot()
     {
         _leftFoot = !_leftFoot;
-        ResetEverythingNothing();
+        DeterMineAndApplyBaseLayer();
         ChangeColor(_leftFoot, BtnVisualToggleLeftLeg);
         _mirroredTransformManager.UpdateLeftLegPairs(_leftFoot);
-        UpdateCurrentMask();
+       
+        //UpdateCurrentMask();
     }
 
     public void ToggleRightFoot()
     {
         _rightFoot = !_rightFoot;
-        ResetEverythingNothing();
+        DeterMineAndApplyBaseLayer();
         ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
         _mirroredTransformManager.UpdateRightLegPairs(_rightFoot);
-        UpdateCurrentMask();
+        //UpdateCurrentMask();
     }
 
     public void ChangeColor(bool active, GameObject buttonVisualGO)
@@ -158,36 +183,38 @@ public class LayerMaskManager : MonoBehaviour
 
     public void ToggleEverything()
     {
-        _everything = true;
-        _nothing = false;
         ResetIndividualParts(true);
         UpdateAllColors();
-        _customMask = DetermineAvatarMask();
-        ApplyBaseLayerMask();
-        _mirroredTransformManager.SetToAllPairs(_everything);
-        _currentMaskTxt.text = _customMask.name;
+        DeterMineAndApplyBaseLayer();
     }
 
     public void ToggleNothing()
     {
-        _nothing = true;
-        _everything = false;
         ResetIndividualParts(false);
         UpdateAllColors();
-
-        _customMask = DetermineAvatarMask();
-        ApplyBaseLayerMask();
-        _mirroredTransformManager.SetToZeroPairs();
-        _currentMaskTxt.text = _customMask.name;
+        DeterMineAndApplyBaseLayer();
+        mainAnimList.PlaySpecialAnim("T-Pose");
     }
 
-    private void ResetEverythingNothing()
+    private void DeterMineAndApplyBaseLayer()
     {
-        _everything = false;
-        _nothing = false;
         _customMask = DetermineAvatarMask();
+        _mirroredTransformManager._lateMirroredObject.enabled = true;
         ApplyBaseLayerMask();
         _currentMaskTxt.text = _customMask.name;
+        if (_customMask == nothingMask)
+        { _mirroredTransformManager.SetToZeroPairs(); }
+        else if (_customMask == everythingMask)
+        { _mirroredTransformManager.SetToAllPairs(); }
+        
+        
+        
+        if (_customMask == bothFeetMask) // Only for Study
+        { StudyScript.Instance.BothFeetSetActiv(true); }
+        else { StudyScript.Instance.BothFeetSetActiv(false); }
+        if (_customMask == bothArmsMask)
+        { StudyScript.Instance.SetBindingsForJumpTask(true); }
+        else { StudyScript.Instance.SetBindingsForJumpTask(false); }
     }
 
     private void ResetIndividualParts(bool state)
@@ -198,29 +225,12 @@ public class LayerMaskManager : MonoBehaviour
         _rightFoot = state;
     }
 
-    private void UpdateCurrentMask()
-    {
-        _customMask = DetermineAvatarMask();
-        if (_customMask == bothFeetMask) // Only for Study
-        {
-            StudyScript.Instance.BothFeetSetActiv(true);          
-        }
-        else
-        {
-            StudyScript.Instance.BothFeetSetActiv(false); 
-        }
+    //private void UpdateCurrentMask()
+    //{
 
-        if (_customMask == bothArmsMask)
-        {
-            StudyScript.Instance.SetBindingsForJumpTask(true);
-        }
-        else
-        {
-            StudyScript.Instance.SetBindingsForJumpTask(false);
-        }
-        ApplyBaseLayerMask();
-        _currentMaskTxt.text = _customMask.name;
-    }
+    //    ApplyBaseLayerMask();
+    //    _currentMaskTxt.text = _customMask.name;
+    //}
 
     private void UpdateAllColors()
     {

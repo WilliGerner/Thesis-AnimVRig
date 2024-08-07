@@ -156,9 +156,9 @@ public class ModelKeypadManager : MonoBehaviour
     }
     public void Switch9BtnsActivStatusStudy(bool activ)
     {
-        Btn_1.SetActive(activ);
+        if (StudyScript.Instance.scene_1_done) Btn_1.SetActive(activ);
         Btn_2.SetActive(activ);
-        if (StudyScript.Instance.scene_1_done) Btn_3.SetActive(activ);
+        Btn_3.SetActive(activ);
         Btn_4.SetActive(activ);
         if(StudyScript.Instance.tutroial_done) Btn_5.SetActive(activ);
         Btn_6.SetActive(activ);

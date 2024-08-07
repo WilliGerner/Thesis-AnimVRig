@@ -11,19 +11,20 @@ public class ModelTransformer : MonoBehaviour
     public Vector3 positionOffset; // Manuelle Positionsoffset
     public float movementMultiplier = 1.0f; // Multiplikator für Bewegung
     public float rotationMultiplier = 1.0f; // Multiplikator für Rotation
-    public float scalingMultiplier = 1.0f; // Multiplikator für Skalierung
     public bool lookAtPlayer = false; // Boolean, um das Zielobjekt zum Player schauen zu lassen
 
     private Vector3 previousMiniModelPosition;
     private Quaternion previousMiniModelRotation;
-    private Vector3 previousMiniModelScale;
     private Quaternion initialRotation;
 
     private Animator modelAnimator;
 
     private void OnEnable()
     {
-        MoveToAnchor();
+        SetPosToSpawn();
+        previousMiniModelPosition = miniModelObject.localPosition;
+        previousMiniModelRotation = miniModelObject.localRotation;
+        initialRotation = transformModel.localRotation; // Set initial rotation to current local rotation at start
     }
 
     private void Start()
@@ -33,7 +34,6 @@ public class ModelTransformer : MonoBehaviour
         {
             previousMiniModelPosition = miniModelObject.localPosition;
             previousMiniModelRotation = miniModelObject.localRotation;
-            previousMiniModelScale = miniModelObject.localScale;
         }
         //  SetPosToSpawn();
     }
@@ -42,7 +42,7 @@ public class ModelTransformer : MonoBehaviour
     {
         if (transformModel != null)
         {
-            initialRotation = transformModel.localRotation; // Set initial rotation to current local rotation at start
+           
             modelAnimator = transformModel.GetComponent<Animator>();
         }
     }
@@ -70,12 +70,6 @@ public class ModelTransformer : MonoBehaviour
                 deltaRotation = Quaternion.Inverse(deltaRotation); // Invertierung der Rotationsrichtung
                 transformModel.localRotation = transformModel.localRotation * deltaRotation;
                 previousMiniModelRotation = miniModelObject.localRotation;
-            }
-
-            if (miniModelObject.localScale != previousMiniModelScale)
-            {
-                transformModel.localScale = Vector3.Scale(transformModel.localScale, Vector3.one + (miniModelObject.localScale - previousMiniModelScale) * scalingMultiplier);
-                previousMiniModelScale = miniModelObject.localScale;
             }
         }
     }

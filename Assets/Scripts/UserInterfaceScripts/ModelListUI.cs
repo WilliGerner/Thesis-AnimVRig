@@ -82,7 +82,7 @@ public class ModelListUI : MonoBehaviour
             mirrorTransformManager._lateMirroredObject = modelGameObjects[index].GetComponentInChildren<LateMirroredObject>();
             mirrorTransformManager.ChangeMirrorTransformerModel();
             variantList.UpdateVaraintList();
-            mirrorTransformManager.SetToAllPairs(true);
+            mirrorTransformManager.SetToAllPairs();
         }
     }
 }

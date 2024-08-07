@@ -84,6 +84,22 @@ public class AnimationList : MonoBehaviour
         else StudyScript.Instance.SetRootMotion(true);
     }
 
+    public void PlaySpecialAnim(string animName)
+    {
+        if (!targetAnimator.enabled) targetAnimator.enabled = true;
+        targetAnimator.speed = 1;
+        if (RequiresAvatar(animName))
+        {
+            AttachAvatar();
+        }
+        else
+        {
+            DetachAvatar();
+        }
+
+        targetAnimator.Play(animName);
+    }
+
     public void PlayAnimation()
     {
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
@@ -97,21 +113,21 @@ public class AnimationList : MonoBehaviour
             DetachAvatar();
         }
 
-        if (layerMaskManager._everything)
+        if (layerMaskManager._leftArm&& layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
         {
             StudyScript.Instance.BindEverythingTask();
         }
 
-        if (layerMaskManager._nothing)
+        if (!layerMaskManager._leftArm && !layerMaskManager._rightArm && !layerMaskManager._leftFoot && !layerMaskManager._rightFoot)
         {
             StudyScript.Instance.BindNothingTask();
         }
 
-        if (currentClip.name == "Sitting Clap" && StudyScript.Instance.tutroial_done)
+        if (currentClip.name == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
         {
             StudyScript.Instance.PlayClapAnimTask();
         }
-        if (currentClip.name.Contains("Jumping") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
+        if (currentClip.name.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
         {
             StudyScript.Instance.PlayJumpAnim();
         }
@@ -124,6 +140,42 @@ public class AnimationList : MonoBehaviour
             StudyScript.Instance.PlayYourNewJumpAnim();
         }
         targetAnimator.Play(currentClip.name);
+    }
+
+    private bool RequiresAvatar(string clipName)
+    {
+        // Find the AnimationClip by name
+        var clips = Resources.FindObjectsOfTypeAll<AnimationClip>();
+        AnimationClip clip = null;
+
+        foreach (var c in clips)
+        {
+            if (c.name == clipName)
+            {
+                clip = c;
+                break;
+            }
+        }
+
+        // If the clip is not found, return false
+        if (clip == null)
+        {
+            Debug.LogError($"AnimationClip '{clipName}' not found.");
+            return false;
+        }
+
+        // Check if the animation has no transform paths, which might indicate it requires an avatar
+        var bindings = AnimationUtility.GetCurveBindings(clip);
+        foreach (var binding in bindings)
+        {
+            if (binding.propertyName.StartsWith("m_LocalPosition") ||
+                binding.propertyName.StartsWith("m_LocalRotation") ||
+                binding.propertyName.StartsWith("m_LocalScale"))
+            {
+                return false;
+            }
+        }
+        return true;
     }
 
     private bool RequiresAvatar(AnimationClip clip)

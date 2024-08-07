@@ -42,8 +42,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     public bool recordMirroredObject = false;
     bool debugActiv = false;
 
-    [SerializeField]
-    private AnimationList _animListLayer;
+    //[SerializeField]
+    //private AnimationList _animListLayer;
     [SerializeField]
     private AnimationList _animList;
 
@@ -130,13 +130,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
             Debug.Log("Recording: " + _recorder.isRecording);
         }
 
-        lock (_executionQueue)  // new
-        {
-            while (_executionQueue.Count > 0)
-            {
-                _executionQueue.Dequeue().Invoke();
-            }
-        }
+        //lock (_executionQueue)  // new
+        //{
+        //    while (_executionQueue.Count > 0)
+        //    {
+        //        _executionQueue.Dequeue().Invoke();
+        //    }
+        //}
     }
 
     public GameObject GetActiveElement()
@@ -183,10 +183,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
+#if UNITY_EDITOR
         if (recordInit /* !StudyScript.Instance.tutroial_done*/) return;
-        CreateNewClip();
+       
         countdownText.gameObject.SetActive(true);
         StartCoroutine(StartRecordingWithCountdown());
+#else
+    ModelKeypadManager.Instance.Btn_5.SetActive(false);
+#endif
     }
 
     private IEnumerator StartRecordingWithCountdown()
@@ -224,92 +228,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
-        InfoOverlay.Instance.ShowText("Animation Recording for " + gameObject.name + " has Initialized.");
+        //InfoOverlay.Instance.ShowText("Animation Recording for " + _objectToRecord.name + " on ANim: " + _currentClip.name);
     }
 
     public void StopRecording()
     {
-      //  StudyScript.Instance.HitRecAndStop();
         StudyScript.Instance.RecordClapTask();
         StudyScript.Instance.RecordNewJumpAnim();
         recordInit = false;
         _canRecord = false;
         InfoOverlay.Instance.ManageRecImage();
         StartCoroutine(CloseEyesAndContinue());
-    }
-
-    private IEnumerator CloseEyesTest()
-    {
-        yield return StartCoroutine(CloseEyes());
-
-       
-        yield return StartCoroutine(OpenEyes());
-
-        InfoOverlay.Instance.ShowText("Eyeas!");
-
-    }
-
-    private IEnumerator CloseEyesAndContinue()
-    {
-        yield return StartCoroutine(CloseEyes());
-
-        // Restliche Aktionen nach dem Schlieﬂen der Augen
-        _recorder.SaveToClip(_currentClip);
-        AssetDatabase.SaveAssets();
-        InfoOverlay.Instance.ShowText("Clip Name: " + _clipName + " saved");
-        AddMotionToAnimator();
-        yield return StartCoroutine(OpenEyes());
-      
-        InfoOverlay.Instance.ShowText("Dont forget the activ bindings before playing your new Animation!");
-
-    }
-
-    private IEnumerator CloseEyes()
-    {
-        if (!blackScreenImage_1.gameObject.activeSelf)
-        {
-            blackScreenImage_1.gameObject.SetActive(true);
-            blackScreenImage_2.gameObject.SetActive(true);
-        }
-        float halfDuration = blinkDuration / 2f;
-        Vector2 initialPos1 = rectTransform1.anchoredPosition;
-        Vector2 initialPos2 = rectTransform2.anchoredPosition;
-        Vector2 targetPos1 = new Vector2(initialPos1.x, 0);
-        Vector2 targetPos2 = new Vector2(initialPos2.x, 0);
-        InfoOverlay.Instance.ShowText("Close your eyea!");
-        // Augenlider schlieﬂen
-        for (float t = 0; t < halfDuration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / halfDuration;
-            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
-            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
-            yield return null;
-        }
-        rectTransform1.anchoredPosition = targetPos1;
-        rectTransform2.anchoredPosition = targetPos2;
-
-        // Augen geschlossen halten
-        yield return new WaitForSeconds(closedDuration);
-    }
-
-    private IEnumerator OpenEyes()
-    {
-        float halfDuration = blinkDuration / 2f;
-        Vector2 initialPos1 = rectTransform1.anchoredPosition;
-        Vector2 initialPos2 = rectTransform2.anchoredPosition;
-        Vector2 targetPos1 = new Vector2(initialPos1.x, rectTransform1.rect.height);
-        Vector2 targetPos2 = new Vector2(initialPos2.x, -rectTransform2.rect.height);
-
-        // Augenlider ˆffnen
-        for (float t = 0; t < halfDuration; t += Time.deltaTime)
-        {
-            float normalizedTime = t / halfDuration;
-            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
-            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
-            yield return null;
-        }
-        rectTransform1.anchoredPosition = targetPos1;
-        rectTransform2.anchoredPosition = targetPos2;
     }
 
     public void CreateNewClip()
@@ -329,9 +258,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
             }
         }
 
-        AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}_Anim.anim", _clipName));
-        InfoOverlay.Instance.ShowText("New Clip created:  " + _clipName + " at path: " + _saveFolderLocation);
-
+        AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}.anim", _clipName));
+        //InfoOverlay.Instance.ShowText("New ANim: "+ _currentClip.name);
         if (!allClips.Contains(_currentClip))
         {
             allClips.Add(_currentClip);
@@ -353,30 +281,38 @@ public class AVRGameObjectRecorder : MonoBehaviour
             }
         }
 
-        // Wenn ein State mit dem gleichen Namen existiert, lˆschen
+        // Wenn ein State mit dem gleichen Namen existiert
         if (existingState != null)
         {
-            rootStateMachine.RemoveState(existingState);
+            // Wenn der State keine Motion hat, die aktuelle Motion zuweisen
+            if (existingState.motion == null)
+            {
+                existingState.motion = _currentClip;
+            }
+            // Wenn der State eine Motion hat, diese durch die neue Motion ersetzen
+            else
+            {
+                existingState.motion = _currentClip;
+            }
+        }
+        else
+        {
+            // Neuen State erstellen und die Motion zuweisen
+            AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
+            newState.motion = _currentClip;
         }
 
-        // Neuen State erstellen
-        AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
-        newState.motion = _currentClip;
-
-        Debug.Log(_animController.name + " hat eine neue Animation zum Controller hinzugef¸gt. Animationsname: " + _currentClip.name);
         OnMotionAdded?.Invoke();
     }
 
     public void ActivateOtherVariant(string variantName)
     {
-        bool found = false;
         foreach (GameObject obj in currentVariantsToRecord)
         {
             if (obj != null)
             {
                 if (obj.name == variantName)
                 {
-                    found = true;
                     AVR_Related avr_related = obj.transform.parent.transform.parent.GetComponent<AVR_Related>();
                     _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
                     _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
@@ -384,30 +320,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                     _animController = animationController as AnimatorController;
                     _animList.SetUpAnimList();
-                    _animListLayer.SetUpAnimList();
+                    //_animListLayer.SetUpAnimList();
 
                     InfoOverlay.Instance.ShowText("Variant was changed to:  " + obj);
-                }
-                else
-                {
-                    InfoOverlay.Instance.ShowText("Failed to found:  " + obj);
+                    CreateNewClip();
                 }
             }
-        }
-
-        if (found)
-        {
-           // SetModel();
-        }
-        else
-        {
-            Debug.LogError("Object with name " + variantName + " not found in AllMainObjectsToRecord.");
         }
     }
 
     public void ActivateOtherModel(string objectName)
     {
-            bool found = false;
             foreach (GameObject obj in allMainObjectsToRecord)
             {
                 if (obj != null)
@@ -424,10 +347,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _animController = animationController as AnimatorController;
                         currentVariantsToRecord = avr_related.mirroredVaraints;
                         _animList.SetUpAnimList();
-                        _animListLayer.SetUpAnimList();
-                        found = true;
-                        InfoOverlay.Instance.ShowText("New Model:  " + obj);
-                        StudyScript.Instance.SwitchModelTask();
+                        //_animListLayer.SetUpAnimList();
+                        SetModel();
+                        CreateNewClip();
+                    //InfoOverlay.Instance.ShowText("New Model:  " + obj);
+                    StudyScript.Instance.SwitchModelTask();
                     }
                     else
                     {
@@ -435,24 +359,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     }
                 }
             }
-
-            if (found)
-            {
-                SetModel();
-            }
-            else
-            {
-                Debug.LogError("Object with name " + objectName + " not found in AllMainObjectsToRecord.");
-            }
-    }
-
-    public void ResetRecorder()
-    {
-        _recorder = null;
-        _currentClip = null;
-        _canRecord = false;
-        recordInit = false;
-        Debug.Log("Recorder reset complete.");
     }
 
     public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
@@ -473,6 +379,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             {
                 ModelKeypadManager.Instance.Btn_5.SetActive(true);              
             }
+            CreateNewClip();
         }
         else
         {
@@ -502,7 +409,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         avr_mirrorTransformer.transformModel = _objectToRecord.transform; // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
         OnChangeModel?.Invoke();
-        InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord);
+        //InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord);
     }
 
     public List<GameObject> GetChildrenWithAnimator()
@@ -539,5 +446,64 @@ public class AVRGameObjectRecorder : MonoBehaviour
             //Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.name);
             debugActiv = true;
         }
+    }
+
+    private IEnumerator CloseEyesAndContinue()
+    {
+        yield return StartCoroutine(CloseEyes());
+#if UNITY_EDITOR
+        _recorder.SaveToClip(_currentClip);
+        AssetDatabase.SaveAssets();
+        //InfoOverlay.Instance.ShowText("Clip Name: " + _clipName + " saved");
+        AddMotionToAnimator();
+#endif
+        yield return StartCoroutine(OpenEyes());
+    }
+
+    private IEnumerator CloseEyes()
+    {
+        if (!blackScreenImage_1.gameObject.activeSelf)
+        {
+            blackScreenImage_1.gameObject.SetActive(true);
+            blackScreenImage_2.gameObject.SetActive(true);
+        }
+        float halfDuration = blinkDuration / 2f;
+        Vector2 initialPos1 = rectTransform1.anchoredPosition;
+        Vector2 initialPos2 = rectTransform2.anchoredPosition;
+        Vector2 targetPos1 = new Vector2(initialPos1.x, 0);
+        Vector2 targetPos2 = new Vector2(initialPos2.x, 0);
+        // Augenlider schlieﬂen
+        for (float t = 0; t < halfDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / halfDuration;
+            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
+            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
+            yield return null;
+        }
+        rectTransform1.anchoredPosition = targetPos1;
+        rectTransform2.anchoredPosition = targetPos2;
+
+        // Augen geschlossen halten
+        yield return new WaitForSeconds(closedDuration);
+    }
+
+    private IEnumerator OpenEyes()
+    {
+        float halfDuration = blinkDuration / 2f;
+        Vector2 initialPos1 = rectTransform1.anchoredPosition;
+        Vector2 initialPos2 = rectTransform2.anchoredPosition;
+        Vector2 targetPos1 = new Vector2(initialPos1.x, rectTransform1.rect.height);
+        Vector2 targetPos2 = new Vector2(initialPos2.x, -rectTransform2.rect.height);
+
+        // Augenlider ˆffnen
+        for (float t = 0; t < halfDuration; t += Time.deltaTime)
+        {
+            float normalizedTime = t / halfDuration;
+            rectTransform1.anchoredPosition = Vector2.Lerp(initialPos1, targetPos1, normalizedTime);
+            rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
+            yield return null;
+        }
+        rectTransform1.anchoredPosition = targetPos1;
+        rectTransform2.anchoredPosition = targetPos2;
     }
 }
