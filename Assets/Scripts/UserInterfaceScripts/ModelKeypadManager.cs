@@ -34,7 +34,7 @@ public class ModelKeypadManager : MonoBehaviour
     [SerializeField]
     GameObject _LayerUi;
     [SerializeField]
-    GameObject _TransformerPannel;
+    GameObject _TransformerSphereMovement;
 
     #region Study Relevant
     [SerializeField]
@@ -111,18 +111,20 @@ public class ModelKeypadManager : MonoBehaviour
         } 
            
         // Set Panel to anchorPoint;
-        _TransformerPannel.transform.position = anchorPoint.position;
-        _TransformerPannel.transform.rotation = anchorPoint.rotation;
-        _TransformerPannel.transform.localScale = anchorPoint.localScale;
+        _TransformerSphereMovement.transform.position = anchorPoint.position;
+        _TransformerSphereMovement.transform.rotation = anchorPoint.rotation;
+        _TransformerSphereMovement.transform.localScale = anchorPoint.localScale;
 
-        if (_TransformerPannel.gameObject.activeSelf)
+        if (_TransformerSphereMovement.gameObject.activeSelf)
         {
-            _TransformerPannel.gameObject.SetActive(false);
+            _TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
+            _TransformerSphereMovement.gameObject.SetActive(false);
             ui_3x3.SetActive(true);
         }
         else
         { 
-            _TransformerPannel.gameObject.SetActive(true);
+            _TransformerSphereMovement.gameObject.SetActive(true);
+            _TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(true);
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
@@ -148,7 +150,7 @@ public class ModelKeypadManager : MonoBehaviour
             _ModellListUi.SetActive(false);
             _CustomizerUi.SetActive(false);
             _VaraintListUi.SetActive(false);
-            _TransformerPannel.SetActive(false);  
+            _TransformerSphereMovement.SetActive(false);  
             _LayerUi.SetActive(false);  
 
             ui.SetActive(true);

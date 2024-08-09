@@ -41,6 +41,7 @@ public class AnimationList : MonoBehaviour
             if (interactable != null)
             {
                 interactables.Add(interactable);
+                interactable.gameObject.SetActive(true); // Reactivate interactables when loaded
             }
         }
         if (interactables.Count > 0)
@@ -56,9 +57,17 @@ public class AnimationList : MonoBehaviour
         if (targetAnimator != null)
         {
             var clips = targetAnimator.runtimeAnimatorController.animationClips;
-            for (int i = 0; i < clips.Length && i < interactables.Count; i++)
+            for (int i = 0; i < interactables.Count; i++)
             {
-                SetInteractableTextAndListener(interactables[i], clips[i]);
+                if (i < clips.Length)
+                {
+                    SetInteractableTextAndListener(interactables[i], clips[i]);
+                    interactables[i].gameObject.SetActive(true); // Ensure necessary interactables are active
+                }
+                else
+                {
+                    interactables[i].gameObject.SetActive(false); // Deactivate surplus interactables
+                }
             }
         }
     }
@@ -98,6 +107,20 @@ public class AnimationList : MonoBehaviour
         }
 
         targetAnimator.Play(animName);
+    }
+
+    public IEnumerator LateUpdateAnimPlay()
+    {
+        yield return new WaitForFixedUpdate();
+
+        if (!targetAnimator.enabled) targetAnimator.enabled = true;
+        targetAnimator.speed = 1;
+        if (RequiresAvatar(currentClip))
+        {
+            AttachAvatar();
+        }
+        else DetachAvatar();
+        targetAnimator.Play(currentClip.name);
     }
 
     public void PlayAnimation()

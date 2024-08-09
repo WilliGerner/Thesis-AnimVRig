@@ -139,11 +139,12 @@ public class AnimationKeypadManager : MonoBehaviour
     {
         if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf) // Startet und Stop Logik der Aufnahmen.
         {
+            if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf) return;
             AVRGameObjectRecorder.Instance.StopRecording(); // The current AVRRecorder from the Target Model!
         }
         else if (callingBtn.GetComponent<AVR_SingleBtn>()._DisabledIcon.activeSelf)
         {
-            Debug.Log("Start Record");
+            if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf) return;
             AVRGameObjectRecorder.Instance.StartRec(); // The current AVRRecorder from the Target Model!                                                                                                                                 //AnimVRigRecorder.Instance.StopRecordingThreadVar();  // Thread Alternative
         }
     }

@@ -167,14 +167,12 @@ public class StudyScript : MonoBehaviour
 
     public void SetUpScene_2()
     {
-
-        nextSceneBtn.GetComponent<MeshRenderer>().material = redBtnMaterial;
+        nextSceneBtn.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         AVRGameObjectRecorder.Instance.CreateNewClip();
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(true);
         if (layerBindingsMenu.activeSelf) layerBindingsMenu.SetActive(false);
-        nextSceneBtn.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         ModelKeypadManager.Instance.Btn_1.SetActive(true);
     }
 

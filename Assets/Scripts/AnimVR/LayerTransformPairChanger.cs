@@ -64,7 +64,6 @@ public class LayerTransformPairChanger : MonoBehaviour
     public void ChangeMirrorTransformerModel()
     {
         _modelTransformer.transformModel = _lateMirroredObject.transform.parent;
-        _modelTransformer.SetInitialValues();
         SetLateMirroredObject();
     }
 

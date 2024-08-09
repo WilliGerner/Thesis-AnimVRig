@@ -136,7 +136,7 @@ public class LayerMaskManager : MonoBehaviour
         DeterMineAndApplyBaseLayer();
         ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _mirroredTransformManager.UpdateLeftArmPairs(_leftArm);
-       // UpdateCurrentMask();
+        if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
     }
 
     public void ToggleRightArm()
@@ -145,7 +145,7 @@ public class LayerMaskManager : MonoBehaviour
         DeterMineAndApplyBaseLayer();
         ChangeColor(_rightArm, BtnVisualToggleRightArm);
         _mirroredTransformManager.UpdateRightArmPairs(_rightArm); // Update TransformPaires
-      //  UpdateCurrentMask();
+        if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
     }
 
     public void ToggleLeftFoot()
@@ -154,8 +154,7 @@ public class LayerMaskManager : MonoBehaviour
         DeterMineAndApplyBaseLayer();
         ChangeColor(_leftFoot, BtnVisualToggleLeftLeg);
         _mirroredTransformManager.UpdateLeftLegPairs(_leftFoot);
-       
-        //UpdateCurrentMask();
+        if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
     }
 
     public void ToggleRightFoot()
@@ -164,7 +163,7 @@ public class LayerMaskManager : MonoBehaviour
         DeterMineAndApplyBaseLayer();
         ChangeColor(_rightFoot, BtnVisualToggleRightLeg);
         _mirroredTransformManager.UpdateRightLegPairs(_rightFoot);
-        //UpdateCurrentMask();
+        if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
     }
 
     public void ChangeColor(bool active, GameObject buttonVisualGO)
@@ -193,7 +192,7 @@ public class LayerMaskManager : MonoBehaviour
         ResetIndividualParts(false);
         UpdateAllColors();
         DeterMineAndApplyBaseLayer();
-        mainAnimList.PlaySpecialAnim("T-Pose");
+        if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
     }
 
     private void DeterMineAndApplyBaseLayer()
@@ -224,13 +223,6 @@ public class LayerMaskManager : MonoBehaviour
         _leftFoot = state;
         _rightFoot = state;
     }
-
-    //private void UpdateCurrentMask()
-    //{
-
-    //    ApplyBaseLayerMask();
-    //    _currentMaskTxt.text = _customMask.name;
-    //}
 
     private void UpdateAllColors()
     {
