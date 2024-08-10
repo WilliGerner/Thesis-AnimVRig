@@ -137,15 +137,20 @@ public class AnimationKeypadManager : MonoBehaviour
     /// Startet den Recorder und f�ngt an Aufzunehmen.
     public void RecorderLogic(GameObject callingBtn)
     {
-        if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf) // Startet und Stop Logik der Aufnahmen.
+      
+
+        if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf)
         {
-            if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf) return;
-            AVRGameObjectRecorder.Instance.StopRecording(); // The current AVRRecorder from the Target Model!
+            if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf)
+            {
+                AVRGameObjectRecorder.Instance.StopRecording(); // Abbruch des Countdowns und der Aufnahmevorbereitung
+                return; // Direkt beenden, da wir den Countdown abbrechen wollen
+            }
+            AVRGameObjectRecorder.Instance.StopRecording(); // Die aktuelle Aufnahme stoppen
         }
         else if (callingBtn.GetComponent<AVR_SingleBtn>()._DisabledIcon.activeSelf)
         {
-            if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf) return;
-            AVRGameObjectRecorder.Instance.StartRec(); // The current AVRRecorder from the Target Model!                                                                                                                                 //AnimVRigRecorder.Instance.StopRecordingThreadVar();  // Thread Alternative
+            AVRGameObjectRecorder.Instance.StartRec(); // Die Aufnahme starten
         }
     }
 }

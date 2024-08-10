@@ -7,6 +7,7 @@ using System;
 using TMPro;
 using Oculus.Movement.Effects;
 using UnityEngine.UI;
+using System.IO;
 
 public class AVRGameObjectRecorder : MonoBehaviour
 {
@@ -46,7 +47,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
     //private AnimationList _animListLayer;
     [SerializeField]
     private AnimationList _animList;
-
+    private Coroutine recordingCoroutine;
     public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
     public event Action OnMotionAdded;
@@ -59,6 +60,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     [Tooltip("Must start with Assets/ and will be normaly Set at The Start to RecordObkjectNameFolder.")]
     [SerializeField] string _saveFolderLocation = "Assets/AnimationContent/";
+    private string _savePath;
 
     public string _clipName;
     [SerializeField] float _frameRate = 60f;
@@ -67,6 +69,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
     LayerTransformPairChanger mirroredTransfromManager; // In Study Case something else than normal ( Layer Menue Study)
     [SerializeField]
     ModelTransformer avr_mirrorTransformer;
+
+    //[SerializeField]
+    //AnimationClipSerializer animClipSerializer;
 
     #endregion
 
@@ -90,7 +95,31 @@ public class AVRGameObjectRecorder : MonoBehaviour
     }
 
     private void Start()
-    {
+    {     
+        // Determine the save path depending on the platform
+        if (Application.isEditor)
+        {
+            _savePath = _saveFolderLocation;
+        }
+        else if (Application.platform == RuntimePlatform.Android || Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            // Assuming the application is running on a Quest 3 or other Android/iOS device
+            _savePath = Path.Combine(Application.persistentDataPath, "AnimationContent");
+
+            // Ensure the directory exists
+            if (!Directory.Exists(_savePath))
+            {
+                Directory.CreateDirectory(_savePath);
+            }
+        }
+        else
+        {
+            // Fallback to persistent data path for other platforms
+            _savePath = Path.Combine(Application.persistentDataPath, "AnimationContent");
+        }
+
+        // Example log for debugging
+        Debug.Log("Animation save path: " + _savePath);
         RuntimeAnimatorController animationController = _objectToRecord.GetComponent<Animator>().runtimeAnimatorController;
         _animController = animationController as AnimatorController;
         _canRecord = false;
@@ -183,14 +212,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void StartRec()
     {
-#if UNITY_EDITOR
+//#if UNITY_EDITOR
         if (recordInit /* !StudyScript.Instance.tutroial_done*/) return;
-       
+
         countdownText.gameObject.SetActive(true);
-        StartCoroutine(StartRecordingWithCountdown());
-#else
-    ModelKeypadManager.Instance.Btn_5.SetActive(false);
-#endif
+        recordingCoroutine = StartCoroutine(StartRecordingWithCountdown());
+//#else
+//        ModelKeypadManager.Instance.Btn_5.SetActive(false);
+//#endif
     }
 
     private IEnumerator StartRecordingWithCountdown()
@@ -206,11 +235,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
         countdownText.text = ""; // Clear the countdown text
         countdownText.gameObject.SetActive(false);
 
-
         if (recordInit) yield break;
 
         if (_recorder == null)
-        {    _recorder = new GameObjectRecorder(_objectToRecord);}
+        {
+            _recorder = new GameObjectRecorder(_objectToRecord);
+        }
 
         recordInit = true;
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
@@ -228,18 +258,54 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
-        //InfoOverlay.Instance.ShowText("Animation Recording for " + _objectToRecord.name + " on ANim: " + _currentClip.name);
     }
 
     public void StopRecording()
     {
-        StudyScript.Instance.RecordClapTask();
-        StudyScript.Instance.RecordNewJumpAnim();
-        recordInit = false;
-        _canRecord = false;
-        InfoOverlay.Instance.ManageRecImage();
-        StartCoroutine(CloseEyesAndContinue());
+        if (recordingCoroutine != null)
+        {
+            // Stop the countdown coroutine
+            StopCoroutine(recordingCoroutine);
+            recordingCoroutine = null;
+            countdownText.gameObject.SetActive(false);
+            InfoOverlay.Instance.ShowText("Recording countdown aborted.");
+        }
+
+        if (recordInit)
+        {
+            StudyScript.Instance.RecordClapTask();
+            StudyScript.Instance.RecordNewJumpAnim();
+            recordInit = false;
+            _canRecord = false;
+            InfoOverlay.Instance.ManageRecImage();
+            StartCoroutine(CloseEyesAndContinue());
+        }
     }
+
+    //public void CreateNewClip()
+    //{
+    //    AnimationClip newClip = new AnimationClip();
+    //    newClip.frameRate = _frameRate;
+    //    _currentClip = newClip;
+    //    _currentClip.name = _clipName;
+
+    //    for (int i = 0; i < allClips.Count; i++)
+    //    {
+    //        if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
+    //        {
+    //            allClips.RemoveAt(i);
+    //            Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
+    //            return;
+    //        }
+    //    }
+
+    //    AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}.anim", _clipName));
+    //    //InfoOverlay.Instance.ShowText("New ANim: "+ _currentClip.name);
+    //    if (!allClips.Contains(_currentClip))
+    //    {
+    //        allClips.Add(_currentClip);
+    //    }
+    //}
 
     public void CreateNewClip()
     {
@@ -258,12 +324,25 @@ public class AVRGameObjectRecorder : MonoBehaviour
             }
         }
 
-        AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}.anim", _clipName));
-        //InfoOverlay.Instance.ShowText("New ANim: "+ _currentClip.name);
+        string savePath = string.Format(_savePath + "/{0}.anim", _clipName);
+
+#if UNITY_EDITOR
+        AssetDatabase.CreateAsset(_currentClip, savePath);
+#else
+        // Save in a format that can be used later on the Quest 3
+        using (FileStream fs = new FileStream(savePath, FileMode.Create, FileAccess.Write))
+        {
+            var clipData = newClip.ToSerializedObject();
+            fs.Write(clipData, 0, clipData.Length);
+        }
+#endif
+
         if (!allClips.Contains(_currentClip))
         {
             allClips.Add(_currentClip);
         }
+
+        //InfoOverlay.Instance.ShowText("New Anim: "+ _currentClip.name);
     }
 
     void AddMotionToAnimator()
@@ -451,12 +530,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private IEnumerator CloseEyesAndContinue()
     {
         yield return StartCoroutine(CloseEyes());
+
 #if UNITY_EDITOR
         _recorder.SaveToClip(_currentClip);
         AssetDatabase.SaveAssets();
-        //InfoOverlay.Instance.ShowText("Clip Name: " + _clipName + " saved");
         AddMotionToAnimator();
+#else
+    // Save the animation clip as a JSON file
+    string savePath = Path.Combine(_savePath, $"{_clipName}.json");
+    AnimationClipSerializer.SaveAnimationClip(_currentClip, savePath);
 #endif
+
         yield return StartCoroutine(OpenEyes());
     }
 

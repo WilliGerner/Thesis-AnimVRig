@@ -27,7 +27,7 @@ public class StudyScript : MonoBehaviour
     private GameObject finish_UI;
     [SerializeField]
     private GameObject skinnedMeshRendererStartModel;
-    public bool tutroial_done, scene_1_done, scene_2_done;
+    public bool tutroial_done, scene_1_done, scene_2_running, scene_2_done;
     public Material greenBtnMaterial, redBtnMaterial;
     public bool once;
 
@@ -128,13 +128,13 @@ public class StudyScript : MonoBehaviour
             }
         }
 
-        if (tutroial_done && scene_1_done && !scene_2_done)
+        if (tutroial_done && scene_1_done && scene_2_running)
         {
             if (TaskScene2_EnableeRootMotion.isOn && TaskScene2_PlayJumpAnim.isOn && TaskScene2_SetBindings.isOn && TaskScene2_RecordJumpAnim.isOn && TaskScene2_PlayYourAnim.isOn)
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
-                scene_2_done = true;
                 BigButtonHit();
+                scene_2_done = true;
             }
         }
 
@@ -161,12 +161,14 @@ public class StudyScript : MonoBehaviour
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_1";
         AVRGameObjectRecorder.Instance.CreateNewClip();
         if (layerBindingsMenu.activeSelf) layerBindingsMenu.SetActive(false);
+        if (ModelKeypadManager.Instance._TransformerSphereMovement.activeSelf) ModelKeypadManager.Instance._TransformerSphereMovement.SetActive(false);
         ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
         ModelKeypadManager.Instance.Btn_1.SetActive(false);
     }
 
     public void SetUpScene_2()
     {
+        scene_2_running = true;
         nextSceneBtn.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         AVRGameObjectRecorder.Instance.CreateNewClip();
@@ -249,7 +251,7 @@ public class StudyScript : MonoBehaviour
         if (tutroial_done) return;
         tutTask_OpenBindings.isOn = true;
         CheckTasks();
-        SetExtraUIText("Bindings verstehen", " Sind Bindings aktiv richten sich Animationen nach diesen. Sind alle aktiv macht das abspielen von Anims keinen Unterschied. Sind alle inaktiv spielt die animation ihren normal zustand ab.");
+        SetExtraUIText("Bindings verstehen", " Aktiv (grün): Animationen richten sich nach dem Körperteil. Inaktiv (rot): Animationen richten sich nicht nach dem Körperteil.");
     } 
 
     public void BindEverythingTask( )
@@ -303,10 +305,13 @@ public class StudyScript : MonoBehaviour
     }
     public void PlayNewClapAnim()
     {
-        if (!tutroial_done || scene_1_done) return;
-        TaskScene1_PlayNewClapAnim.isOn = true;
-        CheckTasks();
-        SetExtraUIText("Springen erfolgreich aufgenommen", " Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");   
+        if (tutroial_done && scene_1_done && scene_2_running)
+        {
+            TaskScene1_PlayNewClapAnim.isOn = true;
+            CheckTasks();
+            SetExtraUIText("Springen erfolgreich aufgenommen", " Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");
+        }
+    
     }
     #endregion
 

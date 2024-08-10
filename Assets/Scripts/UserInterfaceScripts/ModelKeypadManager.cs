@@ -33,8 +33,7 @@ public class ModelKeypadManager : MonoBehaviour
     GameObject _CustomizerUi;
     [SerializeField]
     GameObject _LayerUi;
-    [SerializeField]
-    GameObject _TransformerSphereMovement;
+    public GameObject _TransformerSphereMovement;
 
     #region Study Relevant
     [SerializeField]
