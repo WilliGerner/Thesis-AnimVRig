@@ -22,6 +22,7 @@ public class ModelKeypadManager : MonoBehaviour
     public GameObject Btn_7;
     public GameObject Btn_8;
     public GameObject Btn_9;
+    public MiniAnimatorBar miniAnimBar;
 
 
 
@@ -98,6 +99,7 @@ public class ModelKeypadManager : MonoBehaviour
 
     public void CallTransformerModel() // bool is only for Study Case
     {
+        if (_LayerUi.activeSelf) return;
         GameObject ui_3x3;
         bool study = !this.gameObject.activeSelf;
         if (study)
@@ -155,6 +157,7 @@ public class ModelKeypadManager : MonoBehaviour
             ui.SetActive(true);
         }
     }
+
     public void Switch9BtnsActivStatusStudy(bool activ)
     {
         if (StudyScript.Instance.scene_1_done) Btn_1.SetActive(activ);
@@ -166,6 +169,7 @@ public class ModelKeypadManager : MonoBehaviour
         Btn_7.SetActive(activ);
         if (StudyScript.Instance.tutroial_done) Btn_8.SetActive(activ);
         Btn_9.SetActive(activ);
+        if (!activ) miniAnimBar.HideMenu();
     }
 
     public void ChangeAvatar()

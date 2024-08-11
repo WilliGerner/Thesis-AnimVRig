@@ -200,6 +200,8 @@ public class AVR_PalmMenueManager : MonoBehaviour
         _UI_3x3_Anim.SetActive(false);
         _UI_3x3_Model.SetActive(false);
         _UI_3x3_Settings.SetActive(false);
+        _modelKeypadManager.miniAnimBar.HideMenu();
+
     }
 
     public void ReturnToMainMenue()
@@ -207,6 +209,4 @@ public class AVR_PalmMenueManager : MonoBehaviour
         DeactivateAlBiglMenues();
         _UI_1x3.SetActive(true);
     }
-
-
 }

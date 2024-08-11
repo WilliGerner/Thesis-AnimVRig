@@ -1,10 +1,14 @@
 using UnityEngine;
 using System.IO;
 using System.Collections.Generic;
+
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public static class AnimationClipSerializer
 {
+#if UNITY_EDITOR
     public static void SaveAnimationClip(AnimationClip clip, string path)
     {
         // Convert the AnimationClip to JSON and save it to a file
@@ -130,4 +134,5 @@ public static class AnimationClipSerializer
             return new Keyframe(time, value, inTangent, outTangent) { tangentMode = tangentMode };
         }
     }
+#endif
 }

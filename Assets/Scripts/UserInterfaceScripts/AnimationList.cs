@@ -8,6 +8,8 @@ using UnityEditor;
 
 public class AnimationList : MonoBehaviour
 {
+    [SerializeField]
+    MiniAnimatorBar miniAnimBar;
     Animator targetAnimator;
     public Transform interactablesParent; // Eltern-Objekt für die Interactables
     public List<InteractableUnityEventWrapper> interactables = new List<InteractableUnityEventWrapper>(); // Wird dynamisch gefüllt
@@ -105,8 +107,10 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
-
         targetAnimator.Play(animName);
+        CheckStudyTasks(animName);
+        miniAnimBar.InitializeUI();
+        miniAnimBar.ShowMenu();
     }
 
     public IEnumerator LateUpdateAnimPlay()
@@ -121,6 +125,8 @@ public class AnimationList : MonoBehaviour
         }
         else DetachAvatar();
         targetAnimator.Play(currentClip.name);
+        miniAnimBar.InitializeUI();
+        miniAnimBar.ShowMenu();
     }
 
     public void PlayAnimation()
@@ -135,8 +141,18 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
+        CheckStudyTasks(currentClip.name);
 
-        if (layerMaskManager._leftArm&& layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
+
+        targetAnimator.Play(currentClip.name);
+        miniAnimBar.InitializeUI();
+        miniAnimBar.ShowMenu();
+
+    }
+
+    void CheckStudyTasks(string clipName)
+    {
+        if (layerMaskManager._leftArm && layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
         {
             StudyScript.Instance.BindEverythingTask();
         }
@@ -146,23 +162,23 @@ public class AnimationList : MonoBehaviour
             StudyScript.Instance.BindNothingTask();
         }
 
-        if (currentClip.name == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
+        if (clipName == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
         {
             StudyScript.Instance.PlayClapAnimTask();
         }
-        if (currentClip.name.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
+        if (clipName.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
         {
             StudyScript.Instance.PlayJumpAnim();
         }
-        if (currentClip.name.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
+        if (clipName.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
         {
+            Debug.Log("StudyScene_1 Played");
             StudyScript.Instance.PlayNewClapAnim();
         }
-        if (currentClip.name.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
+        if (clipName.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
         {
             StudyScript.Instance.PlayYourNewJumpAnim();
         }
-        targetAnimator.Play(currentClip.name);
     }
 
     private bool RequiresAvatar(string clipName)

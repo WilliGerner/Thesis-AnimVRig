@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using TMPro;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,6 +48,9 @@ public class StudyScript : MonoBehaviour
     GameObject nextSceneBtn;
     [SerializeField]
     GameObject SetToSpawnPointBtn;
+
+    bool onceRootMotionExplain = false;
+    bool onceRecordClapInfo = false;
 
     private static StudyScript instance;
     public static StudyScript Instance
@@ -114,6 +116,7 @@ public class StudyScript : MonoBehaviour
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 tutroial_done = true;
+                ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
                 SetExtraUIText("Tutorial abgeschlossen", " Drücke auf den grünen Button um mit der ersten richtigen Aufgabe zu beginnen.");
             }        
         }
@@ -124,7 +127,8 @@ public class StudyScript : MonoBehaviour
             {
                 nextSceneBtn.GetComponent<MeshRenderer>().material = greenBtnMaterial;
                 scene_1_done = true;
-                SetExtraUIText(" Die erste Szene ist abgeschlossen", " Drücke auf den grünen Button um mit der zweiten Szene und deren Aufgaben zu beginnen.");
+                ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
+                SetExtraUIText(" Perfekt erste Szene ist damit abgeschlossen", " Drücke auf den grünen Button um mit der zweiten Szene und deren Aufgaben zu beginnen.");
             }
         }
 
@@ -169,7 +173,7 @@ public class StudyScript : MonoBehaviour
     public void SetUpScene_2()
     {
         scene_2_running = true;
-        nextSceneBtn.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
+     //   nextSceneBtn.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
         AVRGameObjectRecorder.Instance.CreateNewClip();
         taskUI_1.SetActive(false);
@@ -301,15 +305,19 @@ public class StudyScript : MonoBehaviour
         if (!tutroial_done || scene_1_done) return;
         TaskScene1_RecordClapping.isOn = true;
         CheckTasks();
-        SetExtraUIText("Klatschen erfolgreich aufgenommen"," Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");
+        if (onceRecordClapInfo)
+        {
+            onceRecordClapInfo = false;
+            SetExtraUIText("Klatschen erfolgreich aufgenommen", " Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");
+        }
     }
     public void PlayNewClapAnim()
     {
-        if (tutroial_done && scene_1_done && scene_2_running)
+        if (tutroial_done && !scene_1_done)
         {
             TaskScene1_PlayNewClapAnim.isOn = true;
             CheckTasks();
-            SetExtraUIText("Springen erfolgreich aufgenommen", " Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");
+           // SetExtraUIText("Springen erfolgreich aufgenommen", " Um deine neue Animation abzuspielen musst du zuerst deine Bindings alle entfernen (Klick auf Body), ansonsten richtet sich die neue Animation beim abspielen nach den Bindings und es sieht komisch aus.");
         }
     
     }
@@ -322,7 +330,11 @@ public class StudyScript : MonoBehaviour
         if(activ) TaskScene2_EnableeRootMotion.isOn = true;
         else TaskScene2_EnableeRootMotion.isOn =false;
         CheckTasks();
-        SetExtraUIText("Root Motion, was ist das?", " Wenn Root Motion bei einer Sprunganimation aktiviert ist, wird die Bewegung des Charakters durch die Animation selbst gesteuert, sodass der Charakter hochspringt. Wenn Root Motion deaktiviert ist, bleibt der Charakter an seiner Position und die Animation zeigt nur die Sprungbewegung ohne tatsächliche Änderung der Position im Raum.");
+       if (onceRootMotionExplain)
+        {
+            SetExtraUIText("Root Motion, was ist das?", " Wenn Root Motion bei einer Sprunganimation aktiviert ist, wird die Bewegung des Charakters durch die Animation selbst gesteuert, sodass der Charakter hochspringt. Wenn Root Motion deaktiviert ist, bleibt der Charakter an seiner Position und die Animation zeigt nur die Sprungbewegung ohne tatsächliche Änderung der Position im Raum.");
+            onceRootMotionExplain = false;
+        }
     }
 
     public void PlayJumpAnim()

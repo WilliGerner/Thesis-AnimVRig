@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+#if UNITY_EDITOR
 using UnityEditor.Animations;
+#endif
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -548,14 +550,26 @@ public class AVRGameObjectRecorder : MonoBehaviour
     {
         if (!blackScreenImage_1.gameObject.activeSelf)
         {
+            // Hol die RectTransform des Elternobjekts
+            RectTransform parentRectTransform = rectTransform1.parent as RectTransform;
+
+            if (parentRectTransform != null)
+            {
+                // Setze die Breite der BlackScreenImages auf die Breite des Elternobjekts
+                rectTransform1.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, parentRectTransform.rect.width);
+                rectTransform2.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, parentRectTransform.rect.width);
+            }
+
             blackScreenImage_1.gameObject.SetActive(true);
             blackScreenImage_2.gameObject.SetActive(true);
         }
+
         float halfDuration = blinkDuration / 2f;
         Vector2 initialPos1 = rectTransform1.anchoredPosition;
         Vector2 initialPos2 = rectTransform2.anchoredPosition;
         Vector2 targetPos1 = new Vector2(initialPos1.x, 0);
         Vector2 targetPos2 = new Vector2(initialPos2.x, 0);
+
         // Augenlider schlieﬂen
         for (float t = 0; t < halfDuration; t += Time.deltaTime)
         {
@@ -564,6 +578,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
             yield return null;
         }
+
         rectTransform1.anchoredPosition = targetPos1;
         rectTransform2.anchoredPosition = targetPos2;
 
@@ -587,7 +602,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
             rectTransform2.anchoredPosition = Vector2.Lerp(initialPos2, targetPos2, normalizedTime);
             yield return null;
         }
+
         rectTransform1.anchoredPosition = targetPos1;
         rectTransform2.anchoredPosition = targetPos2;
     }
+
 }
