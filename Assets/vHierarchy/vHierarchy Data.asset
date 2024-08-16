@@ -212,6 +212,10 @@ MonoBehaviour:
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1031833801-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1780604973-0
         - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-7114770129476080516-0
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-391650044348350858-412018250
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-391650044348350858-1532297577
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-1983047571984521648-2306829040867613997
+        - globalObjectIdString: GlobalObjectId_V1-2-83c19cc935325a54783636c844bca0e4-461047117627868404-2306829040867613997
         values:
         - colorIndex: 9
           iconNameOrGuid: Settings Icon
@@ -550,6 +554,14 @@ MonoBehaviour:
         - colorIndex: 3
           iconNameOrGuid: MeshCollider Icon
         - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
           iconNameOrGuid: 
     - goDatas_byGlobalId:
         keys:

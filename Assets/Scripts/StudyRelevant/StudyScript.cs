@@ -146,6 +146,8 @@ public class StudyScript : MonoBehaviour
 
     public void TutorialSetUp()
     {
+        ModelKeypadManager.Instance._TransformerSphereMovement.SetActive(false);
+        ModelKeypadManager.Instance._TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
         TutorialSetUpGO.SetActive(true);
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(false);
@@ -159,6 +161,8 @@ public class StudyScript : MonoBehaviour
 
     public void SetUpScene_1()
     {
+        ModelKeypadManager.Instance._TransformerSphereMovement.SetActive(false);
+        ModelKeypadManager.Instance._TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
         TutorialSetUpGO.SetActive(false);
         taskUI_1.SetActive(true);
         nextSceneBtn.GetComponent<MeshRenderer>().material = redBtnMaterial;
@@ -172,6 +176,8 @@ public class StudyScript : MonoBehaviour
 
     public void SetUpScene_2()
     {
+        ModelKeypadManager.Instance._TransformerSphereMovement.SetActive(false);
+        ModelKeypadManager.Instance._TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
         scene_2_running = true;
      //   nextSceneBtn.gameObject.transform.parent.gameObject.transform.parent.gameObject.transform.parent.transform.parent.gameObject.SetActive(false);
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";
@@ -179,7 +185,9 @@ public class StudyScript : MonoBehaviour
         taskUI_1.SetActive(false);
         taskUI_2.SetActive(true);
         if (layerBindingsMenu.activeSelf) layerBindingsMenu.SetActive(false);
-        ModelKeypadManager.Instance.Btn_1.SetActive(true);
+        ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
+        //ModelKeypadManager.Instance.Btn_1.SetActive(true);
+        //ModelKeypadManager.Instance.Btn_5.SetActive(true);
     }
 
     public void ShowFinishScreen()
@@ -289,7 +297,7 @@ public class StudyScript : MonoBehaviour
     {
         if (!tutroial_done || scene_1_done) return;
         if (activ) TaskScene1_BotFeetsActiv.isOn = true;
-        else TaskScene1_BotFeetsActiv.isOn = false;
+        //else TaskScene1_BotFeetsActiv.isOn = false;
         CheckTasks();
     }
 
@@ -351,16 +359,18 @@ public class StudyScript : MonoBehaviour
         {
             TaskScene2_SetBindings.isOn = true;
         }
-        else TaskScene2_SetBindings.isOn = false;
+        //else TaskScene2_SetBindings.isOn = false;
 
         CheckTasks();
     }
 
     public void RecordNewJumpAnim()
     {
-        if (!tutroial_done && !scene_1_done) return;
-        TaskScene2_RecordJumpAnim.isOn = true;
-        CheckTasks();
+        if (tutroial_done && scene_1_done && scene_2_running)
+        {
+            TaskScene2_RecordJumpAnim.isOn = true;
+            CheckTasks();
+        } 
     }
 
     public void PlayYourNewJumpAnim()

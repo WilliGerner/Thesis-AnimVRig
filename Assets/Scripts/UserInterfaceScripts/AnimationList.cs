@@ -97,6 +97,7 @@ public class AnimationList : MonoBehaviour
 
     public void PlaySpecialAnim(string animName)
     {
+        if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
         if (RequiresAvatar(animName))
@@ -109,8 +110,8 @@ public class AnimationList : MonoBehaviour
         }
         targetAnimator.Play(animName);
         CheckStudyTasks(animName);
-        miniAnimBar.InitializeUI();
-        miniAnimBar.ShowMenu();
+        //miniAnimBar.InitializeUI();
+        //miniAnimBar.ShowMenu();
     }
 
     public IEnumerator LateUpdateAnimPlay()
@@ -125,12 +126,13 @@ public class AnimationList : MonoBehaviour
         }
         else DetachAvatar();
         targetAnimator.Play(currentClip.name);
-        miniAnimBar.InitializeUI();
-        miniAnimBar.ShowMenu();
+        //miniAnimBar.InitializeUI();
+        //miniAnimBar.ShowMenu();
     }
 
     public void PlayAnimation()
     {
+        if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
         if (RequiresAvatar(currentClip))
@@ -145,8 +147,8 @@ public class AnimationList : MonoBehaviour
 
 
         targetAnimator.Play(currentClip.name);
-        miniAnimBar.InitializeUI();
-        miniAnimBar.ShowMenu();
+        //miniAnimBar.InitializeUI();
+        //miniAnimBar.ShowMenu();
 
     }
 

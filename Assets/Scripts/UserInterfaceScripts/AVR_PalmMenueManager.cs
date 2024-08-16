@@ -69,14 +69,14 @@ public class AVR_PalmMenueManager : MonoBehaviour
     {
         return _UI_3x3_Study;
     }
-    private void Update()
-    {
-        if (_UI_PalmKnobBtn.activeSelf == false)
-        {
-            Debug.Log("Deactivate Bigger Menues throuzgh knob");
-            DeactivateAlBiglMenues();
-        }
-    }
+    //private void Update()
+    //{
+    //    if (_UI_PalmKnobBtn.activeSelf == false)
+    //    {
+    //        Debug.Log("Deactivate Bigger Menues throuzgh knob");
+    //        DeactivateAlBiglMenues();
+    //    }
+    //}
 
     public void ShowAVRMenue()
     {
@@ -101,8 +101,16 @@ public class AVR_PalmMenueManager : MonoBehaviour
         else _UI_3x3_Study.SetActive(true);
     }
 
+    public void ManageAVRMenue(bool activ)
+    {
+        if(activ && ModelKeypadManager.Instance._TransformerSphereMovement.activeSelf){ return; }
+
+        _UI_PalmKnobBtn.SetActive(activ);
+    }
+
     public void InitializePalmMenue() // Logic should work and called after new Model assigned.
     {
+        if (!_UI_PalmKnobBtn.activeSelf) _UI_PalmKnobBtn.SetActive(true);
         SetModelAndClipNameTxt();
         _animKeypadManager.InitializeAnimKeyPadManager();
     }

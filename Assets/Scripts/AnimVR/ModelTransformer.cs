@@ -1,3 +1,4 @@
+using Oculus.Interaction.HandGrab;
 using UnityEngine;
 
 public class ModelTransformer : MonoBehaviour
@@ -35,7 +36,8 @@ public class ModelTransformer : MonoBehaviour
 
     private Animator modelAnimator;
     bool grabbedMovement,grabbedRotation;
-
+    [SerializeField] private HandGrabInteractor leftHandInteractor;
+    [SerializeField] private HandGrabInteractor rightHandInteractor;
 
     private void OnEnable()
     {
@@ -106,21 +108,34 @@ public class ModelTransformer : MonoBehaviour
         }
     }
 
-    public void GrabbedSphereMovement()
+    public void GrabbedSphereMovement(HandGrabInteractor interactor)
     {
-        grabbedMovement = true;
-        //InfoOverlay.Instance.ShowText("Grabbed");
+        if (interactor == leftHandInteractor)
+        {
+            grabbedMovement = true;
+        }
+        else
+        {
+            Debug.Log("Sphere Movement can only be grabbed by the left hand.");
+        }
     }
 
     public void UngrabbedSphereMovement()
     {
         grabbedMovement = false;
-       this.gameObject.transform.LookAt(lookAtCam.transform);
+        this.gameObject.transform.LookAt(lookAtCam.transform);
     }
 
-    public void GrabbedSphereRotation()
+    public void GrabbedSphereRotation(HandGrabInteractor interactor)
     {
-        grabbedRotation = true;
+        if (interactor == rightHandInteractor)
+        {
+            grabbedRotation = true;
+        }
+        else
+        {
+            Debug.Log("Sphere Rotation can only be grabbed by the right hand.");
+        }
     }
 
     public void UngrabbedSphereRotation()

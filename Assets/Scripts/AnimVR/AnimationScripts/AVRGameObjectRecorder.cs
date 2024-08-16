@@ -281,6 +281,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _canRecord = false;
             InfoOverlay.Instance.ManageRecImage();
             StartCoroutine(CloseEyesAndContinue());
+         
         }
     }
 
@@ -605,6 +606,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
         rectTransform1.anchoredPosition = targetPos1;
         rectTransform2.anchoredPosition = targetPos2;
+        ModelKeypadManager.Instance.Btn_5.SetActive(false);
     }
 
 }

@@ -134,12 +134,12 @@ public class MiniAnimatorBar : MonoBehaviour
 
     public void ShowMenu()
     {
-        StartCoroutine(FadeInMenu());
+        //StartCoroutine(FadeInMenu());
     }
 
     public void HideMenu()
     {
-        StartCoroutine(FadeOutMenu());
+        //StartCoroutine(FadeOutMenu());
     }
 
     private IEnumerator FadeInMenu()
