@@ -89,6 +89,7 @@ public class VariantListUI : MonoBehaviour
             mirrorTransformManager.ChangeMirrorTransformerModel();
             mirrorTransformManager.SetToAllPairs();
             AVRGameObjectRecorder.Instance.ActivateOtherVariant(variantGameObjects[index].name);
+            StudyManager.Instance.SwitchVariantTask();
         }
     }
 

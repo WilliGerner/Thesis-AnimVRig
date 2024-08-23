@@ -91,8 +91,8 @@ public class AnimationList : MonoBehaviour
     {
         targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion;
-        if (targetAnimator.applyRootMotion) StudyScript.Instance.SetRootMotion(true);
-        else StudyScript.Instance.SetRootMotion(true);
+        //if (targetAnimator.applyRootMotion) StudyScript.Instance.SetRootMotion(true);
+        //else StudyScript.Instance.SetRootMotion(true);
     }
 
     public void PlaySpecialAnim(string animName)
@@ -132,6 +132,12 @@ public class AnimationList : MonoBehaviour
 
     public void PlayAnimation()
     {
+        StudyManager.Instance.PlayAnimWithBindingsTask();
+        if(currentClip.name == "Sitzend Klatschen") StudyManager.Instance.PlayClapAnimTask();
+        if (currentClip.name == "Springen") StudyManager.Instance.PlayJumpAnimTask();
+        if (currentClip.name == "StudyScene_1") StudyManager.Instance.PlayStudyScene1Task();
+        if (currentClip.name == "StudyScene_2") StudyManager.Instance.PlayStudyScene2Task();
+
         if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
@@ -154,33 +160,33 @@ public class AnimationList : MonoBehaviour
 
     void CheckStudyTasks(string clipName)
     {
-        if (layerMaskManager._leftArm && layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
-        {
-            StudyScript.Instance.BindEverythingTask();
-        }
+        //if (layerMaskManager._leftArm && layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
+        //{
+        //    StudyScript.Instance.BindEverythingTask();
+        //}
 
-        if (!layerMaskManager._leftArm && !layerMaskManager._rightArm && !layerMaskManager._leftFoot && !layerMaskManager._rightFoot)
-        {
-            StudyScript.Instance.BindNothingTask();
-        }
+        //if (!layerMaskManager._leftArm && !layerMaskManager._rightArm && !layerMaskManager._leftFoot && !layerMaskManager._rightFoot)
+        //{
+        //    StudyScript.Instance.BindNothingTask();
+        //}
 
-        if (clipName == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
-        {
-            StudyScript.Instance.PlayClapAnimTask();
-        }
-        if (clipName.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
-        {
-            StudyScript.Instance.PlayJumpAnim();
-        }
-        if (clipName.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
-        {
-            Debug.Log("StudyScene_1 Played");
-            StudyScript.Instance.PlayNewClapAnim();
-        }
-        if (clipName.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
-        {
-            StudyScript.Instance.PlayYourNewJumpAnim();
-        }
+        //if (clipName == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
+        //{
+        //    StudyScript.Instance.PlayClapAnimTask();
+        //}
+        //if (clipName.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
+        //{
+        //    StudyScript.Instance.PlayJumpAnim();
+        //}
+        //if (clipName.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
+        //{
+        //    Debug.Log("StudyScene_1 Played");
+        //    StudyScript.Instance.PlayNewClapAnim();
+        //}
+        //if (clipName.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
+        //{
+        //    StudyScript.Instance.PlayYourNewJumpAnim();
+        //}
     }
 
     private bool RequiresAvatar(string clipName)

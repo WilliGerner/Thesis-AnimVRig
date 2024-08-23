@@ -52,6 +52,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private Coroutine recordingCoroutine;
     public TextMeshProUGUI countdownText; // Add this for the countdown timer
 
+    [SerializeField]
+    private StudyManager _studyManager;
+
     public event Action OnMotionAdded;
     public event Action OnChangeModel;
 
@@ -268,15 +271,17 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             // Stop the countdown coroutine
             StopCoroutine(recordingCoroutine);
+            StudyManager.Instance.StopRecTask();
+            StudyManager.Instance.StopRecSecondTimeTask();
             recordingCoroutine = null;
             countdownText.gameObject.SetActive(false);
-            InfoOverlay.Instance.ShowText("Recording countdown aborted.");
+            //InfoOverlay.Instance.ShowText("Recording countdown aborted.");
         }
 
         if (recordInit)
         {
-            StudyScript.Instance.RecordClapTask();
-            StudyScript.Instance.RecordNewJumpAnim();
+            //StudyScript.Instance.RecordClapTask();
+            //StudyScript.Instance.RecordNewJumpAnim();
             recordInit = false;
             _canRecord = false;
             InfoOverlay.Instance.ManageRecImage();
@@ -429,11 +434,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _animController = animationController as AnimatorController;
                         currentVariantsToRecord = avr_related.mirroredVaraints;
                         _animList.SetUpAnimList();
-                        //_animListLayer.SetUpAnimList();
                         SetModel();
                         CreateNewClip();
-                    //InfoOverlay.Instance.ShowText("New Model:  " + obj);
-                    StudyScript.Instance.SwitchModelTask();
+                    //StudyScript.Instance.SwitchModelTask();
                     }
                     else
                     {
@@ -445,7 +448,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
     {
-        if (!StudyScript.Instance.once) return;
+        if (!_studyManager.once) return;
         if (_MirroredObjectToRecord.activeSelf)
         {
             _MirroredObjectToRecord.SetActive(false);
@@ -457,16 +460,14 @@ public class AVRGameObjectRecorder : MonoBehaviour
             ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
             ModelKeypadManager.Instance.Btn_3.SetActive(true);
             ModelKeypadManager.Instance.Btn_2.SetActive(true);
-            if (StudyScript.Instance.tutroial_done)
-            {
-                ModelKeypadManager.Instance.Btn_5.SetActive(true);              
-            }
             CreateNewClip();
         }
         else
         {
             _MirroredObjectToRecord.SetActive(true);
-            ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
+            ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
+            ModelKeypadManager.Instance.Btn_3.SetActive(true);
+            ModelKeypadManager.Instance.Btn_2.SetActive(true);
             SetModel();
         }
     }
@@ -489,6 +490,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             }
         }
         avr_mirrorTransformer.transformModel = _objectToRecord.transform; // Set new Model in Transformer.
+        avr_mirrorTransformer.modelAnimator = _objectToRecord.GetComponent<Animator>(); // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
         OnChangeModel?.Invoke();
         //InfoOverlay.Instance.ShowText("New Model for Recorder: " + _objectToRecord);

@@ -38,6 +38,8 @@ public class ModelKeypadManager : MonoBehaviour
 
     #region Study Relevant
     [SerializeField]
+    StudyManager _studyManager;
+    [SerializeField]
     GameObject _ModellListUiStudy;
     [SerializeField]
     GameObject _VaraintListUiStudy;
@@ -119,7 +121,7 @@ public class ModelKeypadManager : MonoBehaviour
         if (_TransformerSphereMovement.gameObject.activeSelf)
         {
             _TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
-            _TransformerSphereMovement.gameObject.SetActive(false);
+           _TransformerSphereMovement.gameObject.SetActive(false);
             ui_3x3.SetActive(true);
         }
         else
@@ -160,16 +162,26 @@ public class ModelKeypadManager : MonoBehaviour
 
     public void Switch9BtnsActivStatusStudy(bool activ)
     {
-        if (StudyScript.Instance.scene_1_done) Btn_1.SetActive(activ);
+/*        if (_studyManager.scene_1_done)*/ Btn_1.SetActive(activ);
         Btn_2.SetActive(activ);
         Btn_3.SetActive(activ);
         Btn_4.SetActive(activ);
-        if(StudyScript.Instance.tutroial_done) Btn_5.SetActive(activ);
+    /*    if(_studyManager.scene_1_done)*/ Btn_5.SetActive(activ);
         Btn_6.SetActive(activ);
         Btn_7.SetActive(activ);
-        if (StudyScript.Instance.tutroial_done) Btn_8.SetActive(activ);
+      /*  if (_studyManager.scene_1_done) */Btn_8.SetActive(activ);
         Btn_9.SetActive(activ);
         if (!activ) miniAnimBar.HideMenu();
+    }
+
+    public void DeactivateSomeBtns()
+    {
+        if (!_studyManager.scene_1_done)
+        {
+            Btn_8.SetActive(false);
+            Btn_5.SetActive(false);
+            Btn_1.SetActive(false);
+        }
     }
 
     public void ChangeAvatar()

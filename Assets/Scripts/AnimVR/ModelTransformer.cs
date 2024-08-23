@@ -34,7 +34,7 @@ public class ModelTransformer : MonoBehaviour
     private Quaternion rotationSphereRotation;
     public float rotationMultiplier = 1.0f; // Zeit, die Rotation erkannt wird
 
-    private Animator modelAnimator;
+    public Animator modelAnimator;
     bool grabbedMovement,grabbedRotation;
     [SerializeField] private HandGrabInteractor leftHandInteractor;
     [SerializeField] private HandGrabInteractor rightHandInteractor;

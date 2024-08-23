@@ -83,6 +83,7 @@ public class ModelListUI : MonoBehaviour
             mirrorTransformManager.ChangeMirrorTransformerModel();
             variantList.UpdateVaraintList();
             mirrorTransformManager.SetToAllPairs();
+            StudyManager.Instance.SwitchModelTask();
         }
     }
 }
