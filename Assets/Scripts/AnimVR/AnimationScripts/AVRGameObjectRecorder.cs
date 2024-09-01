@@ -327,7 +327,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
             {
                 allClips.RemoveAt(i);
-                Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
+                //Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
                 return;
             }
         }
