@@ -44,7 +44,33 @@ public class StudyManager : MonoBehaviour
     [SerializeField]
     private GameObject skinnedMeshRendererStartModel;
     public bool once;
+    public bool canStopRecord = false;
+    [SerializeField]
+    InteractableUnityEventWrapper debugWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper closeTransformerWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper recorderWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper animListWrapper;
 
+    [SerializeField]
+    InteractableUnityEventWrapper bindingsWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper transformerWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper mirrorWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper variantWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper modelWrapper;
+    [SerializeField]
+    InteractableUnityEventWrapper rootMotionWrapper;
+    //InteractableUnityEventWrapper animListBindingsWrapper;
+    //[SerializeField]
+    //InteractableUnityEventWrapper animListReturnWrapper;
+
+    //public bool canHitDebug = false;
     public Material greenBtnMaterial, redBtnMaterial;
 
     [SerializeField]
@@ -82,6 +108,7 @@ public class StudyManager : MonoBehaviour
 
     private void Start()
     {
+        
         skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         currentTasks = sceneTasks_1;
         taskStatusImage.color = notDoneColor;
@@ -110,7 +137,11 @@ public class StudyManager : MonoBehaviour
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
         }
-
+        if (currentTaskIndex == 0 && currentTasks == sceneTasks_2)
+        {
+            modelWrapper.enabled = true;
+            InfoOverlay.Instance.ShowText("Can Hit Model from now");
+        }
         StartCoroutine(FadeInTaskUI());
     }
 
@@ -125,9 +156,90 @@ public class StudyManager : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f); // A small delay before proceeding to the next task
-
+        HandleTaskLogic();
         NextTask();
     }
+    private void HandleTaskLogic()
+    {
+        // Für Scene 1
+        if (currentTasks == sceneTasks_1)
+        {
+            switch (currentTaskIndex)
+            {
+                case 0:
+                    mirrorWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Mirror from now");
+                    break;
+                case 1:
+                    debugWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Debug from now");
+                    break;
+                case 2:
+                    transformerWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Hit Transformer from now");
+                    break;
+                case 3:
+                    closeTransformerWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can close Transformer from now");
+                    break;
+                case 4:
+                    variantWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Hit Variant from now");
+                    break;
+                case 6:
+                    bindingsWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Hit Bindings from now");
+                    break;
+                case 7:
+                    animListWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Hit Anim from now");
+                    break;
+                default:
+                    InfoOverlay.Instance.ShowText("Unhandled Task for Scene 1");
+                    break;
+            }
+        }
+        // Für Scene 2
+        else if (currentTasks == sceneTasks_2)
+        {
+            switch (currentTaskIndex)
+            {
+                case 0:
+                    modelWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Hit Model from now");
+                    break;
+                case 2:
+                    recorderWrapper.enabled = true;
+                    InfoOverlay.Instance.ShowText("Can Rec");
+                    break;
+                case 3:
+                    canStopRecord = true;
+                    InfoOverlay.Instance.ShowText("Can stop from now");
+                    break;
+                default:
+                    InfoOverlay.Instance.ShowText("Unhandled Task for Scene 2");
+                    break;
+            }
+        }
+        // Für Scene 3 (falls es Tasks dafür gibt)
+        else if (currentTasks == sceneTasks_3)
+        {
+            switch (currentTaskIndex)
+            {
+                case 0:
+                    rootMotionWrapper.enabled = true;
+                    Animator targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
+                    targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion; // Mhmmmmmmmmmm
+                    InfoOverlay.Instance.ShowText("Can Hit Root Motion from now");
+                    break;
+
+                default:
+                    InfoOverlay.Instance.ShowText("Unhandled Task for Scene 2");
+                    break;
+            }
+        }
+    }
+
 
     public void CompleteCurrentTask()
     {
@@ -150,7 +262,20 @@ public class StudyManager : MonoBehaviour
 
     private IEnumerator FadeOutTaskUI(TaskData task)
     {
+        if (taskText == null)
+        {
+            Debug.LogError("taskText is null. Make sure it is properly assigned.");
+            yield break; // Exit the coroutine early to prevent further errors
+        }
+
         CanvasGroup canvasGroup = taskText.GetComponentInParent<CanvasGroup>();
+
+        if (canvasGroup == null)
+        {
+            //   Debug.LogError("CanvasGroup is not found in the parent hierarchy of taskText.");
+            StartCoroutine(PlayTaskOutro(task));
+            yield break; // Exit the coroutine early to prevent further errors
+        }
 
         while (canvasGroup.alpha > 0)
         {
@@ -259,6 +384,8 @@ public class StudyManager : MonoBehaviour
         ModelKeypadManager.Instance.Btn_1.SetActive(false);
         ModelKeypadManager.Instance.Btn_5.SetActive(false);
         SwitchToScene(sceneTasks_2);
+        ModelKeypadManager.Instance._AnimListUiStudy.SetActive(false);
+        currentTasks[currentTaskIndex].ChangeButtonColors();
     }
 
     public void SetUpScene_3()
@@ -278,12 +405,12 @@ public class StudyManager : MonoBehaviour
 
     public void HitAVRMenuTask()
     {
-        if (currentTaskIndex == 0 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HiMirrorTask()
     {
-        if (currentTaskIndex == 1 && currentTasks == sceneTasks_1)
+        if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_1)
         {
             CompleteCurrentTask();
             ModelKeypadManager.Instance.Btn_2.SetActive(true);
@@ -292,50 +419,60 @@ public class StudyManager : MonoBehaviour
     }
     public void HitDebugTask()
     {
-        if (currentTaskIndex == 2 && currentTasks == sceneTasks_1)
+        if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_1)
         {
             CompleteCurrentTask();
-            ModelKeypadManager.Instance.Btn_2.SetActive(true);
-            ModelKeypadManager.Instance.Btn_3.SetActive(true);
-            ModelKeypadManager.Instance.Btn_7.SetActive(true);
+            StartCoroutine(WaitALittle());
+           
         }
+    }
+
+    IEnumerator WaitALittle()
+    {
+        yield return new WaitForSeconds(1.0f);
+        ModelKeypadManager.Instance.Btn_2.SetActive(true);
+        ModelKeypadManager.Instance.Btn_3.SetActive(true);
+        ModelKeypadManager.Instance.Btn_7.SetActive(true);
     }
 
     public void HitTransformerTask()
     {
-        if (currentTaskIndex == 3 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying&&currentTaskIndex == 3 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HitAnchorTask()
     {
         if (currentTaskIndex == 4 && currentTasks == sceneTasks_1)
         {
-            blueBigBtn.gameObject.SetActive(true);
             CompleteCurrentTask();
-            ModelKeypadManager.Instance.Btn_7.SetActive(true);
-            ModelKeypadManager.Instance.Btn_9.SetActive(true);
-            ModelKeypadManager.Instance.Btn_2.SetActive(true);
-            ModelKeypadManager.Instance.Btn_3.SetActive(true);
+            blueBigBtn.gameObject.SetActive(true);
+            ModelKeypadManager.Instance.CallTransformerModel();
+            ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
+            ModelKeypadManager.Instance.DeactivateSomeBtns();
+            //ModelKeypadManager.Instance.Btn_7.SetActive(true);
+            //ModelKeypadManager.Instance.Btn_9.SetActive(true);
+            //ModelKeypadManager.Instance.Btn_2.SetActive(true);
+            //ModelKeypadManager.Instance.Btn_3.SetActive(true);
         }
     }
 
     public void HitVariantTask()
     {
-        if (currentTaskIndex == 5 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying&&currentTaskIndex == 5 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void SwitchVariantTask()
     {
-        if (currentTaskIndex == 6 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 6 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HitBindingsTask()
     {
-        if (currentTaskIndex == 7 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 7 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
     public void PlayAnimWithBindingsTask()
     {
-        if (currentTaskIndex == 8 && currentTasks == sceneTasks_1) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 8 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     #endregion
@@ -343,56 +480,62 @@ public class StudyManager : MonoBehaviour
     #region TasksScene_2
     public void SwitchModelTask()
     {
-        if (currentTaskIndex == 0 && currentTasks == sceneTasks_2) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
 
     public void PlayClapAnimTask()
     {
-        if (currentTaskIndex == 1 && currentTasks == sceneTasks_2) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
     public void SetFeetsTask()
     {
-        if (currentTaskIndex == 2 && currentTasks == sceneTasks_2)
+        if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_2)
         {
             CompleteCurrentTask();
         }
     }
     public void HitRecTask()
     {
-        if (currentTaskIndex == 3 && currentTasks == sceneTasks_2) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 3 && currentTasks == sceneTasks_2)
+        {
+            CompleteCurrentTask();
+        }
     }
     public void StopRecTask()
     {
-        if (currentTaskIndex == 4 && currentTasks == sceneTasks_2) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 4 && currentTasks == sceneTasks_2)
+        {
+            CompleteCurrentTask();
+        }
     }
     public void PlayStudyScene1Task()
     {
-        if (currentTaskIndex == 5 && currentTasks == sceneTasks_2) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 5 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
     #endregion
 
     #region TasksScene_3
     public void PlayJumpAnimTask()
     {
-        if (currentTaskIndex == 0 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
 
     public void SetRootMotionTask()
     {
-        if (currentTaskIndex == 1 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     public void SetArmsTask()
     {
-        if (currentTaskIndex == 2 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     public void StopRecSecondTimeTask()
     {
-        if (currentTaskIndex == 3 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 3 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
 
     public void PlayStudyScene2Task()
     {
-        if (currentTaskIndex == 4 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+        if (!audioSource.isPlaying && currentTaskIndex == 4 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     #endregion
 }

@@ -237,10 +237,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
             yield return new WaitForSeconds(1f);
             countdown -= 1f;
         }
+
         countdownText.text = ""; // Clear the countdown text
         countdownText.gameObject.SetActive(false);
 
-        if (recordInit) yield break;
+        // Reset the recorder and start fresh
+        ResetRecorder();
 
         if (_recorder == null)
         {
@@ -251,17 +253,27 @@ public class AVRGameObjectRecorder : MonoBehaviour
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
         _canRecord = true;
         InfoOverlay.Instance.ManageRecImage();
+
         if (recordMirroredObject)
         {
             _recorder.BindComponentsOfType<Transform>(_MirroredObjectToRecord, true);
             _canRecord = true;
-            Debug.Log("Rec MirrordObject bound done.See: " + _recorder);
+            Debug.Log("Rec MirroredObject bound done. See: " + _recorder);
         }
 
         for (int i = 0; i < additionalRecordObjects.Count; i++)
         {
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
+        }
+    }
+
+    // Method to reset the recorder to make sure it starts from scratch
+    private void ResetRecorder()
+    {
+        if (_recorder != null)
+        {
+            _recorder.ResetRecording(); // Reset any previous recordings
         }
     }
 
@@ -289,31 +301,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
          
         }
     }
-
-    //public void CreateNewClip()
-    //{
-    //    AnimationClip newClip = new AnimationClip();
-    //    newClip.frameRate = _frameRate;
-    //    _currentClip = newClip;
-    //    _currentClip.name = _clipName;
-
-    //    for (int i = 0; i < allClips.Count; i++)
-    //    {
-    //        if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
-    //        {
-    //            allClips.RemoveAt(i);
-    //            Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
-    //            return;
-    //        }
-    //    }
-
-    //    AssetDatabase.CreateAsset(_currentClip, string.Format(_saveFolderLocation + "/{0}.anim", _clipName));
-    //    //InfoOverlay.Instance.ShowText("New ANim: "+ _currentClip.name);
-    //    if (!allClips.Contains(_currentClip))
-    //    {
-    //        allClips.Add(_currentClip);
-    //    }
-    //}
 
     public void CreateNewClip()
     {
@@ -350,7 +337,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             allClips.Add(_currentClip);
         }
 
-        //InfoOverlay.Instance.ShowText("New Anim: "+ _currentClip.name);
+        InfoOverlay.Instance.ShowText("New Anim: "+ _currentClip.name);
     }
 
     void AddMotionToAnimator()
@@ -375,11 +362,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
             if (existingState.motion == null)
             {
                 existingState.motion = _currentClip;
+                InfoOverlay.Instance.ShowText(_currentClip.name + " set as Motion.");
             }
             // Wenn der State eine Motion hat, diese durch die neue Motion ersetzen
             else
             {
                 existingState.motion = _currentClip;
+                InfoOverlay.Instance.ShowText(_currentClip.name + " eingefügt und altes ersetzt..");
             }
         }
         else
@@ -387,8 +376,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
             // Neuen State erstellen und die Motion zuweisen
             AnimatorState newState = rootStateMachine.AddState(_currentClip.name);
             newState.motion = _currentClip;
+            InfoOverlay.Instance.ShowText(_currentClip.name + " as new State.");
         }
-
         OnMotionAdded?.Invoke();
     }
 
@@ -540,6 +529,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         _recorder.SaveToClip(_currentClip);
         AssetDatabase.SaveAssets();
         AddMotionToAnimator();
+        InfoOverlay.Instance.ShowText(_currentClip.name +" Saved.");
 #else
     // Save the animation clip as a JSON file
     string savePath = Path.Combine(_savePath, $"{_clipName}.json");

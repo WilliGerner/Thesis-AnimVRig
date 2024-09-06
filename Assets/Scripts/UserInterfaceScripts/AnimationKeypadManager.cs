@@ -137,10 +137,12 @@ public class AnimationKeypadManager : MonoBehaviour
     /// Startet den Recorder und f�ngt an Aufzunehmen.
     public void RecorderLogic(GameObject callingBtn)
     {
-      
-
         if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf)
         {
+            if (!StudyManager.Instance.canStopRecord)
+            {
+                return;
+            }
             if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf)
             {
                 AVRGameObjectRecorder.Instance.StopRecording(); // Abbruch des Countdowns und der Aufnahmevorbereitung

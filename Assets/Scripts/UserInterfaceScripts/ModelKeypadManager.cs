@@ -44,7 +44,7 @@ public class ModelKeypadManager : MonoBehaviour
     [SerializeField]
     GameObject _VaraintListUiStudy;
     [SerializeField]
-    GameObject _AnimListUiStudy;
+   public GameObject _AnimListUiStudy;
     #endregion
 
 
@@ -180,6 +180,7 @@ public class ModelKeypadManager : MonoBehaviour
         {
             Btn_8.SetActive(false);
             Btn_5.SetActive(false);
+            Btn_6.SetActive(false);
             Btn_1.SetActive(false);
         }
     }
