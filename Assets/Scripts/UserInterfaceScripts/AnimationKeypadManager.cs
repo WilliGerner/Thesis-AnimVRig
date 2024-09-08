@@ -139,10 +139,10 @@ public class AnimationKeypadManager : MonoBehaviour
     {
         if (callingBtn.GetComponent<AVR_SingleBtn>()._EnabledIcon.activeSelf)
         {
-            if (!StudyManager.Instance.canStopRecord)
-            {
-                return;
-            }
+            //if (!StudyManager.Instance.canStopRecord)
+            //{
+            //    return;
+            //}
             if (AVRGameObjectRecorder.Instance.countdownText.gameObject.activeSelf)
             {
                 AVRGameObjectRecorder.Instance.StopRecording(); // Abbruch des Countdowns und der Aufnahmevorbereitung

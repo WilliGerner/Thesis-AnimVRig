@@ -26,11 +26,11 @@ public class InfoOverlay : MonoBehaviour
 
     public void ShowText(string message)
     {
-        StopAllCoroutines();
-        textMeshProUGUI.text = message;
-        textMeshProUGUI.alpha = 1;
-        textMeshProUGUI.gameObject.SetActive(true);
-        StartCoroutine(FadeText());
+        //StopAllCoroutines();
+        //textMeshProUGUI.text = message;
+        //textMeshProUGUI.alpha = 1;
+        //textMeshProUGUI.gameObject.SetActive(true);
+        //StartCoroutine(FadeText());
     }
 
     private IEnumerator FadeText()

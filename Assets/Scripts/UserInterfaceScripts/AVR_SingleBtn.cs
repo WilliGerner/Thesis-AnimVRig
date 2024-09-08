@@ -32,13 +32,13 @@ public class AVR_SingleBtn : MonoBehaviour
 
     public void ToggleLogic()// Should be called every time at Start to set State.
     {
-        if (extraCondition)
-        {
-            if (!StudyManager.Instance.canStopRecord)
-            {
-                return;
-            }
-        }
+        //if (extraCondition)
+        //{
+        //    if (!StudyManager.Instance.)
+        //    {
+        //        return;
+        //    }
+        //}
         _enabled = !_enabled;
         _EnabledIcon.SetActive(_enabled);
         _DisabledIcon.SetActive(!_enabled);

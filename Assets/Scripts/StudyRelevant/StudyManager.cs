@@ -213,8 +213,8 @@ public class StudyManager : MonoBehaviour
                     InfoOverlay.Instance.ShowText("Can Rec");
                     break;
                 case 3:
-                    canStopRecord = true;
-                    InfoOverlay.Instance.ShowText("Can stop from now");
+                    //canStopRecord = true;
+                    //InfoOverlay.Instance.ShowText("Can stop from now");
                     break;
                 default:
                     InfoOverlay.Instance.ShowText("Unhandled Task for Scene 2");
@@ -224,6 +224,7 @@ public class StudyManager : MonoBehaviour
         // Für Scene 3 (falls es Tasks dafür gibt)
         else if (currentTasks == sceneTasks_3)
         {
+            Debug.Log("Task: "+ currentTaskIndex);
             switch (currentTaskIndex)
             {
                 case 0:
@@ -398,6 +399,9 @@ public class StudyManager : MonoBehaviour
         if (layerBindingsMenu.activeSelf) layerBindingsMenu.SetActive(false);
         ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(true);
         SwitchToScene(sceneTasks_3);
+        
+        Animator targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
+        targetAnimator.applyRootMotion = false;
     }
 
 
