@@ -244,6 +244,8 @@ public class StudyManager : MonoBehaviour
 
     public void CompleteCurrentTask()
     {
+        // Mark the task as completed
+        currentTasks[currentTaskIndex].isTaskCompleted = true;
         // Setze die Farbe des aktuellen Tasks zurück
         currentTasks[currentTaskIndex].ResetButtonColors();
         StartCoroutine(FadeOutTaskUI(currentTasks[currentTaskIndex]));
@@ -409,11 +411,21 @@ public class StudyManager : MonoBehaviour
 
     public void HitAVRMenuTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HiMirrorTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_1)
         {
             CompleteCurrentTask();
@@ -423,6 +435,11 @@ public class StudyManager : MonoBehaviour
     }
     public void HitDebugTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_1)
         {
             CompleteCurrentTask();
@@ -441,11 +458,21 @@ public class StudyManager : MonoBehaviour
 
     public void HitTransformerTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying&&currentTaskIndex == 3 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HitAnchorTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (currentTaskIndex == 4 && currentTasks == sceneTasks_1)
         {
             CompleteCurrentTask();
@@ -462,20 +489,40 @@ public class StudyManager : MonoBehaviour
 
     public void HitVariantTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying&&currentTaskIndex == 5 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void SwitchVariantTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 6 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void HitBindingsTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 7 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
     public void PlayAnimWithBindingsTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 8 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
@@ -484,15 +531,30 @@ public class StudyManager : MonoBehaviour
     #region TasksScene_2
     public void SwitchModelTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
 
     public void PlayClapAnimTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
     public void SetFeetsTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_2)
         {
             CompleteCurrentTask();
@@ -500,6 +562,11 @@ public class StudyManager : MonoBehaviour
     }
     public void HitRecTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 3 && currentTasks == sceneTasks_2)
         {
             CompleteCurrentTask();
@@ -507,6 +574,11 @@ public class StudyManager : MonoBehaviour
     }
     public void StopRecTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 4 && currentTasks == sceneTasks_2)
         {
             CompleteCurrentTask();
@@ -514,6 +586,11 @@ public class StudyManager : MonoBehaviour
     }
     public void PlayStudyScene1Task()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 5 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
     #endregion
@@ -521,24 +598,49 @@ public class StudyManager : MonoBehaviour
     #region TasksScene_3
     public void PlayJumpAnimTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
 
     public void SetRootMotionTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     public void SetArmsTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     public void StopRecSecondTimeTask()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 3 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
 
     public void PlayStudyScene2Task()
     {
+        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        {
+            Debug.Log("Task already completed, ignoring further calls.");
+            return;
+        }
         if (!audioSource.isPlaying && currentTaskIndex == 4 && currentTasks == sceneTasks_3) CompleteCurrentTask();
     }
     #endregion
@@ -554,6 +656,7 @@ public class TaskData
     public AudioClip outroAudioClip;
     public RoundedBoxProperties highliteBtn;
     public Color colorBtn;
+    public bool isTaskCompleted = false;
 
     // Speichert die ursprüngliche Farbe
     public Color originalColor;

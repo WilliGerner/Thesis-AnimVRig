@@ -437,7 +437,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
     {
-        if (!_studyManager.once) return;
+        if (_studyManager != null)
+        {
+            if (!_studyManager.once) return;
+        }
+       
         if (_MirroredObjectToRecord.activeSelf)
         {
             _MirroredObjectToRecord.SetActive(false);

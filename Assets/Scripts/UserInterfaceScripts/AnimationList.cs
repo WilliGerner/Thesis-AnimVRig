@@ -132,11 +132,15 @@ public class AnimationList : MonoBehaviour
 
     public void PlayAnimation()
     {
-        StudyManager.Instance.PlayAnimWithBindingsTask();
-        if(currentClip.name == "Sitzend Klatschen") StudyManager.Instance.PlayClapAnimTask();
-        if (currentClip.name == "Springen") StudyManager.Instance.PlayJumpAnimTask();
-        if (currentClip.name == "StudyScene_1") StudyManager.Instance.PlayStudyScene1Task();
-        if (currentClip.name == "StudyScene_2") StudyManager.Instance.PlayStudyScene2Task();
+        if (StudyManager.Instance != null)
+        {
+            StudyManager.Instance.PlayAnimWithBindingsTask();
+            if (currentClip.name == "Sitzend Klatschen") StudyManager.Instance.PlayClapAnimTask();
+            if (currentClip.name == "Springen") StudyManager.Instance.PlayJumpAnimTask();
+            if (currentClip.name == "StudyScene_1") StudyManager.Instance.PlayStudyScene1Task();
+            if (currentClip.name == "StudyScene_2") StudyManager.Instance.PlayStudyScene2Task();
+        }
+      
 
         if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
