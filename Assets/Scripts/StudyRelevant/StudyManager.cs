@@ -229,8 +229,6 @@ public class StudyManager : MonoBehaviour
             {
                 case 0:
                     rootMotionWrapper.enabled = true;
-                    Animator targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
-                    targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion; // Mhmmmmmmmmmm
                     InfoOverlay.Instance.ShowText("Can Hit Root Motion from now");
                     break;
 

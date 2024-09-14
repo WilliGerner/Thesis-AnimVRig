@@ -18,10 +18,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
     [Tooltip("The Object you want to Record")]
     public GameObject _objectToRecord;
     public GameObject _MirroredObjectToRecord;
+#if UNITY_EDITOR
+    AnimatorController _animController;
     public GameObjectRecorder _recorder;
+#endif
     AnimationClip _currentClip;
     public List<AnimationClip> allClips;
-    AnimatorController _animController;
     public Animator _animatorMirrored;
     public LayerTransformPairChanger mirroredTransformManager;
 
@@ -100,7 +102,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     }
 
     private void Start()
-    {     
+    {
+#if UNITY_EDITOR
         // Determine the save path depending on the platform
         if (Application.isEditor)
         {
@@ -127,6 +130,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
         Debug.Log("Animation save path: " + _savePath);
         RuntimeAnimatorController animationController = _objectToRecord.GetComponent<Animator>().runtimeAnimatorController;
         _animController = animationController as AnimatorController;
+#endif
         _canRecord = false;
         CreateNewClip();
         ActivateOtherModel(GetActiveElement().name);
@@ -158,12 +162,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private void Update()
     {
+#if UNITY_EDITOR
         if (_canRecord)
         {
             _recorder.TakeSnapshot(Time.deltaTime);
             Debug.Log("Recording: " + _recorder.isRecording);
         }
-
+#endif
         //lock (_executionQueue)  // new
         //{
         //    while (_executionQueue.Count > 0)
@@ -197,6 +202,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public List<AnimationClip> GetAllClips(string rootObjectName)
     {
+#if UNITY_EDITOR
         allClips = new List<AnimationClip>();
         string path = _saveFolderLocation;
         string[] searchedAsset = AssetDatabase.FindAssets("t:AnimationClip", new[] { path });
@@ -212,23 +218,25 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 }
             }
         }
+#endif
         return allClips;
     }
 
     public void StartRec()
     {
-//#if UNITY_EDITOR
+#if UNITY_EDITOR
         if (recordInit /* !StudyScript.Instance.tutroial_done*/) return;
 
         countdownText.gameObject.SetActive(true);
         recordingCoroutine = StartCoroutine(StartRecordingWithCountdown());
 //#else
 //        ModelKeypadManager.Instance.Btn_5.SetActive(false);
-//#endif
+#endif
     }
 
     private IEnumerator StartRecordingWithCountdown()
     {
+#if UNITY_EDITOR
         float countdown = 5f; // Countdown duration in seconds
 
         while (countdown > 0)
@@ -266,15 +274,20 @@ public class AVRGameObjectRecorder : MonoBehaviour
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
             Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
+#else
+        yield return new WaitForSeconds(1f);
+#endif
     }
 
     // Method to reset the recorder to make sure it starts from scratch
     private void ResetRecorder()
     {
+#if(UNITY_EDITOR)
         if (_recorder != null)
         {
             _recorder.ResetRecording(); // Reset any previous recordings
         }
+#endif
     }
 
     public void StopRecording()
@@ -297,13 +310,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
             recordInit = false;
             _canRecord = false;
             InfoOverlay.Instance.ManageRecImage();
-            StartCoroutine(CloseEyesAndContinue());
-         
+            StartCoroutine(CloseEyesAndContinue());      
         }
     }
 
     public void CreateNewClip()
     {
+#if UNITY_EDITOR
         AnimationClip newClip = new AnimationClip();
         newClip.frameRate = _frameRate;
         _currentClip = newClip;
@@ -321,16 +334,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
         string savePath = string.Format(_savePath + "/{0}.anim", _clipName);
 
-#if UNITY_EDITOR
         AssetDatabase.CreateAsset(_currentClip, savePath);
-#else
-        // Save in a format that can be used later on the Quest 3
-        using (FileStream fs = new FileStream(savePath, FileMode.Create, FileAccess.Write))
-        {
-            var clipData = newClip.ToSerializedObject();
-            fs.Write(clipData, 0, clipData.Length);
-        }
-#endif
 
         if (!allClips.Contains(_currentClip))
         {
@@ -338,10 +342,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
         }
 
         InfoOverlay.Instance.ShowText("New Anim: "+ _currentClip.name);
+#endif
     }
 
     void AddMotionToAnimator()
     {
+#if UNITY_EDITOR
         AnimatorStateMachine rootStateMachine = _animController.layers[0].stateMachine;
 
         // Überprüfen, ob ein State mit dem gleichen Namen bereits existiert
@@ -379,6 +385,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             InfoOverlay.Instance.ShowText(_currentClip.name + " as new State.");
         }
         OnMotionAdded?.Invoke();
+#endif
     }
 
     public void ActivateOtherVariant(string variantName)
@@ -393,8 +400,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
                     _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
                     Animator animatorModell = _objectToRecord.GetComponent<Animator>();
+#if UNITY_EDITOR
                     RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                     _animController = animationController as AnimatorController;
+#endif
                     _animList.SetUpAnimList();
                     //_animListLayer.SetUpAnimList();
 
@@ -419,9 +428,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _MirroredObjectToRecord = avr_related.mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
                         _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
                         Animator animatorModell = _objectToRecord.GetComponent<Animator>();
-                        RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
+#if UNITY_EDITOR
+                    RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                         _animController = animationController as AnimatorController;
-                        currentVariantsToRecord = avr_related.mirroredVaraints;
+#endif
+                    currentVariantsToRecord = avr_related.mirroredVaraints;
                         _animList.SetUpAnimList();
                         SetModel();
                         CreateNewClip();
@@ -437,6 +448,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void ManageOwnRigRecording() // Set Recording to own model and deactivate the Mirror
     {
+#if UNITY_EDITOR
         if (_studyManager != null)
         {
             if (!_studyManager.once) return;
@@ -463,10 +475,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
             ModelKeypadManager.Instance.Btn_2.SetActive(true);
             SetModel();
         }
+#endif
     }
 
     public void SetModel()
     {
+#if UNITY_EDITOR
         _recorder = new GameObjectRecorder(_objectToRecord);
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
 
@@ -482,6 +496,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                 _recorder.BindComponentsOfType<Transform>(additionalObj, true);
             }
         }
+#endif
         avr_mirrorTransformer.transformModel = _objectToRecord.transform; // Set new Model in Transformer.
         avr_mirrorTransformer.modelAnimator = _objectToRecord.GetComponent<Animator>(); // Set new Model in Transformer.
         mirroredTransfromManager._lateMirroredObject = _objectToRecord.GetComponentInChildren<LateMirroredObject>();
@@ -534,10 +549,6 @@ public class AVRGameObjectRecorder : MonoBehaviour
         AssetDatabase.SaveAssets();
         AddMotionToAnimator();
         InfoOverlay.Instance.ShowText(_currentClip.name +" Saved.");
-#else
-    // Save the animation clip as a JSON file
-    string savePath = Path.Combine(_savePath, $"{_clipName}.json");
-    AnimationClipSerializer.SaveAnimationClip(_currentClip, savePath);
 #endif
 
         yield return StartCoroutine(OpenEyes());

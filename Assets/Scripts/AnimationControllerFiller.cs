@@ -12,6 +12,7 @@ public class AnimationControllerFiller : MonoBehaviour
         //FillAnimationStates();
     }
 
+#if UNITY_EDITOR
     public void FillAnimationStates()
     {
         if (animator == null)
@@ -55,4 +56,5 @@ public class AnimationControllerFiller : MonoBehaviour
         UnityEditor.EditorUtility.SetDirty(controller); // Markiert den Controller als geändert
         UnityEditor.AssetDatabase.SaveAssets(); // Speichert die Änderungen
     }
+#endif
 }

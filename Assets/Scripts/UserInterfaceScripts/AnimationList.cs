@@ -56,6 +56,7 @@ public class AnimationList : MonoBehaviour
     {
         targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         avatar = targetAnimator.avatar;
+#if UNITY_EDITOR
         if (targetAnimator != null)
         {
             var clips = targetAnimator.runtimeAnimatorController.animationClips;
@@ -72,8 +73,10 @@ public class AnimationList : MonoBehaviour
                 }
             }
         }
+#endif
     }
 
+#if UNITY_EDITOR
     private void SetInteractableTextAndListener(InteractableUnityEventWrapper interactable, AnimationClip clip)
     {
         TextMeshPro tmpText = interactable.transform.GetChild(1).transform.GetComponentInChildren<TextMeshPro>();
@@ -86,13 +89,12 @@ public class AnimationList : MonoBehaviour
             PlayAnimation(); // Starte die Animation direkt
         });
     }
+#endif
 
     public void SetRootMotion()
     {
         targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         targetAnimator.applyRootMotion = !targetAnimator.applyRootMotion;
-        //if (targetAnimator.applyRootMotion) StudyScript.Instance.SetRootMotion(true);
-        //else StudyScript.Instance.SetRootMotion(true);
     }
 
     public void PlaySpecialAnim(string animName)
@@ -100,6 +102,7 @@ public class AnimationList : MonoBehaviour
         if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
+#if UNITY_EDITOR
         if (RequiresAvatar(animName))
         {
             AttachAvatar();
@@ -108,8 +111,8 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
+#endif
         targetAnimator.Play(animName);
-        CheckStudyTasks(animName);
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
     }
@@ -120,11 +123,13 @@ public class AnimationList : MonoBehaviour
 
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
+#if UNITY_EDITOR
         if (RequiresAvatar(currentClip))
         {
             AttachAvatar();
         }
         else DetachAvatar();
+#endif
         targetAnimator.Play(currentClip.name);
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
@@ -145,6 +150,7 @@ public class AnimationList : MonoBehaviour
         if (targetAnimator == null) targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
         if (!targetAnimator.enabled) targetAnimator.enabled = true;
         targetAnimator.speed = 1;
+#if UNITY_EDITOR
         if (RequiresAvatar(currentClip))
         {
             AttachAvatar();
@@ -153,46 +159,14 @@ public class AnimationList : MonoBehaviour
         {
             DetachAvatar();
         }
-        CheckStudyTasks(currentClip.name);
-
-
+#endif
         targetAnimator.Play(currentClip.name);
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
 
     }
 
-    void CheckStudyTasks(string clipName)
-    {
-        //if (layerMaskManager._leftArm && layerMaskManager._rightArm && layerMaskManager._leftFoot && layerMaskManager._rightFoot)
-        //{
-        //    StudyScript.Instance.BindEverythingTask();
-        //}
-
-        //if (!layerMaskManager._leftArm && !layerMaskManager._rightArm && !layerMaskManager._leftFoot && !layerMaskManager._rightFoot)
-        //{
-        //    StudyScript.Instance.BindNothingTask();
-        //}
-
-        //if (clipName == "Sitzend Klatschen" && StudyScript.Instance.tutroial_done)
-        //{
-        //    StudyScript.Instance.PlayClapAnimTask();
-        //}
-        //if (clipName.Contains("Springen") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
-        //{
-        //    StudyScript.Instance.PlayJumpAnim();
-        //}
-        //if (clipName.Contains("StudyScene_1") && StudyScript.Instance.tutroial_done)
-        //{
-        //    Debug.Log("StudyScene_1 Played");
-        //    StudyScript.Instance.PlayNewClapAnim();
-        //}
-        //if (clipName.Contains("StudyScene_2") && StudyScript.Instance.tutroial_done && StudyScript.Instance.scene_1_done)
-        //{
-        //    StudyScript.Instance.PlayYourNewJumpAnim();
-        //}
-    }
-
+#if UNITY_EDITOR
     private bool RequiresAvatar(string clipName)
     {
         // Find the AnimationClip by name
@@ -244,7 +218,7 @@ public class AnimationList : MonoBehaviour
         }
         return true;
     }
-
+#endif
     private void AttachAvatar()
     {
         if (avatar != null)

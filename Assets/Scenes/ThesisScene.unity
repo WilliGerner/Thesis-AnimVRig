@@ -2884,6 +2884,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 28080291f03a02a48a897fe61b1db126, type: 3}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.23529412}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Spiegel Modell aktivieren
     taskDescription: "Dr\xFCcke auf den <color=green> Mirror </color> Button."
@@ -2891,6 +2892,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: b4624644c4c8bbc498d3bc3eaa4fc9a4, type: 3}
     highliteBtn: {fileID: 3943679107089209401}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.23529412}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Schau dir die Debug Option an.
     taskDescription: "Dr\xFCcke auf den <color=green> Debug </color> Button."
@@ -2898,6 +2900,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 0827e8c7910fb924f9a5bdc04977b38a, type: 3}
     highliteBtn: {fileID: 7711710576316314658}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.23529412}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Model Transformer
     taskDescription: "Dr\xFCcke auf den <color=green> Transform </color> Button."
@@ -2905,6 +2908,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: c5818076ee08eae48b06f03962445603, type: 3}
     highliteBtn: {fileID: 6754074610708351415}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.23529412}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: "Anchor Button zum zur\xFCcksetzen der Position reset."
     taskDescription: "Dr\xFCcke auf den <color=green> Anchor </color> Button."
@@ -2912,6 +2916,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 3df4724c8864d15469f03b584c1000e1, type: 3}
     highliteBtn: {fileID: 4037053253178169078}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.23529412}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Wechsel deine Model Variante.
     taskDescription: "Dr\xFCcke auf den <color=green> Switch Variant </color> Button."
@@ -2919,6 +2924,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 525a4db662dcc0640a9562b1eb8135a9, type: 3}
     highliteBtn: {fileID: 8480532840697926515}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: "Gr\xFCn, Blau oder Gelbv?"
     taskDescription: Wechsel die Modell Variante.
@@ -2926,6 +2932,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Was sind Bindings?
     taskDescription: "Dr\xFCcke auf den <color=green> Bindings </color> Button."
@@ -2933,6 +2940,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: b1e915ccdee4c2b4b81b36bec89de496, type: 3}
     highliteBtn: {fileID: 2464669996477668384}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Spiele eine Animation mit Bindings ab.
     taskDescription: "Dr\xFCcke auf den <color=green> Anim Clip </color> Button und
@@ -2941,6 +2949,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 4440359809532557741}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   sceneTasks_2:
   - headerDescription: Wechsel dein Modell.
@@ -2950,6 +2959,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 4251915523236162023}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Sitzendes Klatschen
     taskDescription: Spiele die <color=green> sitzende Klatsch Animation </color>
@@ -2958,6 +2968,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: "Kontrolle \xFCber die F\xFC\xDFe"
     taskDescription: "Setze unter Bindings beide F\xFC\xDFe auf aktiv und \xFCbernim
@@ -2966,6 +2977,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: e0344926079b9354a9dc39b137709af3, type: 3}
     highliteBtn: {fileID: 4440359809532557741}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Aufnahme einer neuen Animation
     taskDescription: "Dr\xFCcke auf den <color=green> Record </color> Button und
@@ -2974,6 +2986,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 8f293f651aa319b4c8718ccc685266b4, type: 3}
     highliteBtn: {fileID: 2016861144790798766}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Stoppe die Aufnahme.
     taskDescription: "Dr\xFCcke erneut auf den Record Button um die Aufnahme zu stoppen."
@@ -2981,6 +2994,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 0a47d13150377714bb4a4c1df81f7c20, type: 3}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Meine erste eigene Animation.
     taskDescription: Spiele deine neu erstellte Animation "StudyScene_1" ab.
@@ -2988,6 +3002,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 8d23a060675c25442a60fcc92b1286c8, type: 3}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   sceneTasks_3:
   - headerDescription: Spring!
@@ -2996,6 +3011,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: e0bf81e5efc58a549968fd20eb0a20d2, type: 3}
     highliteBtn: {fileID: 8323136913294627365}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Root Motion?!
     taskDescription: "Dr\xFCcke auf den <color=green> Root Motion </color> Button."
@@ -3003,6 +3019,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 2a0bdc8a74e1bac4482d62614d8fb7e0, type: 3}
     highliteBtn: {fileID: 405204340236401066}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Aktivierte Arme! Deaktvierte Beine.
     taskDescription: Setze nur deine Arme unter Bindings auf aktiv.
@@ -3010,6 +3027,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Nimm eine neue Sprung Animation auf.
     taskDescription: "Dr\xFCcke auf Record und nimm eine Animation auf. Stoppe sobald
@@ -3018,6 +3036,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: 1f12d8d3cd354434f8d95dd34e999288, type: 3}
     highliteBtn: {fileID: 2016861144790798766}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   - headerDescription: Spiele "StudyScene_2" ab.
     taskDescription: Spiele die neu aufgenommen Sprung Animation ab.
@@ -3025,6 +3044,7 @@ MonoBehaviour:
     outroAudioClip: {fileID: 8300000, guid: e5d7ae0b61ca8b34aa72739a1fb3ad7b, type: 3}
     highliteBtn: {fileID: 0}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
+    isTaskCompleted: 0
     originalColor: {r: 1, g: 1, b: 1, a: 0.078431375}
   skinnedMeshRendererStartModel: {fileID: 144033840}
   once: 0
@@ -19539,6 +19559,11 @@ PrefabInstance:
       propertyPath: modelGameObjects.Array.data[2]
       value: 
       objectReference: {fileID: 1467234448}
+    - target: {fileID: 895660747040587831, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 899161262839191651, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -19908,7 +19933,7 @@ PrefabInstance:
     - target: {fileID: 3274989522227989150, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3286413935568038044, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
