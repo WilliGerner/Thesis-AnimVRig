@@ -473,6 +473,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
             ModelKeypadManager.Instance.Switch9BtnsActivStatusStudy(false);
             ModelKeypadManager.Instance.Btn_3.SetActive(true);
             ModelKeypadManager.Instance.Btn_2.SetActive(true);
+            ModelKeypadManager.Instance.Btn_4.SetActive(true);
+            ModelKeypadManager.Instance.Btn_6.SetActive(true);
+            ModelKeypadManager.Instance.Btn_8.SetActive(true);
+            ModelKeypadManager.Instance.Btn_9.SetActive(true);
             SetModel();
         }
 #endif

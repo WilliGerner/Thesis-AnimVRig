@@ -18,7 +18,7 @@ public class AVR_SingleBtn : MonoBehaviour
     [SerializeField]
     private TMPro.TextMeshProUGUI _titleText; // The Text which will change dependen on the activ Symbol.
 
-    private bool _enabled;
+    public bool _enabled;
 
     [SerializeField][Header("Can be an MiniImage like a Save Symbol, can be null.")]
     private Image _ImgIndicator;

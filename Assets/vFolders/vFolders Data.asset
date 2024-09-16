@@ -50,6 +50,9 @@ MonoBehaviour:
     - 093ea3bbe261108488854fa1be205f46
     - 05a0c5340e9338c4cb771a6e861f86e9
     - d27b2f250d8d6254abbf20a20363e091
+    - 84acde4f278ee4c4d9b00eddf1b69d32
+    - 331aebafa30c11c4686f26a91bf4937e
+    - 3f107b49c55de3b43805688387b951a2
     values:
     - colorIndex: 10
       iconNameOrGuid: 
@@ -123,3 +126,9 @@ MonoBehaviour:
       iconNameOrGuid: Material Icon
     - colorIndex: 2
       iconNameOrGuid: RawImage Icon
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon
+    - colorIndex: 1
+      iconNameOrGuid: WheelCollider Icon

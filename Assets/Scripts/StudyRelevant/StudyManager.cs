@@ -8,7 +8,8 @@ using Oculus.Interaction;
 
 public class StudyManager : MonoBehaviour
 {
-    [SerializeField]
+
+   [SerializeField]
     private GameObject table;
 
     [SerializeField]
@@ -111,11 +112,11 @@ public class StudyManager : MonoBehaviour
         
         skinnedMeshRendererStartModel.GetComponent<SkinnedMeshRenderer>().enabled = false;
         currentTasks = sceneTasks_1;
-        taskStatusImage.color = notDoneColor;
-        UpdateProgressText();
+        taskStatusImage.color = notDoneColor; 
         StartCoroutine(PlayTaskIntro(currentTasks[currentTaskIndex]));
         SetUpScene_1();
     }
+
 
     public void OnlyOnceSetMeshRenderer()
     {
@@ -129,25 +130,28 @@ public class StudyManager : MonoBehaviour
     private IEnumerator PlayTaskIntro(TaskData task)
     {
         headerText.text = task.headerDescription;
-        taskText.text = task.taskDescription;
         task.ChangeButtonColors();
+
+        // Wenn Audio vorhanden ist, warte bis es fertig ist, ansonsten sofort weitermachen
         if (task.introAudioClip != null)
         {
             audioSource.clip = task.introAudioClip;
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
         }
-        if (currentTaskIndex == 0 && currentTasks == sceneTasks_2)
-        {
-            modelWrapper.enabled = true;
-            InfoOverlay.Instance.ShowText("Can Hit Model from now");
-        }
-        StartCoroutine(FadeInTaskUI());
+        taskText.text = task.taskDescription;
+
+        // Unabhängig davon, ob Audio da ist oder nicht, mach mit dem Fade-In weiter
+        yield return FadeInTaskUI();
     }
+
+
 
     private IEnumerator PlayTaskOutro(TaskData task)
     {
         taskStatusImage.color = doneColor;
+
+        // Wenn ein Outro-Audio vorhanden ist, spiele es ab und warte, bis es fertig ist
         if (task.outroAudioClip != null)
         {
             audioSource.clip = task.outroAudioClip;
@@ -155,12 +159,14 @@ public class StudyManager : MonoBehaviour
             yield return new WaitForSeconds(audioSource.clip.length);
         }
 
-        yield return new WaitForSeconds(1f); // A small delay before proceeding to the next task
+        // Immer HandleTaskLogic aufrufen, egal ob es ein Outro gibt oder nicht
         HandleTaskLogic();
         NextTask();
     }
+
     private void HandleTaskLogic()
     {
+        currentTasks[currentTaskIndex].isTaskCompleted = true;
         // Für Scene 1
         if (currentTasks == sceneTasks_1)
         {
@@ -242,8 +248,7 @@ public class StudyManager : MonoBehaviour
 
     public void CompleteCurrentTask()
     {
-        // Mark the task as completed
-        currentTasks[currentTaskIndex].isTaskCompleted = true;
+
         // Setze die Farbe des aktuellen Tasks zurück
         currentTasks[currentTaskIndex].ResetButtonColors();
         StartCoroutine(FadeOutTaskUI(currentTasks[currentTaskIndex]));
@@ -269,13 +274,10 @@ public class StudyManager : MonoBehaviour
             yield break; // Exit the coroutine early to prevent further errors
         }
 
-        CanvasGroup canvasGroup = taskText.GetComponentInParent<CanvasGroup>();
-
         if (canvasGroup == null)
         {
-            //   Debug.LogError("CanvasGroup is not found in the parent hierarchy of taskText.");
-            StartCoroutine(PlayTaskOutro(task));
-            yield break; // Exit the coroutine early to prevent further errors
+            StartCoroutine(PlayTaskOutro(task)); // Starte Outro und HandleTaskLogic auch ohne CanvasGroup
+            yield break;
         }
 
         while (canvasGroup.alpha > 0)
@@ -285,8 +287,9 @@ public class StudyManager : MonoBehaviour
         }
 
         canvasGroup.gameObject.SetActive(false);
-        StartCoroutine(PlayTaskOutro(task));
+        StartCoroutine(PlayTaskOutro(task)); // Starte Outro nach dem Fade-out
     }
+
 
     public void NextTask()
     {
@@ -333,7 +336,7 @@ public class StudyManager : MonoBehaviour
         if (currentTasks == sceneTasks_1) sceneName = "Szene 1";
         else if (currentTasks == sceneTasks_2) sceneName = "Szene 2";
         else if (currentTasks == sceneTasks_3) sceneName = "Szene 3";
-
+        
         //headerText.text = sceneName;
         progressText.text = $"{sceneName}, Aufgabe {currentTaskIndex + 1}/{currentTasks.Count}";
     }

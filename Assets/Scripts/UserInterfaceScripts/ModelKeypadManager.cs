@@ -22,6 +22,7 @@ public class ModelKeypadManager : MonoBehaviour
     public GameObject Btn_7;
     public GameObject Btn_8;
     public GameObject Btn_9;
+    public GameObject Btn_10;
     public MiniAnimatorBar miniAnimBar;
 
 
@@ -171,6 +172,7 @@ public class ModelKeypadManager : MonoBehaviour
         Btn_7.SetActive(activ);
       /*  if (_studyManager.scene_1_done) */Btn_8.SetActive(activ);
         Btn_9.SetActive(activ);
+        Btn_10.SetActive(activ);
         if (!activ) miniAnimBar.HideMenu();
     }
 
