@@ -70,23 +70,128 @@ public class LayerTransformPairChanger : MonoBehaviour
 
     public void UpdateLeftArmPairs(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_l", "Left_UpperArm", "Left_LowerArm", "mixamorig1:LeftArm", "mixamorig1:LeftForeArm" });
+        // Füge alle möglichen mixamorig Varianten von 0 bis 9 hinzu
+        UpdateMirroredTransformPairs(isEnabled, new string[]
+        {
+        "clavicle_l",
+        "Left_UpperArm",
+        "Left_LowerArm",
+        "mixamorig:LeftArm",
+        "mixamorig1:LeftArm",
+        "mixamorig2:LeftArm",
+        "mixamorig3:LeftArm",
+        "mixamorig4:LeftArm",
+        "mixamorig5:LeftArm",
+        "mixamorig6:LeftArm",
+        "mixamorig7:LeftArm",
+        "mixamorig8:LeftArm",
+        "mixamorig9:LeftArm",
+        "mixamorig:LeftForeArm",
+        "mixamorig1:LeftForeArm",
+        "mixamorig2:LeftForeArm",
+        "mixamorig3:LeftForeArm",
+        "mixamorig4:LeftForeArm",
+        "mixamorig5:LeftForeArm",
+        "mixamorig6:LeftForeArm",
+        "mixamorig7:LeftForeArm",
+        "mixamorig8:LeftForeArm",
+        "mixamorig9:LeftForeArm"
+        });
     }
+
 
     public void UpdateRightArmPairs(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, new string[] { "clavicle_r", "Right_UpperArm", "Right_LowerArm", "mixamorig1:RightArm", "mixamorig1:RightForeArm" });
+        UpdateMirroredTransformPairs(isEnabled, new string[]
+        {
+        "clavicle_r",
+        "Right_UpperArm",
+        "Right_LowerArm",
+        "mixamorig:RightArm",
+        "mixamorig1:RightArm",
+        "mixamorig2:RightArm",
+        "mixamorig3:RightArm",
+        "mixamorig4:RightArm",
+        "mixamorig5:RightArm",
+        "mixamorig6:RightArm",
+        "mixamorig7:RightArm",
+        "mixamorig8:RightArm",
+        "mixamorig9:RightArm",
+        "mixamorig:RightForeArm",
+        "mixamorig1:RightForeArm",
+        "mixamorig2:RightForeArm",
+        "mixamorig3:RightForeArm",
+        "mixamorig4:RightForeArm",
+        "mixamorig5:RightForeArm",
+        "mixamorig6:RightForeArm",
+        "mixamorig7:RightForeArm",
+        "mixamorig8:RightForeArm",
+        "mixamorig9:RightForeArm"
+        });
     }
 
     public void UpdateLeftLegPairs(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_l", "Left_UpperLeg", "Left_LowerLeg", "mixamorig1:LeftUpLeg", "mixamorig1:LeftLeg" });
+        UpdateMirroredTransformPairs(isEnabled, new string[]
+        {
+        "thigh_l",
+        "Left_UpperLeg",
+        "Left_LowerLeg",
+        "mixamorig:LeftUpLeg",
+        "mixamorig1:LeftUpLeg",
+        "mixamorig2:LeftUpLeg",
+        "mixamorig3:LeftUpLeg",
+        "mixamorig4:LeftUpLeg",
+        "mixamorig5:LeftUpLeg",
+        "mixamorig6:LeftUpLeg",
+        "mixamorig7:LeftUpLeg",
+        "mixamorig8:LeftUpLeg",
+        "mixamorig9:LeftUpLeg",
+        "mixamorig:LeftLeg",
+        "mixamorig1:LeftLeg",
+        "mixamorig2:LeftLeg",
+        "mixamorig3:LeftLeg",
+        "mixamorig4:LeftLeg",
+        "mixamorig5:LeftLeg",
+        "mixamorig6:LeftLeg",
+        "mixamorig7:LeftLeg",
+        "mixamorig8:LeftLeg",
+        "mixamorig9:LeftLeg"
+        });
     }
+
 
     public void UpdateRightLegPairs(bool isEnabled)
     {
-        UpdateMirroredTransformPairs(isEnabled, new string[] { "thigh_r", "Right_UpperLeg", "Right_LowerLeg", "mixamorig1:RightUpLeg", "mixamorig1:RightLeg" });
+        // Füge alle möglichen mixamorig Varianten von 0 bis 9 hinzu
+        UpdateMirroredTransformPairs(isEnabled, new string[]
+        {
+        "thigh_r",
+        "Right_UpperLeg",
+        "Right_LowerLeg",
+        "mixamorig:RightUpLeg",
+        "mixamorig1:RightUpLeg",
+        "mixamorig2:RightUpLeg",
+        "mixamorig3:RightUpLeg",
+        "mixamorig4:RightUpLeg",
+        "mixamorig5:RightUpLeg",
+        "mixamorig6:RightUpLeg",
+        "mixamorig7:RightUpLeg",
+        "mixamorig8:RightUpLeg",
+        "mixamorig9:RightUpLeg",
+        "mixamorig:RightLeg",
+        "mixamorig1:RightLeg",
+        "mixamorig2:RightLeg",
+        "mixamorig3:RightLeg",
+        "mixamorig4:RightLeg",
+        "mixamorig5:RightLeg",
+        "mixamorig6:RightLeg",
+        "mixamorig7:RightLeg",
+        "mixamorig8:RightLeg",
+        "mixamorig9:RightLeg"
+        });
     }
+
 
     private void UpdateMirroredTransformPairs(bool isEnabled, string[] bodyPartRoots)
     {

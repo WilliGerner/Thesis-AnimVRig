@@ -8,10 +8,6 @@ using Oculus.Interaction;
 
 public class StudyManager : MonoBehaviour
 {
-
-   [SerializeField]
-    private GameObject table;
-
     [SerializeField]
     private TextMeshProUGUI headerText;
 
@@ -394,7 +390,6 @@ public class StudyManager : MonoBehaviour
 
     public void SetUpScene_3()
     {
-        table.SetActive(false);
         ModelKeypadManager.Instance._TransformerSphereMovement.SetActive(false);
         ModelKeypadManager.Instance._TransformerSphereMovement.GetComponent<ModelTransformer>().ManageRotationSphere(false);
         AVRGameObjectRecorder.Instance._clipName = "StudyScene_2";

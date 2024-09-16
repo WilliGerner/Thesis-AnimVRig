@@ -207,15 +207,13 @@ public class LayerMaskManager : MonoBehaviour
         { _mirroredTransformManager.SetToAllPairs(); }
 
 
-
-        if (_customMask == bothFeetMask) // Only for Study
-        { StudyManager.Instance.SetFeetsTask(); }
-        if (_customMask == bothArmsMask) // Only for Study
-        { StudyManager.Instance.SetArmsTask(); }
-        //else { StudyScript.Instance.BothFeetSetActiv(false); }
-        //if (_customMask == bothArmsMask)
-        //{ StudyScript.Instance.SetBindingsForJumpTask(true); }
-        //else { StudyScript.Instance.SetBindingsForJumpTask(false); }
+        if (StudyManager.Instance != null)
+        {
+            if (_customMask == bothFeetMask) // Only for Study
+            { StudyManager.Instance.SetFeetsTask(); }
+            if (_customMask == bothArmsMask) // Only for Study
+            { StudyManager.Instance.SetArmsTask(); }
+        }
     }
 
     private void ResetIndividualParts(bool state)

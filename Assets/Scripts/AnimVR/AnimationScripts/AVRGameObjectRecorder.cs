@@ -32,6 +32,8 @@ public class AVRGameObjectRecorder : MonoBehaviour
     private List<GameObject> currentVariantsToRecord;
 
     [SerializeField]
+    LayerMaskManager _layerMaskManager;
+    [SerializeField]
     private GameObject _blackScreenCanvas;
     private RawImage blackScreenImage_1;
     private RawImage blackScreenImage_2;
@@ -296,8 +298,11 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             // Stop the countdown coroutine
             StopCoroutine(recordingCoroutine);
-            StudyManager.Instance.StopRecTask();
-            StudyManager.Instance.StopRecSecondTimeTask();
+            if (StudyManager.Instance != null)
+            {
+                StudyManager.Instance.StopRecTask();
+                StudyManager.Instance.StopRecSecondTimeTask();
+            }
             recordingCoroutine = null;
             countdownText.gameObject.SetActive(false);
             //InfoOverlay.Instance.ShowText("Recording countdown aborted.");
@@ -477,6 +482,12 @@ public class AVRGameObjectRecorder : MonoBehaviour
             ModelKeypadManager.Instance.Btn_6.SetActive(true);
             ModelKeypadManager.Instance.Btn_8.SetActive(true);
             ModelKeypadManager.Instance.Btn_9.SetActive(true);
+            if (_studyManager == null)
+            {
+                ModelKeypadManager.Instance.Btn_1.SetActive(true);
+                ModelKeypadManager.Instance.Btn_5.SetActive(true);
+                ModelKeypadManager.Instance.Btn_7.SetActive(true);
+            }
             SetModel();
         }
 #endif
@@ -600,6 +611,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private IEnumerator OpenEyes()
     {
+        _layerMaskManager.ToggleNothing();
         float halfDuration = blinkDuration / 2f;
         Vector2 initialPos1 = rectTransform1.anchoredPosition;
         Vector2 initialPos2 = rectTransform2.anchoredPosition;

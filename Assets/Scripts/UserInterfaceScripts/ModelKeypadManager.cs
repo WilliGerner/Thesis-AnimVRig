@@ -178,12 +178,15 @@ public class ModelKeypadManager : MonoBehaviour
 
     public void DeactivateSomeBtns()
     {
-        if (!_studyManager.scene_1_done)
+        if (_studyManager != null)
         {
-            Btn_8.SetActive(false);
-            Btn_5.SetActive(false);
-            Btn_6.SetActive(false);
-            Btn_1.SetActive(false);
+            if (!_studyManager.scene_1_done)
+            {
+                Btn_8.SetActive(false);
+                Btn_5.SetActive(false);
+                Btn_6.SetActive(false);
+                Btn_1.SetActive(false);
+            }
         }
     }
 
