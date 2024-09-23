@@ -20,6 +20,7 @@ MonoBehaviour:
     - 6c1217d43c7657248840cffb5171a423
     - a02e400bd3e648244b3531f1d7631e38
     - 55535a3fd83a09b4ba7dfa0c5f170d44
+    - 94db4ebb08094944697fd5d9cb722e4a
     values:
     - goDatas_byGlobalId:
         keys:
@@ -1128,3 +1129,186 @@ MonoBehaviour:
           iconNameOrGuid: 
         - colorIndex: 2
           iconNameOrGuid: 
+    - goDatas_byGlobalId:
+        keys:
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1467408447-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-2129976701-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-2106045820-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1358830342-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1168231779-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-219446658-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-345891149-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1411918933-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-98153615-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-761695938-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1713687087-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1176694873-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-699597174-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1737490523-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-2036579180-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1194463576-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1446489941-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1164818919-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1475832190-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1462647200-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1193957989-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-323064006-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-968403900-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-180414370-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-2060964947-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-919406388-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1781690941-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-992430143-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-439118764-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-139335297-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-911500828-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-931638251-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-362469417-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1848813444-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-48663558-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1026950580-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-268367964-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-298664930-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-8274653983065271995-63257901
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-8274653983065271995-423653772
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-979978104-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1341755556-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1520672891-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1727618203-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-515730184-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1974209663-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-43503161-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-757101039-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-794466841-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-2046744167-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1472398387-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1678560907-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1065169392-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-488721795-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1109512607-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1802752242-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-350931315-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1953957832-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1611106049-0
+        - globalObjectIdString: GlobalObjectId_V1-2-94db4ebb08094944697fd5d9cb722e4a-1855806056-0
+        values:
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon
+        - colorIndex: 2
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 7
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 4
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 8
+          iconNameOrGuid: 
+        - colorIndex: 7
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 9
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 6
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: 
+        - colorIndex: 3
+          iconNameOrGuid: AvatarMask On Icon
+        - colorIndex: 8
+          iconNameOrGuid: BoxCollider Icon
+        - colorIndex: 0
+          iconNameOrGuid: MeshCollider Icon

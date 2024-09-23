@@ -611,7 +611,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private IEnumerator OpenEyes()
     {
-        _layerMaskManager.ToggleNothing();
+       // _layerMaskManager.ToggleNothing();
         float halfDuration = blinkDuration / 2f;
         Vector2 initialPos1 = rectTransform1.anchoredPosition;
         Vector2 initialPos2 = rectTransform2.anchoredPosition;

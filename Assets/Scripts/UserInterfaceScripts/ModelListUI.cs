@@ -13,7 +13,8 @@ public class ModelListUI : MonoBehaviour
     public List<GameObject> modelGameObjects = new List<GameObject>();
     public List<InteractableUnityEventWrapper> interactables = new List<InteractableUnityEventWrapper>();
     public Transform interactablesParent;
-
+    [SerializeField]
+    StudyManager studyManager;
     [SerializeField] VariantListUI variantList;
 
     void Start()
@@ -83,7 +84,10 @@ public class ModelListUI : MonoBehaviour
             mirrorTransformManager.ChangeMirrorTransformerModel();
             variantList.UpdateVaraintList();
             mirrorTransformManager.SetToAllPairs();
-            StudyManager.Instance.SwitchModelTask();
+            if (studyManager != null)
+            {
+                StudyManager.Instance.SwitchModelTask();
+            }
         }
     }
 }

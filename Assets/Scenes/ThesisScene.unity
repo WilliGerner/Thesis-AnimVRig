@@ -4471,6 +4471,24 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4830082574537202469}
   m_PrefabAsset: {fileID: 0}
+--- !u!20 &347904934 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5640639388682364330, guid: 8a0893fc7069b944a8c577f212d8051c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2902346903384275437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &347904935 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5807683836079094131, guid: 8a0893fc7069b944a8c577f212d8051c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2902346903384275437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &349653515 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 187841531121427778, guid: 6fd7414b39509dd4c88a206859e4b136,
@@ -6115,6 +6133,7 @@ MonoBehaviour:
   - {fileID: 0}
   interactables: []
   interactablesParent: {fileID: 545768343}
+  studyManager: {fileID: 0}
   variantList: {fileID: 0}
 --- !u!4 &546732111 stripped
 Transform:
@@ -17680,14 +17699,14 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 347904934}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -23248,14 +23267,14 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 347904934}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -26983,6 +27002,24 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 359587214470405, guid: 8a0893fc7069b944a8c577f212d8051c, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 359587214470405, guid: 8a0893fc7069b944a8c577f212d8051c, type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 40779682445701608, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 40779682445701608, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 45448345453067114, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Sprite
@@ -26994,6 +27031,16 @@ PrefabInstance:
       propertyPath: _lateMirroredObject
       value: 
       objectReference: {fileID: 6573024887498293669}
+    - target: {fileID: 80272218742688579, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 80272218742688579, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 137936261846825872, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27064,6 +27111,16 @@ PrefabInstance:
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[4].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 188550817531815940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 188550817531815940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 261466980632616057, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -27072,7 +27129,7 @@ PrefabInstance:
     - target: {fileID: 380646147508124977, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 443513412362254566, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27107,6 +27164,41 @@ PrefabInstance:
     - target: {fileID: 453809962416212607, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _dragThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 596267050911609761, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 596267050911609761, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 629268253551918246, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 629268253551918246, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 665045229056930774, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 665045229056930774, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 679969397882435895, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _facing
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 760610443850859504, guid: 8a0893fc7069b944a8c577f212d8051c,
@@ -27163,6 +27255,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 939199029282035154, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 939199029282035154, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1075792554934173094, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27249,10 +27351,50 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.7075472
       objectReference: {fileID: 0}
+    - target: {fileID: 1290281175240452300, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1290281175240452300, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1352304528355552615, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1438276273514240753, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1438276273514240753, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1478243367531439456, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1478243367531439456, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1517064262070824674, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1517064262070824674, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1528812457600001860, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27265,6 +27407,36 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2775384342256942115, guid: 64f884351318b694f942625580e64a8b,
         type: 3}
+    - target: {fileID: 1687210622016719981, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1687210622016719981, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1688261501992999487, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1688261501992999487, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749747061284474603, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 1749747061284474603, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1775952872758869875, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27411,6 +27583,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SingleHoverBtn_1
       objectReference: {fileID: 0}
+    - target: {fileID: 2302218184355327693, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: studyManager
+      value: 
+      objectReference: {fileID: 465287830}
     - target: {fileID: 2405778966573370402, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -27441,11 +27618,31 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2590465814401687565, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 2590465814401687565, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2649499016392908133, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _lateMirroredObject
       value: 
       objectReference: {fileID: 6573024887498293669}
+    - target: {fileID: 2710772020050393523, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 2710772020050393523, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2717682406176644914, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -27484,7 +27681,7 @@ PrefabInstance:
     - target: {fileID: 2790765187201607895, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.3
+      value: -47.299988
       objectReference: {fileID: 0}
     - target: {fileID: 2846940679586815544, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27536,6 +27733,56 @@ PrefabInstance:
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 3051085571893871221, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3051085571893871221, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3083464687440406865, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3083464687440406865, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3088790012128727465, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3088790012128727465, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228744306658553177, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3228744306658553177, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3257651542862119335, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3257651542862119335, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3269763343381097356, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -27571,6 +27818,31 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
       objectReference: {fileID: 0}
+    - target: {fileID: 3315356964612213565, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3315356964612213565, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3361926641035911086, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3361926641035911086, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3370469992626945819, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: studyManager
+      value: 
+      objectReference: {fileID: 465287830}
     - target: {fileID: 3370469992626945819, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: modelGameObjects.Array.size
@@ -27611,6 +27883,26 @@ PrefabInstance:
       propertyPath: _UI_PalmKnobBtn
       value: 
       objectReference: {fileID: 320940955}
+    - target: {fileID: 3418031872300170119, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3418031872300170119, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3427104734613821924, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3427104734613821924, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3547623367060533058, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27626,6 +27918,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3667253224784298223, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3673612276396000634, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -27634,7 +27931,47 @@ PrefabInstance:
     - target: {fileID: 3673612276396000634, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 27.7
+      value: 27.700012
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730203916350780046, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3730203916350780046, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3758776443516636109, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3758776443516636109, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3762513952742808121, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3762513952742808121, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769247621535183952, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 3769247621535183952, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3786551649350721755, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27686,6 +28023,16 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4093211579365952142, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4093211579365952142, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4121539951839019404, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27720,6 +28067,26 @@ PrefabInstance:
         type: 3}
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4218046237979894297, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4218046237979894297, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4402475657316062846, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4402475657316062846, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4419296230040188936, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27877,6 +28244,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4751806524241492358, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4751806524241492358, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4798490175945986034, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -27887,6 +28264,31 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4856853915179805455, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4856853915179805455, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4872436504700578348, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 4872436504700578348, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4889719164123458405, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: studyManager
+      value: 
+      objectReference: {fileID: 465287830}
     - target: {fileID: 4980506227161414214, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27922,6 +28324,36 @@ PrefabInstance:
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 5111730459111157301, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5111730459111157301, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5173769416941905727, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5173769416941905727, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5187996752383053270, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5187996752383053270, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5247447024208683537, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -27957,6 +28389,36 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 5327632264436403165, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5327632264436403165, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5384762649197631762, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5384762649197631762, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5389977107894612418, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5389977107894612418, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5409651662469790951, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -27982,6 +28444,16 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
       objectReference: {fileID: 0}
+    - target: {fileID: 5412046926909461361, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5412046926909461361, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5423765188754500391, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: ovrManager
@@ -27997,6 +28469,36 @@ PrefabInstance:
       propertyPath: passthroughLayer
       value: 
       objectReference: {fileID: 1902455572}
+    - target: {fileID: 5432433105347626934, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5432433105347626934, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5448522835241717971, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5448522835241717971, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498162987685298602, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5498162987685298602, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -28027,6 +28529,26 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5538131476218811208, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5538131476218811208, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5552313979713149002, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5552313979713149002, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5596794382154969970, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28056,6 +28578,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5627604372897843812, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5627604372897843812, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5688656200662741724, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 5688656200662741724, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5740495484174564735, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28242,6 +28784,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6072137919800825710, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 6072137919800825710, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6194903445348346061, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28311,6 +28863,16 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6267608942136744010, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 6267608942136744010, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6355172906616926381, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28394,6 +28956,11 @@ PrefabInstance:
       objectReference: {fileID: 1938389361}
     - target: {fileID: 6592831076761604790, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _layerMaskManager
+      value: 
+      objectReference: {fileID: 3458128690284185401}
+    - target: {fileID: 6592831076761604790, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _MirroredObjectToRecord
       value: 
       objectReference: {fileID: 1290808738}
@@ -28432,6 +28999,21 @@ PrefabInstance:
       propertyPath: allMainObjectsToRecord.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 6712072357657410640, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _titleText
+      value: 
+      objectReference: {fileID: 347904935}
+    - target: {fileID: 7009211739700354520, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7009211739700354520, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7030051175225064332, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28442,6 +29024,16 @@ PrefabInstance:
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 7043903502394542077, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7043903502394542077, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -28496,6 +29088,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149165903046531572, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7149165903046531572, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7171018916325720045, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28632,6 +29234,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7596098799954282351, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7596098799954282351, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7665499172358982154, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28657,9 +29269,29 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
       objectReference: {fileID: 0}
+    - target: {fileID: 7709274603105104392, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7709274603105104392, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7743183245723169929, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7763695281324859671, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7763695281324859671, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7766549906587641114, guid: 8a0893fc7069b944a8c577f212d8051c,
@@ -28677,16 +29309,66 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -258.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7943704248085831127, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 7943704248085831127, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8034736504976105376, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -4085045655351302999, guid: 64f884351318b694f942625580e64a8b,
         type: 3}
+    - target: {fileID: 8074663203707017015, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8074663203707017015, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127779545259777524, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8127779545259777524, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8131278879703473680, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134179805979867105, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8134179805979867105, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156495054172141408, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8156495054172141408, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8197496495440852448, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28707,6 +29389,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8342571675609147548, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8342571675609147548, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8446852909918293025, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8446852909918293025, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8483690016326103956, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28757,6 +29459,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8505122745226684289, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8505122745226684289, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8621874613037827458, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28838,6 +29550,16 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8877290388894511303, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 8877290388894511303, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -28878,6 +29600,16 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9003938766701524752, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 9003938766701524752, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9041440337027517333, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -28887,6 +29619,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9162960966262342472, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 9162960966262342472, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9163192946321939226, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28977,6 +29719,26 @@ PrefabInstance:
         type: 3}
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 9169750559377328578, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 9169750559377328578, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199694650764955043, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 347904934}
+    - target: {fileID: 9199694650764955043, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_VertexColorAlwaysGammaSpace
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4049582017937571282, guid: 8a0893fc7069b944a8c577f212d8051c, type: 3}
@@ -33447,6 +34209,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2902346903384275437}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3458128690284185401 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4889719164123458405, guid: 8a0893fc7069b944a8c577f212d8051c,
+    type: 3}
+  m_PrefabInstance: {fileID: 2902346903384275437}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3458128690284185400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5996dbaece76266478b60cb1daeeb088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &3459155652714947606
 Transform:
   m_ObjectHideFlags: 0

@@ -9,7 +9,8 @@ public class LayerMaskManager : MonoBehaviour
 {
     [SerializeField]
     private LayerTransformPairChanger _mirroredTransformManager;
-
+    [SerializeField]
+    StudyManager studyManager;
     [SerializeField]
     private AvatarMask _customMask;
     [SerializeField]
@@ -207,7 +208,7 @@ public class LayerMaskManager : MonoBehaviour
         { _mirroredTransformManager.SetToAllPairs(); }
 
 
-        if (StudyManager.Instance != null)
+        if (studyManager != null)
         {
             if (_customMask == bothFeetMask) // Only for Study
             { StudyManager.Instance.SetFeetsTask(); }

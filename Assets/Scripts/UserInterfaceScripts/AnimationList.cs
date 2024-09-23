@@ -17,6 +17,8 @@ public class AnimationList : MonoBehaviour
     private Avatar avatar;
     [SerializeField]
     LayerMaskManager layerMaskManager;
+    [SerializeField]
+    StudyManager studyManager;
 
     void Start()
     {
@@ -137,7 +139,7 @@ public class AnimationList : MonoBehaviour
 
     public void PlayAnimation()
     {
-        if (StudyManager.Instance != null)
+        if (studyManager != null)
         {
             StudyManager.Instance.PlayAnimWithBindingsTask();
             if (currentClip.name == "Sitzend Klatschen") StudyManager.Instance.PlayClapAnimTask();
