@@ -4120,19 +4120,19 @@ MonoBehaviour:
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
   _surfacePatch: {fileID: 1850173855}
-  _enterHoverNormal: 0.02
+  _enterHoverNormal: 0.005
   _enterHoverTangent: 0
-  _exitHoverNormal: 0.04
+  _exitHoverNormal: 0.01
   _exitHoverTangent: 0
-  _cancelSelectNormal: 0.2
-  _cancelSelectTangent: 0.02
+  _cancelSelectNormal: 0.05
+  _cancelSelectTangent: 0.01
   _minThresholds:
     Enabled: 0
-    MinNormal: 0.015
+    MinNormal: 0.005
   _dragThresholds:
     Enabled: 0
-    DragNormal: 0.01
-    DragTangent: 0.01
+    DragNormal: 0.001
+    DragTangent: 0.001
     DragEaseCurve:
       _animationCurve:
         serializedVersion: 2
@@ -5394,8 +5394,8 @@ MonoBehaviour:
   - headerDescription: "Kontrolle \xFCber die F\xFC\xDFe"
     taskDescription: "Setze unter Bindings beide F\xFC\xDFe auf aktiv und \xFCbernim
       die Kontrolle."
-    introAudioClip: {fileID: 0}
-    outroAudioClip: {fileID: 8300000, guid: e0344926079b9354a9dc39b137709af3, type: 3}
+    introAudioClip: {fileID: 8300000, guid: e0344926079b9354a9dc39b137709af3, type: 3}
+    outroAudioClip: {fileID: 0}
     highliteBtn: {fileID: 4440359809532557741}
     colorBtn: {r: 0.22745098, g: 0.59607846, b: 0.13333334, a: 0.31764707}
     isTaskCompleted: 0
@@ -7943,19 +7943,19 @@ MonoBehaviour:
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
   _surfacePatch: {fileID: 1827329683}
-  _enterHoverNormal: 0.02
+  _enterHoverNormal: 0.005
   _enterHoverTangent: 0
-  _exitHoverNormal: 0.04
+  _exitHoverNormal: 0.01
   _exitHoverTangent: 0
-  _cancelSelectNormal: 0.2
-  _cancelSelectTangent: 0.02
+  _cancelSelectNormal: 0.05
+  _cancelSelectTangent: 0.01
   _minThresholds:
     Enabled: 0
-    MinNormal: 0.015
+    MinNormal: 0.005
   _dragThresholds:
     Enabled: 0
-    DragNormal: 0.01
-    DragTangent: 0.01
+    DragNormal: 0.001
+    DragTangent: 0.001
     DragEaseCurve:
       _animationCurve:
         serializedVersion: 2
@@ -8080,7 +8080,7 @@ Transform:
   m_GameObject: {fileID: 632934457}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.055, y: -0.1174, z: 0}
+  m_LocalPosition: {x: 0.06, y: -0.1174, z: 0}
   m_LocalScale: {x: 0.049999997, y: 0.049999997, z: 0.049999997}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8851,6 +8851,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 666274761379663396, guid: 82e5143aa6e242340ae30e39ac07ea12,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 666274761379663396, guid: 82e5143aa6e242340ae30e39ac07ea12,
+        type: 3}
+      propertyPath: _visualType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 666274761379663396, guid: 82e5143aa6e242340ae30e39ac07ea12,
+        type: 3}
+      propertyPath: _visualizeBindPose
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1111422080825694460, guid: 82e5143aa6e242340ae30e39ac07ea12,
         type: 3}
       propertyPath: m_IsActive
@@ -13713,19 +13728,19 @@ MonoBehaviour:
   _data: {fileID: 0}
   _pointableElement: {fileID: 0}
   _surfacePatch: {fileID: 22138758}
-  _enterHoverNormal: 0.015
+  _enterHoverNormal: 0.005
   _enterHoverTangent: 0
-  _exitHoverNormal: 0.015
+  _exitHoverNormal: 0.01
   _exitHoverTangent: 0
   _cancelSelectNormal: 0
   _cancelSelectTangent: 0
   _minThresholds:
-    Enabled: 1
-    MinNormal: 0.015
+    Enabled: 0
+    MinNormal: 0.005
   _dragThresholds:
-    Enabled: 1
-    DragNormal: 0.01
-    DragTangent: 0.01
+    Enabled: 0
+    DragNormal: 0.001
+    DragTangent: 0.001
     DragEaseCurve:
       _animationCurve:
         serializedVersion: 2
@@ -22664,6 +22679,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6651172110138153436, guid: e548501cf83066541a9e0b73eac8ccac,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6651172110138153436, guid: e548501cf83066541a9e0b73eac8ccac,
+        type: 3}
+      propertyPath: _visualizeBindPose
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6930838295946065476, guid: e548501cf83066541a9e0b73eac8ccac,
         type: 3}
       propertyPath: m_Name
@@ -24577,6 +24602,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4676340717067551340}
     m_Modifications:
+    - target: {fileID: 1236458827194487761, guid: 8919fa825b25b4544b361623e5d62aba,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1236458827194487761, guid: 8919fa825b25b4544b361623e5d62aba,
         type: 3}
       propertyPath: _visualType
@@ -27010,6 +27040,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 29190343864611180, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 40779682445701608, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27126,11 +27161,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 351226642438614914, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.8
+      objectReference: {fileID: 0}
     - target: {fileID: 380646147508124977, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 388735158426398176, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 443513412362254566, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -27166,6 +27211,17 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 497910697711783203, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 497910697711783203, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 596267050911609761, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27201,6 +27257,11 @@ PrefabInstance:
       propertyPath: _facing
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 757353238415041399, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.4
+      objectReference: {fileID: 0}
     - target: {fileID: 760610443850859504, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: modelGameObjects.Array.data[0]
@@ -27229,17 +27290,17 @@ PrefabInstance:
     - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27256,6 +27317,21 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 932269548835443519, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 939199029282035154, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27266,6 +27342,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1056539684695480334, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1075792554934173094, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _selectColorState.Color.a
@@ -27366,6 +27447,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1410738512155329918, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 1438276273514240753, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27386,6 +27502,16 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1492065554495182468, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 1512161092079857489, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 1517064262070824674, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27457,6 +27583,46 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.7075472
       objectReference: {fileID: 0}
+    - target: {fileID: 1815464086706063077, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1815732675377036238, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 1878583234363043960, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -27475,17 +27641,17 @@ PrefabInstance:
     - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27501,6 +27667,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1884428567584392660, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 1907366370450553954, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27510,17 +27691,17 @@ PrefabInstance:
     - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27536,6 +27717,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1931613721129452385, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 2010491575081157113, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27628,6 +27824,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2603462856397888334, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 2649499016392908133, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _lateMirroredObject
@@ -27686,7 +27887,7 @@ PrefabInstance:
     - target: {fileID: 2846940679586815544, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2846940679586815544, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27707,6 +27908,11 @@ PrefabInstance:
         type: 3}
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 2863962627892003178, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.2
       objectReference: {fileID: 0}
     - target: {fileID: 2907477200756012794, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27742,6 +27948,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3076701127563923455, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
       objectReference: {fileID: 0}
     - target: {fileID: 3083464687440406865, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -27828,6 +28039,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3316375775248638030, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3361926641035911086, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -27918,6 +28134,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3634191539160422305, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3667253224784298223, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -27978,6 +28199,52 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.49
       objectReference: {fileID: 0}
+    - target: {fileID: 3814704248367470719, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 3814704248367470719, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3826061457926564586, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 4002579025200026676, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28015,6 +28282,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _minThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
@@ -28022,6 +28309,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4057719958488727713, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 4093211579365952142, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28033,6 +28335,17 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4108930155168170721, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 4108930155168170721, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4121539951839019404, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28043,6 +28356,41 @@ PrefabInstance:
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4162018844486894940, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 4216684811482994360, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28078,6 +28426,46 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4356092633360802797, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4365995966819125585, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4402475657316062846, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -28088,6 +28476,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4419296230040188936, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: studyManager
+      value: 
+      objectReference: {fileID: 465287830}
     - target: {fileID: 4419296230040188936, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: variantGameObjects.Array.data[0]
@@ -28163,11 +28556,97 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556899955630472450, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 4560819025919328411, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Name
       value: AVR_SetUp-Prefab
       objectReference: {fileID: 0}
+    - target: {fileID: 4562933617775067250, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4603780335673537515, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4614834321824411622, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 4614834321824411622, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4641668593156773817, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Sprite
@@ -28259,6 +28738,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 4831556329981654061, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 4847959027541574873, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28289,6 +28773,17 @@ PrefabInstance:
       propertyPath: studyManager
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 4977892302777417352, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 4977892302777417352, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 4980506227161414214, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28502,17 +28997,17 @@ PrefabInstance:
     - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28529,6 +29024,21 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5517114620548502029, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 5538131476218811208, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -28549,6 +29059,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5583044270777022581, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 5596794382154969970, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28578,6 +29093,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0.0171
+      objectReference: {fileID: 0}
+    - target: {fileID: 5624195479529196491, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5627604372897843812, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -28794,6 +29314,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6099787944377078558, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6194903445348346061, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -28879,10 +29404,20 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6407465242139637816, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6439528770182522047, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 6493636366384887723, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6493636366384887723, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29004,6 +29539,16 @@ PrefabInstance:
       propertyPath: _titleText
       value: 
       objectReference: {fileID: 347904935}
+    - target: {fileID: 6730959807472363246, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6973348049264803809, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.4
+      objectReference: {fileID: 0}
     - target: {fileID: 7009211739700354520, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -29037,17 +29582,17 @@ PrefabInstance:
     - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29063,6 +29608,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7068671504219925428, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 7087415897335020650, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29084,6 +29644,11 @@ PrefabInstance:
       propertyPath: _whenSelect.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: Oculus.Interaction.HandGrab.HandGrabInteractor, Oculus.Interaction
       objectReference: {fileID: 0}
+    - target: {fileID: 7115471147211059582, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7121214750991430733, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -29169,6 +29734,41 @@ PrefabInstance:
       propertyPath: gameObjects.Array.data[8]
       value: 
       objectReference: {fileID: 1519738938}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7190355118791919894, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 7205745522120687930, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
@@ -29199,6 +29799,11 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7257379327185987166, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7271923157468578606, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_LocalRotation.w
@@ -29214,6 +29819,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 7334926671182549106, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 7334926671182549106, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 7337871697363472457, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7370781450362745252, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: Btn_10
@@ -29224,15 +29845,95 @@ PrefabInstance:
       propertyPath: _studyManager
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7396326756594323011, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 7417112124428860000, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7424776169810535466, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 7446937988669190571, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
+      objectReference: {fileID: 0}
     - target: {fileID: 7520360779762907562, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7588576643037457370, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.06
       objectReference: {fileID: 0}
     - target: {fileID: 7596098799954282351, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29279,6 +29980,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7725360298423604982, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 7743183245723169929, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -29319,6 +30025,11 @@ PrefabInstance:
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7960076640795488378, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8034736504976105376, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Sprite
@@ -29334,6 +30045,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VertexColorAlwaysGammaSpace
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8076059928667624885, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 8127779545259777524, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29373,7 +30089,7 @@ PrefabInstance:
     - target: {fileID: 8197496495440852448, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.76
+      value: 0.72
       objectReference: {fileID: 0}
     - target: {fileID: 8273747186888597548, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29385,6 +30101,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0.017
       objectReference: {fileID: 0}
+    - target: {fileID: 8279622293462039562, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 8279622293462039562, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 8342270055355697105, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Enabled
@@ -29495,6 +30222,41 @@ PrefabInstance:
       propertyPath: _selectColorState.Color.r
       value: 0.6784314
       objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8631248231617178417, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8710080390349553912, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Name
@@ -29508,17 +30270,17 @@ PrefabInstance:
     - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29535,10 +30297,45 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8745005770835074629, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8762198740596670737, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29549,6 +30346,21 @@ PrefabInstance:
         type: 3}
       propertyPath: _dragThresholds.Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8798707505752824759, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 8877290388894511303, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29563,17 +30375,17 @@ PrefabInstance:
     - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: _exitHoverNormal
-      value: 0.03
-      objectReference: {fileID: 0}
-    - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
-        type: 3}
-      propertyPath: _enterHoverNormal
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _cancelSelectNormal
-      value: 0.1
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -29590,6 +30402,21 @@ PrefabInstance:
       propertyPath: _dragThresholds.Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 8958069609175442359, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
+      objectReference: {fileID: 0}
     - target: {fileID: 8965786807461532947, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_IsActive
@@ -29600,6 +30427,17 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9001031495820398473, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 9001031495820398473, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 9003938766701524752, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera
@@ -29615,10 +30453,61 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9078771091106790606, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6
+      objectReference: {fileID: 0}
     - target: {fileID: 9089244864239933556, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9106104629879276878, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee,
+        type: 2}
+    - target: {fileID: 9106104629879276878, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _exitHoverNormal
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _enterHoverNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectNormal
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _cancelSelectTangent
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _minThresholds.MinNormal
+      value: 0.005
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragNormal
+      value: 0.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 9133680907251069426, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _dragThresholds.DragTangent
+      value: 0.001
       objectReference: {fileID: 0}
     - target: {fileID: 9162960966262342472, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
@@ -40014,12 +40903,17 @@ PrefabInstance:
     - target: {fileID: 6111683499557418401, guid: 095ac8be44b08f64c92e39fb6b3736a4,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6111683499557418401, guid: 095ac8be44b08f64c92e39fb6b3736a4,
         type: 3}
       propertyPath: _visualType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6111683499557418401, guid: 095ac8be44b08f64c92e39fb6b3736a4,
+        type: 3}
+      propertyPath: _visualizeBindPose
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6259763744966545376, guid: 095ac8be44b08f64c92e39fb6b3736a4,
         type: 3}

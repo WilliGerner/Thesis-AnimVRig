@@ -404,6 +404,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
                     AVR_Related avr_related = obj.transform.parent.transform.parent.GetComponent<AVR_Related>();
                     _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
                     _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
+                    _animList.UpdateAvatar();
                     Animator animatorModell = _objectToRecord.GetComponent<Animator>();
 #if UNITY_EDITOR
                     RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
@@ -432,15 +433,16 @@ public class AVRGameObjectRecorder : MonoBehaviour
                         _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
                         _MirroredObjectToRecord = avr_related.mirroredObjects; // Set Mirror Model to new Model. Search for Parent = Get all Mirrored Objects (light, etc.)
                         _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
+                        currentVariantsToRecord = avr_related.mirroredVaraints;
                         Animator animatorModell = _objectToRecord.GetComponent<Animator>();
+                        SetModel();
+                        _animList.UpdateAvatar();
 #if UNITY_EDITOR
-                    RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
+                        RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
                         _animController = animationController as AnimatorController;
 #endif
-                    currentVariantsToRecord = avr_related.mirroredVaraints;
                         _animList.SetUpAnimList();
-                        SetModel();
-                        CreateNewClip();
+                        CreateNewClip();                    
                     //StudyScript.Instance.SwitchModelTask();
                     }
                     else
@@ -611,7 +613,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private IEnumerator OpenEyes()
     {
-       // _layerMaskManager.ToggleNothing();
+        _layerMaskManager.ToggleEverything();
         float halfDuration = blinkDuration / 2f;
         Vector2 initialPos1 = rectTransform1.anchoredPosition;
         Vector2 initialPos2 = rectTransform2.anchoredPosition;

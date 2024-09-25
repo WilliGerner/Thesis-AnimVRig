@@ -10,6 +10,8 @@ public class VariantListUI : MonoBehaviour
     LayerTransformPairChanger mirrorTransformManager;
     [SerializeField]
     LayerMaskManager layerMaskManager;
+    [SerializeField]
+    StudyManager studyManager;
 
     [Tooltip("Fill only for VariantList!")]
     public List<GameObject> variantGameObjects = new List<GameObject>();
@@ -89,7 +91,7 @@ public class VariantListUI : MonoBehaviour
             mirrorTransformManager.ChangeMirrorTransformerModel();
             mirrorTransformManager.SetToAllPairs();
             AVRGameObjectRecorder.Instance.ActivateOtherVariant(variantGameObjects[index].name);
-            StudyManager.Instance.SwitchVariantTask();
+            if(studyManager !=null) studyManager.SwitchVariantTask();
         }
     }
 

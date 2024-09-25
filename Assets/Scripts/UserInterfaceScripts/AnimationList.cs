@@ -115,6 +115,12 @@ public class AnimationList : MonoBehaviour
         }
 #endif
         targetAnimator.Play(animName);
+
+        if (animName == "Springen")
+        {
+            targetAnimator.gameObject.transform.position = targetAnimator.transform.parent.gameObject.transform.position;
+            Debug.Log("Detect Jump");
+        }
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
     }
@@ -133,6 +139,11 @@ public class AnimationList : MonoBehaviour
         else DetachAvatar();
 #endif
         targetAnimator.Play(currentClip.name);
+        if (currentClip.name == "Springen") // Prevent moving Up and down from ROot Motion of the Jump
+        {
+            targetAnimator.gameObject.transform.position = new Vector3(targetAnimator.gameObject.transform.position.x, 0.005f, targetAnimator.gameObject.transform.position.z);
+        }
+
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
     }
@@ -238,6 +249,24 @@ public class AnimationList : MonoBehaviour
     public void PauseAnimation()
     {
         targetAnimator.speed = 0;
+    }
+    public void UpdateAvatar()
+    {
+        // Hole den Animator des aktuellen Objekts
+        targetAnimator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
+        Debug.LogWarning("OBj to record is: " + AVRGameObjectRecorder.Instance._objectToRecord.name);
+        // Aktualisiere den Avatar des Animators
+        if (targetAnimator != null)
+        {
+            avatar = targetAnimator.avatar;
+            Debug.LogWarning("Avatar updated successfully to: " + targetAnimator.avatar);
+        }
+        else
+        {
+            avatar = null;
+            Debug.LogError("Failed to update Avatar: Animator not found.");
+        }
+        ModelKeypadManager.Instance.ChangeAvatar(avatar);
     }
 
     public void RewindAnimation()

@@ -133,11 +133,18 @@ public class LayerMaskManager : MonoBehaviour
 
     public void ToggleLeftArm()
     {
+        Transform currentTransform = AVRGameObjectRecorder.Instance._animatorMirrored.gameObject.transform;
+        //Debug.LogWarning("See Trans: " + currentTransform.position );
         _leftArm = !_leftArm;
         DeterMineAndApplyBaseLayer();
         ChangeColor(_leftArm, BtnVisualToggleLeftArm);
         _mirroredTransformManager.UpdateLeftArmPairs(_leftArm);
+
+
         if (mainAnimList.currentClip != null) StartCoroutine(mainAnimList.LateUpdateAnimPlay());
+        //AVRGameObjectRecorder.Instance._animatorMirrored.gameObject.transform.position = currentTransform.position;
+        //AVRGameObjectRecorder.Instance._animatorMirrored.gameObject.transform.rotation = currentTransform.rotation;
+        //Debug.LogWarning("See Trans now: " + AVRGameObjectRecorder.Instance._animatorMirrored.gameObject.transform.position);
     }
 
     public void ToggleRightArm()

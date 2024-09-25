@@ -190,19 +190,20 @@ public class ModelKeypadManager : MonoBehaviour
         }
     }
 
-    public void ChangeAvatar()
+    public void ChangeAvatar(Avatar avatar)
     {
-        Animator animator = AVRGameObjectRecorder.Instance._objectToRecord.GetComponent<Animator>();
+        if (avatar != null) isAvatarActive = true;
+        else isAvatarActive = false;
 
         if (isAvatarActive)
         {
             // Wenn der Avatar aktuell aktiv ist, speichere ihn und setze ihn dann auf null
-            if (animator.avatar != null)
+            if (avatar != null)
             {
-                lastAvatar = animator.avatar;
-                animator.avatar = null;
+                lastAvatar = avatar;
+                //animator.avatar = null;
                 isAvatarActive = false;
-                Debug.Log("Avatar auf null gesetzt");
+                //Debug.Log("Avatar auf null gesetzt");
             }
         }
         else
@@ -210,9 +211,9 @@ public class ModelKeypadManager : MonoBehaviour
             // Wenn der Avatar inaktiv ist, stelle den letzten gespeicherten Avatar wieder her
             if (lastAvatar != null)
             {
-                animator.avatar = lastAvatar;
+                avatar = lastAvatar;
                 isAvatarActive = true;
-                Debug.Log("Avatar auf: " + animator.avatar + " gesetzt.");
+                Debug.Log("Avatar auf lats AVatar : " + avatar + " gesetzt.");
             }
             else
             {

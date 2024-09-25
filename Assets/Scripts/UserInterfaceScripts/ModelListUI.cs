@@ -86,7 +86,7 @@ public class ModelListUI : MonoBehaviour
             mirrorTransformManager.SetToAllPairs();
             if (studyManager != null)
             {
-                StudyManager.Instance.SwitchModelTask();
+                studyManager.SwitchModelTask();
             }
         }
     }
