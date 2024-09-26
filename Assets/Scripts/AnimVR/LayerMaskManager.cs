@@ -11,8 +11,7 @@ public class LayerMaskManager : MonoBehaviour
     private LayerTransformPairChanger _mirroredTransformManager;
     [SerializeField]
     StudyManager studyManager;
-    [SerializeField]
-    private AvatarMask _customMask;
+    public AvatarMask _customMask;
     [SerializeField]
     private AvatarMask _baseLayerMask;
     //[SerializeField]
@@ -81,6 +80,48 @@ public class LayerMaskManager : MonoBehaviour
         {
             AvatarMaskBodyPart bodyPart = (AvatarMaskBodyPart)i;
             _baseLayerMask.SetHumanoidBodyPartActive(bodyPart, _customMask.GetHumanoidBodyPartActive(bodyPart));
+        }
+    }
+
+    public void ApplyCurrentLayerMask()
+    {
+        // Bestimme die aktuell gültige AvatarMask basierend auf den Booleans
+        AvatarMask selectedMask = DetermineAvatarMask();
+
+        // Setze die aktuelle Maske auf das Model
+        if (_mirroredTransformManager != null && selectedMask != null)
+        {
+            // Wende die Maske auf das LateMirroredObject an
+            _mirroredTransformManager._lateMirroredObject.enabled = true;
+
+            // Wenn alle Gliedmaßen aktiviert sind, aktiviere alle Paare
+            if (selectedMask == everythingMask)
+            {
+                _mirroredTransformManager.SetToAllPairs();
+            }
+            // Wenn keine Gliedmaßen aktiviert sind, deaktiviere alle Paare
+            else if (selectedMask == nothingMask)
+            {
+                _mirroredTransformManager.SetToZeroPairs();
+            }
+            else
+            {
+                // Entferne oder füge die Spiegelungspaare entsprechend den aktiven Körperteilen hinzu
+                if (_leftArm) _mirroredTransformManager.UpdateLeftArmPairs(true);
+                if (_rightArm) _mirroredTransformManager.UpdateRightArmPairs(true);
+                if (_leftFoot) _mirroredTransformManager.UpdateLeftLegPairs(true);
+                if (_rightFoot) _mirroredTransformManager.UpdateRightLegPairs(true);
+            }
+
+            // Aktualisiere die Anzeige des aktuellen Masken-Namens
+            _currentMaskTxt.text = selectedMask.name;
+
+            // Wende die Basis-Maske an
+            ApplyBaseLayerMask();
+        }
+        else
+        {
+            Debug.LogError("MirroredTransformManager or selectedMask is null.");
         }
     }
 

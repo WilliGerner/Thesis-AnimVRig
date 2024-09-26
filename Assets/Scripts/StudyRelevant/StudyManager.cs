@@ -123,31 +123,47 @@ public class StudyManager : MonoBehaviour
         }
     }
 
+    //private IEnumerator PlayTaskIntro(TaskData task)
+    //{
+    //    headerText.text = task.headerDescription;
+    //    task.ChangeButtonColors();
+
+    //    // Wenn Audio vorhanden ist, warte bis es fertig ist, ansonsten sofort weitermachen
+    //    if (task.introAudioClip != null)
+    //    {
+    //        audioSource.clip = task.introAudioClip;
+    //        audioSource.Play();
+    //        yield return new WaitForSeconds(audioSource.clip.length);
+    //    }
+    //    taskText.text = task.taskDescription;
+
+    //    // Unabhängig davon, ob Audio da ist oder nicht, mach mit dem Fade-In weiter
+    //    yield return FadeInTaskUI();
+    //}
+
     private IEnumerator PlayTaskIntro(TaskData task)
     {
         headerText.text = task.headerDescription;
         task.ChangeButtonColors();
+        taskText.text = task.taskDescription;
 
-        // Wenn Audio vorhanden ist, warte bis es fertig ist, ansonsten sofort weitermachen
+        // Spiele Audio-Intro ab, falls vorhanden
         if (task.introAudioClip != null)
         {
             audioSource.clip = task.introAudioClip;
             audioSource.Play();
             yield return new WaitForSeconds(audioSource.clip.length);
         }
-        taskText.text = task.taskDescription;
 
-        // Unabhängig davon, ob Audio da ist oder nicht, mach mit dem Fade-In weiter
+        // Unabhängig davon, ob Audio vorhanden ist oder nicht, mach mit dem Fade-In weiter
         yield return FadeInTaskUI();
     }
-
-
 
     private IEnumerator PlayTaskOutro(TaskData task)
     {
         taskStatusImage.color = doneColor;
 
-        // Wenn ein Outro-Audio vorhanden ist, spiele es ab und warte, bis es fertig ist
+        // Spiele Audio-Outro ab, falls vorhanden
         if (task.outroAudioClip != null)
         {
             audioSource.clip = task.outroAudioClip;
@@ -155,7 +171,7 @@ public class StudyManager : MonoBehaviour
             yield return new WaitForSeconds(audioSource.clip.length);
         }
 
-        // Immer HandleTaskLogic aufrufen, egal ob es ein Outro gibt oder nicht
+        // Aktualisiere den Task-Status und lade den nächsten Task
         HandleTaskLogic();
         NextTask();
     }
@@ -684,18 +700,31 @@ public class TaskData
     // Setzt die Farbe des Buttons auf die gewünschte Farbe für den aktuellen Task
     public void ChangeButtonColors()
     {
-        if (highliteBtn == null) return;
+        // Überprüfen, ob highliteBtn null ist
+        if (highliteBtn == null)
+        {
+            Debug.LogWarning("highliteBtn is null, skipping color change.");
+            return;
+        }
 
         // Setze die neue Farbe
         highliteBtn.Color = new Color(colorBtn.r, colorBtn.g, colorBtn.b, colorBtn.a);
         InvokePrivateMethod(highliteBtn, "UpdateMaterialPropertyBlock");
     }
 
-    // Setzt die Farbe des Buttons auf die ursprüngliche Farbe zurück
+
     public void ResetButtonColors()
     {
-        if (highliteBtn == null) return;
+        // Überprüfen, ob highliteBtn null ist
+        if (highliteBtn == null)
+        {
+            Debug.LogWarning("highliteBtn is null, skipping color reset.");
+            return;
+        }
+
+        // Setze die Farbe auf die ursprüngliche Farbe zurück
         highliteBtn.Color = originalColor;
         InvokePrivateMethod(highliteBtn, "UpdateMaterialPropertyBlock");
     }
+
 }

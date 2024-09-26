@@ -298,10 +298,10 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             // Stop the countdown coroutine
             StopCoroutine(recordingCoroutine);
-            if (StudyManager.Instance != null)
+            if (_studyManager != null)
             {
-                StudyManager.Instance.StopRecTask();
-                StudyManager.Instance.StopRecSecondTimeTask();
+                _studyManager.StopRecTask();
+                _studyManager.StopRecSecondTimeTask();
             }
             recordingCoroutine = null;
             countdownText.gameObject.SetActive(false);
@@ -613,7 +613,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     private IEnumerator OpenEyes()
     {
-        _layerMaskManager.ToggleEverything();
+        //_layerMaskManager.ToggleEverything();
         float halfDuration = blinkDuration / 2f;
         Vector2 initialPos1 = rectTransform1.anchoredPosition;
         Vector2 initialPos2 = rectTransform2.anchoredPosition;
