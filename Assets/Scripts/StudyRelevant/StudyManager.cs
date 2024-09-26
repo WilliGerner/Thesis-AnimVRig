@@ -505,12 +505,15 @@ public class StudyManager : MonoBehaviour
 
     public void HitBindingsTask()
     {
-        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        if (currentTaskIndex <= 7)
         {
-            Debug.Log("Task already completed, ignoring further calls.");
-            return;
+            if (currentTasks[currentTaskIndex].isTaskCompleted)
+            {
+                Debug.Log("Task already completed, ignoring further calls.");
+                return;
+            }
+            if (!audioSource.isPlaying && currentTaskIndex == 7 && currentTasks == sceneTasks_1) CompleteCurrentTask();
         }
-        if (!audioSource.isPlaying && currentTaskIndex == 7 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
     public void PlayAnimWithBindingsTask()
     {
@@ -604,21 +607,29 @@ public class StudyManager : MonoBehaviour
 
     public void SetRootMotionTask()
     {
-        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        if (currentTaskIndex <= 1)
         {
-            Debug.Log("Task already completed, ignoring further calls.");
-            return;
+            if (currentTasks[currentTaskIndex].isTaskCompleted)
+            {
+                Debug.Log("Task already completed, ignoring further calls.");
+                return;
+            }
+            if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_3) CompleteCurrentTask();
         }
-        if (!audioSource.isPlaying && currentTaskIndex == 1 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+       
     }
     public void SetArmsTask()
     {
-        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        if (currentTaskIndex <= 3)
         {
-            Debug.Log("Task already completed, ignoring further calls.");
-            return;
+            if (currentTasks[currentTaskIndex].isTaskCompleted)
+            {
+                Debug.Log("Task already completed, ignoring further calls.");
+                return;
+            }
+            if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_3) CompleteCurrentTask();
         }
-        if (!audioSource.isPlaying && currentTaskIndex == 2 && currentTasks == sceneTasks_3) CompleteCurrentTask();
+    
     }
     public void StopRecSecondTimeTask()
     {
