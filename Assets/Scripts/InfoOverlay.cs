@@ -77,7 +77,7 @@ public class InfoOverlay : MonoBehaviour
     {
         RawImage image = _ActivRecImage.GetComponent<RawImage>();
         bool isRed = true;
-
+        Debug.Log("Should Blink");
         while (true)
         {
             image.color = isRed ? Color.red : Color.black;

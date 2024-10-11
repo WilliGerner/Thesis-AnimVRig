@@ -168,16 +168,9 @@ public class AVRGameObjectRecorder : MonoBehaviour
         if (_canRecord)
         {
             _recorder.TakeSnapshot(Time.deltaTime);
-            Debug.Log("Recording: " + _recorder.isRecording);
+           Debug.Log("Recording: " + _recorder.isRecording);
         }
 #endif
-        //lock (_executionQueue)  // new
-        //{
-        //    while (_executionQueue.Count > 0)
-        //    {
-        //        _executionQueue.Dequeue().Invoke();
-        //    }
-        //}
     }
 
     public GameObject GetActiveElement()
@@ -261,6 +254,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
         recordInit = true;
         _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
+        Debug.Log("Should bind:  " + _objectToRecord +"    See Recorder: " +_recorder);
         _canRecord = true;
         InfoOverlay.Instance.ManageRecImage();
 
@@ -268,14 +262,15 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             _recorder.BindComponentsOfType<Transform>(_MirroredObjectToRecord, true);
             _canRecord = true;
-            Debug.Log("Rec MirroredObject bound done. See: " + _recorder);
+          Debug.Log("Rec MirroredObject bound done. See: " + _recorder +"  and: " + _MirroredObjectToRecord);
         }
-
+        else Debug.Log("Faild to Bound MirroredObject.");
         for (int i = 0; i < additionalRecordObjects.Count; i++)
         {
             _recorder.BindComponentsOfType<Transform>(additionalRecordObjects[i], true);
-            Debug.Log("Additional Bind is done for: " + additionalRecordObjects[i]);
+            //howText("Additional Bind is done for: " + additionalRecordObjects[i]);
         }
+     
 #else
         yield return new WaitForSeconds(1f);
 #endif
@@ -298,14 +293,13 @@ public class AVRGameObjectRecorder : MonoBehaviour
         {
             // Stop the countdown coroutine
             StopCoroutine(recordingCoroutine);
-            if (StudyManager.Instance != null)
+            if (_studyManager != null)
             {
-                StudyManager.Instance.StopRecTask();
-                StudyManager.Instance.StopRecSecondTimeTask();
+                _studyManager.StopRecTask();
+                _studyManager.StopRecSecondTimeTask();
             }
             recordingCoroutine = null;
             countdownText.gameObject.SetActive(false);
-            //InfoOverlay.Instance.ShowText("Recording countdown aborted.");
         }
 
         if (recordInit)
@@ -332,7 +326,7 @@ public class AVRGameObjectRecorder : MonoBehaviour
             if (allClips[i] != null && allClips[i].name == _clipName + "_Anim")
             {
                 allClips.RemoveAt(i);
-                //Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
+                Debug.Log("Clip with same Name already exist! Not more, we deleted for you :)");
                 return;
             }
         }
@@ -401,24 +395,33 @@ public class AVRGameObjectRecorder : MonoBehaviour
             {
                 if (obj.name == variantName)
                 {
+                    obj.SetActive(true);
                     AVR_Related avr_related = obj.transform.parent.transform.parent.GetComponent<AVR_Related>();
-                    _objectToRecord = avr_related.GetActiveVaraint(); // Set Original Model to new Model
+                    _objectToRecord = avr_related.GetActiveVaraint(); // Neues Modell setzen
+                    _MirroredObjectToRecord = avr_related.mirroredObjects;
                     _animatorMirrored = avr_related.activeMirrored.GetComponent<Animator>();
-                    _animList.UpdateAvatar();
-                    Animator animatorModell = _objectToRecord.GetComponent<Animator>();
-#if UNITY_EDITOR
-                    RuntimeAnimatorController animationController = animatorModell.runtimeAnimatorController;
-                    _animController = animationController as AnimatorController;
-#endif
-                    _animList.SetUpAnimList();
-                    //_animListLayer.SetUpAnimList();
 
-                    InfoOverlay.Instance.ShowText("Variant was changed to:  " + obj);
-                    CreateNewClip();
+                    // Recorder nach dem Variantwechsel zurücksetzen und neu binden
+                    ResetRecorder();
+                    _recorder = new GameObjectRecorder(_objectToRecord);
+                    _recorder.BindComponentsOfType<Transform>(_objectToRecord, true);
+
+                    // Eventuelle zusätzliche Bindungen
+                    if (recordMirroredObject && _MirroredObjectToRecord != null)
+                    {
+                        _recorder.BindComponentsOfType<Transform>(_MirroredObjectToRecord, true);
+                    }
+
+                    InfoOverlay.Instance.ShowText("Variant wurde geändert zu:  " + obj);
+                }
+                else
+                {
+                    obj.SetActive(false);
                 }
             }
         }
     }
+
 
     public void ActivateOtherModel(string objectName)
     {
@@ -539,22 +542,26 @@ public class AVRGameObjectRecorder : MonoBehaviour
 
     public void ToggleDebugSettings()
     {
-        // Search for the Two Childs  "DebugBones & DebugBonesOVRSkeletonFullBody int the current MirroredObject to Record.
-        if (debugActiv)
-        {
-            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(false);
-            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(false);
+        // Suche nach den zwei Kindobjekten "DebugBones & DebugBonesOVRSkeletonFullBody" im aktuellen _MirroredObjectToRecord
+        GameObject debugBones = _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject;
+        GameObject debugSkeletonFullBody = _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject;
 
-            debugActiv = false;
+        // Prüfen, ob das erste Kindobjekt aktiv ist
+        if (debugBones.activeSelf)
+        {
+            // Beide deaktivieren, wenn sie aktiv sind
+            debugBones.SetActive(false);
+            debugSkeletonFullBody.SetActive(false);
         }
         else
         {
-            _MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.SetActive(true);
-            //Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(0).gameObject.name);
-            _MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.SetActive(true);
-            //Debug.Log(_MirroredObjectToRecord.transform.parent.GetChild(1).gameObject.name);
-            debugActiv = true;
+            // Beide aktivieren, wenn sie inaktiv sind
+            debugBones.SetActive(true);
+            debugSkeletonFullBody.SetActive(true);
         }
+
+        // Optional: Status von debugActiv aktualisieren, falls du diese Variable noch behalten möchtest
+        debugActiv = debugBones.activeSelf; 
     }
 
     private IEnumerator CloseEyesAndContinue()

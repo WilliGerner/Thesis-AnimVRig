@@ -485,12 +485,15 @@ public class StudyManager : MonoBehaviour
 
     public void HitVariantTask()
     {
-        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        if (currentTaskIndex <= 5)
         {
-            Debug.Log("Task already completed, ignoring further calls.");
-            return;
+            if (currentTasks[currentTaskIndex].isTaskCompleted)
+            {
+                Debug.Log("Task already completed, ignoring further calls.");
+                return;
+            }
+            if (!audioSource.isPlaying && currentTaskIndex == 5 && currentTasks == sceneTasks_1) CompleteCurrentTask();
         }
-        if (!audioSource.isPlaying&&currentTaskIndex == 5 && currentTasks == sceneTasks_1) CompleteCurrentTask();
     }
 
     public void SwitchVariantTask()
@@ -530,12 +533,15 @@ public class StudyManager : MonoBehaviour
     #region TasksScene_2
     public void SwitchModelTask()
     {
-        if (currentTasks[currentTaskIndex].isTaskCompleted)
+        if (currentTaskIndex ==0)
         {
-            Debug.Log("Task already completed, ignoring further calls.");
-            return;
+            if (currentTasks[currentTaskIndex].isTaskCompleted)
+            {
+                Debug.Log("Task already completed, ignoring further calls.");
+                return;
+            }
+            if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_2) CompleteCurrentTask();
         }
-        if (!audioSource.isPlaying && currentTaskIndex == 0 && currentTasks == sceneTasks_2) CompleteCurrentTask();
     }
 
     public void PlayClapAnimTask()

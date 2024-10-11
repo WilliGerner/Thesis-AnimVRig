@@ -100,7 +100,7 @@ public class ModelTransformer : MonoBehaviour
         {
             // Position: Invertiere die X- und Z-Achse, da sie spiegelverkehrt sind
             Vector3 deltaPosition = movementSphere.transform.localPosition - movementSphereTransform;
-            deltaPosition.x = deltaPosition.x; // Invertiere X-Achse
+       //     deltaPosition.x = deltaPosition.x; // Invertiere X-Achse
             deltaPosition.z = -deltaPosition.z; // Invertiere Z-Achse
             transformModel.localPosition += deltaPosition * movementMultiplier;
             // Update the last position and rotation for the next frame

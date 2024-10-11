@@ -81,8 +81,8 @@ public class ModelListUI : MonoBehaviour
         {
             AVRGameObjectRecorder.Instance.ActivateOtherModel(modelGameObjects[index].name);
             mirrorTransformManager._lateMirroredObject = modelGameObjects[index].GetComponentInChildren<LateMirroredObject>();
-            mirrorTransformManager.ChangeMirrorTransformerModel();
             variantList.UpdateVaraintList();
+            mirrorTransformManager.ChangeMirrorTransformerModel();
             mirrorTransformManager.SetToAllPairs();
             if (studyManager != null)
             {

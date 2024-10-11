@@ -87,10 +87,11 @@ public class VariantListUI : MonoBehaviour
             variantGameObjects[index].SetActive(true);
             variantGameObjects[index].transform.parent.transform.parent.gameObject.GetComponent<AVR_Related>().activeMirrored = variantGameObjects[index];
 
+            AVRGameObjectRecorder.Instance.ActivateOtherVariant(variantGameObjects[index].name);
             mirrorTransformManager._lateMirroredObject = variantGameObjects[index].GetComponentInChildren<LateMirroredObject>();
             mirrorTransformManager.ChangeMirrorTransformerModel();
             mirrorTransformManager.SetToAllPairs();
-            AVRGameObjectRecorder.Instance.ActivateOtherVariant(variantGameObjects[index].name);
+
             if(studyManager !=null) studyManager.SwitchVariantTask();
         }
     }
