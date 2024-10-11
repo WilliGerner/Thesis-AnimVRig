@@ -3288,6 +3288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e833f255c5e54374eb608ef18bd3cecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelAvtar: {fileID: 9000000, guid: b80f517a9adaa5a41a3d8e2adfd59860, type: 3}
   retargetGO: {fileID: 1566063264}
   mirroredObjects: {fileID: 4912706098029717308}
   activeMirrored: {fileID: 3502047446653051369}
@@ -7370,6 +7371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e833f255c5e54374eb608ef18bd3cecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelAvtar: {fileID: 9000000, guid: 2aace406c5eaf984298fc15008cdb209, type: 3}
   retargetGO: {fileID: 19182975}
   mirroredObjects: {fileID: 19182974}
   activeMirrored: {fileID: 19182832}
@@ -19108,6 +19110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e833f255c5e54374eb608ef18bd3cecf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  modelAvtar: {fileID: 9000000, guid: f7f7cd4abe3f02e4e8b99b5a070db992, type: 3}
   retargetGO: {fileID: 401736002}
   mirroredObjects: {fileID: 1290808738}
   activeMirrored: {fileID: 1938389359}
@@ -19650,6 +19653,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 655174208973851080, guid: e548501cf83066541a9e0b73eac8ccac,
+        type: 3}
+      propertyPath: modelAvtar
+      value: 
+      objectReference: {fileID: 9000000, guid: a8872a5c7c4bb1e429eb62ba2bb01930, type: 3}
     - target: {fileID: 708521986139565377, guid: e548501cf83066541a9e0b73eac8ccac,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -25052,6 +25060,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2649499016392908133, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
+      propertyPath: _avrRelated
+      value: 
+      objectReference: {fileID: 1974000087}
+    - target: {fileID: 2649499016392908133, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _layerMaskManager
+      value: 
+      objectReference: {fileID: 3458128690284185401}
+    - target: {fileID: 2649499016392908133, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
       propertyPath: _lateMirroredObject
       value: 
       objectReference: {fileID: 6573024887498293669}
@@ -26135,6 +26153,16 @@ PrefabInstance:
       propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 465287830}
+    - target: {fileID: 5103827895386000530, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[4].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5103827895386000530, guid: 8a0893fc7069b944a8c577f212d8051c,
+        type: 3}
+      propertyPath: _whenUnselect.m_PersistentCalls.m_Calls.Array.data[4].m_MethodName
+      value: ApplyCurrentLayerMask
+      objectReference: {fileID: 0}
     - target: {fileID: 5111730459111157301, guid: 8a0893fc7069b944a8c577f212d8051c,
         type: 3}
       propertyPath: m_Camera

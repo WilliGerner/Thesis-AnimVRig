@@ -173,6 +173,7 @@ public class AnimationList : MonoBehaviour
             DetachAvatar();
         }
 #endif
+        ColorDebugLog.Instance.Log("Should Play ANim:" + currentClip.name + "  on: " + targetAnimator.gameObject.name, Color.red);
         targetAnimator.Play(currentClip.name);
         //miniAnimBar.InitializeUI();
         //miniAnimBar.ShowMenu();
@@ -198,7 +199,7 @@ public class AnimationList : MonoBehaviour
         // If the clip is not found, return false
         if (clip == null)
         {
-            Debug.LogError($"AnimationClip '{clipName}' not found.");
+            ColorDebugLog.Instance.Log($"AnimationClip '{clipName}' not found.",Color.red);
             return false;
         }
 
@@ -258,7 +259,7 @@ public class AnimationList : MonoBehaviour
         // Aktualisiere den Avatar des Animators
         if (targetAnimator != null)
         {
-            avatar = targetAnimator.avatar;
+            avatar = AVRGameObjectRecorder.Instance._ownRigModel.transform.parent.GetComponent<AVR_Related>().modelAvtar;
             Debug.LogWarning("Avatar updated successfully to: " + targetAnimator.avatar);
         }
         else

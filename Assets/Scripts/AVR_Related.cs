@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AVR_Related : MonoBehaviour
 {
+    public Avatar modelAvtar;
     public GameObject retargetGO;
     public GameObject mirroredObjects;
     public GameObject activeMirrored;
