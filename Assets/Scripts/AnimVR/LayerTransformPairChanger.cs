@@ -287,7 +287,7 @@ public class LayerTransformPairChanger : MonoBehaviour
             if (_mirroredTransformPairsField != null)
             {
                 // Use the original pairs from AVR_Related
-                var originalMirroredTransformPairs = _avrRelated._originalMirroredTransformPairs;
+                var originalMirroredTransformPairs = _avrRelated._currentMirroredTransformPairs;
 
                 if (originalMirroredTransformPairs != null && originalMirroredTransformPairs.Count > 0)
                 {
@@ -489,7 +489,7 @@ public class LayerTransformPairChanger : MonoBehaviour
         }
 
         // Wir beginnen mit einer frischen Kopie der ursprünglichen Paare
-        _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_avrRelated._originalMirroredTransformPairs);
+        _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_avrRelated._currentMirroredTransformPairs);
 
         // Entferne alle Paare, die zu inaktiven Körperteilen gehören
         if (!_layerMaskManager._leftArm)
@@ -548,7 +548,7 @@ public class LayerTransformPairChanger : MonoBehaviour
         // Jetzt fügen wir die aktiven Körperteile wieder hinzu
         if (isEnabled)
         {
-            foreach (var pair in _avrRelated._originalMirroredTransformPairs)
+            foreach (var pair in _avrRelated._currentMirroredTransformPairs)
             {
                 if (IsBodyPart(pair.OriginalTransform, bodyPartRoots) && !_currentMirroredTransformPairs.Contains(pair))
                 {
@@ -601,7 +601,7 @@ public class LayerTransformPairChanger : MonoBehaviour
     public void SetToAllPairs()
     {
         // Set _currentMirroredTransformPairs to a new list based on the original pairs from AVR_Related
-        _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_avrRelated._originalMirroredTransformPairs);
+        _currentMirroredTransformPairs = new List<LateMirroredObject.MirroredTransformPair>(_avrRelated._currentMirroredTransformPairs);
         _mirroredTransformPairsField.SetValue(_lateMirroredObject, _currentMirroredTransformPairs.ToArray());
         _lateMirroredObject.enabled = true;
     }
